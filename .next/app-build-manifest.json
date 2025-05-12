@@ -1,20 +1,43 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+    "/_not-found/page": [
+      "static/chunks/webpack-9914fdfd9155aedd.js",
+      "static/chunks/fd9d1056-1aae0987937804d3.js",
+      "static/chunks/117-8f0ce03fc4b5c0f5.js",
+      "static/chunks/main-app-c3b4e85a2bb4b52d.js",
+      "static/chunks/app/_not-found/page-a6fb07452d43a535.js"
     ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/webpack-9914fdfd9155aedd.js",
+      "static/chunks/fd9d1056-1aae0987937804d3.js",
+      "static/chunks/117-8f0ce03fc4b5c0f5.js",
+      "static/chunks/main-app-c3b4e85a2bb4b52d.js",
+      "static/css/c91e4626fe6bf2da.css",
+      "static/chunks/app/layout-852ea10c90dc90d1.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-9914fdfd9155aedd.js",
+      "static/chunks/fd9d1056-1aae0987937804d3.js",
+      "static/chunks/117-8f0ce03fc4b5c0f5.js",
+      "static/chunks/main-app-c3b4e85a2bb4b52d.js",
+      "static/chunks/726-8ff6aefe73a5ce64.js",
+      "static/chunks/app/page-7c2d80089c1c66ff.js"
     ],
     "/projects/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/projects/page.js"
+      "static/chunks/webpack-9914fdfd9155aedd.js",
+      "static/chunks/fd9d1056-1aae0987937804d3.js",
+      "static/chunks/117-8f0ce03fc4b5c0f5.js",
+      "static/chunks/main-app-c3b4e85a2bb4b52d.js",
+      "static/chunks/726-8ff6aefe73a5ce64.js",
+      "static/chunks/app/projects/page-21f5c87eb2ef98f1.js"
+    ],
+    "/preview/page": [
+      "static/chunks/webpack-9914fdfd9155aedd.js",
+      "static/chunks/fd9d1056-1aae0987937804d3.js",
+      "static/chunks/117-8f0ce03fc4b5c0f5.js",
+      "static/chunks/main-app-c3b4e85a2bb4b52d.js",
+      "static/chunks/726-8ff6aefe73a5ce64.js",
+      "static/chunks/app/preview/page-acfd1e51b3da8e88.js"
     ]
   }
 }
