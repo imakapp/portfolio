@@ -7,8 +7,44 @@ import PageLayout from '@/components/PageLayout';
 
 const projectsData = [
   {
+    id: 'vero',
+    title: 'Vero - Smarter Drives. Powered by AI',
+    description: 'Smarter driving experience powered by AI.',
+    image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/ecfac37664-aaf002540768427d81c6.png',
+    imageId: 'ecfac37664-aaf002540768427d81c6.png',
+    tags: ['React Native', 'Firebase', 'Machine Learning'],
+    category: 'mobile',
+    platforms: ['ios', 'android'],
+    featured: true,
+    latest: false
+  },
+  {
+    id: 'edulearn',
+    title: 'EduLearn: E-Learning Platform',
+    description: 'Comprehensive e-learning platform for modern education.',
+    image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/2bb554b93d-077ccd5a2cfb0b1469f9.png',
+    imageId: '2bb554b93d-077ccd5a2cfb0b1469f9.png',
+    tags: ['Flutter', 'GraphQL', 'AWS'],
+    category: 'mobile',
+    platforms: ['ios', 'android'],
+    featured: true,
+    latest: true
+  },
+  {
+    id: 'fooddash',
+    title: 'FoodDash: Restaurant & Food Delivery Service',
+    description: 'Restaurant and food delivery service app.',
+    image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/71d137bc6c-9f5e0c36af283f7999d6.png',
+    imageId: '71d137bc6c-9f5e0c36af283f7999d6.png',
+    tags: ['Swift UI', 'ARKit', 'Core ML'],
+    category: 'mobile',
+    platforms: ['ios'],
+    featured: true,
+    latest: false
+  },
+  {
     id: 'fittrack-pro',
-    title: 'FitTrack Pro',
+    title: 'FitTrack Pro: Fitness & Wellness Platform',
     description: 'A comprehensive fitness tracking application with AI-powered workout recommendations.',
     image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/ecfac37664-aaf002540768427d81c6.png',
     imageId: 'ecfac37664-aaf002540768427d81c6.png',
@@ -19,33 +55,9 @@ const projectsData = [
     latest: false
   },
   {
-    id: 'wealthwise',
-    title: 'WealthWise',
-    description: 'Smart personal finance management app with investment tracking and automated insights.',
-    image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/2bb554b93d-077ccd5a2cfb0b1469f9.png',
-    imageId: '2bb554b93d-077ccd5a2cfb0b1469f9.png',
-    tags: ['Flutter', 'GraphQL', 'AWS'],
-    category: 'mobile',
-    platforms: ['ios', 'android'],
-    featured: true,
-    latest: true
-  },
-  {
-    id: 'socialsphere',
-    title: 'SocialSphere',
-    description: 'Next-generation social platform with immersive content sharing and AR features.',
-    image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/71d137bc6c-9f5e0c36af283f7999d6.png',
-    imageId: '71d137bc6c-9f5e0c36af283f7999d6.png',
-    tags: ['Swift UI', 'ARKit', 'Core ML'],
-    category: 'mobile',
-    platforms: ['ios'],
-    featured: true,
-    latest: false
-  },
-  {
-    id: 'shopstream',
-    title: 'ShopStream',
-    description: 'Revolutionary e-commerce platform with AR product visualization and real-time inventory.',
+    id: 'travelcompanion',
+    title: 'TravelCompanion: Travel & Hospitality Platform',
+    description: 'Travel and hospitality platform for seamless journeys.',
     image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/462c96fa40-33b75d535524da8fbf78.png',
     imageId: '462c96fa40-33b75d535524da8fbf78.png',
     tags: ['Kotlin', 'MongoDB', 'AR Core'],
@@ -55,9 +67,9 @@ const projectsData = [
     latest: false
   },
   {
-    id: 'nightowl',
-    title: 'NightOwl',
-    description: 'Premium dark mode UI kit with customizable themes and accessibility features.',
+    id: 'eventhub',
+    title: 'EventHub: Event Management Solution',
+    description: 'Event management solution for organizers and attendees.',
     image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/0f177d83fc-1f8ede5823132e067399.png',
     imageId: '0f177d83fc-1f8ede5823132e067399.png',
     tags: ['React Native', 'JavaScript', 'Redux'],
@@ -67,9 +79,9 @@ const projectsData = [
     latest: false
   },
   {
-    id: 'mindfulme',
-    title: 'MindfulMe',
-    description: 'Meditation and mindfulness app with guided sessions and sleep tracking features.',
+    id: 'propertypulse',
+    title: 'PropertyPulse: Comprehensive Real Estate Management System',
+    description: 'Comprehensive real estate management system.',
     image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/71d137bc6c-9f5e0c36af283f7999d6.png',
     imageId: '71d137bc6c-9f5e0c36af283f7999d6.png',
     tags: ['Swift', 'HealthKit', 'CloudKit'],
@@ -78,6 +90,18 @@ const projectsData = [
     featured: false,
     latest: false,
     client: true
+  },
+  {
+    id: 'healthconnect',
+    title: 'HealthConnect: Telemedicine Platform with Admin Dashboard',
+    description: 'Telemedicine platform with admin dashboard.',
+    image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/0f177d83fc-1f8ede5823132e067399.png',
+    imageId: '0f177d83fc-1f8ede5823132e067399.png',
+    tags: ['React Native', 'JavaScript', 'Redux'],
+    category: 'mobile',
+    platforms: ['ios', 'android'],
+    featured: false,
+    latest: false
   }
 ];
 
