@@ -77,9 +77,6 @@ const Navbar = () => {
               <Link href="/#process" className="text-white hover:text-purple-400 transition-colors cursor-pointer">
                 Process
               </Link>
-              <Link href="/#portfolio" className="text-white hover:text-purple-400 transition-colors cursor-pointer">
-                Portfolio
-              </Link>
               <Link href="/projects" className="text-white hover:text-purple-400 transition-colors cursor-pointer">
                 Projects
               </Link>
@@ -125,13 +122,6 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               Process
-            </Link>
-            <Link 
-              href="/#portfolio" 
-              className="text-white hover:text-purple-400 transition-colors cursor-pointer"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Portfolio
             </Link>
             <Link 
               href="/projects" 
