@@ -21,29 +21,37 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-    const typingInterval = setInterval(() => {
-      if (isTyping) {
-        if (charIndex < dynamicTexts[currentTextIndex].length) {
+    let timeout: NodeJS.Timeout;
+    const typingSpeed = 70; // ms per character
+    const deletingSpeed = 40; // ms per character
+    const pauseAfterTyping = 1200; // ms to pause after full sentence
+    const pauseAfterDeleting = 400; // ms to pause after deleting
+
+    if (isTyping) {
+      if (charIndex < dynamicTexts[currentTextIndex].length) {
+        timeout = setTimeout(() => {
           setCharIndex(charIndex + 1);
           setTypewriterText(dynamicTexts[currentTextIndex].substring(0, charIndex + 1));
-        } else {
-          setIsTyping(false);
-          setTimeout(() => {
-            setIsTyping(false);
-          }, 2000);
-        }
+        }, typingSpeed);
       } else {
-        if (charIndex > 0) {
+        timeout = setTimeout(() => {
+          setIsTyping(false);
+        }, pauseAfterTyping);
+      }
+    } else {
+      if (charIndex > 0) {
+        timeout = setTimeout(() => {
           setCharIndex(charIndex - 1);
           setTypewriterText(dynamicTexts[currentTextIndex].substring(0, charIndex - 1));
-        } else {
+        }, deletingSpeed);
+      } else {
+        timeout = setTimeout(() => {
           setIsTyping(true);
           setCurrentTextIndex((currentTextIndex + 1) % dynamicTexts.length);
-        }
+        }, pauseAfterDeleting);
       }
-    }, isTyping ? 100 : 50);
-
-    return () => clearInterval(typingInterval);
+    }
+    return () => clearTimeout(timeout);
   }, [charIndex, currentTextIndex, isTyping]);
 
   useEffect(() => {
