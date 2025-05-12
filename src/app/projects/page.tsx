@@ -7,6 +7,20 @@ import PageLayout from '@/components/PageLayout';
 
 const projectsData = [
   {
+    id: 'vytal',
+    title: 'Vytal',
+    description: 'Be the change. Every single day.',
+    image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/ecfac37664-aaf002540768427d81c6.png',
+    imageId: 'ecfac37664-aaf002540768427d81c6.png',
+    tags: ['Sustainability', 'Food & Drink', 'Reusable Packaging'],
+    category: 'mobile',
+    platforms: ['ios', 'android'],
+    featured: true,
+    latest: true,
+    playStore: 'https://play.google.com/store/apps/details?id=com.vytal.vytalconsumerapp',
+    appStore: 'https://apps.apple.com/us/app/vytal/id1476201142'
+  },
+  {
     id: 'vero',
     title: 'Vero - Smarter Drives. Powered by AI',
     description: 'Smarter driving experience powered by AI.',

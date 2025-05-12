@@ -110,43 +110,43 @@ export default function Home() {
           
           <div className="overflow-x-auto hide-scrollbar -mx-6 px-6">
             <div className="project-slider flex gap-6 py-4 min-w-max">
-              {/* Project Card 1 */}
+              {/* Project Card 1: Vytal */}
               <div className="project-card w-[340px] bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all">
                 <div className="h-[380px] relative overflow-hidden group">
                   <Image 
                     src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ecfac37664-aaf002540768427d81c6.png" 
-                    alt="FitTrack Pro" 
+                    alt="Vytal" 
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     width={340}
                     height={380}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80"></div>
                   <div className="absolute bottom-0 left-0 w-full p-6">
-                    <h3 className="text-2xl font-bold text-white mb-2">FitTrack Pro</h3>
-                    <p className="text-gray-300 mb-4">Fitness tracking app with AI-powered workout recommendations</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">Vytal</h3>
+                    <p className="text-gray-300 mb-4">Be the change. Every single day.</p>
                     <div className="flex gap-3">
-                      <span className="tech-tag">React Native</span>
-                      <span className="tech-tag">Firebase</span>
+                      <span className="tech-tag">Sustainability</span>
+                      <span className="tech-tag">Food & Drink</span>
+                      <span className="tech-tag">Reusable Packaging</span>
                     </div>
                   </div>
                 </div>
                 <div className="p-6 space-y-4">
-                  <Link href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro" className="button primary-button w-full">
+                  <Link href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=Vytal" className="button primary-button w-full">
                     <i className="fa-solid fa-play"></i>
                     Live Preview
                   </Link>
                   <div className="flex gap-3">
-                    <Link href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro" className="button app-store-button flex-1">
+                    <a href="https://apps.apple.com/us/app/vytal/id1476201142" target="_blank" rel="noopener noreferrer" className="button app-store-button flex-1">
                       <i className="fa-brands fa-apple text-xl"></i>
-                    </Link>
-                    <Link href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro" className="button play-store-button flex-1">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.vytal.vytalconsumerapp" target="_blank" rel="noopener noreferrer" className="button play-store-button flex-1">
                       <i className="fa-brands fa-google-play text-xl"></i>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
-              
-              {/* Project Card 2 */}
+              {/* Project Card 2: Vero */}
               <div className="project-card w-[340px] bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all">
                 <div className="h-[380px] relative overflow-hidden group">
                   <Image 
@@ -176,6 +176,41 @@ export default function Home() {
                       <i className="fa-brands fa-apple text-xl"></i>
                     </Link>
                     <Link href="/preview?image=2bb554b93d-077ccd5a2cfb0b1469f9.png&project=WealthWise" className="button play-store-button flex-1">
+                      <i className="fa-brands fa-google-play text-xl"></i>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              {/* Project Card 3: EduLearn */}
+              <div className="project-card w-[340px] bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all">
+                <div className="h-[380px] relative overflow-hidden group">
+                  <Image 
+                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ecfac37664-aaf002540768427d81c6.png" 
+                    alt="FitTrack Pro" 
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    width={340}
+                    height={380}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80"></div>
+                  <div className="absolute bottom-0 left-0 w-full p-6">
+                    <h3 className="text-2xl font-bold text-white mb-2">FitTrack Pro</h3>
+                    <p className="text-gray-300 mb-4">Fitness tracking app with AI-powered workout recommendations</p>
+                    <div className="flex gap-3">
+                      <span className="tech-tag">React Native</span>
+                      <span className="tech-tag">Firebase</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6 space-y-4">
+                  <Link href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro" className="button primary-button w-full">
+                    <i className="fa-solid fa-play"></i>
+                    Live Preview
+                  </Link>
+                  <div className="flex gap-3">
+                    <Link href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro" className="button app-store-button flex-1">
+                      <i className="fa-brands fa-apple text-xl"></i>
+                    </Link>
+                    <Link href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro" className="button play-store-button flex-1">
                       <i className="fa-brands fa-google-play text-xl"></i>
                     </Link>
                   </div>
