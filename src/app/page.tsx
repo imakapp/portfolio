@@ -131,7 +131,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6 space-y-4">
-                  <Link href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro" className="button outline-button w-full">
+                  <Link href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro" className="button primary-button w-full">
                     <i className="fa-solid fa-play"></i>
                     Live Preview
                   </Link>
@@ -167,7 +167,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6 space-y-4">
-                  <Link href="/preview?image=2bb554b93d-077ccd5a2cfb0b1469f9.png&project=WealthWise" className="button outline-button w-full">
+                  <Link href="/preview?image=2bb554b93d-077ccd5a2cfb0b1469f9.png&project=WealthWise" className="button primary-button w-full">
                     <i className="fa-solid fa-play"></i>
                     Live Preview
                   </Link>
