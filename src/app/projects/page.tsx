@@ -137,7 +137,7 @@ export default function Projects() {
   return (
     <PageLayout>
       <main className="bg-gradient-to-br from-gray-900 via-black to-gray-900 pt-32 pb-20">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div className="max-w-2xl">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
