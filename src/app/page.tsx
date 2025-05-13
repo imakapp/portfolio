@@ -50,7 +50,7 @@ export default function Home() {
             <div className="text-white max-w-xl">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 block">Crafting</span> 
-                <span className="relative block">
+                <span className="relative inline-block">
                   exceptional
                   <span className="absolute -bottom-2 left-0 w-full h-1 bg-purple-500"></span>
                 </span> 
