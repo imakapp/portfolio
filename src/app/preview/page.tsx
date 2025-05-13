@@ -22,7 +22,7 @@ function PreviewContent() {
 
   return (
     <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 pt-32 pb-20 min-h-screen">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="md:w-1/2">
             <Link href="/projects" className="text-gray-400 hover:text-purple-400 transition-colors inline-flex items-center mb-6">

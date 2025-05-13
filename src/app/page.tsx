@@ -45,7 +45,7 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="bg-gradient-to-br from-gray-900 via-black to-gray-900 pt-32 pb-20 overflow-hidden relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,40,200,0.15),transparent_40%)]"></div>
-        <div className="container mx-auto px-6 relative">
+        <div className="container mx-auto px-6 max-w-7xl relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-white max-w-xl">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
@@ -97,7 +97,7 @@ export default function Home() {
 
       {/* Portfolio Section */}
       <section id="portfolio" className="bg-gray-900 py-20 relative">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex justify-between items-end mb-12">
             <div>
               <h2 className="text-3xl font-bold text-white mb-2">Featured Projects</h2>
@@ -230,8 +230,9 @@ export default function Home() {
       </section>
 
       {/* Technical Expertise Section */}
-      <section id="skills" className="bg-black py-20 relative">
-        <div className="container mx-auto px-6">
+      <section id="skills" className="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-20 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(120,40,200,0.15),transparent_50%)]"></div>
+        <div className="container mx-auto px-6 max-w-7xl relative">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">Technical Expertise</h2>
             <p className="text-gray-400 max-w-xl mx-auto">I leverage cutting-edge technologies to create seamless, high-performing mobile applications.</p>
@@ -455,7 +456,7 @@ export default function Home() {
 
       {/* Development Process Section */}
       <section id="process" className="bg-gray-900 py-20 relative">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-4">My Development Process</h2>
             <p className="text-gray-400 mb-12">A strategic approach to transforming concepts into exceptional mobile experiences.</p>
@@ -568,7 +569,7 @@ export default function Home() {
       {/* CTA Section */}
       <section id="cta" className="bg-gradient-to-br from-purple-900 via-black to-gray-900 py-20 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,40,200,0.3),transparent_70%)]"></div>
-        <div className="container mx-auto px-6 relative">
+        <div className="container mx-auto px-6 max-w-7xl relative">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-white mb-6">Ready to Create Something Amazing?</h2>
             <p className="text-gray-300 text-xl mb-8 max-w-2xl mx-auto">Let's collaborate to build a mobile experience that delights your users and drives your business forward.</p>
