@@ -64,7 +64,7 @@ export default function Projects() {
               return (
                 <div 
                   key={project.id} 
-                  className="group bg-[#141436] rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all"
+                  className="group bg-[#1a1a4a] rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all"
                 >
                   <div className="relative h-[400px]">
                     <Image 
@@ -73,12 +73,11 @@ export default function Projects() {
                       className="w-full h-full object-cover"
                       width={400}
                       height={400}
-                      style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#141436] via-[#141436]/50 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a4a] via-[#1a1a4a]/40 to-transparent"></div>
                     {project.featured && (
                       <div className="absolute top-6 left-6">
-                        <span className="bg-purple-500/10 text-purple-300 text-xs py-1 px-3 rounded-full border border-purple-500/20">Featured Project</span>
+                        <span className="bg-purple-500/20 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30">Featured Project</span>
                       </div>
                     )}
                   </div>
@@ -86,9 +85,9 @@ export default function Projects() {
                     <div className="flex justify-between items-start mb-6">
                       <div>
                         <h3 className="text-2xl font-bold text-white mb-3">{appName}</h3>
-                        <p className="text-gray-300 leading-relaxed">{project.description}</p>
+                        <p className="text-gray-200 leading-relaxed">{project.description}</p>
                       </div>
-                      <span className="text-purple-400 text-2xl transform group-hover:rotate-45 transition-transform">
+                      <span className="text-purple-300 text-2xl transform group-hover:rotate-45 transition-transform">
                         <i className="fa-solid fa-arrow-up-right"></i>
                       </span>
                     </div>
@@ -108,7 +107,7 @@ export default function Projects() {
                         }
                         
                         return (
-                          <span key={tag} className="tech-tag bg-purple-500/10 border border-purple-500/30 px-3 py-1 rounded-full text-purple-200 text-sm">
+                          <span key={tag} className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
                             <i className={`${icon} mr-2`}></i>
                             {tag}
                           </span>
