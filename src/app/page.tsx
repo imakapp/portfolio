@@ -238,7 +238,7 @@ export default function Home() {
             <p className="text-gray-400 max-w-xl mx-auto">I leverage cutting-edge technologies to create seamless, high-performing mobile applications.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* UI/UX Design */}
             <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center">
               <div className="w-16 h-16 bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
