@@ -75,7 +75,7 @@ const ProjectCard = ({
                 href={appStore} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="button flex-1 bg-transparent border border-[#654fa3] text-[#654fa3] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
+                className="button flex-1 bg-transparent border border-[#8B5CF6] text-[#8B5CF6] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
               >
                 <i className="fa-brands fa-apple mr-2"></i>
                 App Store
@@ -83,7 +83,7 @@ const ProjectCard = ({
             ) : (
               <Link 
                 href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=ios`} 
-                className="button flex-1 bg-transparent border border-[#654fa3] text-[#654fa3] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
+                className="button flex-1 bg-transparent border border-[#8B5CF6] text-[#8B5CF6] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
               >
                 <i className="fa-brands fa-apple mr-2"></i>
                 App Store
