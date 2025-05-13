@@ -22,6 +22,8 @@ const MobilePreviewModal = ({
   const [isPortrait, setIsPortrait] = useState(true);
   const [scale, setScale] = useState(1);
   const modalRef = useRef<HTMLDivElement>(null);
+  // For HealthConnect Patient App interactive prototype navigation
+  const [patientAppScreen, setPatientAppScreen] = useState<'splash' | 'dashboard'>('splash');
 
   // Set mounted state when component mounts
   useEffect(() => {
@@ -132,28 +134,53 @@ const MobilePreviewModal = ({
           </div>
           
           {/* Content Area */}
-          <div className="w-full h-full rounded-[30px] bg-white overflow-auto">
-            {imageUrl ? (
-              <Image 
-                src={imageUrl} 
-                alt="Mobile app preview" 
-                className="w-full h-full object-cover"
-                width={560}
-                height={560}
-                priority
-              />
-            ) : (
-              <iframe 
-                src={projectUrl} 
-                className="w-full h-full border-0" 
-                title="Mobile preview"
-              />
-            )}
-          </div>
-          
-          {/* Home Indicator */}
-          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1/3 h-1 bg-gray-500 rounded-full z-10" />
+          {projectTitle === 'HealthConnect Patient App' ? (
+            <iframe 
+              src={patientAppScreen === 'splash' ? '/AppUI/HealthConnectPatientApp/splash.html' : '/AppUI/HealthConnectPatientApp/dashboard.html'} 
+              className="w-full h-full border-0" 
+              title="HealthConnect Patient App Interactive Prototype"
+            />
+          ) : imageUrl ? (
+            <Image 
+              src={imageUrl} 
+              alt="Mobile app preview" 
+              className="w-full h-full object-cover"
+              width={560}
+              height={560}
+              priority
+            />
+          ) : (
+            <iframe 
+              src={projectUrl} 
+              className="w-full h-full border-0" 
+              title="Mobile preview"
+            />
+          )}
+          {/* Navigation for HealthConnect Patient App */}
+          {projectTitle === 'HealthConnect Patient App' && (
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-4 z-20">
+              {patientAppScreen === 'dashboard' && (
+                <button
+                  onClick={() => setPatientAppScreen('splash')}
+                  className="bg-gray-800 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-600 transition"
+                >
+                  Back
+                </button>
+              )}
+              {patientAppScreen === 'splash' && (
+                <button
+                  onClick={() => setPatientAppScreen('dashboard')}
+                  className="bg-purple-600 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-700 transition"
+                >
+                  Next
+                </button>
+              )}
+            </div>
+          )}
         </div>
+        
+        {/* Home Indicator */}
+        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1/3 h-1 bg-gray-500 rounded-full z-10" />
         
         {/* Controls Panel */}
         <div className="bg-gray-900/90 rounded-2xl p-2 ml-6 border border-gray-800 flex flex-col gap-5">
