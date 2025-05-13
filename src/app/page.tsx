@@ -367,42 +367,42 @@ export default function Home() {
             </div>
             
             {/* Frontend */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-cyan-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-cyan-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-cyan-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-brands fa-react"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Frontend</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">Frontend</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">React.js</span>
                 <span className="tech-tag">Next.js</span>
               </div>
             </div>
             
             {/* Redux */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-code"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Redux</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">Redux</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">Tailwind CSS</span>
                 <span className="tech-tag">TypeScript</span>
               </div>
             </div>
             
             {/* Authentication & Security */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-red-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-red-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-red-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-lock"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Authentication & Security</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">Authentication & Security</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">JWT</span>
                 <span className="tech-tag">OAuth2</span>
                 <span className="tech-tag">Firebase Auth</span>
@@ -410,41 +410,41 @@ export default function Home() {
             </div>
             
             {/* DevOps */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-orange-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-orange-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-orange-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-gears"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">DevOps</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">DevOps</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">CI/CD Pipeline</span>
               </div>
             </div>
             
             {/* Docker */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-brands fa-docker"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Docker</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">Docker</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">Kubernetes</span>
                 <span className="tech-tag">GitHub Actions</span>
               </div>
             </div>
             
             {/* AI & ML */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-purple-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-brain"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">AI & ML</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">AI & ML</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">OpenAI API</span>
                 <span className="tech-tag">Google Cloud AI</span>
                 <span className="tech-tag">AWS ML</span>
