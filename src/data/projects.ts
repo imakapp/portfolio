@@ -9,7 +9,6 @@ export interface Project {
   platforms: string[];
   featured: boolean;
   latest?: boolean;
-  client?: boolean;
   playStore?: string;
   appStore?: string;
 }
@@ -99,8 +98,7 @@ export const projectsData: Project[] = [
     category: 'mobile',
     platforms: ['ios'],
     featured: false,
-    latest: false,
-    client: true
+    latest: false
   },
   {
     id: 'healthconnect',

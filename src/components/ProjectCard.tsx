@@ -13,7 +13,6 @@ interface ProjectCardProps {
   platforms: string[];
   featured?: boolean;
   latest?: boolean;
-  client?: boolean;
   appStore?: string;
   playStore?: string;
 }
@@ -28,7 +27,6 @@ const ProjectCard = ({
   platforms,
   featured = false,
   latest = false,
-  client = false,
   appStore,
   playStore
 }: ProjectCardProps) => {
@@ -43,7 +41,7 @@ const ProjectCard = ({
           height={400}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F23] via-[#0F0F23]/70 to-transparent"></div>
-        <div className="absolute top-6 left-6 flex flex-col gap-2">
+        <div className="absolute top-6 left-6 flex flex-wrap gap-2">
           {featured && (
             <span className="bg-purple-500/10 text-purple-300 text-xs py-1 px-3 rounded-full border border-purple-500/20">
               Featured Project
@@ -52,11 +50,6 @@ const ProjectCard = ({
           {latest && (
             <span className="bg-pink-500/20 text-pink-300 text-xs py-1 px-3 rounded-full">
               Latest Project
-            </span>
-          )}
-          {client && (
-            <span className="bg-blue-500/20 text-blue-300 text-xs py-1 px-3 rounded-full">
-              Client Project
             </span>
           )}
         </div>
@@ -86,7 +79,7 @@ const ProjectCard = ({
                 href={appStore} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
+                className="button flex-1 bg-[rgba(139,92,246,0.1)] border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.2)] transition-all flex items-center justify-center"
               >
                 <i className="fa-brands fa-apple mr-2"></i>
                 App Store
@@ -94,7 +87,7 @@ const ProjectCard = ({
             ) : (
               <Link 
                 href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=ios`} 
-                className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
+                className="button flex-1 bg-[rgba(139,92,246,0.1)] border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.2)] transition-all flex items-center justify-center"
               >
                 <i className="fa-brands fa-apple mr-2"></i>
                 App Store
@@ -107,7 +100,7 @@ const ProjectCard = ({
                 href={playStore} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="button flex-1 bg-transparent border border-[rgba(236,72,153,0.5)] text-[#F472B6] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(236,72,153,0.1)] transition-all flex items-center justify-center"
+                className="button flex-1 bg-[rgba(236,72,153,0.1)] border border-[rgba(236,72,153,0.5)] text-[#F472B6] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(236,72,153,0.2)] transition-all flex items-center justify-center"
               >
                 <i className="fa-brands fa-google-play mr-2"></i>
                 Play Store
@@ -115,7 +108,7 @@ const ProjectCard = ({
             ) : (
               <Link 
                 href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=android`} 
-                className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
+                className="button flex-1 bg-[rgba(236,72,153,0.1)] border border-[rgba(236,72,153,0.5)] text-[#F472B6] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(236,72,153,0.2)] transition-all flex items-center justify-center"
               >
                 <i className="fa-brands fa-google-play mr-2"></i>
                 Play Store
