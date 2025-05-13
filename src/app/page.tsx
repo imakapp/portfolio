@@ -49,12 +49,13 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-white max-w-xl">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Crafting</span> 
-                <span className="relative">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 block">Crafting</span> 
+                <span className="relative block">
                   exceptional
                   <span className="absolute -bottom-2 left-0 w-full h-1 bg-purple-500"></span>
                 </span> 
-                mobile experiences
+                <span className="block">mobile</span>
+                <span className="block">experiences</span>
               </h1>
               <p className="text-gray-300 text-xl mb-8">I transform complex ideas into intuitive, beautiful mobile applications that users love to engage with.</p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -224,6 +225,342 @@ export default function Home() {
               View All Projects
               <i className="fa-solid fa-arrow-right ml-2"></i>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Expertise Section */}
+      <section id="skills" className="bg-black py-20 relative">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Technical Expertise</h2>
+            <p className="text-gray-400 max-w-xl mx-auto">I leverage cutting-edge technologies to create seamless, high-performing mobile applications.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* UI/UX Design */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-pink-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-solid fa-pen-ruler"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">UI/UX Design</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">HTML</span>
+                <span className="tech-tag">CSS</span>
+                <span className="tech-tag">JavaScript</span>
+              </div>
+            </div>
+            
+            {/* Flutter */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-brands fa-flutter"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Flutter</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">Dart</span>
+                <span className="tech-tag">Material 3</span>
+              </div>
+            </div>
+            
+            {/* React Native */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-purple-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-brands fa-react"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">React Native</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">JavaScript</span>
+                <span className="tech-tag">TypeScript</span>
+              </div>
+            </div>
+            
+            {/* Swift */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-brands fa-swift"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Swift</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">SwiftUI</span>
+                <span className="tech-tag">UIKit</span>
+              </div>
+            </div>
+            
+            {/* Kotlin */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-green-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-green-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-solid fa-android"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Kotlin</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">Jetpack</span>
+                <span className="tech-tag">Material</span>
+              </div>
+            </div>
+            
+            {/* Backend Frameworks */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-yellow-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-yellow-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-solid fa-server"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Backend Frameworks</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">Express.js</span>
+                <span className="tech-tag">Node.js</span>
+              </div>
+            </div>
+            
+            {/* REST APIs */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-solid fa-code"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">REST APIs</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">GraphQL</span>
+                <span className="tech-tag">WebSockets</span>
+              </div>
+            </div>
+            
+            {/* Database & Cloud */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-green-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-green-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-solid fa-database"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Database & Cloud</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">MongoDB</span>
+                <span className="tech-tag">Firebase</span>
+              </div>
+            </div>
+            
+            {/* Supabase */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-solid fa-database"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Supabase</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">PostgreSQL</span>
+                <span className="tech-tag">Redis</span>
+              </div>
+            </div>
+            
+            {/* Frontend */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-cyan-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-cyan-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-brands fa-react"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Frontend</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">React.js</span>
+                <span className="tech-tag">Next.js</span>
+              </div>
+            </div>
+            
+            {/* Redux */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-solid fa-code"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Redux</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">Tailwind CSS</span>
+                <span className="tech-tag">TypeScript</span>
+              </div>
+            </div>
+            
+            {/* Authentication & Security */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-red-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-red-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-solid fa-lock"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Authentication & Security</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">JWT</span>
+                <span className="tech-tag">OAuth2</span>
+                <span className="tech-tag">Firebase Auth</span>
+              </div>
+            </div>
+            
+            {/* DevOps */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-orange-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-orange-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-solid fa-gears"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">DevOps</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">CI/CD Pipeline</span>
+              </div>
+            </div>
+            
+            {/* Docker */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-brands fa-docker"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Docker</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">Kubernetes</span>
+                <span className="tech-tag">GitHub Actions</span>
+              </div>
+            </div>
+            
+            {/* AI & ML */}
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
+              <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-5">
+                <div className="w-9 h-9 bg-purple-600/70 text-white rounded-lg flex items-center justify-center">
+                  <i className="fa-solid fa-brain"></i>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">AI & ML</h3>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="tech-tag">OpenAI API</span>
+                <span className="tech-tag">Google Cloud AI</span>
+                <span className="tech-tag">AWS ML</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Development Process Section */}
+      <section id="process" className="bg-gray-900 py-20 relative">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4">My Development Process</h2>
+            <p className="text-gray-400 mb-12">A strategic approach to transforming concepts into exceptional mobile experiences.</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* UI/UX & Design */}
+              <div className="bg-gray-900/70 border border-gray-800 p-8 rounded-xl hover:border-purple-500/30 transition-all">
+                <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-5">
+                  <div className="w-9 h-9 bg-purple-600/70 text-white rounded-lg flex items-center justify-center">
+                    <i className="fa-solid fa-lightbulb"></i>
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">UI/UX & Design</h3>
+                <p className="text-gray-300 mb-6">Creating intuitive, visually stunning interfaces that prioritize user experience while aligning with brand identity.</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">User research & persona development</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">Wireframing & information architecture</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">Visual design & interactive prototyping</span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Backend & Database Setup */}
+              <div className="bg-gray-900/70 border border-gray-800 p-8 rounded-xl hover:border-purple-500/30 transition-all">
+                <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-5">
+                  <div className="w-9 h-9 bg-purple-600/70 text-white rounded-lg flex items-center justify-center">
+                    <i className="fa-solid fa-code"></i>
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Backend & Database Setup</h3>
+                <p className="text-gray-300 mb-6">Building robust, scalable server architecture and database systems that power your application securely and efficiently.</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">API development & implementation</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">Database design & optimization</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">Security implementation & testing</span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Mobile App & Admin Panel */}
+              <div className="bg-gray-900/70 border border-gray-800 p-8 rounded-xl hover:border-purple-500/30 transition-all">
+                <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-5">
+                  <div className="w-9 h-9 bg-purple-600/70 text-white rounded-lg flex items-center justify-center">
+                    <i className="fa-solid fa-mobile-screen"></i>
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Mobile App & Admin Panel</h3>
+                <p className="text-gray-300 mb-6">Developing feature-rich mobile applications with powerful admin panels for complete control and management.</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">Cross-platform compatibility</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">Responsive admin dashboard</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">Integration of analytics & reporting</span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Testing & Deployment */}
+              <div className="bg-gray-900/70 border border-gray-800 p-8 rounded-xl hover:border-purple-500/30 transition-all">
+                <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-5">
+                  <div className="w-9 h-9 bg-purple-600/70 text-white rounded-lg flex items-center justify-center">
+                    <i className="fa-solid fa-rocket"></i>
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Testing & Deployment</h3>
+                <p className="text-gray-300 mb-6">Ensuring thorough quality assurance and smooth deployment of both admin panels and mobile applications.</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">Comprehensive testing across devices</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">App store submission & optimization</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-purple-500 mt-1"></i>
+                    <span className="text-gray-300">Server deployment & continuous integration</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
