@@ -86,7 +86,7 @@ export default function Projects() {
                 ) : (
                   <>
                     View More Projects
-                    <i className="fa-solid fa-arrow-right"></i>
+                    <i className="fa-solid fa-arrow-down"></i>
                   </>
                 )}
               </button>

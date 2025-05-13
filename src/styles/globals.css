@@ -83,6 +83,11 @@
   .primary-button {
     @apply bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-purple-600 hover:to-pink-600 transform hover:-translate-y-0.5 hover:shadow-lg;
   }
+  
+  /* Small primary button for cards */
+  .primary-button-sm {
+    @apply bg-gradient-to-r from-purple-500 to-pink-500 text-white py-2 px-4 rounded-lg font-medium text-sm hover:from-purple-600 hover:to-pink-600 transform hover:-translate-y-0.5;
+  }
 
   /* Live Preview buttons */
   .outline-button {

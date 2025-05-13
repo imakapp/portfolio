@@ -4,11 +4,11 @@ import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
-import ProjectCard from '@/components/ProjectCard';
+import FeaturedProjectCard from '@/components/FeaturedProjectCard';
 import { projectsData } from '@/data/projects';
 
 // Get featured projects for the home page
-const featuredProjects = projectsData.filter(project => project.featured).slice(0, 3);
+const featuredProjects = projectsData.filter(project => project.featured).slice(0, 4);
 
 export default function Home() {
   const phoneRef = useRef<HTMLDivElement>(null);
@@ -114,25 +114,19 @@ export default function Home() {
             </Link>
           </div>
           
-          <div className="overflow-x-auto hide-scrollbar -mx-6 px-6">
-            <div className="project-slider flex gap-6 py-4">
-              {featuredProjects.map(project => (
-                <div key={project.id} className="w-[320px] flex-shrink-0">
-                  <ProjectCard 
-                    id={project.id}
-                    title={project.title}
-                    description={project.description}
-                    image={project.image}
-                    imageId={project.imageId}
-                    tags={project.tags}
-                    platforms={project.platforms}
-                    featured={project.featured}
-                    appStore={project.appStore}
-                    playStore={project.playStore}
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredProjects.map(project => (
+              <FeaturedProjectCard 
+                key={project.id}
+                id={project.id}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                imageId={project.imageId}
+                tags={project.tags}
+                platforms={project.platforms}
+              />
+            ))}
           </div>
 
           <div className="mt-8 text-center md:hidden">
