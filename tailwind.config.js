@@ -7,6 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        xs: "0.7rem",
+        sm: "0.875rem",
+        base: "1rem",
+        lg: "1.125rem",
+        xl: "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.5rem",
+        "5xl": "3.5rem",
+        "6xl": "4.5rem",
+      },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
@@ -58,6 +70,22 @@ module.exports = {
           content: 'var(--color-accent-content)'
         },
       },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 }
+        }
+      },
+      animation: {
+        'fade-in': 'fade-in 0.3s ease-in-out'
+      }
+    },
+  },
+  variants: {
+    extend: {
+      transform: ["hover", "focus", "group-hover"],
+      scale: ["hover", "focus", "group-hover"],
+      translate: ["hover", "focus", "group-hover"],
     },
   },
   plugins: [],
