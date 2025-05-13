@@ -240,13 +240,13 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* UI/UX Design */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
               <div className="w-16 h-16 bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-pink-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-pen-ruler"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">UI/UX Design</h3>
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">UI/UX Design</h3>
               <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">HTML</span>
                 <span className="tech-tag">CSS</span>
@@ -255,13 +255,13 @@ export default function Home() {
             </div>
             
             {/* Flutter */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
               <div className="w-16 h-16 bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-brands fa-flutter"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Flutter</h3>
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">Flutter</h3>
               <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">Dart</span>
                 <span className="tech-tag">Material 3</span>
@@ -269,13 +269,13 @@ export default function Home() {
             </div>
             
             {/* React Native */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
               <div className="w-16 h-16 bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-purple-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-brands fa-react"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">React Native</h3>
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">React Native</h3>
               <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">JavaScript</span>
                 <span className="tech-tag">TypeScript</span>
@@ -283,84 +283,84 @@ export default function Home() {
             </div>
             
             {/* Swift */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-brands fa-swift"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Swift</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">Swift</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">SwiftUI</span>
                 <span className="tech-tag">UIKit</span>
               </div>
             </div>
             
             {/* Kotlin */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-green-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-green-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-green-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-android"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Kotlin</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">Kotlin</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">Jetpack</span>
                 <span className="tech-tag">Material</span>
               </div>
             </div>
             
             {/* Backend Frameworks */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-yellow-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-yellow-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-yellow-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-server"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Backend Frameworks</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">Backend Frameworks</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">Express.js</span>
                 <span className="tech-tag">Node.js</span>
               </div>
             </div>
             
             {/* REST APIs */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-code"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">REST APIs</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">REST APIs</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">GraphQL</span>
                 <span className="tech-tag">WebSockets</span>
               </div>
             </div>
             
             {/* Database & Cloud */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-green-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-green-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-green-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-database"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Database & Cloud</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">Database & Cloud</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">MongoDB</span>
                 <span className="tech-tag">Firebase</span>
               </div>
             </div>
             
             {/* Supabase */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center group">
+              <div className="w-16 h-16 bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-database"></i>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Supabase</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <h3 className="text-xl font-semibold text-white mb-3 text-center">Supabase</h3>
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">PostgreSQL</span>
                 <span className="tech-tag">Redis</span>
               </div>
