@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="bg-gray-900 py-20 relative">
+      <section id="portfolio" className="bg-black py-20 relative">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-end mb-12">
             <div>
@@ -110,15 +110,15 @@ export default function Home() {
           </div>
           
           <div className="overflow-x-auto hide-scrollbar -mx-6 px-6">
-            <div className="project-slider flex gap-6 py-4 min-w-max">
+            <div className="project-slider flex gap-6 py-4">
               {/* Project Card 1: Vytal */}
-              <div className="project-card w-[340px] bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all">
+              <div className="project-card w-[280px] bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all">
                 <div className="h-[380px] relative overflow-hidden group">
                   <Image 
                     src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ecfac37664-aaf002540768427d81c6.png" 
                     alt="Vytal" 
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    width={340}
+                    width={280}
                     height={380}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80"></div>
@@ -148,13 +148,13 @@ export default function Home() {
                 </div>
               </div>
               {/* Project Card 2: Vero */}
-              <div className="project-card w-[340px] bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all">
+              <div className="project-card w-[280px] bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all">
                 <div className="h-[380px] relative overflow-hidden group">
                   <Image 
                     src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2bb554b93d-077ccd5a2cfb0b1469f9.png" 
                     alt="WealthWise" 
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    width={340}
+                    width={280}
                     height={380}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80"></div>
@@ -183,13 +183,13 @@ export default function Home() {
                 </div>
               </div>
               {/* Project Card 3: EduLearn */}
-              <div className="project-card w-[340px] bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all">
+              <div className="project-card w-[280px] bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all">
                 <div className="h-[380px] relative overflow-hidden group">
                   <Image 
                     src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ecfac37664-aaf002540768427d81c6.png" 
                     alt="FitTrack Pro" 
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    width={340}
+                    width={280}
                     height={380}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80"></div>
@@ -230,7 +230,7 @@ export default function Home() {
       </section>
 
       {/* Technical Expertise Section */}
-      <section id="skills" className="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-20 relative">
+      <section id="skills" className="bg-black py-20 relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(120,40,200,0.15),transparent_50%)]"></div>
         <div className="container mx-auto px-6 relative">
           <div className="text-center mb-16">
@@ -238,16 +238,16 @@ export default function Home() {
             <p className="text-gray-400 max-w-xl mx-auto">I leverage cutting-edge technologies to create seamless, high-performing mobile applications.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {/* UI/UX Design */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center">
+              <div className="w-16 h-16 bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-pink-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-solid fa-pen-ruler"></i>
                 </div>
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">UI/UX Design</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">HTML</span>
                 <span className="tech-tag">CSS</span>
                 <span className="tech-tag">JavaScript</span>
@@ -255,28 +255,28 @@ export default function Home() {
             </div>
             
             {/* Flutter */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-blue-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center">
+              <div className="w-16 h-16 bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-blue-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-brands fa-flutter"></i>
                 </div>
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">Flutter</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">Dart</span>
                 <span className="tech-tag">Material 3</span>
               </div>
             </div>
             
             {/* React Native */}
-            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all">
-              <div className="w-14 h-14 bg-purple-900/30 rounded-lg flex items-center justify-center mb-5">
+            <div className="bg-gray-900/70 p-8 rounded-xl hover:bg-gray-800/70 transition-all text-center">
+              <div className="w-16 h-16 bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <div className="w-9 h-9 bg-purple-600/70 text-white rounded-lg flex items-center justify-center">
                   <i className="fa-brands fa-react"></i>
                 </div>
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">React Native</h3>
-              <div className="flex flex-wrap gap-2 mt-4">
+              <div className="flex flex-wrap gap-2 mt-4 justify-center">
                 <span className="tech-tag">JavaScript</span>
                 <span className="tech-tag">TypeScript</span>
               </div>
@@ -457,7 +457,7 @@ export default function Home() {
       {/* Development Process Section */}
       <section id="process" className="bg-gray-900 py-20 relative">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
+          <div>
             <h2 className="text-4xl font-bold text-white mb-4">My Development Process</h2>
             <p className="text-gray-400 mb-12">A strategic approach to transforming concepts into exceptional mobile experiences.</p>
             
