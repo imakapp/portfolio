@@ -111,5 +111,29 @@ export const projectsData: Project[] = [
     platforms: ['ios', 'android'],
     featured: false,
     latest: false
+  },
+  {
+    id: 'healthconnect-patient',
+    title: 'HealthConnect Patient App',
+    description: 'A mobile app for patients to book appointments, consult doctors, and manage health records.',
+    image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/placeholder-patient.png',
+    imageId: 'placeholder-patient.png',
+    tags: ['React Native', 'Healthcare', 'Patient'],
+    category: 'mobile',
+    platforms: ['ios', 'android'],
+    featured: false,
+    latest: false
+  },
+  {
+    id: 'healthconnect-doctor',
+    title: 'HealthConnect Doctor App',
+    description: 'A mobile app for doctors to manage appointments, consult patients, and access medical records.',
+    image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/placeholder-doctor.png',
+    imageId: 'placeholder-doctor.png',
+    tags: ['React Native', 'Healthcare', 'Doctor'],
+    category: 'mobile',
+    platforms: ['ios', 'android'],
+    featured: false,
+    latest: false
   }
 ]; 
