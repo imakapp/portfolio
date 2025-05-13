@@ -12,7 +12,6 @@ interface ProjectCardProps {
   tags: string[];
   platforms: string[];
   featured?: boolean;
-  latest?: boolean;
   appStore?: string;
   playStore?: string;
 }
@@ -26,7 +25,6 @@ const ProjectCard = ({
   tags,
   platforms,
   featured = false,
-  latest = false,
   appStore,
   playStore
 }: ProjectCardProps) => {
