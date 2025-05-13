@@ -4,6 +4,11 @@ import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
+import ProjectCard from '@/components/ProjectCard';
+import { projectsData } from '@/data/projects';
+
+// Get featured projects for the home page
+const featuredProjects = projectsData.filter(project => project.featured).slice(0, 3);
 
 export default function Home() {
   const phoneRef = useRef<HTMLDivElement>(null);
@@ -95,7 +100,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-900 to-transparent"></div>
       </section>
 
-      {/* Portfolio Section */}
+      {/* Featured Projects Section */}
       <section id="portfolio" className="bg-black py-20 relative">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-end mb-12">
@@ -111,211 +116,25 @@ export default function Home() {
           
           <div className="overflow-x-auto hide-scrollbar -mx-6 px-6">
             <div className="project-slider flex gap-6 py-4">
-              {/* Project Card 1: Vytal */}
-              <div className="project-card w-[320px] bg-[#1a1a4a] rounded-xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
-                <div className="h-[400px] relative overflow-hidden group">
-                  <div className="absolute top-6 left-6">
-                    <span className="bg-purple-500/20 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30">Featured Project</span>
-                  </div>
-                  <Image 
-                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ecfac37664-aaf002540768427d81c6.png" 
-                    alt="Vytal" 
-                    className="w-full h-full object-cover"
-                    width={320}
-                    height={400}
+              {featuredProjects.map(project => (
+                <div key={project.id} className="w-[320px] flex-shrink-0">
+                  <ProjectCard 
+                    id={project.id}
+                    title={project.title}
+                    description={project.description}
+                    image={project.image}
+                    imageId={project.imageId}
+                    tags={project.tags}
+                    platforms={project.platforms}
+                    featured={project.featured}
+                    appStore={project.appStore}
+                    playStore={project.playStore}
                   />
                 </div>
-                <div className="p-8">
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <h3 className="text-2xl font-bold text-white mb-3">Vytal</h3>
-                      <p className="text-gray-200 leading-relaxed">Be the change. Every single day.</p>
-                    </div>
-                    <span className="text-purple-300 text-2xl transform group-hover:rotate-45 transition-transform">
-                      <i className="fa-solid fa-arrow-up-right"></i>
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-3 mb-8">
-                    <span className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
-                      <i className="fa-solid fa-leaf mr-2"></i>
-                      Sustainability
-                    </span>
-                    <span className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
-                      <i className="fa-solid fa-utensils mr-2"></i>
-                      Food & Drink
-                    </span>
-                    <span className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
-                      <i className="fa-solid fa-recycle mr-2"></i>
-                      Reusable Packaging
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    <Link 
-                      href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=Vytal" 
-                      className="button w-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#7c4fe0] hover:to-[#d9418a] transition-all flex items-center justify-center"
-                    >
-                      <i className="fa-solid fa-eye mr-2"></i>
-                      Live Preview
-                      <i className="fa-solid fa-arrow-right ml-3"></i>
-                    </Link>
-                    <div className="flex gap-4 mt-4 button-container">
-                      <a 
-                        href="https://apps.apple.com/us/app/vytal/id1476201142" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
-                      >
-                        <i className="fa-brands fa-apple mr-2"></i>
-                        App Store
-                      </a>
-                      <a 
-                        href="https://play.google.com/store/apps/details?id=com.vytal.vytalconsumerapp" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
-                      >
-                        <i className="fa-brands fa-google-play mr-2"></i>
-                        Play Store
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Project Card 2: WealthWise */}
-              <div className="project-card w-[320px] bg-[#1a1a4a] rounded-xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
-                <div className="h-[400px] relative overflow-hidden group">
-                  <div className="absolute top-6 left-6">
-                    <span className="bg-purple-500/20 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30">Featured Project</span>
-                  </div>
-                  <Image 
-                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2bb554b93d-077ccd5a2cfb0b1469f9.png" 
-                    alt="WealthWise" 
-                    className="w-full h-full object-cover"
-                    width={320}
-                    height={400}
-                  />
-                </div>
-                <div className="p-8">
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <h3 className="text-2xl font-bold text-white mb-3">WealthWise</h3>
-                      <p className="text-gray-200 leading-relaxed">Personal finance management with investment tracking</p>
-                    </div>
-                    <span className="text-purple-300 text-2xl transform group-hover:rotate-45 transition-transform">
-                      <i className="fa-solid fa-arrow-up-right"></i>
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-3 mb-8">
-                    <span className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
-                      <i className="fa-brands fa-flutter mr-2"></i>
-                      Flutter
-                    </span>
-                    <span className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
-                      <i className="fa-solid fa-code mr-2"></i>
-                      GraphQL
-                    </span>
-                    <span className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
-                      <i className="fa-brands fa-aws mr-2"></i>
-                      AWS
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    <Link 
-                      href="/preview?image=2bb554b93d-077ccd5a2cfb0b1469f9.png&project=WealthWise" 
-                      className="button w-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#7c4fe0] hover:to-[#d9418a] transition-all flex items-center justify-center"
-                    >
-                      <i className="fa-solid fa-eye mr-2"></i>
-                      Live Preview
-                      <i className="fa-solid fa-arrow-right ml-3"></i>
-                    </Link>
-                    <div className="flex gap-4 mt-4 button-container">
-                      <Link 
-                        href="/preview?image=2bb554b93d-077ccd5a2cfb0b1469f9.png&project=WealthWise&platform=ios" 
-                        className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
-                      >
-                        <i className="fa-brands fa-apple mr-2"></i>
-                        App Store
-                      </Link>
-                      <Link 
-                        href="/preview?image=2bb554b93d-077ccd5a2cfb0b1469f9.png&project=WealthWise&platform=android" 
-                        className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
-                      >
-                        <i className="fa-brands fa-google-play mr-2"></i>
-                        Play Store
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Project Card 3: FitTrack */}
-              <div className="project-card w-[320px] bg-[#1a1a4a] rounded-xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
-                <div className="h-[400px] relative overflow-hidden group">
-                  <div className="absolute top-6 left-6">
-                    <span className="bg-purple-500/20 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30">Featured Project</span>
-                  </div>
-                  <Image 
-                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ecfac37664-aaf002540768427d81c6.png" 
-                    alt="FitTrack Pro" 
-                    className="w-full h-full object-cover"
-                    width={320}
-                    height={400}
-                  />
-                </div>
-                <div className="p-8">
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <h3 className="text-2xl font-bold text-white mb-3">FitTrack Pro</h3>
-                      <p className="text-gray-200 leading-relaxed">A comprehensive fitness tracking application with AI-powered workout recommendations.</p>
-                    </div>
-                    <span className="text-purple-300 text-2xl transform group-hover:rotate-45 transition-transform">
-                      <i className="fa-solid fa-arrow-up-right"></i>
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-3 mb-8">
-                    <span className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
-                      <i className="fa-brands fa-react mr-2"></i>
-                      React Native
-                    </span>
-                    <span className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
-                      <i className="fa-solid fa-fire mr-2"></i>
-                      Firebase
-                    </span>
-                    <span className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
-                      <i className="fa-solid fa-brain mr-2"></i>
-                      Machine Learning
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    <Link 
-                      href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro" 
-                      className="button w-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#7c4fe0] hover:to-[#d9418a] transition-all flex items-center justify-center"
-                    >
-                      <i className="fa-solid fa-eye mr-2"></i>
-                      Live Preview
-                      <i className="fa-solid fa-arrow-right ml-3"></i>
-                    </Link>
-                    <div className="flex gap-4 mt-4 button-container">
-                      <Link 
-                        href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro&platform=ios" 
-                        className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
-                      >
-                        <i className="fa-brands fa-apple mr-2"></i>
-                        App Store
-                      </Link>
-                      <Link 
-                        href="/preview?image=ecfac37664-aaf002540768427d81c6.png&project=FitTrack+Pro&platform=android" 
-                        className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
-                      >
-                        <i className="fa-brands fa-google-play mr-2"></i>
-                        Play Store
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-          
+
           <div className="mt-8 text-center md:hidden">
             <Link href="/projects" className="button primary-button inline-flex items-center text-center">
               View All Projects

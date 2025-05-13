@@ -1,9 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';
+import ProjectCard from '@/components/ProjectCard';
 import { projectsData } from '@/data/projects';
 
 export default function Projects() {
@@ -23,154 +22,54 @@ export default function Projects() {
 
   return (
     <PageLayout>
-      <main className="bg-gradient-to-br from-gray-900 via-black to-gray-900 pt-32 pb-20">
+      <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Project Gallery
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mt-2">Mobile App Portfolio</span>
-              </h1>
-              <p className="text-gray-400">Each project is a testament to my dedication to crafting exceptional mobile experiences that push the boundaries of design and functionality.</p>
-            </div>
-            
-            <div className="flex gap-4 mt-6 md:mt-0">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">My Projects</h1>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Explore my portfolio of mobile and web applications, featuring UI/UX design and development work
+            </p>
+
+            <div className="flex flex-wrap gap-3 justify-center mt-8">
               <button 
-                className={`filter-btn button ${activeFilter === 'all' ? 'active' : ''}`}
+                className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
                 onClick={() => setActiveFilter('all')}
               >
-                All
+                All Projects
               </button>
               <button 
-                className={`filter-btn button ${activeFilter === 'ios' ? 'active' : ''}`}
+                className={`filter-btn ${activeFilter === 'ios' ? 'active' : ''}`}
                 onClick={() => setActiveFilter('ios')}
               >
-                iOS
+                <i className="fa-brands fa-apple mr-2"></i>
+                iOS Projects
               </button>
               <button 
-                className={`filter-btn button ${activeFilter === 'android' ? 'active' : ''}`}
+                className={`filter-btn ${activeFilter === 'android' ? 'active' : ''}`}
                 onClick={() => setActiveFilter('android')}
               >
-                Android
+                <i className="fa-brands fa-android mr-2"></i>
+                Android Projects
               </button>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {visibleProjects.map(project => {
-              // Extract just the app name without any additional text
-              const appName = project.title.split(':')[0].trim();
-              
-              return (
-                <div 
-                  key={project.id} 
-                  className="group bg-[#1a1a4a] rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all"
-                >
-                  <div className="relative h-[400px]">
-                    <Image 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover"
-                      width={400}
-                      height={400}
-                    />
-                    {project.featured && (
-                      <div className="absolute top-6 left-6">
-                        <span className="bg-purple-500/20 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30">Featured Project</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-8">
-                    <div className="flex justify-between items-start mb-6">
-                      <div>
-                        <h3 className="text-2xl font-bold text-white mb-3">{appName}</h3>
-                        <p className="text-gray-200 leading-relaxed">{project.description}</p>
-                      </div>
-                      <span className="text-purple-300 text-2xl transform group-hover:rotate-45 transition-transform">
-                        <i className="fa-solid fa-arrow-up-right"></i>
-                      </span>
-                    </div>
-                    <div className="flex flex-wrap gap-3 mb-8">
-                      {project.tags.map(tag => {
-                        let icon = 'fa-code';
-                        if (tag.toLowerCase().includes('react')) {
-                          icon = 'fa-brands fa-react';
-                        } else if (tag.toLowerCase().includes('firebase')) {
-                          icon = 'fa-solid fa-fire';
-                        } else if (tag.toLowerCase().includes('machine')) {
-                          icon = 'fa-solid fa-brain';
-                        } else if (tag.toLowerCase().includes('swift')) {
-                          icon = 'fa-brands fa-swift';
-                        } else if (tag.toLowerCase().includes('flutter')) {
-                          icon = 'fa-brands fa-flutter';
-                        }
-                        
-                        return (
-                          <span key={tag} className="tech-tag bg-purple-500/20 border border-purple-500/40 px-3 py-1 rounded-full text-purple-100 text-sm">
-                            <i className={`${icon} mr-2`}></i>
-                            {tag}
-                          </span>
-                        );
-                      })}
-                    </div>
-                    <div className="flex flex-col gap-4">
-                      <Link 
-                        href={`/preview?image=${project.imageId}&project=${encodeURIComponent(project.title)}`} 
-                        className="button w-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#7c4fe0] hover:to-[#d9418a] transition-all flex items-center justify-center"
-                      >
-                        <i className="fa-solid fa-eye mr-2"></i>
-                        Live Preview
-                        <i className="fa-solid fa-arrow-right ml-3"></i>
-                      </Link>
-                      <div className="flex gap-4 mt-4 button-container">
-                        {project.platforms.includes('ios') && (
-                          project.id === 'vytal' && project.appStore ? (
-                            <a 
-                              href={project.appStore} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
-                            >
-                              <i className="fa-brands fa-apple mr-2"></i>
-                              App Store
-                            </a>
-                          ) : (
-                            <Link 
-                              href={`/preview?image=${project.imageId}&project=${encodeURIComponent(project.title)}&platform=ios`} 
-                              className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
-                            >
-                              <i className="fa-brands fa-apple mr-2"></i>
-                              App Store
-                            </Link>
-                          )
-                        )}
-                        {project.platforms.includes('android') && (
-                          project.id === 'vytal' && project.playStore ? (
-                            <a 
-                              href={project.playStore} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
-                            >
-                              <i className="fa-brands fa-google-play mr-2"></i>
-                              Play Store
-                            </a>
-                          ) : (
-                            <Link 
-                              href={`/preview?image=${project.imageId}&project=${encodeURIComponent(project.title)}&platform=android`} 
-                              className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
-                            >
-                              <i className="fa-brands fa-google-play mr-2"></i>
-                              Play Store
-                            </Link>
-                          )
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            {visibleProjects.map(project => (
+              <ProjectCard 
+                key={project.id}
+                id={project.id}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                imageId={project.imageId}
+                tags={project.tags}
+                platforms={project.platforms}
+                featured={project.featured}
+                appStore={project.appStore}
+                playStore={project.playStore}
+              />
+            ))}
           </div>
 
           {filteredProjects.length > 3 && (
@@ -194,7 +93,7 @@ export default function Projects() {
             </div>
           )}
         </div>
-      </main>
+      </section>
     </PageLayout>
   );
 } 

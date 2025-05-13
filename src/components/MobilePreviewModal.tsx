@@ -23,6 +23,7 @@ const MobilePreviewModal = ({
   const [scale, setScale] = useState(1);
   const modalRef = useRef<HTMLDivElement>(null);
 
+  // Set mounted state when component mounts
   useEffect(() => {
     setMounted(true);
     
@@ -33,12 +34,17 @@ const MobilePreviewModal = ({
       }
     };
 
+    // Only add event listener when modal is open
     if (isOpen) {
       document.addEventListener('keydown', handleEscKey);
+      // Prevent body scrolling when modal is open
+      document.body.style.overflow = 'hidden';
     }
     
     return () => {
       document.removeEventListener('keydown', handleEscKey);
+      // Re-enable body scrolling when modal is closed
+      document.body.style.overflow = '';
     };
   }, [isOpen, onClose]);
 
@@ -92,7 +98,7 @@ const MobilePreviewModal = ({
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center backdrop-blur-sm transition-opacity duration-300"
+      className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center backdrop-blur-sm transition-opacity duration-300"
       onClick={handleBackdropClick}
     >
       <div 
@@ -134,6 +140,7 @@ const MobilePreviewModal = ({
                 className="w-full h-full object-cover"
                 width={560}
                 height={560}
+                priority
               />
             ) : (
               <iframe 

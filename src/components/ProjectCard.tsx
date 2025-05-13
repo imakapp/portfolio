@@ -18,7 +18,7 @@ interface ProjectCardProps {
   playStore?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCard = ({
   id,
   title,
   description,
@@ -29,12 +29,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   featured = false,
   appStore,
   playStore
-}) => {
+}: ProjectCardProps) => {
   // Extract just the app name without any additional text
   const appName = title.split(':')[0].trim();
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   
-  const handleOpenPreview = () => {
+  const handleOpenPreview = (e: React.MouseEvent) => {
+    // Prevent navigation
+    e.preventDefault();
+    e.stopPropagation();
     setIsPreviewOpen(true);
   };
   
@@ -72,7 +75,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </span>
           </div>
           <div className="flex flex-wrap gap-3 mb-8">
-            {tags.map(tag => {
+            {tags.map((tag: string) => {
               let icon = 'fa-code';
               if (tag.toLowerCase().includes('react')) {
                 icon = 'fa-brands fa-react';
@@ -151,13 +154,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </div>
       
-      <MobilePreviewModal 
-        isOpen={isPreviewOpen}
-        onClose={handleClosePreview}
-        projectUrl={`/preview?image=${imageId}&project=${encodeURIComponent(title)}`}
-        projectTitle={title}
-        imageUrl={`https://storage.googleapis.com/uxpilot-auth.appspot.com/${imageId}`}
-      />
+      {isPreviewOpen && (
+        <MobilePreviewModal 
+          isOpen={isPreviewOpen}
+          onClose={handleClosePreview}
+          projectUrl={`/preview?image=${imageId}&project=${encodeURIComponent(title)}`}
+          projectTitle={title}
+          imageUrl={`https://storage.googleapis.com/uxpilot-auth.appspot.com/${imageId}`}
+        />
+      )}
     </>
   );
 };
