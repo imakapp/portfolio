@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="styles.css">
 <html class="">
               
 <head>
@@ -14,7 +14,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
-    body, html { max-width: 430px; margin: 0 auto; }
+    /* removed for fixed portrait mode */
     .top-bar { position: sticky; top: 0; z-index: 50; }
   </style>
 
@@ -332,260 +332,262 @@
 </head>
 
               <body class="h-full text-base-content">
-                <div id="appointments-screen" class="min-h-screen bg-gray-50 flex flex-col">
-  <header id="header" class="bg-white p-4 flex items-center justify-between shadow-sm">
-    <button id="menu-btn" class="p-2 -ml-2 mr-2">
-      <i class="fa-solid fa-bars text-gray-600 text-xl"></i>
-    </button>
-    <h1 class="text-xl font-semibold text-gray-800">My Appointments</h1>
-    <button id="calendar-button" class="text-gray-700">
-      <i class="fa-solid fa-calendar text-lg"></i>
-    </button>
-  </header>
+                <div class="fixed-portrait-container">
+                  <div id="appointments-screen" class="min-h-screen bg-gray-50 flex flex-col">
+                    <header id="header" class="bg-white p-4 flex items-center justify-between shadow-sm">
+                      <button id="menu-btn" class="p-2 -ml-2 mr-2">
+                        <i class="fa-solid fa-bars text-gray-600 text-xl"></i>
+                      </button>
+                      <h1 class="text-xl font-semibold text-gray-800">My Appointments</h1>
+                      <button id="calendar-button" class="text-gray-700">
+                        <i class="fa-solid fa-calendar text-lg"></i>
+                      </button>
+                    </header>
 
-  <main id="appointments-content" class="flex-1 p-4 overflow-y-auto">
-    <div id="appointments-tabs" class="flex bg-white rounded-xl p-1 mb-6 shadow-sm">
-      <button class="flex-1 py-2 px-4 rounded-lg bg-[#00B8D4] text-white text-sm font-medium">Upcoming</button>
-      <button class="flex-1 py-2 px-4 text-gray-600 text-sm font-medium">Past</button>
-      <button class="flex-1 py-2 px-4 text-gray-600 text-sm font-medium">Cancelled</button>
-    </div>
+                    <main id="appointments-content" class="flex-1 p-4 overflow-y-auto">
+                      <div id="appointments-tabs" class="flex bg-white rounded-xl p-1 mb-6 shadow-sm">
+                        <button class="flex-1 py-2 px-4 rounded-lg bg-[#00B8D4] text-white text-sm font-medium">Upcoming</button>
+                        <button class="flex-1 py-2 px-4 text-gray-600 text-sm font-medium">Past</button>
+                        <button class="flex-1 py-2 px-4 text-gray-600 text-sm font-medium">Cancelled</button>
+                      </div>
 
-    <div id="today-appointments" class="mb-6">
-      <h2 class="text-lg font-semibold text-gray-800 mb-3">Today</h2>
-      
-      <div id="appointment-card-1" class="bg-white p-4 rounded-xl shadow-sm mb-4">
-        <div class="flex justify-between items-start mb-3">
-          <div class="flex items-center">
-            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span class="ml-2 text-green-500 text-sm">Confirmed</span>
-          </div>
-          <button class="text-red-500 text-sm">Cancel</button>
-        </div>
-        
-        <div class="flex items-start">
-          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Dr. Smith" class="w-16 h-16 rounded-full object-cover"/>
-          <div class="ml-4">
-            <h3 class="text-lg font-semibold text-gray-800">Dr. John Smith</h3>
-            <p class="text-sm text-gray-600">Cardiologist</p>
-            <div class="mt-2 flex items-center text-sm text-gray-600">
-              <i class="fa-solid fa-clock mr-2"></i>
-              <span>09:00 AM - 09:30 AM</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="flex mt-4 space-x-2">
-          <button class="flex-1 py-2 px-4 bg-[#00B8D4] bg-opacity-10 text-[#00B8D4] rounded-lg text-sm">
-            <i class="fa-solid fa-video mr-2"></i>Join Video Call
-          </button>
-          <button class="flex-1 py-2 px-4 border border-gray-200 text-gray-700 rounded-lg text-sm">
-            <i class="fa-solid fa-message mr-2"></i>Message
-          </button>
-        </div>
-      </div>
-    </div>
+                      <div id="today-appointments" class="mb-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-3">Today</h2>
+                        
+                        <div id="appointment-card-1" class="bg-white p-4 rounded-xl shadow-sm mb-4">
+                          <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center">
+                              <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                              <span class="ml-2 text-green-500 text-sm">Confirmed</span>
+                            </div>
+                            <button class="text-red-500 text-sm">Cancel</button>
+                          </div>
+                          
+                          <div class="flex items-start">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Dr. Smith" class="w-16 h-16 rounded-full object-cover"/>
+                            <div class="ml-4">
+                              <h3 class="text-lg font-semibold text-gray-800">Dr. John Smith</h3>
+                              <p class="text-sm text-gray-600">Cardiologist</p>
+                              <div class="mt-2 flex items-center text-sm text-gray-600">
+                                <i class="fa-solid fa-clock mr-2"></i>
+                                <span>09:00 AM - 09:30 AM</span>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="flex mt-4 space-x-2">
+                            <button class="flex-1 py-2 px-4 bg-[#00B8D4] bg-opacity-10 text-[#00B8D4] rounded-lg text-sm">
+                              <i class="fa-solid fa-video mr-2"></i>Join Video Call
+                            </button>
+                            <button class="flex-1 py-2 px-4 border border-gray-200 text-gray-700 rounded-lg text-sm">
+                              <i class="fa-solid fa-message mr-2"></i>Message
+                            </button>
+                          </div>
+                        </div>
+                      </div>
 
-    <div id="upcoming-appointments" class="mb-6">
-      <h2 class="text-lg font-semibold text-gray-800 mb-3">Tomorrow</h2>
-      
-      <div id="appointment-card-2" class="bg-white p-4 rounded-xl shadow-sm mb-4">
-        <div class="flex justify-between items-start mb-3">
-          <div class="flex items-center">
-            <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
-            <span class="ml-2 text-yellow-500 text-sm">Pending</span>
-          </div>
-          <button class="text-red-500 text-sm">Cancel</button>
-        </div>
-        
-        <div class="flex items-start">
-          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Dr. Sarah" class="w-16 h-16 rounded-full object-cover"/>
-          <div class="ml-4">
-            <h3 class="text-lg font-semibold text-gray-800">Dr. Sarah Johnson</h3>
-            <p class="text-sm text-gray-600">Neurologist</p>
-            <div class="mt-2 flex items-center text-sm text-gray-600">
-              <i class="fa-solid fa-clock mr-2"></i>
-              <span>02:30 PM - 03:00 PM</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="flex mt-4 space-x-2">
-          <button class="flex-1 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg text-sm">
-            <i class="fa-solid fa-video mr-2"></i>Join Video Call
-          </button>
-          <button class="flex-1 py-2 px-4 border border-gray-200 text-gray-700 rounded-lg text-sm">
-            <i class="fa-solid fa-message mr-2"></i>Message
-          </button>
-        </div>
-      </div>
-    </div>
+                      <div id="upcoming-appointments" class="mb-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-3">Tomorrow</h2>
+                        
+                        <div id="appointment-card-2" class="bg-white p-4 rounded-xl shadow-sm mb-4">
+                          <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center">
+                              <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                              <span class="ml-2 text-yellow-500 text-sm">Pending</span>
+                            </div>
+                            <button class="text-red-500 text-sm">Cancel</button>
+                          </div>
+                          
+                          <div class="flex items-start">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Dr. Sarah" class="w-16 h-16 rounded-full object-cover"/>
+                            <div class="ml-4">
+                              <h3 class="text-lg font-semibold text-gray-800">Dr. Sarah Johnson</h3>
+                              <p class="text-sm text-gray-600">Neurologist</p>
+                              <div class="mt-2 flex items-center text-sm text-gray-600">
+                                <i class="fa-solid fa-clock mr-2"></i>
+                                <span>02:30 PM - 03:00 PM</span>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="flex mt-4 space-x-2">
+                            <button class="flex-1 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg text-sm">
+                              <i class="fa-solid fa-video mr-2"></i>Join Video Call
+                            </button>
+                            <button class="flex-1 py-2 px-4 border border-gray-200 text-gray-700 rounded-lg text-sm">
+                              <i class="fa-solid fa-message mr-2"></i>Message
+                            </button>
+                          </div>
+                        </div>
+                      </div>
 
-    <div id="next-week-appointments">
-      <h2 class="text-lg font-semibold text-gray-800 mb-3">Next Week</h2>
-      
-      <div id="appointment-card-3" class="bg-white p-4 rounded-xl shadow-sm">
-        <div class="flex justify-between items-start mb-3">
-          <div class="flex items-center">
-            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span class="ml-2 text-green-500 text-sm">Confirmed</span>
-          </div>
-          <button class="text-red-500 text-sm">Cancel</button>
-        </div>
-        
-        <div class="flex items-start">
-          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Dr. Michael" class="w-16 h-16 rounded-full object-cover"/>
-          <div class="ml-4">
-            <h3 class="text-lg font-semibold text-gray-800">Dr. Michael Patel</h3>
-            <p class="text-sm text-gray-600">Orthopedic Surgeon</p>
-            <div class="mt-2 flex items-center text-sm text-gray-600">
-              <i class="fa-solid fa-clock mr-2"></i>
-              <span>11:00 AM - 11:30 AM</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="flex mt-4 space-x-2">
-          <button class="flex-1 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg text-sm">
-            <i class="fa-solid fa-video mr-2"></i>Join Video Call
-          </button>
-          <button class="flex-1 py-2 px-4 border border-gray-200 text-gray-700 rounded-lg text-sm">
-            <i class="fa-solid fa-message mr-2"></i>Message
-          </button>
-        </div>
-      </div>
-    </div>
-  </main>
+                      <div id="next-week-appointments">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-3">Next Week</h2>
+                        
+                        <div id="appointment-card-3" class="bg-white p-4 rounded-xl shadow-sm">
+                          <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center">
+                              <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                              <span class="ml-2 text-green-500 text-sm">Confirmed</span>
+                            </div>
+                            <button class="text-red-500 text-sm">Cancel</button>
+                          </div>
+                          
+                          <div class="flex items-start">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Dr. Michael" class="w-16 h-16 rounded-full object-cover"/>
+                            <div class="ml-4">
+                              <h3 class="text-lg font-semibold text-gray-800">Dr. Michael Patel</h3>
+                              <p class="text-sm text-gray-600">Orthopedic Surgeon</p>
+                              <div class="mt-2 flex items-center text-sm text-gray-600">
+                                <i class="fa-solid fa-clock mr-2"></i>
+                                <span>11:00 AM - 11:30 AM</span>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="flex mt-4 space-x-2">
+                            <button class="flex-1 py-2 px-4 bg-gray-100 text-gray-500 rounded-lg text-sm">
+                              <i class="fa-solid fa-video mr-2"></i>Join Video Call
+                            </button>
+                            <button class="flex-1 py-2 px-4 border border-gray-200 text-gray-700 rounded-lg text-sm">
+                              <i class="fa-solid fa-message mr-2"></i>Message
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </main>
 
-  <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 flex items-center justify-around z-50">
-    <a href="dashboard.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-      <i class="fa-solid fa-house text-xl"></i>
-    </a>
-    <a href="find-doctor.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-      <i class="fa-solid fa-user-md text-xl"></i>
-    </a>
-    <a href="my-appointments.html" class="flex flex-col items-center text-[#00B8D4]">
-      <i class="fa-solid fa-calendar-check text-xl"></i>
-    </a>
-    <a href="chat.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-      <i class="fa-solid fa-comments text-xl"></i>
-    </a>
-    <a href="profile.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-      <i class="fa-solid fa-user text-xl"></i>
-    </a>
-  </nav>
-</div>
+                    <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 flex items-center justify-around z-50">
+                      <a href="dashboard.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+                        <i class="fa-solid fa-house text-xl"></i>
+                      </a>
+                      <a href="find-doctor.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+                        <i class="fa-solid fa-user-md text-xl"></i>
+                      </a>
+                      <a href="my-appointments.html" class="flex flex-col items-center text-[#00B8D4]">
+                        <i class="fa-solid fa-calendar-check text-xl"></i>
+                      </a>
+                      <a href="chat.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+                        <i class="fa-solid fa-comments text-xl"></i>
+                      </a>
+                      <a href="profile.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+                        <i class="fa-solid fa-user text-xl"></i>
+                      </a>
+                    </nav>
+                  </div>
 
-<!-- Sidebar Menu Overlay -->
-<div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
-<!-- Sidebar Menu -->
-<div id="sidebar-menu" class="fixed top-0 left-0 h-full w-[280px] bg-white z-50 transform -translate-x-full transition-transform duration-300 shadow-xl">
-  <div class="p-4 border-b border-gray-100">
-    <div class="flex items-center space-x-3">
-      <div class="w-12 h-12 rounded-full overflow-hidden">
-        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Sarah Smith" class="w-full h-full object-cover" />
-      </div>
-      <div>
-        <h3 class="font-semibold text-gray-800">Sarah Smith</h3>
-        <p class="text-sm text-gray-500">Patient ID: #284751</p>
-      </div>
-    </div>
-  </div>
-  <nav class="p-4">
-    <ul class="space-y-2">
-      <li>
-        <a href="dashboard.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
-          <i class="fa-solid fa-house text-lg w-6"></i>
-          <span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="find-doctor.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
-          <i class="fa-solid fa-user-doctor text-lg w-6"></i>
-          <span>My Doctors</span>
-        </a>
-      </li>
-      <li>
-        <a href="my-appointments.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-[#00B8D4] bg-[#00B8D4] bg-opacity-10 cursor-pointer">
-          <i class="fa-solid fa-calendar-check text-lg w-6"></i>
-          <span>Appointments</span>
-        </a>
-      </li>
-      <li>
-        <a href="medical-records.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
-          <i class="fa-solid fa-file-medical text-lg w-6"></i>
-          <span>Medical Records</span>
-        </a>
-      </li>
-      <li>
-        <a href="medications.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
-          <i class="fa-solid fa-pills text-lg w-6"></i>
-          <span>Medications</span>
-        </a>
-      </li>
-      <li>
-        <a href="health-tracking.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
-          <i class="fa-solid fa-chart-line text-lg w-6"></i>
-          <span>Health Tracking</span>
-        </a>
-      </li>
-    </ul>
-    <div class="border-t border-gray-100 mt-6 pt-6">
-      <ul class="space-y-2">
-        <li>
-          <span class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
-            <i class="fa-solid fa-gear text-lg w-6"></i>
-            <span>Settings</span>
-          </span>
-        </li>
-        <li>
-          <span class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
-            <i class="fa-solid fa-circle-question text-lg w-6"></i>
-            <span>Help & Support</span>
-          </span>
-        </li>
-        <li>
-          <span class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-red-600 hover:bg-red-50 cursor-pointer">
-            <i class="fa-solid fa-right-from-bracket text-lg w-6"></i>
-            <span>Log Out</span>
-          </span>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>
+                  <!-- Sidebar Menu Overlay -->
+                  <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+                  <!-- Sidebar Menu -->
+                  <div id="sidebar-menu" class="fixed top-0 left-0 h-full w-[280px] bg-white z-50 transform -translate-x-full transition-transform duration-300 shadow-xl">
+                    <div class="p-4 border-b border-gray-100">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full overflow-hidden">
+                          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Sarah Smith" class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                          <h3 class="font-semibold text-gray-800">Sarah Smith</h3>
+                          <p class="text-sm text-gray-500">Patient ID: #284751</p>
+                        </div>
+                      </div>
+                    </div>
+                    <nav class="p-4">
+                      <ul class="space-y-2">
+                        <li>
+                          <a href="dashboard.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                            <i class="fa-solid fa-house text-lg w-6"></i>
+                            <span>Home</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="find-doctor.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                            <i class="fa-solid fa-user-doctor text-lg w-6"></i>
+                            <span>My Doctors</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="my-appointments.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-[#00B8D4] bg-[#00B8D4] bg-opacity-10 cursor-pointer">
+                            <i class="fa-solid fa-calendar-check text-lg w-6"></i>
+                            <span>Appointments</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="medical-records.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                            <i class="fa-solid fa-file-medical text-lg w-6"></i>
+                            <span>Medical Records</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="medications.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                            <i class="fa-solid fa-pills text-lg w-6"></i>
+                            <span>Medications</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="health-tracking.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                            <i class="fa-solid fa-chart-line text-lg w-6"></i>
+                            <span>Health Tracking</span>
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="border-t border-gray-100 mt-6 pt-6">
+                        <ul class="space-y-2">
+                          <li>
+                            <span class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                              <i class="fa-solid fa-gear text-lg w-6"></i>
+                              <span>Settings</span>
+                            </span>
+                          </li>
+                          <li>
+                            <span class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                              <i class="fa-solid fa-circle-question text-lg w-6"></i>
+                              <span>Help & Support</span>
+                            </span>
+                          </li>
+                          <li>
+                            <span class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-red-600 hover:bg-red-50 cursor-pointer">
+                              <i class="fa-solid fa-right-from-bracket text-lg w-6"></i>
+                              <span>Log Out</span>
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    </nav>
+                  </div>
+                </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Handle tab switching
-  const tabButtons = document.querySelectorAll('#appointments-tabs button');
-  tabButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      tabButtons.forEach(btn => {
-        btn.classList.remove('bg-[#00B8D4]', 'text-white');
-      });
-      this.classList.add('bg-[#00B8D4]', 'text-white');
-    });
-  });
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                  // Handle tab switching
+                  const tabButtons = document.querySelectorAll('#appointments-tabs button');
+                  tabButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                      tabButtons.forEach(btn => {
+                        btn.classList.remove('bg-[#00B8D4]', 'text-white');
+                      });
+                      this.classList.add('bg-[#00B8D4]', 'text-white');
+                    });
+                  });
 
-  // Handle appointment cancellation
-  const cancelButtons = document.querySelectorAll('button:contains("Cancel")');
-  cancelButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      // In a real app, this would show a confirmation dialog
-      console.log('Cancel appointment');
-    });
-  });
-});
+                  // Handle appointment cancellation
+                  const cancelButtons = document.querySelectorAll('button:contains("Cancel")');
+                  cancelButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                      // In a real app, this would show a confirmation dialog
+                      console.log('Cancel appointment');
+                    });
+                  });
+                });
 
-document.getElementById('menu-btn').addEventListener('click', function() {
-  document.getElementById('sidebar-menu').classList.toggle('-translate-x-full');
-  document.getElementById('sidebar-overlay').classList.toggle('hidden');
-});
-document.getElementById('sidebar-overlay').addEventListener('click', function() {
-  document.getElementById('sidebar-menu').classList.add('-translate-x-full');
-  document.getElementById('sidebar-overlay').classList.add('hidden');
-});
-</script>
+                document.getElementById('menu-btn').addEventListener('click', function() {
+                  document.getElementById('sidebar-menu').classList.toggle('-translate-x-full');
+                  document.getElementById('sidebar-overlay').classList.toggle('hidden');
+                });
+                document.getElementById('sidebar-overlay').addEventListener('click', function() {
+                  document.getElementById('sidebar-menu').classList.add('-translate-x-full');
+                  document.getElementById('sidebar-overlay').classList.add('hidden');
+                });
+                </script>
               </body>
             </html>
           
