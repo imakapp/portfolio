@@ -8,7 +8,7 @@ import FeaturedProjectCard from '@/components/FeaturedProjectCard';
 import { projectsData } from '@/data/projects';
 
 // Get featured projects for the home page
-const featuredProjects = projectsData.filter(project => project.featured).slice(0, 4);
+const featuredProjects = projectsData.filter(project => project.featured || project.latest).slice(0, 4);
 
 export default function Home() {
   const phoneRef = useRef<HTMLDivElement>(null);
@@ -114,7 +114,7 @@ export default function Home() {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProjects.map(project => (
               <FeaturedProjectCard 
                 key={project.id}
