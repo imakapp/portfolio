@@ -18,7 +18,7 @@ interface ProjectCardProps {
   playStore?: string;
 }
 
-const ProjectCard = ({
+const ProjectCard: React.FC<ProjectCardProps> = ({
   id,
   title,
   description,
@@ -29,7 +29,7 @@ const ProjectCard = ({
   featured = false,
   appStore,
   playStore
-}: ProjectCardProps) => {
+}) => {
   // Extract just the app name without any additional text
   const appName = title.split(':')[0].trim();
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
@@ -43,7 +43,7 @@ const ProjectCard = ({
   };
   
   return (
-    <React.Fragment>
+    <>
       <div className="group bg-[#1a1a4a] rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
         <div className="relative h-[400px]">
           <Image 
@@ -158,7 +158,7 @@ const ProjectCard = ({
         projectTitle={title}
         imageUrl={`https://storage.googleapis.com/uxpilot-auth.appspot.com/${imageId}`}
       />
-    </React.Fragment>
+    </>
   );
 };
 
