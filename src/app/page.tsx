@@ -114,7 +114,7 @@ export default function Home() {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProjects.map(project => (
               <FeaturedProjectCard 
                 key={project.id}
@@ -125,13 +125,14 @@ export default function Home() {
                 imageId={project.imageId}
                 tags={project.tags}
                 platforms={project.platforms}
+                featured={project.featured}
               />
             ))}
           </div>
 
-          <div className="mt-12 text-center md:hidden">
+          <div className="mt-16 text-center">
             <Link href="/projects" className="button primary-button inline-flex items-center text-center">
-              View All Projects
+              View More Projects
               <i className="fa-solid fa-arrow-right ml-2"></i>
             </Link>
           </div>
