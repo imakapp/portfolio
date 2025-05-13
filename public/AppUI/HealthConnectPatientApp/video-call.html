@@ -324,6 +324,12 @@
           };
   </script>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    body, html { max-width: 430px; margin: 0 auto; }
+    .top-bar { position: sticky; top: 0; z-index: 50; }
+  </style>
+
 </head>
 
               <body class="h-full text-base-content">
@@ -384,8 +390,7 @@
     </div>
     <!-- Navigation Controls -->
     <div class="flex justify-between mt-4">
-      <a href="book-appointment.html" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Back</a>
-      <a href="chat.html" class="px-4 py-2 bg-primary text-white rounded hover:bg-primary-700">Next</a>
+      <!-- Removed Back and Next navigation buttons for mobile preview -->
     </div>
     
     <!-- Secondary Controls -->
@@ -473,25 +478,20 @@
 
 <!-- Bottom Navigation -->
 <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 flex items-center justify-around z-50">
-  <a href="splash.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-    <i class="fa-solid fa-house"></i>
-    <span class="text-xs mt-1">Home</span>
+  <a href="dashboard.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+    <i class="fa-solid fa-house text-xl"></i>
   </a>
-  <a href="book-appointment.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-    <i class="fa-solid fa-calendar-check"></i>
-    <span class="text-xs mt-1">Appointments</span>
+  <a href="find-doctor.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+    <i class="fa-solid fa-user-md text-xl"></i>
+  </a>
+  <a href="my-appointments.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+    <i class="fa-solid fa-calendar-check text-xl"></i>
   </a>
   <a href="chat.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-    <i class="fa-solid fa-comments"></i>
-    <span class="text-xs mt-1">Messages</span>
+    <i class="fa-solid fa-comments text-xl"></i>
   </a>
-  <a href="#" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-    <i class="fa-solid fa-pills"></i>
-    <span class="text-xs mt-1">Medications</span>
-  </a>
-  <a href="#" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-    <i class="fa-solid fa-user"></i>
-    <span class="text-xs mt-1">Profile</span>
+  <a href="profile.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+    <i class="fa-solid fa-user text-xl"></i>
   </a>
 </nav>
 

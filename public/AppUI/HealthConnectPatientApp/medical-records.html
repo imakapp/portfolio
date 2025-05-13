@@ -13,7 +13,12 @@
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    body, html { max-width: 430px; margin: 0 auto; }
+    .top-bar { position: sticky; top: 0; z-index: 50; }
+  </style>
+
 <style>
   * {
     font-family: "Inter", sans-serif;
@@ -510,24 +515,19 @@
 
   <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 flex items-center justify-around z-50">
     <a href="dashboard.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-      <i class="fa-solid fa-house"></i>
-      <span class="text-xs mt-1">Home</span>
+      <i class="fa-solid fa-house text-xl"></i>
     </a>
     <a href="find-doctor.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-      <i class="fa-solid fa-user-md"></i>
-      <span class="text-xs mt-1">Find Doctor</span>
+      <i class="fa-solid fa-user-md text-xl"></i>
     </a>
     <a href="my-appointments.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-      <i class="fa-solid fa-calendar-check"></i>
-      <span class="text-xs mt-1">Appointments</span>
+      <i class="fa-solid fa-calendar-check text-xl"></i>
     </a>
     <a href="chat.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
-      <i class="fa-solid fa-comments"></i>
-      <span class="text-xs mt-1">Messages</span>
+      <i class="fa-solid fa-comments text-xl"></i>
     </a>
-    <a href="medical-records.html" class="flex flex-col items-center text-[#00B8D4]">
-      <i class="fa-solid fa-file-medical"></i>
-      <span class="text-xs mt-1">Records</span>
+    <a href="profile.html" class="flex flex-col items-center text-[#00B8D4]">
+      <i class="fa-solid fa-user text-xl"></i>
     </a>
   </nav>
 </div>
