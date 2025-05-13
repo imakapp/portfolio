@@ -74,7 +74,6 @@ export default function Projects() {
                       width={400}
                       height={400}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a4a] via-[#1a1a4a]/40 to-transparent"></div>
                     {project.featured && (
                       <div className="absolute top-6 left-6">
                         <span className="bg-purple-500/20 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30">Featured Project</span>

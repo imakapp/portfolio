@@ -124,7 +124,6 @@ export default function Home() {
                     width={320}
                     height={400}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a4a] via-[#1a1a4a]/40 to-transparent"></div>
                 </div>
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-6">
@@ -195,7 +194,6 @@ export default function Home() {
                     width={320}
                     height={400}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a4a] via-[#1a1a4a]/40 to-transparent"></div>
                 </div>
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-6">
@@ -262,7 +260,6 @@ export default function Home() {
                     width={320}
                     height={400}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a4a] via-[#1a1a4a]/40 to-transparent"></div>
                 </div>
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-6">
