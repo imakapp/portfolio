@@ -33,13 +33,13 @@ const ProjectCard = ({
   
   return (
     <div className="group bg-[#0F0F23] rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all">
-      <div className="relative h-[480px]">
+      <div className="relative h-[400px]">
         <Image 
           src={image}
           alt={title}
           className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
           width={400}
-          height={480}
+          height={400}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F23] via-[#0F0F23]/70 to-transparent"></div>
         <div className="absolute top-6 left-6">
@@ -50,8 +50,8 @@ const ProjectCard = ({
           )}
         </div>
         <div className="absolute bottom-0 left-0 w-full p-8">
-          <h3 className="text-3xl font-bold text-white mb-3">{appName}</h3>
-          <p className="text-gray-300 mb-6 text-lg">{description}</p>
+          <h3 className="text-2xl font-bold text-white mb-3">{appName}</h3>
+          <p className="text-gray-300 mb-6">{description}</p>
           <div className="flex flex-wrap gap-2">
             {tags.map(tag => (
               <span key={tag} className="tech-tag">{tag}</span>

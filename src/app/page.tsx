@@ -113,7 +113,7 @@ export default function Home() {
             <div className="project-slider flex gap-6 py-4">
               {/* Project Card 1: Vytal */}
               <div className="project-card w-[320px] bg-[#0F0F23] rounded-xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all">
-                <div className="h-[480px] relative overflow-hidden group">
+                <div className="h-[400px] relative overflow-hidden group">
                   <div className="absolute top-6 left-6">
                     <span className="bg-purple-500/10 text-purple-300 text-xs py-1 px-3 rounded-full border border-purple-500/20">Featured Project</span>
                   </div>
@@ -122,12 +122,12 @@ export default function Home() {
                     alt="Vytal" 
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     width={320}
-                    height={480}
+                    height={400}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F23] via-[#0F0F23]/70 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 w-full p-8">
-                    <h3 className="text-3xl font-bold text-white mb-3">Vytal</h3>
-                    <p className="text-gray-300 mb-6 text-lg">Be the change. Every single day.</p>
+                    <h3 className="text-2xl font-bold text-white mb-3">Vytal</h3>
+                    <p className="text-gray-300 mb-6">Be the change. Every single day.</p>
                     <div className="flex flex-wrap gap-2">
                       <span className="tech-tag">Sustainability</span>
                       <span className="tech-tag">Food & Drink</span>
@@ -168,7 +168,7 @@ export default function Home() {
               </div>
               {/* Project Card 2: WealthWise */}
               <div className="project-card w-[320px] bg-[#0F0F23] rounded-xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all">
-                <div className="h-[480px] relative overflow-hidden group">
+                <div className="h-[400px] relative overflow-hidden group">
                   <div className="absolute top-6 left-6">
                     <span className="bg-purple-500/10 text-purple-300 text-xs py-1 px-3 rounded-full border border-purple-500/20">Featured Project</span>
                   </div>
@@ -177,12 +177,12 @@ export default function Home() {
                     alt="WealthWise" 
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     width={320}
-                    height={480}
+                    height={400}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F23] via-[#0F0F23]/70 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 w-full p-8">
-                    <h3 className="text-3xl font-bold text-white mb-3">WealthWise</h3>
-                    <p className="text-gray-300 mb-6 text-lg">Personal finance management with investment tracking</p>
+                    <h3 className="text-2xl font-bold text-white mb-3">WealthWise</h3>
+                    <p className="text-gray-300 mb-6">Personal finance management with investment tracking</p>
                     <div className="flex flex-wrap gap-2">
                       <span className="tech-tag">Flutter</span>
                       <span className="tech-tag">GraphQL</span>
@@ -219,7 +219,7 @@ export default function Home() {
               </div>
               {/* Project Card 3: FitTrack */}
               <div className="project-card w-[320px] bg-[#0F0F23] rounded-xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all">
-                <div className="h-[480px] relative overflow-hidden group">
+                <div className="h-[400px] relative overflow-hidden group">
                   <div className="absolute top-6 left-6">
                     <span className="bg-purple-500/10 text-purple-300 text-xs py-1 px-3 rounded-full border border-purple-500/20">Featured Project</span>
                   </div>
@@ -228,12 +228,12 @@ export default function Home() {
                     alt="FitTrack Pro" 
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     width={320}
-                    height={480}
+                    height={400}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F23] via-[#0F0F23]/70 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 w-full p-8">
-                    <h3 className="text-3xl font-bold text-white mb-3">FitTrack Pro</h3>
-                    <p className="text-gray-300 mb-6 text-lg">A comprehensive fitness tracking application with AI-powered workout recommendations.</p>
+                    <h3 className="text-2xl font-bold text-white mb-3">FitTrack Pro</h3>
+                    <p className="text-gray-300 mb-6">A comprehensive fitness tracking application with AI-powered workout recommendations.</p>
                     <div className="flex flex-wrap gap-2">
                       <span className="tech-tag">React Native</span>
                       <span className="tech-tag">Firebase</span>
