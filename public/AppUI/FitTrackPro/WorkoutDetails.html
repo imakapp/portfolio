@@ -499,23 +499,23 @@
             <!-- Bottom Navigation -->
             <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 bg-[#1A1F2B] border-t border-gray-800 px-2 py-2 z-20">
               <div class="flex justify-around items-center">
-                <a href="Dashboard.html" class="nav-link flex flex-col items-center w-16 py-1">
+                <a href="Dashboard.html" class="nav-link flex flex-col items-center w-16 py-1" data-target="dashboard">
                   <i class="fa-solid fa-house text-gray-500"></i>
                   <span class="text-xs text-gray-500 mt-1">Home</span>
                 </a>
-                <a href="WorkoutDetails.html" class="nav-link flex flex-col items-center w-16 py-1">
+                <a href="WorkoutDetails.html" class="nav-link flex flex-col items-center w-16 py-1" data-target="workouts">
                   <i class="fa-solid fa-dumbbell text-[#6191FF]"></i>
-                  <span class="text-xs text-[#6191FF] mt-1 font-medium">Workouts</span>
+                  <span class="text-xs text-[#6191FF] font-medium mt-1">Workouts</span>
                 </a>
-                <a href="Nutrition.html" class="nav-link flex flex-col items-center w-16 py-1">
+                <a href="Nutrition.html" class="nav-link flex flex-col items-center w-16 py-1" data-target="nutrition">
                   <i class="fa-solid fa-utensils text-gray-500"></i>
                   <span class="text-xs text-gray-500 mt-1">Nutrition</span>
                 </a>
-                <a href="Progress.html" class="nav-link flex flex-col items-center w-16 py-1">
+                <a href="Progress.html" class="nav-link flex flex-col items-center w-16 py-1" data-target="progress">
                   <i class="fa-solid fa-chart-line text-gray-500"></i>
                   <span class="text-xs text-gray-500 mt-1">Progress</span>
                 </a>
-                <a href="Community.html" class="nav-link flex flex-col items-center w-16 py-1">
+                <a href="Community.html" class="nav-link flex flex-col items-center w-16 py-1" data-target="community">
                   <i class="fa-solid fa-users text-gray-500"></i>
                   <span class="text-xs text-gray-500 mt-1">Community</span>
                 </a>
@@ -539,34 +539,39 @@
               }
             });
           }
-          // Add tap effect to bottom navigation
-          const navLinks = document.querySelectorAll('.nav-link');
+          const navLinks = document.querySelectorAll('#bottom-nav .nav-link');
+          const pageMap = {
+            'Dashboard.html': 'dashboard',
+            'WorkoutDetails.html': 'workouts',
+            'Nutrition.html': 'nutrition',
+            'Progress.html': 'progress',
+            'Community.html': 'community'
+          };
+          const current = pageMap[window.location.pathname.split('/').pop()];
           navLinks.forEach(link => {
+            if (link.dataset.target === current) {
+              link.querySelector('i').classList.add('text-[#6191FF]');
+              link.querySelector('i').classList.remove('text-gray-500');
+              link.querySelector('span').classList.add('text-[#6191FF]', 'font-medium');
+              link.querySelector('span').classList.remove('text-gray-500');
+            } else {
+              link.querySelector('i').classList.remove('text-[#6191FF]');
+              link.querySelector('i').classList.add('text-gray-500');
+              link.querySelector('span').classList.remove('text-[#6191FF]', 'font-medium');
+              link.querySelector('span').classList.add('text-gray-500');
+            }
             link.addEventListener('click', function(e) {
-              e.preventDefault(); // Prevent the default link behavior
-              // Get the target screen
-              const targetScreen = this.getAttribute('data-target');
-              // Send message to parent window for navigation
-              if (window.parent && window.parent !== window) {
-                window.parent.postMessage({
-                  action: 'navigate',
-                  target: targetScreen
-                }, '*');
-              }
-              // Reset all buttons to inactive state
-              const bottomNavLinks = document.querySelectorAll('#bottom-nav .nav-link');
-              bottomNavLinks.forEach(btn => {
-                btn.querySelector('i').classList.add('text-gray-500');
-                btn.querySelector('i').classList.remove('text-[#6191FF]');
-                btn.querySelector('span').classList.add('text-gray-500');
-                btn.querySelector('span').classList.remove('text-[#6191FF]', 'font-medium');
-              });
-              // Set clicked button to active state if it's in the bottom nav
-              if (this.closest('#bottom-nav')) {
-                this.querySelector('i').classList.remove('text-gray-500');
-                this.querySelector('i').classList.add('text-[#6191FF]');
-                this.querySelector('span').classList.remove('text-gray-500');
-                this.querySelector('span').classList.add('text-[#6191FF]', 'font-medium');
+              e.preventDefault();
+              const target = link.dataset.target;
+              const fileMap = {
+                dashboard: 'Dashboard.html',
+                workouts: 'WorkoutDetails.html',
+                nutrition: 'Nutrition.html',
+                progress: 'Progress.html',
+                community: 'Community.html'
+              };
+              if (fileMap[target]) {
+                window.location.href = fileMap[target];
               }
             });
           });
