@@ -47,7 +47,7 @@ const PhonePreview = ({ url, imageUrl }: PhonePreviewProps) => {
     <div className="w-full h-full flex items-center justify-center">
       <div 
         ref={phoneRef} 
-        className="phone-container w-[280px] h-[560px] bg-black rounded-[36px] border-4 border-gray-800 relative"
+        className="phone-container w-[360px] h-[640px] bg-black rounded-[36px] border-4 border-gray-800 relative"
       >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[30px] bg-black rounded-b-xl" />
         <div className="w-full h-full overflow-hidden rounded-[32px] bg-gradient-to-br from-gray-900 to-black">
@@ -56,8 +56,8 @@ const PhonePreview = ({ url, imageUrl }: PhonePreviewProps) => {
               src={imageUrl} 
               alt="Mobile app preview" 
               className="w-full h-full object-cover"
-              width={280}
-              height={560}
+              width={360}
+              height={640}
             />
           ) : (
             <iframe 

@@ -85,8 +85,8 @@ const MobilePreviewModal = ({
   
   const deviceContainerStyles = {
     transform: `scale(${scale})`,
-    width: isPortrait ? '280px' : '560px',
-    height: isPortrait ? '560px' : '280px',
+    width: isPortrait ? '360px' : '640px',
+    height: isPortrait ? '640px' : '360px',
     transition: 'width 0.3s ease, height 0.3s ease, transform 0.2s ease'
   };
 
@@ -138,8 +138,8 @@ const MobilePreviewModal = ({
                 src={imageUrl} 
                 alt="Mobile app preview" 
                 className="w-full h-full object-cover"
-                width={560}
-                height={560}
+                width={640}
+                height={640}
                 priority
               />
             ) : (
