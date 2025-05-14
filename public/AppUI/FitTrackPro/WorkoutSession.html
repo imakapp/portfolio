@@ -1,587 +1,234 @@
-<iframe title="wireframe-h1m797nQY4nbjM4TmAom" srcdoc="
-            <html class=&quot;&quot;>
-              
-<head>
-    <link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
-    
-  <script src=&quot;https://cdn.jsdelivr.net/npm/apexcharts&quot;></script>
-  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
-  <script>
+<!DOCTYPE html>
+<html class="">
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
       window.FontAwesomeConfig = {
-          autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+        autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
       };
-  </script>
-  <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
-
-    
-<style>
-  * {
-    font-family: &quot;Inter&quot;, sans-serif;
-  }
-
-  ::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    background: transparent;
-    display: none;
-  }
-  
-  html, body {
-    overflow: hidden;
-    position: relative;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-  
-  main {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  
-  main::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    height: 0;
-  }
-  
-  .screen {
-    width: 100%;
-    height: 100%;
-    display: none;
-    overflow: hidden;
-  }
-  
-  .screen.active {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-</style>
-
-    
-<style>
-  .highlighted-section {
-    outline: 2px solid #3F20FB;
-    background-color: rgba(63, 32, 251, 0.1);
-  }
-
-  .edit-button {
-    position: absolute;
-    z-index: 1000;
-  }
-</style>
-
-    
-<style>
-   :root {
-          /* Base colors */
-          --color-base: #ffffff;
-          --color-base-50: #f9fafb;
-          --color-base-100: #f3f4f6;
-          --color-base-200: #e5e7eb;
-          --color-base-300: #d1d5db;
-          --color-base-400: #9ca3af;
-          --color-base-500: #6b7280;
-          --color-base-600: #4b5563;  
-          --color-base-700: #374151;
-          --color-base-800: #1f2937;  
-          --color-base-900: #111827;
-          --color-base-content: #1f2937;
-
-          /* Primary colors */
-          --color-primary: #3b82f6;
-          --color-primary-50: #eff6ff;
-          --color-primary-100: #dbeafe;
-          --color-primary-200: #bfdbfe;
-          --color-primary-300: #93c5fd;
-          --color-primary-400: #60a5fa;
-          --color-primary-500: #3b82f6;
-          --color-primary-600: #2563eb;
-          --color-primary-700: #1d4ed8;
-          --color-primary-800: #1e40af;
-          --color-primary-900: #1e3a8a;
-          --color-primary-focus: #2563eb;
-          --color-primary-content: #ffffff;
-
-          /* Secondary colors */
-          --color-secondary: #8b5cf6;
-          --color-secondary-50: #f5f3ff;
-          --color-secondary-100: #ede9fe;
-          --color-secondary-200: #ddd6fe;
-          --color-secondary-300: #c4b5fd;
-          --color-secondary-400: #a78bfa;
-          --color-secondary-500: #8b5cf6;
-          --color-secondary-600: #7c3aed;
-          --color-secondary-700: #6d28d9;
-          --color-secondary-800: #5b21b6;
-          --color-secondary-900: #4c1d95;
-          --color-secondary-focus: #7c3aed;
-          --color-secondary-content: #ffffff;
-
-          /* Accent colors */
-          --color-accent: #f472b6;
-          --color-accent-50: #fdf2f8;
-          --color-accent-100: #fce7f3;
-          --color-accent-200: #fbcfe8;
-          --color-accent-300: #f9a8d4;
-          --color-accent-400: #f472b6;
-          --color-accent-500: #ec4899;
-          --color-accent-600: #db2777;
-          --color-accent-700: #be185d;
-          --color-accent-800: #9d174d;
-          --color-accent-900: #831843;
-          --color-accent-focus: #db2777;
-          --color-accent-content: #ffffff;
-
-          /* Neutral colors */
-          --color-neutral: #6b7280;
-          --color-neutral-50: #f9fafb;
-          --color-neutral-100: #f3f4f6;
-          --color-neutral-200: #e5e7eb;
-          --color-neutral-300: #d1d5db;
-          --color-neutral-400: #9ca3af;
-          --color-neutral-500: #6b7280;
-          --color-neutral-600: #4b5563;
-          --color-neutral-700: #374151;
-          --color-neutral-800: #1f2937;
-          --color-neutral-900: #111827;
-          --color-neutral-focus: #4b5563;
-          --color-neutral-content: #ffffff;
-
-          /* Info colors */
-          --color-info: #3b82f6;
-          --color-info-50: #eff6ff;
-          --color-info-100: #dbeafe;
-          --color-info-200: #bfdbfe;
-          --color-info-300: #93c5fd;
-          --color-info-400: #60a5fa;
-          --color-info-500: #3b82f6;
-          --color-info-600: #2563eb;
-          --color-info-700: #1d4ed8;
-          --color-info-800: #1e40af;
-          --color-info-900: #1e3a8a;
-          --color-info-focus: #2563eb;
-          --color-info-content: #ffffff;
-
-          /* Success colors */
-          --color-success: #10b981;
-          --color-success-50: #ecfdf5;
-          --color-success-100: #d1fae5;
-          --color-success-200: #a7f3d0;
-          --color-success-300: #6ee7b7;
-          --color-success-400: #34d399;
-          --color-success-500: #10b981;
-          --color-success-600: #059669;
-          --color-success-700: #047857;
-          --color-success-800: #065f46;
-          --color-success-900: #064e3b;
-          --color-success-focus: #059669;
-          --color-success-content: #ffffff;
-
-          /* Warning colors */
-          --color-warning: #f59e0b;
-          --color-warning-50: #fffbeb;
-          --color-warning-100: #fef3c7;
-          --color-warning-200: #fde68a;
-          --color-warning-300: #fcd34d;
-          --color-warning-400: #fbbf24;
-          --color-warning-500: #f59e0b;
-          --color-warning-600: #d97706;
-          --color-warning-700: #b45309;
-          --color-warning-800: #92400e;
-          --color-warning-900: #78350f;
-          --color-warning-focus: #d97706;
-          --color-warning-content: #ffffff;
-
-          /* Error colors */
-          --color-error: #ef4444;
-          --color-error-50: #fef2f2;
-          --color-error-100: #fee2e2;
-          --color-error-200: #fecaca;
-          --color-error-300: #fca5a5;
-          --color-error-400: #f87171;
-          --color-error-500: #ef4444;
-          --color-error-600: #dc2626;
-          --color-error-700: #b91c1c;
-          --color-error-800: #991b1b;
-          --color-error-900: #7f1d1d;
-          --color-error-focus: #dc2626;
-          --color-error-content: #ffffff;
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      * { font-family: "Inter", sans-serif; }
+      ::-webkit-scrollbar { width: 0px; height: 0px; background: transparent; display: none; }
+      html, body { overflow: hidden; position: relative; height: 100%; margin: 0; padding: 0; -ms-overflow-style: none; scrollbar-width: none; }
+      main { -ms-overflow-style: none; scrollbar-width: none; overflow-y: auto; overflow-x: hidden; }
+      main::-webkit-scrollbar { display: none; width: 0; height: 0; }
+      .screen { width: 100%; height: 100%; display: none; overflow: hidden; }
+      .screen.active { display: flex; flex-direction: column; overflow: hidden; }
+    </style>
+    <style>
+      .highlighted-section { outline: 2px solid #3F20FB; background-color: rgba(63, 32, 251, 0.1); }
+      .edit-button { position: absolute; z-index: 1000; }
+    </style>
+    <style>
+      :root { /* ... color variables ... */ }
+    </style>
+    <style>
+      .dark { /* ... dark theme color variables ... */ }
+    </style>
+    <script>
+      tailwind.config = { /* ... tailwind config ... */ };
+    </script>
+  </head>
+  <body class="h-full text-base-content">
+    <section id="active-workout-screen" class="min-h-screen bg-[#121721] flex flex-col text-white">
+      <!-- Top Bar -->
+      <div id="workout-header" class="px-6 pt-12 pb-4 flex justify-between items-center">
+        <button id="back-button" class="w-10 h-10 rounded-full bg-[#1E2430] flex items-center justify-center">
+          <i class="fa-solid fa-chevron-left text-white"></i>
+        </button>
+        <h1 class="text-lg font-bold">Upper Body Strength</h1>
+        <button id="menu-button" class="w-10 h-10 rounded-full bg-[#1E2430] flex items-center justify-center">
+          <i class="fa-solid fa-ellipsis-vertical text-white"></i>
+        </button>
+      </div>
+      <!-- Progress Bar -->
+      <div id="workout-progress" class="px-6 pb-4">
+        <div class="flex justify-between text-sm mb-2">
+          <span class="text-gray-400">4/12 exercises</span>
+          <span class="text-[#25E598] font-medium">33% complete</span>
+        </div>
+        <div class="h-2 w-full bg-[#1E2430] rounded-full">
+          <div class="h-full w-1/3 bg-[#25E598] rounded-full"></div>
+        </div>
+      </div>
+      <!-- Current Exercise Video -->
+      <div id="exercise-video-container" class="px-6 mb-6">
+        <div class="relative rounded-xl overflow-hidden">
+          <div class="aspect-square bg-[#1A1F2C] rounded-xl relative flex items-center justify-center">
+            <img class="absolute inset-0 w-full h-full object-cover rounded-xl" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e79b7a9a43-880380c62c28d7ae0e75.png" alt="fitness model female doing bicep curls with dumbbells, professional studio lighting, dark background, high quality photograph" />
+            <!-- Video Controls Overlay -->
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+              <div class="flex justify-between items-center">
+                <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <i class="fa-solid fa-volume-high text-white"></i>
+                </button>
+                <button class="w-12 h-12 rounded-full bg-[#6191FF] flex items-center justify-center">
+                  <i class="fa-solid fa-pause text-white text-lg"></i>
+                </button>
+                <button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <i class="fa-solid fa-expand text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Current Exercise Info -->
+      <div id="current-exercise-info" class="px-6 mb-6">
+        <div class="bg-[#1E2430] rounded-xl p-5">
+          <div class="flex justify-between items-center mb-3">
+            <h2 class="text-xl font-bold">Dumbbell Bicep Curls</h2>
+            <span class="text-[#25E598] font-bold text-2xl">00:45</span>
+          </div>
+          <div class="flex space-x-3 mb-4">
+            <div class="bg-[#121721] px-3 py-2 rounded-lg">
+              <div class="flex items-center">
+                <i class="fa-solid fa-dumbbell text-[#6191FF] mr-2"></i>
+                <span class="text-sm">15 lbs</span>
+              </div>
+            </div>
+            <div class="bg-[#121721] px-3 py-2 rounded-lg">
+              <div class="flex items-center">
+                <i class="fa-solid fa-repeat text-[#6191FF] mr-2"></i>
+                <span class="text-sm">12 reps</span>
+              </div>
+            </div>
+            <div class="bg-[#121721] px-3 py-2 rounded-lg">
+              <div class="flex items-center">
+                <i class="fa-solid fa-layer-group text-[#6191FF] mr-2"></i>
+                <span class="text-sm">3 sets</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm">Keep your back straight and elbows close to your body. Breathe out as you curl up and breathe in as you lower.</p>
+        </div>
+      </div>
+      <!-- Exercise Controls -->
+      <div id="exercise-controls" class="px-6 mb-4">
+        <div class="flex justify-between">
+          <button class="w-[48%] py-3 bg-[#1E2430] rounded-xl flex items-center justify-center">
+            <i class="fa-solid fa-rotate-left text-white mr-2"></i>
+            <span>Repeat</span>
+          </button>
+          <button class="w-[48%] py-3 bg-[#6191FF] rounded-xl flex items-center justify-center">
+            <span>Complete</span>
+            <i class="fa-solid fa-check text-white ml-2"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Next Exercise Preview -->
+      <div id="next-exercise-preview" class="mt-auto px-6 pb-8">
+        <h3 class="text-gray-400 mb-3">Up Next</h3>
+        <div class="bg-[#1E2430] rounded-xl p-4 flex items-center">
+          <div class="w-16 h-16 rounded-lg bg-[#121721] mr-4 overflow-hidden">
+            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ff4e518e01-913605734d1c41133a82.png" alt="fitness model female doing hammer curls with dumbbells, professional studio lighting, dark background, high quality photograph" />
+          </div>
+          <div class="flex-1">
+            <h4 class="font-bold">Hammer Curls</h4>
+            <div class="flex space-x-2 mt-1">
+              <span class="text-xs bg-[#121721] px-2 py-1 rounded-md text-gray-400">15 lbs</span>
+              <span class="text-xs bg-[#121721] px-2 py-1 rounded-md text-gray-400">12 reps</span>
+              <span class="text-xs bg-[#121721] px-2 py-1 rounded-md text-gray-400">3 sets</span>
+            </div>
+          </div>
+          <div class="ml-2">
+            <i class="fa-solid fa-chevron-right text-gray-500"></i>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Navigation -->
+      <div id="bottom-navigation" class="bg-[#1A1F2C] py-4 px-6 flex justify-between items-center">
+        <a href="Dashboard.html" class="flex flex-col items-center cursor-pointer">
+          <i class="fa-solid fa-house text-gray-500"></i>
+          <span class="text-xs text-gray-500 mt-1">Home</span>
+        </a>
+        <a href="WorkoutDetails.html" class="flex flex-col items-center cursor-pointer">
+          <i class="fa-solid fa-dumbbell text-[#6191FF]"></i>
+          <span class="text-xs text-[#6191FF] mt-1">Workouts</span>
+        </a>
+        <a href="Nutrition.html" class="flex flex-col items-center cursor-pointer">
+          <i class="fa-solid fa-utensils text-gray-500"></i>
+          <span class="text-xs text-gray-500 mt-1">Nutrition</span>
+        </a>
+        <a href="Progress.html" class="flex flex-col items-center cursor-pointer">
+          <i class="fa-solid fa-chart-line text-gray-500"></i>
+          <span class="text-xs text-gray-500 mt-1">Progress</span>
+        </a>
+        <a href="Community.html" class="flex flex-col items-center cursor-pointer">
+          <i class="fa-solid fa-users text-gray-500"></i>
+          <span class="text-xs text-gray-500 mt-1">Community</span>
+        </a>
+      </div>
+    </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Timer functionality
+        let timerElement = document.querySelector("#current-exercise-info .text-[#25E598]");
+        let timerSeconds = 45; // 45 seconds countdown
+        let timerInterval;
+        // Pause/Play button functionality
+        const playPauseButton = document.querySelector("#exercise-video-container .fa-pause").parentElement;
+        let isPaused = false;
+        playPauseButton.addEventListener('click', function() {
+          isPaused = !isPaused;
+          const icon = this.querySelector('i');
+          if (isPaused) {
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+            clearInterval(timerInterval);
+          } else {
+            icon.classList.remove('fa-play');
+            icon.classList.add('fa-pause');
+            startTimer();
+          }
+          // Add a slight scale animation on click
+          this.classList.add('scale-95');
+          setTimeout(() => {
+            this.classList.remove('scale-95');
+          }, 150);
+        });
+        // Exercise completion button
+        const completeButton = document.querySelector("#exercise-controls button:last-child");
+        completeButton.addEventListener('click', function() {
+          this.classList.add('scale-95');
+          setTimeout(() => {
+            this.classList.remove('scale-95');
+            // In a real app, this would navigate to the next exercise
+            alert("Exercise completed! Moving to Hammer Curls...");
+          }, 150);
+        });
+        // Start the timer
+        function startTimer() {
+          timerInterval = setInterval(function() {
+            timerSeconds--;
+            if (timerSeconds <= 0) {
+              clearInterval(timerInterval);
+              // In a real app, this would trigger the completion of the exercise
+              completeButton.click();
+              return;
+            }
+            // Format the time as MM:SS
+            const minutes = Math.floor(timerSeconds / 60);
+            const seconds = timerSeconds % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+          }, 1000);
         }
-</style>
-
-    
-<style>
-/* Dark theme */
-        .dark {
-          /* Base colors */
-          --color-base: #1f2937;
-          --color-base-50: #111827;
-          --color-base-100: #1f2937;
-          --color-base-200: #374151;
-          --color-base-300: #4b5563;
-          --color-base-400: #6b7280;
-          --color-base-500: #9ca3af;
-          --color-base-600: #d1d5db;
-          --color-base-700: #e5e7eb;
-          --color-base-800: #f3f4f6;
-          --color-base-900: #f9fafb;
-          --color-base-content: #f9fafb;
-
-          /* Primary colors */
-          --color-primary: #60a5fa;
-          --color-primary-50: #1e3a8a;
-          --color-primary-100: #1e40af;
-          --color-primary-200: #1d4ed8;
-          --color-primary-300: #2563eb;
-          --color-primary-400: #3b82f6;
-          --color-primary-500: #60a5fa;
-          --color-primary-600: #93c5fd;
-          --color-primary-700: #bfdbfe;
-          --color-primary-800: #dbeafe;
-          --color-primary-900: #eff6ff;
-          --color-primary-focus: #3b82f6;
-          --color-primary-content: #1f2937;
-
-          /* Secondary colors */
-          --color-secondary: #a78bfa;
-          --color-secondary-50: #4c1d95;
-          --color-secondary-100: #5b21b6;
-          --color-secondary-200: #6d28d9;
-          --color-secondary-300: #7c3aed;
-          --color-secondary-400: #8b5cf6;
-          --color-secondary-500: #a78bfa;
-          --color-secondary-600: #c4b5fd;
-          --color-secondary-700: #ddd6fe;
-          --color-secondary-800: #ede9fe;
-          --color-secondary-900: #f5f3ff;
-          --color-secondary-focus: #8b5cf6;
-          --color-secondary-content: #1f2937;
-
-          /* Accent colors */
-          --color-accent: #f472b6;
-          --color-accent-50: #831843;
-          --color-accent-100: #9d174d;
-          --color-accent-200: #be185d;
-          --color-accent-300: #db2777;
-          --color-accent-400: #ec4899;
-          --color-accent-500: #f472b6;
-          --color-accent-600: #f9a8d4;
-          --color-accent-700: #fbcfe8;
-          --color-accent-800: #fce7f3;
-          --color-accent-900: #fdf2f8;
-          --color-accent-focus: #ec4899;
-          --color-accent-content: #1f2937;
-
-          /* Neutral colors remain the same as light theme */
-
-          /* Info colors */
-          --color-info: #60a5fa;
-          --color-info-50: #1e3a8a;
-          --color-info-100: #1e40af;
-          --color-info-200: #1d4ed8;
-          --color-info-300: #2563eb;
-          --color-info-400: #3b82f6;
-          --color-info-500: #60a5fa;
-          --color-info-600: #93c5fd;
-          --color-info-700: #bfdbfe;
-          --color-info-800: #dbeafe;
-          --color-info-900: #eff6ff;
-          --color-info-focus: #3b82f6;
-          --color-info-content: #1f2937;
-
-          /* Success colors */
-          --color-success: #34d399;
-          --color-success-50: #064e3b;
-          --color-success-100: #065f46;
-          --color-success-200: #047857;
-          --color-success-300: #059669;
-          --color-success-400: #10b981;
-          --color-success-500: #34d399;
-          --color-success-600: #6ee7b7;
-          --color-success-700: #a7f3d0;
-          --color-success-800: #d1fae5;
-          --color-success-900: #ecfdf5;
-          --color-success-focus: #10b981;
-          --color-success-content: #1f2937;
-
-          /* Warning colors */
-          --color-warning: #fbbf24;
-          --color-warning-50: #78350f;
-          --color-warning-100: #92400e;
-          --color-warning-200: #b45309;
-          --color-warning-300: #d97706;
-          --color-warning-400: #f59e0b;
-          --color-warning-500: #fbbf24;
-          --color-warning-600: #fcd34d;
-          --color-warning-700: #fde68a;
-          --color-warning-800: #fef3c7;
-          --color-warning-900: #fffbeb;
-          --color-warning-focus: #f59e0b;
-          --color-warning-content: #1f2937;
-
-          /* Error colors */
-          --color-error: #f87171;
-          --color-error-50: #7f1d1d;
-          --color-error-100: #991b1b;
-          --color-error-200: #b91c1c;
-          --color-error-300: #dc2626;
-          --color-error-400: #ef4444;
-          --color-error-500: #f87171;
-          --color-error-600: #fca5a5;
-          --color-error-700: #fecaca;
-          --color-error-800: #fee2e2;
-          --color-error-900: #fef2f2;
-          --color-error-focus: #ef4444;
-          --color-error-content: #1f2937;
-        }
-</style>
-
-    
-  <script>
-        tailwind.config = {
-            theme: {
-              extend: {
-                colors: {
-                ...{&quot;transparent&quot;:&quot;transparent&quot;,&quot;current&quot;:&quot;currentColor&quot;,&quot;black&quot;:&quot;#000000&quot;,&quot;white&quot;:&quot;#ffffff&quot;,&quot;gray&quot;:{&quot;50&quot;:&quot;#f9fafb&quot;,&quot;100&quot;:&quot;#f3f4f6&quot;,&quot;200&quot;:&quot;#e5e7eb&quot;,&quot;300&quot;:&quot;#d1d5db&quot;,&quot;400&quot;:&quot;#9ca3af&quot;,&quot;500&quot;:&quot;#6b7280&quot;,&quot;600&quot;:&quot;#4b5563&quot;,&quot;700&quot;:&quot;#374151&quot;,&quot;800&quot;:&quot;#1f2937&quot;,&quot;900&quot;:&quot;#111827&quot;},&quot;red&quot;:{&quot;50&quot;:&quot;#fef2f2&quot;,&quot;100&quot;:&quot;#fee2e2&quot;,&quot;200&quot;:&quot;#fecaca&quot;,&quot;300&quot;:&quot;#fca5a5&quot;,&quot;400&quot;:&quot;#f87171&quot;,&quot;500&quot;:&quot;#ef4444&quot;,&quot;600&quot;:&quot;#dc2626&quot;,&quot;700&quot;:&quot;#b91c1c&quot;,&quot;800&quot;:&quot;#991b1b&quot;,&quot;900&quot;:&quot;#7f1d1d&quot;},&quot;yellow&quot;:{&quot;50&quot;:&quot;#fffbeb&quot;,&quot;100&quot;:&quot;#fef3c7&quot;,&quot;200&quot;:&quot;#fde68a&quot;,&quot;300&quot;:&quot;#fcd34d&quot;,&quot;400&quot;:&quot;#fbbf24&quot;,&quot;500&quot;:&quot;#f59e0b&quot;,&quot;600&quot;:&quot;#d97706&quot;,&quot;700&quot;:&quot;#b45309&quot;,&quot;800&quot;:&quot;#92400e&quot;,&quot;900&quot;:&quot;#78350f&quot;},&quot;green&quot;:{&quot;50&quot;:&quot;#ecfdf5&quot;,&quot;100&quot;:&quot;#d1fae5&quot;,&quot;200&quot;:&quot;#a7f3d0&quot;,&quot;300&quot;:&quot;#6ee7b7&quot;,&quot;400&quot;:&quot;#34d399&quot;,&quot;500&quot;:&quot;#10b981&quot;,&quot;600&quot;:&quot;#059669&quot;,&quot;700&quot;:&quot;#047857&quot;,&quot;800&quot;:&quot;#065f46&quot;,&quot;900&quot;:&quot;#064e3b&quot;},&quot;blue&quot;:{&quot;50&quot;:&quot;#eff6ff&quot;,&quot;100&quot;:&quot;#dbeafe&quot;,&quot;200&quot;:&quot;#bfdbfe&quot;,&quot;300&quot;:&quot;#93c5fd&quot;,&quot;400&quot;:&quot;#60a5fa&quot;,&quot;500&quot;:&quot;#3b82f6&quot;,&quot;600&quot;:&quot;#2563eb&quot;,&quot;700&quot;:&quot;#1d4ed8&quot;,&quot;800&quot;:&quot;#1e40af&quot;,&quot;900&quot;:&quot;#1e3a8a&quot;},&quot;indigo&quot;:{&quot;50&quot;:&quot;#eef2ff&quot;,&quot;100&quot;:&quot;#e0e7ff&quot;,&quot;200&quot;:&quot;#c7d2fe&quot;,&quot;300&quot;:&quot;#a5b4fc&quot;,&quot;400&quot;:&quot;#818cf8&quot;,&quot;500&quot;:&quot;#6366f1&quot;,&quot;600&quot;:&quot;#4f46e5&quot;,&quot;700&quot;:&quot;#4338ca&quot;,&quot;800&quot;:&quot;#3730a3&quot;,&quot;900&quot;:&quot;#312e81&quot;},&quot;purple&quot;:{&quot;50&quot;:&quot;#f5f3ff&quot;,&quot;100&quot;:&quot;#ede9fe&quot;,&quot;200&quot;:&quot;#ddd6fe&quot;,&quot;300&quot;:&quot;#c4b5fd&quot;,&quot;400&quot;:&quot;#a78bfa&quot;,&quot;500&quot;:&quot;#8b5cf6&quot;,&quot;600&quot;:&quot;#7c3aed&quot;,&quot;700&quot;:&quot;#6d28d9&quot;,&quot;800&quot;:&quot;#5b21b6&quot;,&quot;900&quot;:&quot;#4c1d95&quot;},&quot;pink&quot;:{&quot;50&quot;:&quot;#fdf2f8&quot;,&quot;100&quot;:&quot;#fce7f3&quot;,&quot;200&quot;:&quot;#fbcfe8&quot;,&quot;300&quot;:&quot;#f9a8d4&quot;,&quot;400&quot;:&quot;#f472b6&quot;,&quot;500&quot;:&quot;#ec4899&quot;,&quot;600&quot;:&quot;#db2777&quot;,&quot;700&quot;:&quot;#be185d&quot;,&quot;800&quot;:&quot;#9d174d&quot;,&quot;900&quot;:&quot;#831843&quot;}},
-                ...{&quot;primary&quot;:{&quot;50&quot;:&quot;var(--color-primary-50)&quot;,&quot;100&quot;:&quot;var(--color-primary-100)&quot;,&quot;200&quot;:&quot;var(--color-primary-200)&quot;,&quot;300&quot;:&quot;var(--color-primary-300)&quot;,&quot;400&quot;:&quot;var(--color-primary-400)&quot;,&quot;500&quot;:&quot;var(--color-primary-500)&quot;,&quot;600&quot;:&quot;var(--color-primary-600)&quot;,&quot;700&quot;:&quot;var(--color-primary-700)&quot;,&quot;800&quot;:&quot;var(--color-primary-800)&quot;,&quot;900&quot;:&quot;var(--color-primary-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-primary)&quot;,&quot;focus&quot;:&quot;var(--color-primary-focus)&quot;,&quot;content&quot;:&quot;var(--color-primary-content)&quot;},&quot;secondary&quot;:{&quot;50&quot;:&quot;var(--color-secondary-50)&quot;,&quot;100&quot;:&quot;var(--color-secondary-100)&quot;,&quot;200&quot;:&quot;var(--color-secondary-200)&quot;,&quot;300&quot;:&quot;var(--color-secondary-300)&quot;,&quot;400&quot;:&quot;var(--color-secondary-400)&quot;,&quot;500&quot;:&quot;var(--color-secondary-500)&quot;,&quot;600&quot;:&quot;var(--color-secondary-600)&quot;,&quot;700&quot;:&quot;var(--color-secondary-700)&quot;,&quot;800&quot;:&quot;var(--color-secondary-800)&quot;,&quot;900&quot;:&quot;var(--color-secondary-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-secondary)&quot;,&quot;focus&quot;:&quot;var(--color-secondary-focus)&quot;,&quot;content&quot;:&quot;var(--color-secondary-content)&quot;},&quot;accent&quot;:{&quot;50&quot;:&quot;var(--color-accent-50)&quot;,&quot;100&quot;:&quot;var(--color-accent-100)&quot;,&quot;200&quot;:&quot;var(--color-accent-200)&quot;,&quot;300&quot;:&quot;var(--color-accent-300)&quot;,&quot;400&quot;:&quot;var(--color-accent-400)&quot;,&quot;500&quot;:&quot;var(--color-accent-500)&quot;,&quot;600&quot;:&quot;var(--color-accent-600)&quot;,&quot;700&quot;:&quot;var(--color-accent-700)&quot;,&quot;800&quot;:&quot;var(--color-accent-800)&quot;,&quot;900&quot;:&quot;var(--color-accent-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-accent)&quot;,&quot;focus&quot;:&quot;var(--color-accent-focus)&quot;,&quot;content&quot;:&quot;var(--color-accent-content)&quot;},&quot;neutral&quot;:{&quot;50&quot;:&quot;var(--color-neutral-50)&quot;,&quot;100&quot;:&quot;var(--color-neutral-100)&quot;,&quot;200&quot;:&quot;var(--color-neutral-200)&quot;,&quot;300&quot;:&quot;var(--color-neutral-300)&quot;,&quot;400&quot;:&quot;var(--color-neutral-400)&quot;,&quot;500&quot;:&quot;var(--color-neutral-500)&quot;,&quot;600&quot;:&quot;var(--color-neutral-600)&quot;,&quot;700&quot;:&quot;var(--color-neutral-700)&quot;,&quot;800&quot;:&quot;var(--color-neutral-800)&quot;,&quot;900&quot;:&quot;var(--color-neutral-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-neutral)&quot;,&quot;focus&quot;:&quot;var(--color-neutral-focus)&quot;,&quot;content&quot;:&quot;var(--color-neutral-content)&quot;},&quot;info&quot;:{&quot;50&quot;:&quot;var(--color-info-50)&quot;,&quot;100&quot;:&quot;var(--color-info-100)&quot;,&quot;200&quot;:&quot;var(--color-info-200)&quot;,&quot;300&quot;:&quot;var(--color-info-300)&quot;,&quot;400&quot;:&quot;var(--color-info-400)&quot;,&quot;500&quot;:&quot;var(--color-info-500)&quot;,&quot;600&quot;:&quot;var(--color-info-600)&quot;,&quot;700&quot;:&quot;var(--color-info-700)&quot;,&quot;800&quot;:&quot;var(--color-info-800)&quot;,&quot;900&quot;:&quot;var(--color-info-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-info)&quot;,&quot;focus&quot;:&quot;var(--color-info-focus)&quot;,&quot;content&quot;:&quot;var(--color-info-content)&quot;},&quot;success&quot;:{&quot;50&quot;:&quot;var(--color-success-50)&quot;,&quot;100&quot;:&quot;var(--color-success-100)&quot;,&quot;200&quot;:&quot;var(--color-success-200)&quot;,&quot;300&quot;:&quot;var(--color-success-300)&quot;,&quot;400&quot;:&quot;var(--color-success-400)&quot;,&quot;500&quot;:&quot;var(--color-success-500)&quot;,&quot;600&quot;:&quot;var(--color-success-600)&quot;,&quot;700&quot;:&quot;var(--color-success-700)&quot;,&quot;800&quot;:&quot;var(--color-success-800)&quot;,&quot;900&quot;:&quot;var(--color-success-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-success)&quot;,&quot;focus&quot;:&quot;var(--color-success-focus)&quot;,&quot;content&quot;:&quot;var(--color-success-content)&quot;},&quot;warning&quot;:{&quot;50&quot;:&quot;var(--color-warning-50)&quot;,&quot;100&quot;:&quot;var(--color-warning-100)&quot;,&quot;200&quot;:&quot;var(--color-warning-200)&quot;,&quot;300&quot;:&quot;var(--color-warning-300)&quot;,&quot;400&quot;:&quot;var(--color-warning-400)&quot;,&quot;500&quot;:&quot;var(--color-warning-500)&quot;,&quot;600&quot;:&quot;var(--color-warning-600)&quot;,&quot;700&quot;:&quot;var(--color-warning-700)&quot;,&quot;800&quot;:&quot;var(--color-warning-800)&quot;,&quot;900&quot;:&quot;var(--color-warning-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-warning)&quot;,&quot;focus&quot;:&quot;var(--color-warning-focus)&quot;,&quot;content&quot;:&quot;var(--color-warning-content)&quot;},&quot;error&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;},&quot;danger&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;},&quot;failure&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;}},
-                },
-              },
-            },
-            variants: {
-              extend: {
-                backgroundColor: ['active', 'group-hover'],
-                textColor: ['active', 'group-hover'],
-              },
-            },
-            plugins: [],
-          };
-  </script>
-
-</head>
-
-              <body class=&quot;h-full text-base-content&quot;>
-                <section id=&quot;active-workout-screen&quot; class=&quot;min-h-screen bg-[#121721] flex flex-col text-white&quot;>
-  <!-- Top Bar -->
-  <div id=&quot;workout-header&quot; class=&quot;px-6 pt-12 pb-4 flex justify-between items-center&quot;>
-    <button id=&quot;back-button&quot; class=&quot;w-10 h-10 rounded-full bg-[#1E2430] flex items-center justify-center&quot;>
-      <i class=&quot;fa-solid fa-chevron-left text-white&quot;></i>
-    </button>
-    <h1 class=&quot;text-lg font-bold&quot;>Upper Body Strength</h1>
-    <button id=&quot;menu-button&quot; class=&quot;w-10 h-10 rounded-full bg-[#1E2430] flex items-center justify-center&quot;>
-      <i class=&quot;fa-solid fa-ellipsis-vertical text-white&quot;></i>
-    </button>
-  </div>
-
-  <!-- Progress Bar -->
-  <div id=&quot;workout-progress&quot; class=&quot;px-6 pb-4&quot;>
-    <div class=&quot;flex justify-between text-sm mb-2&quot;>
-      <span class=&quot;text-gray-400&quot;>4/12 exercises</span>
-      <span class=&quot;text-[#25E598] font-medium&quot;>33% complete</span>
-    </div>
-    <div class=&quot;h-2 w-full bg-[#1E2430] rounded-full&quot;>
-      <div class=&quot;h-full w-1/3 bg-[#25E598] rounded-full&quot;></div>
-    </div>
-  </div>
-
-  <!-- Current Exercise Video -->
-  <div id=&quot;exercise-video-container&quot; class=&quot;px-6 mb-6&quot;>
-    <div class=&quot;relative rounded-xl overflow-hidden&quot;>
-      <div class=&quot;aspect-square bg-[#1A1F2C] rounded-xl relative flex items-center justify-center&quot;>
-        <img class=&quot;absolute inset-0 w-full h-full object-cover rounded-xl&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/e79b7a9a43-880380c62c28d7ae0e75.png&quot; alt=&quot;fitness model female doing bicep curls with dumbbells, professional studio lighting, dark background, high quality photograph&quot; />
-        
-        <!-- Video Controls Overlay -->
-        <div class=&quot;absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent&quot;>
-          <div class=&quot;flex justify-between items-center&quot;>
-            <button class=&quot;w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center&quot;>
-              <i class=&quot;fa-solid fa-volume-high text-white&quot;></i>
-            </button>
-            <button class=&quot;w-12 h-12 rounded-full bg-[#6191FF] flex items-center justify-center&quot;>
-              <i class=&quot;fa-solid fa-pause text-white text-lg&quot;></i>
-            </button>
-            <button class=&quot;w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center&quot;>
-              <i class=&quot;fa-solid fa-expand text-white&quot;></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Current Exercise Info -->
-  <div id=&quot;current-exercise-info&quot; class=&quot;px-6 mb-6&quot;>
-    <div class=&quot;bg-[#1E2430] rounded-xl p-5&quot;>
-      <div class=&quot;flex justify-between items-center mb-3&quot;>
-        <h2 class=&quot;text-xl font-bold&quot;>Dumbbell Bicep Curls</h2>
-        <span class=&quot;text-[#25E598] font-bold text-2xl&quot;>00:45</span>
-      </div>
-      
-      <div class=&quot;flex space-x-3 mb-4&quot;>
-        <div class=&quot;bg-[#121721] px-3 py-2 rounded-lg&quot;>
-          <div class=&quot;flex items-center&quot;>
-            <i class=&quot;fa-solid fa-dumbbell text-[#6191FF] mr-2&quot;></i>
-            <span class=&quot;text-sm&quot;>15 lbs</span>
-          </div>
-        </div>
-        <div class=&quot;bg-[#121721] px-3 py-2 rounded-lg&quot;>
-          <div class=&quot;flex items-center&quot;>
-            <i class=&quot;fa-solid fa-repeat text-[#6191FF] mr-2&quot;></i>
-            <span class=&quot;text-sm&quot;>12 reps</span>
-          </div>
-        </div>
-        <div class=&quot;bg-[#121721] px-3 py-2 rounded-lg&quot;>
-          <div class=&quot;flex items-center&quot;>
-            <i class=&quot;fa-solid fa-layer-group text-[#6191FF] mr-2&quot;></i>
-            <span class=&quot;text-sm&quot;>3 sets</span>
-          </div>
-        </div>
-      </div>
-      
-      <p class=&quot;text-gray-400 text-sm&quot;>Keep your back straight and elbows close to your body. Breathe out as you curl up and breathe in as you lower.</p>
-    </div>
-  </div>
-
-  <!-- Exercise Controls -->
-  <div id=&quot;exercise-controls&quot; class=&quot;px-6 mb-4&quot;>
-    <div class=&quot;flex justify-between&quot;>
-      <button class=&quot;w-[48%] py-3 bg-[#1E2430] rounded-xl flex items-center justify-center&quot;>
-        <i class=&quot;fa-solid fa-rotate-left text-white mr-2&quot;></i>
-        <span>Repeat</span>
-      </button>
-      <button class=&quot;w-[48%] py-3 bg-[#6191FF] rounded-xl flex items-center justify-center&quot;>
-        <span>Complete</span>
-        <i class=&quot;fa-solid fa-check text-white ml-2&quot;></i>
-      </button>
-    </div>
-  </div>
-
-  <!-- Next Exercise Preview -->
-  <div id=&quot;next-exercise-preview&quot; class=&quot;mt-auto px-6 pb-8&quot;>
-    <h3 class=&quot;text-gray-400 mb-3&quot;>Up Next</h3>
-    <div class=&quot;bg-[#1E2430] rounded-xl p-4 flex items-center&quot;>
-      <div class=&quot;w-16 h-16 rounded-lg bg-[#121721] mr-4 overflow-hidden&quot;>
-        <img class=&quot;w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/ff4e518e01-913605734d1c41133a82.png&quot; alt=&quot;fitness model female doing hammer curls with dumbbells, professional studio lighting, dark background, high quality photograph&quot; />
-      </div>
-      <div class=&quot;flex-1&quot;>
-        <h4 class=&quot;font-bold&quot;>Hammer Curls</h4>
-        <div class=&quot;flex space-x-2 mt-1&quot;>
-          <span class=&quot;text-xs bg-[#121721] px-2 py-1 rounded-md text-gray-400&quot;>15 lbs</span>
-          <span class=&quot;text-xs bg-[#121721] px-2 py-1 rounded-md text-gray-400&quot;>12 reps</span>
-          <span class=&quot;text-xs bg-[#121721] px-2 py-1 rounded-md text-gray-400&quot;>3 sets</span>
-        </div>
-      </div>
-      <div class=&quot;ml-2&quot;>
-        <i class=&quot;fa-solid fa-chevron-right text-gray-500&quot;></i>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bottom Navigation -->
-  <div id=&quot;bottom-navigation&quot; class=&quot;bg-[#1A1F2C] py-4 px-6 flex justify-between items-center&quot;>
-    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-      <i class=&quot;fa-solid fa-house text-gray-500&quot;></i>
-      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Home</span>
-    </span>
-    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-      <i class=&quot;fa-solid fa-dumbbell text-[#6191FF]&quot;></i>
-      <span class=&quot;text-xs text-[#6191FF] mt-1&quot;>Workouts</span>
-    </span>
-    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-      <i class=&quot;fa-solid fa-utensils text-gray-500&quot;></i>
-      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Nutrition</span>
-    </span>
-    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-      <i class=&quot;fa-solid fa-chart-line text-gray-500&quot;></i>
-      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Progress</span>
-    </span>
-    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-      <i class=&quot;fa-solid fa-users text-gray-500&quot;></i>
-      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Community</span>
-    </span>
-  </div>
-</section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Timer functionality
-    let timerElement = document.querySelector(&quot;#current-exercise-info .text-[#25E598]&quot;);
-    let timerSeconds = 45; // 45 seconds countdown
-    let timerInterval;
-    
-    // Pause/Play button functionality
-    const playPauseButton = document.querySelector(&quot;#exercise-video-container .fa-pause&quot;).parentElement;
-    let isPaused = false;
-    
-    playPauseButton.addEventListener('click', function() {
-      isPaused = !isPaused;
-      const icon = this.querySelector('i');
-      
-      if (isPaused) {
-        icon.classList.remove('fa-pause');
-        icon.classList.add('fa-play');
-        clearInterval(timerInterval);
-      } else {
-        icon.classList.remove('fa-play');
-        icon.classList.add('fa-pause');
+        // Initialize the timer
         startTimer();
-      }
-      
-      // Add a slight scale animation on click
-      this.classList.add('scale-95');
-      setTimeout(() => {
-        this.classList.remove('scale-95');
-      }, 150);
-    });
-    
-    // Exercise completion button
-    const completeButton = document.querySelector(&quot;#exercise-controls button:last-child&quot;);
-    completeButton.addEventListener('click', function() {
-      this.classList.add('scale-95');
-      setTimeout(() => {
-        this.classList.remove('scale-95');
-        // In a real app, this would navigate to the next exercise
-        alert(&quot;Exercise completed! Moving to Hammer Curls...&quot;);
-      }, 150);
-    });
-    
-    // Start the timer
-    function startTimer() {
-      timerInterval = setInterval(function() {
-        timerSeconds--;
-        
-        if (timerSeconds <= 0) {
-          clearInterval(timerInterval);
-          // In a real app, this would trigger the completion of the exercise
-          completeButton.click();
-          return;
-        }
-        
-        // Format the time as MM:SS
-        const minutes = Math.floor(timerSeconds / 60);
-        const seconds = timerSeconds % 60;
-        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-      }, 1000);
-    }
-    
-    // Initialize the timer
-    startTimer();
-    
-    // Back button functionality
-    document.getElementById('back-button').addEventListener('click', function() {
-      this.classList.add('scale-95');
-      setTimeout(() => {
-        this.classList.remove('scale-95');
-        // In a real app, this would navigate back
-        alert(&quot;Returning to workout overview&quot;);
-      }, 150);
-    });
-  });
-</script>
-              </body>
-            </html>
-          " frameborder="0" class="w-full h-max overflow-visible border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 1068px; min-height: 844px;"></iframe>
+        // Back button functionality
+        document.getElementById('back-button').addEventListener('click', function() {
+          this.classList.add('scale-95');
+          setTimeout(() => {
+            this.classList.remove('scale-95');
+            // In a real app, this would navigate back
+            alert("Returning to workout overview");
+          }, 150);
+        });
+      });
+    </script>
+  </body>
+</html>
