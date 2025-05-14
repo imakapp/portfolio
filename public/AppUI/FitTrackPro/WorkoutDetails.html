@@ -36,6 +36,18 @@
   main {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    overflow-y: auto;
+  }
+  
+  .screen {
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  
+  .screen.active {
+    display: flex;
+    flex-direction: column;
   }
 </style>
 
@@ -342,20 +354,21 @@
 </head>
 
               <body class=&quot;h-full text-base-content&quot;>
-                <div id=&quot;workout-screen&quot; class=&quot;min-h-screen bg-[#121721] text-white flex flex-col&quot;>
+                <div id=&quot;app-container&quot; class=&quot;h-full&quot;>
+                  <div id=&quot;workout-screen&quot; class=&quot;screen active min-h-screen bg-[#121721] text-white flex flex-col&quot;>
   <!-- Top Navigation Bar -->
   <div id=&quot;top-nav&quot; class=&quot;px-6 pt-8 pb-4 flex items-center justify-between bg-[#121721] fixed top-0 left-0 right-0 z-10&quot;>
-    <a href=&quot;Dashboard.html&quot; class=&quot;w-10 h-10 flex items-center justify-center bg-[#1E2532] rounded-full&quot;>
-      <i class=&quot;fa-solid fa-chevron-left&quot;></i>
+    <a href=&quot;#&quot; data-target=&quot;dashboard&quot; class=&quot;nav-link w-10 h-10 flex items-center justify-center bg-[#1E2532] rounded-full&quot;>
+      <i class=&quot;fa-solid fa-chevron-left text-white&quot;></i>
     </a>
-    <h1 class=&quot;font-bold text-lg&quot;>Workout Details</h1>
+    <h1 class=&quot;text-xl font-bold text-white&quot;>Workout Details</h1>
     <button class=&quot;w-10 h-10 flex items-center justify-center bg-[#1E2532] rounded-full&quot;>
-      <i class=&quot;fa-regular fa-bookmark&quot;></i>
+      <i class=&quot;fa-solid fa-bookmark text-white&quot;></i>
     </button>
   </div>
 
   <!-- Main Content -->
-  <main class=&quot;flex-1 pt-28 pb-24 overflow-y-auto h-screen&quot; style=&quot;height: calc(100vh - 136px);&quot;>
+  <main class=&quot;flex-1 pt-28 pb-24 overflow-y-auto&quot; style=&quot;height: calc(100vh - 136px);&quot;>
   <!-- Header -->
   <div id=&quot;header&quot; class=&quot;px-6 pt-12 pb-4&quot;>
     <div class=&quot;flex items-center justify-between&quot;>
@@ -540,7 +553,7 @@
       <button class=&quot;flex-1 py-4 rounded-xl bg-[#1E2532] font-semibold&quot;>
         Schedule
       </button>
-      <button class=&quot;flex-[2] py-4 bg-[#6191FF] rounded-xl font-semibold flex items-center justify-center&quot;>
+      <button id=&quot;start-workout-btn&quot; class=&quot;flex-[2] py-4 bg-[#6191FF] rounded-xl font-semibold flex items-center justify-center&quot;>
         <i class=&quot;fa-solid fa-play mr-2&quot;></i>
         Start Workout
       </button>
@@ -550,83 +563,105 @@
   <!-- Bottom Navigation -->
   <nav id=&quot;bottom-nav&quot; class=&quot;fixed bottom-0 left-0 right-0 bg-[#1A1F2B] border-t border-gray-800 px-2 py-2 z-20&quot;>
     <div class=&quot;flex justify-around items-center&quot;>
-      <a href=&quot;Dashboard.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+      <a href=&quot;#&quot; data-target=&quot;dashboard&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-house text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Home</span>
       </a>
       
-      <a href=&quot;WorkoutDetails.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+      <a href=&quot;#&quot; data-target=&quot;workouts&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-dumbbell text-[#6191FF]&quot;></i>
         <span class=&quot;text-xs text-[#6191FF] mt-1 font-medium&quot;>Workouts</span>
       </a>
       
-      <a href=&quot;Nutrition.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+      <a href=&quot;#&quot; data-target=&quot;nutrition&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-utensils text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Nutrition</span>
       </a>
       
-      <a href=&quot;Progress.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+      <a href=&quot;#&quot; data-target=&quot;progress&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-chart-line text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Progress</span>
       </a>
       
-      <a href=&quot;Community.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+      <a href=&quot;#&quot; data-target=&quot;community&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-users text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Community</span>
       </a>
     </div>
   </nav>
 </main>
+              </div>
+            </html>
+          " frameborder="0" class="w-full h-full border-0 rounded-lg" style="width: 390px; height: 844px;"></iframe>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Add ripple effect to start workout button
-    const startWorkoutBtn = document.querySelector('#action-buttons button:last-child');
-    startWorkoutBtn.addEventListener('click', function() {
-      this.classList.add('scale-95');
-      setTimeout(() => {
-        this.classList.remove('scale-95');
+    // Start workout button
+    const startWorkoutBtn = document.getElementById('start-workout-btn');
+    if (startWorkoutBtn) {
+      startWorkoutBtn.addEventListener('click', function() {
         // Navigate to workout session
-        window.location.href = 'WorkoutSession.html';
-      }, 200);
-    });
-    
-    // Exercise video preview interaction
-    const exerciseCards = document.querySelectorAll('#exercises-container > div');
-    exerciseCards.forEach(card => {
-      card.addEventListener('click', function() {
-        this.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-          this.style.transform = 'scale(1)';
-          // Open exercise details (would be implemented in a real app)
-          console.log('Opening exercise details');
-        }, 150);
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({
+            action: 'navigate',
+            target: 'workout-session'
+          }, '*');
+        } else {
+          window.location.href = 'WorkoutSession.html';
+        }
       });
-    });
+    }
     
     // Add tap effect to bottom navigation
-    const navButtons = document.querySelectorAll('#bottom-nav a');
-    navButtons.forEach(button => {
-      button.addEventListener('click', function(e) {
-        // We don't prevent default here to allow actual navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default link behavior
+        
+        // Get the target screen
+        const targetScreen = this.getAttribute('data-target');
+        
+        // Handle navigation in parent window if inside iframe
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({
+            action: 'navigate',
+            target: targetScreen
+          }, '*');
+        } else {
+          // If navigation to another screen, redirect to the appropriate HTML file
+          if (targetScreen === 'dashboard') {
+            window.location.href = 'Dashboard.html';
+          } else if (targetScreen === 'workouts') {
+            // Already on WorkoutDetails screen
+          } else if (targetScreen === 'nutrition') {
+            window.location.href = 'Nutrition.html';
+          } else if (targetScreen === 'progress') {
+            window.location.href = 'Progress.html';
+          } else if (targetScreen === 'community') {
+            window.location.href = 'Community.html';
+          }
+        }
         
         // Reset all buttons to inactive state
-        navButtons.forEach(btn => {
+        const bottomNavLinks = document.querySelectorAll('#bottom-nav .nav-link');
+        bottomNavLinks.forEach(btn => {
           btn.querySelector('i').classList.add('text-gray-500');
           btn.querySelector('i').classList.remove('text-[#6191FF]');
           btn.querySelector('span').classList.add('text-gray-500');
           btn.querySelector('span').classList.remove('text-[#6191FF]', 'font-medium');
         });
         
-        // Set clicked button to active state
-        this.querySelector('i').classList.remove('text-gray-500');
-        this.querySelector('i').classList.add('text-[#6191FF]');
-        this.querySelector('span').classList.remove('text-gray-500');
-        this.querySelector('span').classList.add('text-[#6191FF]', 'font-medium');
+        // Set clicked button to active state if it's in the bottom nav
+        if (this.closest('#bottom-nav')) {
+          this.querySelector('i').classList.remove('text-gray-500');
+          this.querySelector('i').classList.add('text-[#6191FF]');
+          this.querySelector('span').classList.remove('text-gray-500');
+          this.querySelector('span').classList.add('text-[#6191FF]', 'font-medium');
+        }
       });
     });
   });
 </script>
-              </div>
+              </body>
             </html>
-          " frameborder="0" class="w-full h-full border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 844px;"></iframe>
+          " frameborder="0" class="w-full h-full border-0 rounded-lg" style="width: 390px; height: 844px;"></iframe>

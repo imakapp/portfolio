@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitTrackPro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.FontAwesomeConfig = {
+      autoReplaceSvg: 'nest',
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <style>
+    * {
+      font-family: "Inter", sans-serif;
+    }
+    
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: #121721;
+    }
+    
+    .app-container {
+      position: relative;
+      width: 390px;
+      height: 844px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+    
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center h-screen">
+  <div class="app-container">
+    <iframe id="app-frame" src="Splash.html" frameborder="0"></iframe>
+  </div>
+  
+  <script>
+    // Listen for navigation messages from the iframe
+    window.addEventListener('message', function(event) {
+      if (event.data.action === 'navigate') {
+        const target = event.data.target;
+        const frame = document.getElementById('app-frame');
+        
+        // Navigate to the appropriate page
+        if (target === 'dashboard') {
+          frame.src = 'Dashboard.html';
+        } else if (target === 'workouts') {
+          frame.src = 'WorkoutDetails.html';
+        } else if (target === 'nutrition') {
+          frame.src = 'Nutrition.html';
+        } else if (target === 'progress') {
+          frame.src = 'Progress.html';
+        } else if (target === 'community') {
+          frame.src = 'Community.html';
+        } else if (target === 'splash') {
+          frame.src = 'Splash.html';
+        } else if (target === 'workout-session') {
+          frame.src = 'WorkoutSession.html';
+        }
+      }
+    });
+  </script>
+</body>
+</html> 

@@ -36,11 +36,23 @@
   main {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    overflow-y: auto;
   }
   
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  
+  .screen {
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  
+  .screen.active {
+    display: flex;
+    flex-direction: column;
   }
 </style>
 
@@ -347,7 +359,8 @@
 </head>
 
               <body class=&quot;h-full text-base-content&quot;>
-                <div id=&quot;nutrition-screen&quot; class=&quot;min-h-screen bg-[#121721] text-white flex flex-col&quot;>
+                <div id=&quot;app-container&quot; class=&quot;h-full&quot;>
+                  <div id=&quot;nutrition-screen&quot; class=&quot;screen active min-h-screen bg-[#121721] text-white flex flex-col&quot;>
   <!-- Status Bar -->
   <div id=&quot;status-bar&quot; class=&quot;flex justify-between items-center px-4 pt-3 pb-2 bg-[#121721] fixed top-0 left-0 right-0 z-10&quot;>
     <div class=&quot;text-sm font-medium&quot;>9:41</div>
@@ -361,13 +374,13 @@
   <!-- Header Section -->
   <header class=&quot;px-6 pt-8 pb-4 flex justify-between items-center bg-[#121721] fixed top-6 left-0 right-0 z-10&quot;>
     <h1 class=&quot;text-2xl font-bold&quot;>Nutrition</h1>
-    <button class=&quot;w-10 h-10 rounded-full bg-[#1E2633] flex items-center justify-center&quot;>
-      <i class=&quot;fa-solid fa-sliders text-white&quot;></i>
+    <button class=&quot;w-10 h-10 rounded-full bg-[#1E2532] flex items-center justify-center&quot;>
+      <i class=&quot;fa-solid fa-plus text-white&quot;></i>
     </button>
   </header>
 
   <!-- Main Content -->
-  <main class=&quot;flex-1 pt-28 pb-24 overflow-y-auto h-screen&quot; style=&quot;height: calc(100vh - 136px);&quot;>
+  <main class=&quot;flex-1 pt-28 pb-24 overflow-y-auto&quot; style=&quot;height: calc(100vh - 136px);&quot;>
   <!-- Header -->
   <div id=&quot;header&quot; class=&quot;px-6 pt-12 pb-4 flex items-center justify-between&quot;>
     <div class=&quot;flex items-center&quot;>
@@ -514,98 +527,80 @@
   <!-- Bottom Navigation -->
   <nav id=&quot;bottom-nav&quot; class=&quot;fixed bottom-0 left-0 right-0 bg-[#1A1F2B] border-t border-gray-800 px-2 py-2 z-20&quot;>
     <div class=&quot;flex justify-around items-center&quot;>
-      <a href=&quot;Dashboard.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+      <a href=&quot;#&quot; data-target=&quot;dashboard&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-house text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Home</span>
       </a>
       
-      <a href=&quot;WorkoutDetails.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+      <a href=&quot;#&quot; data-target=&quot;workouts&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-dumbbell text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Workouts</span>
       </a>
       
-      <a href=&quot;Nutrition.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+      <a href=&quot;#&quot; data-target=&quot;nutrition&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-utensils text-[#6191FF]&quot;></i>
         <span class=&quot;text-xs text-[#6191FF] mt-1 font-medium&quot;>Nutrition</span>
       </a>
       
-      <a href=&quot;Progress.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+      <a href=&quot;#&quot; data-target=&quot;progress&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-chart-line text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Progress</span>
       </a>
       
-      <a href=&quot;Community.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+      <a href=&quot;#&quot; data-target=&quot;community&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-users text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Community</span>
       </a>
     </div>
   </nav>
 </div>
+                </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Simulate barcode scanning effect
-    const scannerViewfinder = document.getElementById('scanner-viewfinder');
-    const scanButton = document.querySelector('#scanner-controls button:nth-child(2)');
-    
-    scanButton.addEventListener('click', function() {
-      // Visual feedback for button press
-      this.classList.add('scale-95');
-      setTimeout(() => {
-        this.classList.remove('scale-95');
-      }, 150);
-      
-      // Simulate scanning effect
-      scannerViewfinder.classList.add('opacity-80');
-      setTimeout(() => {
-        scannerViewfinder.classList.remove('opacity-80');
-        // Here you would normally process the scan result
-        showScanFeedback();
-      }, 300);
-    });
-    
-    function showScanFeedback() {
-      // This would show a success message or redirect to product details
-      // For demo purposes, we'll just flash the scan area
-      const scanArea = document.querySelector('#scanner-viewfinder .border-[#6191FF]');
-      scanArea.classList.add('bg-[#6191FF]/20');
-      setTimeout(() => {
-        scanArea.classList.remove('bg-[#6191FF]/20');
-      }, 500);
+    // Scan button functionality
+    const scanButton = document.getElementById('scan-button');
+    if (scanButton) {
+      scanButton.addEventListener('click', function() {
+        const scannerSection = document.getElementById('barcode-scanner');
+        if (scannerSection) {
+          scannerSection.classList.toggle('hidden');
+        }
+      });
     }
     
-    // Make recent food items interactive
-    const recentFoodItems = document.querySelectorAll('#recent-foods > div > div');
-    recentFoodItems.forEach(item => {
-      item.addEventListener('click', function() {
-        this.classList.add('scale-95');
-        setTimeout(() => {
-          this.classList.remove('scale-95');
-          // Would navigate to food details
-        }, 150);
-      });
-    });
-    
-    // Make quick add buttons interactive
-    const quickAddItems = document.querySelectorAll('#quick-add > div > div');
-    quickAddItems.forEach(item => {
-      item.addEventListener('click', function() {
-        this.classList.add('scale-95');
-        setTimeout(() => {
-          this.classList.remove('scale-95');
-          // Would open food category
-        }, 150);
-      });
-    });
-    
     // Add tap effect to bottom navigation
-    const navButtons = document.querySelectorAll('#bottom-nav a');
-    navButtons.forEach(button => {
-      button.addEventListener('click', function(e) {
-        // We don't prevent default here to allow actual navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default link behavior
+        
+        // Get the target screen
+        const targetScreen = this.getAttribute('data-target');
+        
+        // Handle navigation in parent window if inside iframe
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({
+            action: 'navigate',
+            target: targetScreen
+          }, '*');
+        } else {
+          // If navigation to another screen, redirect to the appropriate HTML file
+          if (targetScreen === 'dashboard') {
+            window.location.href = 'Dashboard.html';
+          } else if (targetScreen === 'workouts') {
+            window.location.href = 'WorkoutDetails.html';
+          } else if (targetScreen === 'nutrition') {
+            // Already on Nutrition screen
+          } else if (targetScreen === 'progress') {
+            window.location.href = 'Progress.html';
+          } else if (targetScreen === 'community') {
+            window.location.href = 'Community.html';
+          }
+        }
         
         // Reset all buttons to inactive state
-        navButtons.forEach(btn => {
+        navLinks.forEach(btn => {
           btn.querySelector('i').classList.add('text-gray-500');
           btn.querySelector('i').classList.remove('text-[#6191FF]');
           btn.querySelector('span').classList.add('text-gray-500');
@@ -623,4 +618,4 @@
 </script>
               </body>
             </html>
-          " frameborder="0" class="w-full h-full border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 844px;"></iframe>
+          " frameborder="0" class="w-full h-full border-0 rounded-lg" style="width: 390px; height: 844px;"></iframe>
