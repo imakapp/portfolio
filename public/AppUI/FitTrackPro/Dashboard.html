@@ -20,34 +20,7 @@
   }
 
   ::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    background: transparent;
-  }
-  
-  html, body {
-    overflow: hidden;
-    position: relative;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  main {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-y: auto;
-  }
-  
-  .screen {
-    width: 100%;
-    height: 100%;
     display: none;
-  }
-  
-  .screen.active {
-    display: flex;
-    flex-direction: column;
   }
 </style>
 
@@ -354,10 +327,9 @@
 </head>
 
               <body class=&quot;h-full text-base-content&quot;>
-                <div id=&quot;app-container&quot; class=&quot;h-full&quot;>
-                  <div id=&quot;dashboard-screen&quot; class=&quot;screen active min-h-screen bg-[#121721] text-white flex flex-col&quot;>
+                <section id=&quot;dashboard-screen&quot; class=&quot;min-h-screen bg-[#121721] text-white&quot;>
   <!-- Status Bar -->
-  <div id=&quot;status-bar&quot; class=&quot;flex justify-between items-center px-4 pt-3 pb-2 bg-[#121721] fixed top-0 left-0 right-0 z-10&quot;>
+  <div id=&quot;status-bar&quot; class=&quot;flex justify-between items-center px-4 pt-3 pb-2&quot;>
     <div class=&quot;text-sm font-medium&quot;>9:41</div>
     <div class=&quot;flex space-x-2&quot;>
       <i class=&quot;fa-solid fa-signal&quot;></i>
@@ -367,28 +339,28 @@
   </div>
 
   <!-- Header Section -->
-  <header class=&quot;px-6 pt-8 pb-4 flex justify-between items-center bg-[#121721] fixed top-6 left-0 right-0 z-10&quot;>
+  <header id=&quot;header&quot; class=&quot;px-5 pt-2 pb-4 flex justify-between items-center&quot;>
     <div class=&quot;flex items-center&quot;>
       <div class=&quot;w-10 h-10 rounded-full bg-[#1E2430] mr-3 overflow-hidden&quot;>
-        <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/88eba8ea44-c2a11d6fccf3d39bbb8f.png&quot; alt=&quot;User profile picture&quot; class=&quot;w-full h-full object-cover&quot; />
+        <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg&quot; alt=&quot;User profile&quot; class=&quot;w-full h-full object-cover&quot; />
       </div>
       <div>
-        <p class=&quot;text-gray-400 text-xs&quot;>Welcome back</p>
-        <h1 class=&quot;text-xl font-bold&quot;>Alex Morgan</h1>
+        <p class=&quot;text-sm text-gray-400&quot;>Welcome back</p>
+        <h2 class=&quot;font-bold&quot;>Alex Morgan</h2>
       </div>
     </div>
-    <div class=&quot;flex items-center&quot;>
+    <div class=&quot;flex space-x-3&quot;>
       <button class=&quot;w-10 h-10 rounded-full bg-[#1E2430] flex items-center justify-center&quot;>
-        <i class=&quot;fa-solid fa-bell text-white&quot;></i>
+        <i class=&quot;fa-regular fa-bell text-gray-300&quot;></i>
       </button>
-      <button class=&quot;w-10 h-10 rounded-full bg-[#1E2430] flex items-center justify-center ml-2&quot;>
-        <i class=&quot;fa-solid fa-gear text-white&quot;></i>
+      <button class=&quot;w-10 h-10 rounded-full bg-[#1E2430] flex items-center justify-center&quot;>
+        <i class=&quot;fa-solid fa-gear text-gray-300&quot;></i>
       </button>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class=&quot;flex-1 pt-28 pb-24 overflow-y-auto&quot; style=&quot;height: calc(100vh - 136px);&quot;>
+  <main id=&quot;dashboard-content&quot; class=&quot;px-5 pb-20&quot;>
     <!-- Daily Goals Section -->
     <section id=&quot;daily-goals&quot; class=&quot;mb-6&quot;>
       <div class=&quot;flex justify-between items-center mb-4&quot;>
@@ -588,36 +560,35 @@
   </div>
 
   <!-- Bottom Navigation -->
-  <nav id=&quot;bottom-nav&quot; class=&quot;fixed bottom-0 left-0 right-0 bg-[#1A1F2B] border-t border-gray-800 px-2 py-2 z-20&quot;>
+  <nav id=&quot;bottom-nav&quot; class=&quot;fixed bottom-0 left-0 right-0 bg-[#1A1F2B] border-t border-gray-800 px-2 py-2&quot;>
     <div class=&quot;flex justify-around items-center&quot;>
-      <a href=&quot;#&quot; data-target=&quot;dashboard&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
+      <button class=&quot;flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-house text-[#6191FF]&quot;></i>
         <span class=&quot;text-xs text-[#6191FF] mt-1 font-medium&quot;>Home</span>
-      </a>
+      </button>
       
-      <a href=&quot;#&quot; data-target=&quot;workouts&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
+      <button class=&quot;flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-dumbbell text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Workouts</span>
-      </a>
+      </button>
       
-      <a href=&quot;#&quot; data-target=&quot;nutrition&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
+      <button class=&quot;flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-utensils text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Nutrition</span>
-      </a>
+      </button>
       
-      <a href=&quot;#&quot; data-target=&quot;progress&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
+      <button class=&quot;flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-chart-line text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Progress</span>
-      </a>
+      </button>
       
-      <a href=&quot;#&quot; data-target=&quot;community&quot; class=&quot;nav-link flex flex-col items-center w-16 py-1&quot;>
+      <button class=&quot;flex flex-col items-center w-16 py-1&quot;>
         <i class=&quot;fa-solid fa-users text-gray-500&quot;></i>
         <span class=&quot;text-xs text-gray-500 mt-1&quot;>Community</span>
-      </a>
+      </button>
     </div>
   </nav>
-</div>
-                </div>
+</section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -634,37 +605,11 @@
     });
     
     // Add tap effect to bottom navigation
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent the default link behavior
-        
-        // Get the target screen
-        const targetScreen = this.getAttribute('data-target');
-        
-        // Handle navigation in parent window if inside iframe
-        if (window.parent && window.parent !== window) {
-          window.parent.postMessage({
-            action: 'navigate',
-            target: targetScreen
-          }, '*');
-        } else {
-          // If navigation to another screen, redirect to the appropriate HTML file
-          if (targetScreen === 'dashboard') {
-            // Already on Dashboard screen
-          } else if (targetScreen === 'workouts') {
-            window.location.href = 'WorkoutDetails.html';
-          } else if (targetScreen === 'nutrition') {
-            window.location.href = 'Nutrition.html';
-          } else if (targetScreen === 'progress') {
-            window.location.href = 'Progress.html';
-          } else if (targetScreen === 'community') {
-            window.location.href = 'Community.html';
-          }
-        }
-        
+    const navButtons = document.querySelectorAll('#bottom-nav button');
+    navButtons.forEach(button => {
+      button.addEventListener('click', function() {
         // Reset all buttons to inactive state
-        navLinks.forEach(btn => {
+        navButtons.forEach(btn => {
           btn.querySelector('i').classList.add('text-gray-500');
           btn.querySelector('i').classList.remove('text-[#6191FF]');
           btn.querySelector('span').classList.add('text-gray-500');
@@ -682,4 +627,4 @@
 </script>
               </body>
             </html>
-          " frameborder="0" class="w-full h-full border-0 rounded-lg" style="width: 390px; height: 844px;"></iframe>
+          " frameborder="0" class="w-full h-max overflow-visible border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 1059px; min-height: 844px;"></iframe>

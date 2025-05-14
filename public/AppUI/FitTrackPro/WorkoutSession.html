@@ -1,4 +1,4 @@
-<iframe title="wireframe-RQKkCVaQN5fZrY6FzVe8" srcdoc="
+<iframe title="wireframe-h1m797nQY4nbjM4TmAom" srcdoc="
             <html class=&quot;&quot;>
               
 <head>
@@ -23,6 +23,7 @@
     width: 0px;
     height: 0px;
     background: transparent;
+    display: none;
   }
   
   html, body {
@@ -31,11 +32,34 @@
     height: 100%;
     margin: 0;
     padding: 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
   
   main {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  main::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  
+  .screen {
+    width: 100%;
+    height: 100%;
+    display: none;
+    overflow: hidden;
+  }
+  
+  .screen.active {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 </style>
 
@@ -342,7 +366,7 @@
 </head>
 
               <body class=&quot;h-full text-base-content&quot;>
-                <div id=&quot;workout-session-screen&quot; class=&quot;min-h-screen bg-[#121721] text-white flex flex-col&quot;>
+                <section id=&quot;active-workout-screen&quot; class=&quot;min-h-screen bg-[#121721] flex flex-col text-white&quot;>
   <!-- Top Bar -->
   <div id=&quot;workout-header&quot; class=&quot;px-6 pt-12 pb-4 flex justify-between items-center&quot;>
     <button id=&quot;back-button&quot; class=&quot;w-10 h-10 rounded-full bg-[#1E2430] flex items-center justify-center&quot;>
@@ -457,138 +481,107 @@
     </div>
   </div>
 
-  <!-- Main Content -->
-  <main class=&quot;flex-1 pt-28 pb-24 overflow-y-auto h-screen&quot; style=&quot;height: calc(100vh - 136px);&quot;>
-    <!-- Bottom Navigation -->
-    <div id=&quot;bottom-navigation&quot; class=&quot;bg-[#1A1F2C] py-4 px-6 flex justify-between items-center&quot;>
-      <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-        <i class=&quot;fa-solid fa-house text-gray-500&quot;></i>
-        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Home</span>
-      </span>
-      <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-        <i class=&quot;fa-solid fa-dumbbell text-[#6191FF]&quot;></i>
-        <span class=&quot;text-xs text-[#6191FF] mt-1&quot;>Workouts</span>
-      </span>
-      <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-        <i class=&quot;fa-solid fa-utensils text-gray-500&quot;></i>
-        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Nutrition</span>
-      </span>
-      <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-        <i class=&quot;fa-solid fa-chart-line text-gray-500&quot;></i>
-        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Progress</span>
-      </span>
-      <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-        <i class=&quot;fa-solid fa-users text-gray-500&quot;></i>
-        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Community</span>
-      </span>
-    </div>
-  </main>
-</div>
+  <!-- Bottom Navigation -->
+  <div id=&quot;bottom-navigation&quot; class=&quot;bg-[#1A1F2C] py-4 px-6 flex justify-between items-center&quot;>
+    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
+      <i class=&quot;fa-solid fa-house text-gray-500&quot;></i>
+      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Home</span>
+    </span>
+    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
+      <i class=&quot;fa-solid fa-dumbbell text-[#6191FF]&quot;></i>
+      <span class=&quot;text-xs text-[#6191FF] mt-1&quot;>Workouts</span>
+    </span>
+    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
+      <i class=&quot;fa-solid fa-utensils text-gray-500&quot;></i>
+      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Nutrition</span>
+    </span>
+    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
+      <i class=&quot;fa-solid fa-chart-line text-gray-500&quot;></i>
+      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Progress</span>
+    </span>
+    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
+      <i class=&quot;fa-solid fa-users text-gray-500&quot;></i>
+      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Community</span>
+    </span>
+  </div>
+</section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Timer functionality
-    let seconds = 0;
-    let minutes = 0;
+    let timerElement = document.querySelector(&quot;#current-exercise-info .text-[#25E598]&quot;);
+    let timerSeconds = 45; // 45 seconds countdown
     let timerInterval;
-    const timerDisplay = document.getElementById('timer-display');
-    const playPauseBtn = document.getElementById('play-pause-btn');
-    const stopBtn = document.getElementById('stop-btn');
     
+    // Pause/Play button functionality
+    const playPauseButton = document.querySelector(&quot;#exercise-video-container .fa-pause&quot;).parentElement;
+    let isPaused = false;
+    
+    playPauseButton.addEventListener('click', function() {
+      isPaused = !isPaused;
+      const icon = this.querySelector('i');
+      
+      if (isPaused) {
+        icon.classList.remove('fa-pause');
+        icon.classList.add('fa-play');
+        clearInterval(timerInterval);
+      } else {
+        icon.classList.remove('fa-play');
+        icon.classList.add('fa-pause');
+        startTimer();
+      }
+      
+      // Add a slight scale animation on click
+      this.classList.add('scale-95');
+      setTimeout(() => {
+        this.classList.remove('scale-95');
+      }, 150);
+    });
+    
+    // Exercise completion button
+    const completeButton = document.querySelector(&quot;#exercise-controls button:last-child&quot;);
+    completeButton.addEventListener('click', function() {
+      this.classList.add('scale-95');
+      setTimeout(() => {
+        this.classList.remove('scale-95');
+        // In a real app, this would navigate to the next exercise
+        alert(&quot;Exercise completed! Moving to Hammer Curls...&quot;);
+      }, 150);
+    });
+    
+    // Start the timer
     function startTimer() {
       timerInterval = setInterval(function() {
-        seconds++;
-        if (seconds >= 60) {
-          seconds = 0;
-          minutes++;
+        timerSeconds--;
+        
+        if (timerSeconds <= 0) {
+          clearInterval(timerInterval);
+          // In a real app, this would trigger the completion of the exercise
+          completeButton.click();
+          return;
         }
-        updateTimerDisplay();
+        
+        // Format the time as MM:SS
+        const minutes = Math.floor(timerSeconds / 60);
+        const seconds = timerSeconds % 60;
+        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
       }, 1000);
-      playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
     }
     
-    function pauseTimer() {
-      clearInterval(timerInterval);
-      playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-    }
+    // Initialize the timer
+    startTimer();
     
-    function resetTimer() {
-      clearInterval(timerInterval);
-      seconds = 0;
-      minutes = 0;
-      updateTimerDisplay();
-      playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-    }
-    
-    function updateTimerDisplay() {
-      const formattedMinutes = String(minutes).padStart(2, '0');
-      const formattedSeconds = String(seconds).padStart(2, '0');
-      timerDisplay.textContent = `${formattedMinutes}:${formattedSeconds}`;
-    }
-    
-    // Initialize timer display
-    updateTimerDisplay();
-    
-    // Play/Pause button functionality
-    let isPlaying = false;
-    playPauseBtn.addEventListener('click', function() {
-      isPlaying = !isPlaying;
-      if (isPlaying) {
-        startTimer();
-      } else {
-        pauseTimer();
-      }
-    });
-    
-    // Stop button functionality
-    stopBtn.addEventListener('click', function() {
-      resetTimer();
-      isPlaying = false;
-    });
-    
-    // Complete workout button
-    const completeBtn = document.getElementById('complete-workout-btn');
-    completeBtn.addEventListener('click', function() {
+    // Back button functionality
+    document.getElementById('back-button').addEventListener('click', function() {
       this.classList.add('scale-95');
       setTimeout(() => {
         this.classList.remove('scale-95');
-        // Navigate back to workout details or to a summary page
-        window.location.href = 'WorkoutDetails.html';
-      }, 200);
-    });
-    
-    // Exercise navigation buttons
-    const prevExerciseBtn = document.getElementById('prev-exercise-btn');
-    const nextExerciseBtn = document.getElementById('next-exercise-btn');
-    
-    prevExerciseBtn.addEventListener('click', function() {
-      this.classList.add('scale-95');
-      setTimeout(() => {
-        this.classList.remove('scale-95');
-        // Would navigate to previous exercise in a real app
-        console.log('Previous exercise');
+        // In a real app, this would navigate back
+        alert(&quot;Returning to workout overview&quot;);
       }, 150);
-    });
-    
-    nextExerciseBtn.addEventListener('click', function() {
-      this.classList.add('scale-95');
-      setTimeout(() => {
-        this.classList.remove('scale-95');
-        // Would navigate to next exercise in a real app
-        console.log('Next exercise');
-      }, 150);
-    });
-    
-    // Close button
-    const closeBtn = document.getElementById('close-session-btn');
-    closeBtn.addEventListener('click', function() {
-      // Ask for confirmation before closing workout session
-      if (confirm('Are you sure you want to exit this workout?')) {
-        window.location.href = 'WorkoutDetails.html';
-      }
     });
   });
 </script>
               </body>
             </html>
-          " frameborder="0" class="w-full h-full border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 844px;"></iframe>
+          " frameborder="0" class="w-full h-max overflow-visible border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 1068px; min-height: 844px;"></iframe>

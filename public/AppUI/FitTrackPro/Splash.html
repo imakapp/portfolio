@@ -1,4 +1,4 @@
-<iframe title="wireframe-Ee05uAUdmCiXJQZnyCoc" srcdoc="
+<iframe title="wireframe-uspvYMIWVVXY9h2Itgjq" srcdoc="
             <html class=&quot;&quot;>
               
 <head>
@@ -20,28 +20,7 @@
   }
 
   ::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    background: transparent;
-  }
-  
-  html, body {
-    overflow: hidden;
-    position: relative;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .screen {
-    width: 100%;
-    height: 100%;
     display: none;
-  }
-  
-  .screen.active {
-    display: flex;
-    flex-direction: column;
   }
 </style>
 
@@ -347,101 +326,115 @@
 
 </head>
 
-              <body class=&quot;h-full&quot;>
-                <div id=&quot;app-container&quot; class=&quot;h-full&quot;>
-                  <div id=&quot;splash-screen&quot; class=&quot;screen active min-h-screen bg-[#121721] flex flex-col items-center justify-center text-white&quot;>
-  <div id=&quot;status-bar&quot; class=&quot;absolute top-0 left-0 right-0 flex justify-between items-center px-4 pt-3 pb-2&quot;>
-    <div class=&quot;text-sm font-medium&quot;>9:41</div>
-    <div class=&quot;flex space-x-2&quot;>
-      <i class=&quot;fa-solid fa-signal&quot;></i>
-      <i class=&quot;fa-solid fa-wifi&quot;></i>
-      <i class=&quot;fa-solid fa-battery-three-quarters&quot;></i>
-    </div>
-  </div>
-  
-  <div id=&quot;logo-container&quot; class=&quot;flex flex-col items-center justify-center mb-24&quot;>
-    <div class=&quot;w-24 h-24 bg-gradient-to-br from-[#6191FF] to-[#8C5BFF] rounded-xl flex items-center justify-center mb-5 shadow-lg&quot;>
-      <i class=&quot;fa-solid fa-bolt text-white text-5xl&quot;></i>
-    </div>
-    <h1 class=&quot;text-3xl font-bold text-white mb-2&quot;>FitTrackPro</h1>
-    <p class=&quot;text-gray-400 text-sm&quot;>Your personal fitness journey</p>
-  </div>
-  
-  <div id=&quot;onboarding-slideshow&quot; class=&quot;w-full px-8 mb-12&quot;>
-    <div class=&quot;bg-[#1A2234] rounded-xl p-6 flex flex-col items-center&quot;>
-      <div class=&quot;w-12 h-12 bg-[#6191FF]/20 rounded-full flex items-center justify-center mb-4&quot;>
-        <i class=&quot;fa-solid fa-dumbbell text-[#6191FF] text-xl&quot;></i>
+              <body class=&quot;h-full text-base-content&quot;>
+                <section id=&quot;onboarding-screen&quot; class=&quot;min-h-screen bg-[#121721] flex flex-col items-center justify-between px-6 py-12 text-white&quot;>
+  <!-- Logo and Tagline -->
+  <div class=&quot;w-full flex-1 flex flex-col items-center justify-center&quot;>
+    <div id=&quot;logo-container&quot; class=&quot;mb-8 relative&quot;>
+      <div class=&quot;w-24 h-24 bg-[#6191FF] rounded-full flex items-center justify-center shadow-lg transform transition-all duration-700 hover:scale-110&quot;>
+        <i class=&quot;fa-solid fa-bolt text-white text-4xl&quot;></i>
       </div>
-      <h2 class=&quot;text-xl font-bold mb-2&quot;>Track Your Workouts</h2>
-      <p class=&quot;text-gray-400 text-center mb-4&quot;>Log exercises, sets, reps, and weights to track your progress over time.</p>
+      <div class=&quot;absolute -bottom-2 -right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center&quot;>
+        <i class=&quot;fa-solid fa-heart-pulse text-[#6191FF] text-xl&quot;></i>
+      </div>
+    </div>
+    
+    <h1 class=&quot;text-3xl font-bold mb-3 text-center&quot;>FitTrack Pro</h1>
+    <p class=&quot;text-lg text-gray-300 text-center mb-6&quot;>Your personal fitness journey starts here</p>
+    
+    <div id=&quot;onboarding-content&quot; class=&quot;w-full max-w-sm&quot;>
+      <div class=&quot;relative h-64 mb-8&quot;>
+        <img class=&quot;rounded-xl w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/13074fafa4-e28634e0026ac42f9a49.png&quot; alt=&quot;fitness model in dark gym environment wearing smart watch and workout clothes, performing exercise, professional photography with blue accent lighting, minimalist&quot; />
+      </div>
       
-      <div class=&quot;flex space-x-2 mt-3&quot;>
-        <div class=&quot;w-8 h-1 rounded-full bg-[#6191FF]&quot;></div>
-        <div class=&quot;w-2 h-1 rounded-full bg-gray-600&quot;></div>
-        <div class=&quot;w-2 h-1 rounded-full bg-gray-600&quot;></div>
-        <div class=&quot;w-2 h-1 rounded-full bg-gray-600&quot;></div>
+      <div class=&quot;space-y-4 mb-12&quot;>
+        <div class=&quot;flex items-start&quot;>
+          <div class=&quot;bg-[#6191FF] p-2 rounded-full mr-4&quot;>
+            <i class=&quot;fa-solid fa-dumbbell text-white&quot;></i>
+          </div>
+          <div>
+            <h3 class=&quot;font-semibold text-white&quot;>Track Your Workouts</h3>
+            <p class=&quot;text-sm text-gray-400&quot;>Follow guided routines with 3D demonstrations</p>
+          </div>
+        </div>
+        
+        <div class=&quot;flex items-start&quot;>
+          <div class=&quot;bg-[#6191FF] p-2 rounded-full mr-4&quot;>
+            <i class=&quot;fa-solid fa-utensils text-white&quot;></i>
+          </div>
+          <div>
+            <h3 class=&quot;font-semibold text-white&quot;>Monitor Nutrition</h3>
+            <p class=&quot;text-sm text-gray-400&quot;>Scan barcodes and track your meals easily</p>
+          </div>
+        </div>
+        
+        <div class=&quot;flex items-start&quot;>
+          <div class=&quot;bg-[#6191FF] p-2 rounded-full mr-4&quot;>
+            <i class=&quot;fa-solid fa-chart-line text-white&quot;></i>
+          </div>
+          <div>
+            <h3 class=&quot;font-semibold text-white&quot;>Visualize Progress</h3>
+            <p class=&quot;text-sm text-gray-400&quot;>See your improvements with detailed metrics</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   
-  <div id=&quot;action-buttons&quot; class=&quot;w-full px-8&quot;>
-    <button id=&quot;get-started-btn&quot; class=&quot;w-full py-4 bg-[#6191FF] text-white rounded-xl font-bold text-lg mb-4&quot;>
+  <!-- Pagination and Button -->
+  <div id=&quot;onboarding-controls&quot; class=&quot;w-full&quot;>
+    <div class=&quot;flex justify-center mb-8&quot;>
+      <div class=&quot;flex space-x-2&quot;>
+        <div class=&quot;w-10 h-2 rounded-full bg-[#6191FF]&quot;></div>
+        <div class=&quot;w-2 h-2 rounded-full bg-gray-600&quot;></div>
+        <div class=&quot;w-2 h-2 rounded-full bg-gray-600&quot;></div>
+      </div>
+    </div>
+    
+    <a href=&quot;dashboard.html&quot; id=&quot;get-started-btn&quot; class=&quot;block w-full py-4 bg-[#6191FF] text-white font-semibold rounded-xl shadow-lg transform transition-all duration-300 hover:bg-[#4A7AE8] hover:shadow-xl text-center&quot;>
       Get Started
-    </button>
-    <button id=&quot;login-btn&quot; class=&quot;w-full py-4 bg-transparent border border-[#6191FF] text-[#6191FF] rounded-xl font-bold text-lg&quot;>
-      I Already Have an Account
-    </button>
+    </a>
+    
+    <div class=&quot;mt-4 text-center&quot;>
+      <span class=&quot;text-gray-400 text-sm cursor-pointer&quot;>Already have an account? <span class=&quot;text-[#6191FF] font-medium&quot;>Sign In</span></span>
+    </div>
   </div>
-</div>
-                </div>
+</section>
 
 <script>
+  // Simple animation for the logo
   document.addEventListener('DOMContentLoaded', function() {
-    // Logo container animation
     const logoContainer = document.getElementById('logo-container');
-    if (logoContainer) {
-      logoContainer.addEventListener('click', function() {
-        const logo = this.querySelector('div');
-        logo.classList.add('scale-95');
-        setTimeout(() => {
-          logo.classList.remove('scale-95');
-        }, 200);
-      });
-    }
     
-    // Get started button
+    // Initial animation on page load
+    setTimeout(() => {
+      logoContainer.classList.add('animate-pulse');
+      setTimeout(() => {
+        logoContainer.classList.remove('animate-pulse');
+      }, 1000);
+    }, 500);
+    
+    // Animation on click
+    logoContainer.addEventListener('click', function() {
+      this.classList.add('animate-pulse');
+      setTimeout(() => {
+        this.classList.remove('animate-pulse');
+      }, 1000);
+    });
+    
+    // Get Started button interaction
     const getStartedBtn = document.getElementById('get-started-btn');
-    if (getStartedBtn) {
-      getStartedBtn.addEventListener('click', function() {
-        // Navigate to dashboard
-        if (window.parent && window.parent !== window) {
-          window.parent.postMessage({
-            action: 'navigate',
-            target: 'dashboard'
-          }, '*');
-        } else {
-          window.location.href = 'Dashboard.html';
-        }
-      });
-    }
-    
-    // Login button
-    const loginBtn = document.getElementById('login-btn');
-    if (loginBtn) {
-      loginBtn.addEventListener('click', function() {
-        // Navigate to dashboard (for demo purposes)
-        if (window.parent && window.parent !== window) {
-          window.parent.postMessage({
-            action: 'navigate',
-            target: 'dashboard'
-          }, '*');
-        } else {
-          window.location.href = 'Dashboard.html';
-        }
-      });
-    }
+    getStartedBtn.addEventListener('click', function(e) {
+      this.classList.add('scale-95');
+      e.preventDefault(); // Prevent default link behavior
+      setTimeout(() => {
+        this.classList.remove('scale-95');
+        // Navigate to dashboard.html in the parent window (outside the iframe)
+        window.parent.location.href = 'dashboard.html';
+      }, 200);
+    });
   });
 </script>
               </body>
             </html>
-          " frameborder="0" class="w-full h-full border-0 rounded-lg" style="width: 390px; height: 844px;"></iframe>
+          " frameborder="0" class="w-full h-max overflow-visible border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 1033px; min-height: 844px;"></iframe>

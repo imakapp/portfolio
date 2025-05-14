@@ -23,6 +23,7 @@
     width: 0px;
     height: 0px;
     background: transparent;
+    display: none;
   }
   
   html, body {
@@ -31,23 +32,34 @@
     height: 100%;
     margin: 0;
     padding: 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
   
   main {
     -ms-overflow-style: none;
     scrollbar-width: none;
     overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  main::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
   }
   
   .screen {
     width: 100%;
     height: 100%;
     display: none;
+    overflow: hidden;
   }
   
   .screen.active {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
 </style>
 
@@ -606,8 +618,6 @@
             action: 'navigate',
             target: 'workout-session'
           }, '*');
-        } else {
-          window.location.href = 'WorkoutSession.html';
         }
       });
     }
@@ -621,25 +631,12 @@
         // Get the target screen
         const targetScreen = this.getAttribute('data-target');
         
-        // Handle navigation in parent window if inside iframe
+        // Send message to parent window for navigation
         if (window.parent && window.parent !== window) {
           window.parent.postMessage({
             action: 'navigate',
             target: targetScreen
           }, '*');
-        } else {
-          // If navigation to another screen, redirect to the appropriate HTML file
-          if (targetScreen === 'dashboard') {
-            window.location.href = 'Dashboard.html';
-          } else if (targetScreen === 'workouts') {
-            // Already on WorkoutDetails screen
-          } else if (targetScreen === 'nutrition') {
-            window.location.href = 'Nutrition.html';
-          } else if (targetScreen === 'progress') {
-            window.location.href = 'Progress.html';
-          } else if (targetScreen === 'community') {
-            window.location.href = 'Community.html';
-          }
         }
         
         // Reset all buttons to inactive state

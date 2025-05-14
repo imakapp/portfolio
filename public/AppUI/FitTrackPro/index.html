@@ -4,78 +4,168 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FitTrackPro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    window.FontAwesomeConfig = {
-      autoReplaceSvg: 'nest',
-    };
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
   <style>
-    * {
-      font-family: "Inter", sans-serif;
-    }
-    
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
-      background-color: #121721;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f5f5f5;
     }
     
     .app-container {
       position: relative;
       width: 390px;
       height: 844px;
-      margin: 0 auto;
       overflow: hidden;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
     
-    iframe {
-      border: none;
+    .screen-iframe {
       width: 100%;
       height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Loading spinner */
+    .loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(18, 23, 33, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
     
+    .loading.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      border-top-color: #6191FF;
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Hide scrollbars everywhere */
     ::-webkit-scrollbar {
-      display: none;
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+    
+    * {
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
     }
   </style>
 </head>
-<body class="flex items-center justify-center h-screen">
+<body>
   <div class="app-container">
-    <iframe id="app-frame" src="Splash.html" frameborder="0"></iframe>
+    <iframe id="app-frame" class="screen-iframe" src="Splash.html" scrolling="no"></iframe>
+    <div class="loading" id="loading-indicator">
+      <div class="spinner"></div>
+    </div>
   </div>
-  
+
   <script>
-    // Listen for navigation messages from the iframe
+    // Debug function for logging navigation events
+    function logNavigation(message) {
+      console.log('%c[Navigation] ' + message, 'color: #6191FF; font-weight: bold;');
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      logNavigation('Container loaded - initial screen: Splash.html');
+    });
+    
+    // Listen for messages from the iframe to handle navigation
     window.addEventListener('message', function(event) {
-      if (event.data.action === 'navigate') {
-        const target = event.data.target;
-        const frame = document.getElementById('app-frame');
+      // Handle different message types
+      if (event.data && event.data.action) {
+        // Screen loaded notification
+        if (event.data.action === 'screenLoaded') {
+          logNavigation(`${event.data.screen} screen loaded successfully`);
+        }
         
-        // Navigate to the appropriate page
-        if (target === 'dashboard') {
-          frame.src = 'Dashboard.html';
-        } else if (target === 'workouts') {
-          frame.src = 'WorkoutDetails.html';
-        } else if (target === 'nutrition') {
-          frame.src = 'Nutrition.html';
-        } else if (target === 'progress') {
-          frame.src = 'Progress.html';
-        } else if (target === 'community') {
-          frame.src = 'Community.html';
-        } else if (target === 'splash') {
-          frame.src = 'Splash.html';
-        } else if (target === 'workout-session') {
-          frame.src = 'WorkoutSession.html';
+        // Navigation request
+        if (event.data.action === 'navigate') {
+          const destination = event.data.destination;
+          logNavigation(`Navigation requested to: ${destination}`);
+          
+          // Show loading indicator
+          const loadingIndicator = document.getElementById('loading-indicator');
+          loadingIndicator.classList.add('active');
+          
+          // Update the iframe source
+          const appFrame = document.getElementById('app-frame');
+          
+          // Listen for iframe load completion
+          appFrame.onload = function() {
+            logNavigation(`${destination} loaded successfully`);
+            // Hide loading indicator once the page is loaded
+            setTimeout(function() {
+              loadingIndicator.classList.remove('active');
+            }, 400); // Brief delay to ensure content is rendered
+          };
+          
+          // Actually change the src attribute to trigger navigation
+          appFrame.src = destination;
+          
+          // Update the URL in the address bar without reload
+          const newUrl = window.location.pathname.replace(/\/[^\/]*$/, '/') + destination;
+          window.history.pushState({ path: newUrl }, '', newUrl);
+          logNavigation(`URL updated to: ${newUrl}`);
         }
       }
+    });
+    
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function(event) {
+      const currentPath = window.location.pathname;
+      const filename = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+      
+      // Default to Splash.html if no specific page is in the URL
+      const targetPage = filename || 'Splash.html';
+      logNavigation(`Browser navigation (popstate) to: ${targetPage}`);
+      
+      // Show loading indicator
+      const loadingIndicator = document.getElementById('loading-indicator');
+      loadingIndicator.classList.add('active');
+      
+      // Update the iframe source
+      const appFrame = document.getElementById('app-frame');
+      
+      // Listen for iframe load completion
+      appFrame.onload = function() {
+        logNavigation(`${targetPage} loaded successfully after popstate`);
+        // Hide loading indicator once the page is loaded
+        setTimeout(function() {
+          loadingIndicator.classList.remove('active');
+        }, 400);
+      };
+      
+      appFrame.src = targetPage;
     });
   </script>
 </body>
