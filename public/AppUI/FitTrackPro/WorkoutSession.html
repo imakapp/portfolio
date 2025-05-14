@@ -1,4 +1,4 @@
-<iframe title="wireframe-h1m797nQY4nbjM4TmAom" srcdoc="
+<iframe title="wireframe-RQKkCVaQN5fZrY6FzVe8" srcdoc="
             <html class=&quot;&quot;>
               
 <head>
@@ -20,7 +20,22 @@
   }
 
   ::-webkit-scrollbar {
-    display: none;
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+  
+  html, body {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 </style>
 
@@ -327,7 +342,7 @@
 </head>
 
               <body class=&quot;h-full text-base-content&quot;>
-                <section id=&quot;active-workout-screen&quot; class=&quot;min-h-screen bg-[#121721] flex flex-col text-white&quot;>
+                <div id=&quot;workout-session-screen&quot; class=&quot;min-h-screen bg-[#121721] text-white flex flex-col&quot;>
   <!-- Top Bar -->
   <div id=&quot;workout-header&quot; class=&quot;px-6 pt-12 pb-4 flex justify-between items-center&quot;>
     <button id=&quot;back-button&quot; class=&quot;w-10 h-10 rounded-full bg-[#1E2430] flex items-center justify-center&quot;>
@@ -442,30 +457,33 @@
     </div>
   </div>
 
-  <!-- Bottom Navigation -->
-  <div id=&quot;bottom-navigation&quot; class=&quot;bg-[#1A1F2C] py-4 px-6 flex justify-between items-center&quot;>
-    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-      <i class=&quot;fa-solid fa-house text-gray-500&quot;></i>
-      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Home</span>
-    </span>
-    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-      <i class=&quot;fa-solid fa-dumbbell text-[#6191FF]&quot;></i>
-      <span class=&quot;text-xs text-[#6191FF] mt-1&quot;>Workouts</span>
-    </span>
-    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-      <i class=&quot;fa-solid fa-utensils text-gray-500&quot;></i>
-      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Nutrition</span>
-    </span>
-    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-      <i class=&quot;fa-solid fa-chart-line text-gray-500&quot;></i>
-      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Progress</span>
-    </span>
-    <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
-      <i class=&quot;fa-solid fa-users text-gray-500&quot;></i>
-      <span class=&quot;text-xs text-gray-500 mt-1&quot;>Community</span>
-    </span>
-  </div>
-</section>
+  <!-- Main Content -->
+  <main class=&quot;flex-1 pt-28 pb-24 overflow-y-auto h-screen&quot; style=&quot;height: calc(100vh - 136px);&quot;>
+    <!-- Bottom Navigation -->
+    <div id=&quot;bottom-navigation&quot; class=&quot;bg-[#1A1F2C] py-4 px-6 flex justify-between items-center&quot;>
+      <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
+        <i class=&quot;fa-solid fa-house text-gray-500&quot;></i>
+        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Home</span>
+      </span>
+      <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
+        <i class=&quot;fa-solid fa-dumbbell text-[#6191FF]&quot;></i>
+        <span class=&quot;text-xs text-[#6191FF] mt-1&quot;>Workouts</span>
+      </span>
+      <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
+        <i class=&quot;fa-solid fa-utensils text-gray-500&quot;></i>
+        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Nutrition</span>
+      </span>
+      <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
+        <i class=&quot;fa-solid fa-chart-line text-gray-500&quot;></i>
+        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Progress</span>
+      </span>
+      <span class=&quot;flex flex-col items-center cursor-pointer&quot;>
+        <i class=&quot;fa-solid fa-users text-gray-500&quot;></i>
+        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Community</span>
+      </span>
+    </div>
+  </main>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -573,4 +591,4 @@
 </script>
               </body>
             </html>
-          " frameborder="0" class="w-full h-max overflow-visible border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 1068px; min-height: 844px;"></iframe>
+          " frameborder="0" class="w-full h-full border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 844px;"></iframe>

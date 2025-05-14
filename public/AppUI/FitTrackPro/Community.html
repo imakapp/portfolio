@@ -1,4 +1,4 @@
-<iframe title="wireframe-XIvQFbCUbZYAt8zv3Wtq" srcdoc="
+<iframe title="wireframe-1tC16n78Fn7X10U8gLw6" srcdoc="
             <html class=&quot;&quot;>
               
 <head>
@@ -20,7 +20,27 @@
   }
 
   ::-webkit-scrollbar {
-    display: none;
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+  
+  html, body {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 </style>
 
@@ -352,7 +372,7 @@
   </header>
 
   <!-- Main Content -->
-  <main class=&quot;flex-1 pt-28 pb-24&quot;>
+  <main class=&quot;flex-1 pt-28 pb-24 overflow-y-auto h-screen&quot; style=&quot;height: calc(100vh - 136px);&quot;>
   <!-- Filters -->
   <div id=&quot;feed-filters&quot; class=&quot;px-4 mb-4 overflow-x-auto&quot;>
     <div class=&quot;flex space-x-2 py-2&quot;>
@@ -687,4 +707,4 @@
 </script>
               </body>
             </html>
-          " frameborder="0" class="w-full h-max overflow-visible border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 1553px; min-height: 844px;"></iframe>
+          " frameborder="0" class="w-full h-full border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 844px;"></iframe>

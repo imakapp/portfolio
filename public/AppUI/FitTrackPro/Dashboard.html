@@ -20,7 +20,22 @@
   }
 
   ::-webkit-scrollbar {
-    display: none;
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+  
+  html, body {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 </style>
 
@@ -327,7 +342,7 @@
 </head>
 
               <body class=&quot;h-full text-base-content&quot;>
-                <section id=&quot;dashboard-screen&quot; class=&quot;min-h-screen bg-[#121721] text-white pb-20&quot;>
+                <div id=&quot;dashboard-screen&quot; class=&quot;min-h-screen bg-[#121721] text-white flex flex-col&quot;>
   <!-- Status Bar -->
   <div id=&quot;status-bar&quot; class=&quot;flex justify-between items-center px-4 pt-3 pb-2 bg-[#121721] fixed top-0 left-0 right-0 z-10&quot;>
     <div class=&quot;text-sm font-medium&quot;>9:41</div>
@@ -360,7 +375,7 @@
   </header>
 
   <!-- Main Content -->
-  <main id=&quot;dashboard-content&quot; class=&quot;px-5 pt-28 pb-28&quot;>
+  <main class=&quot;flex-1 pt-28 pb-24 overflow-y-auto h-screen&quot; style=&quot;height: calc(100vh - 136px);&quot;>
     <!-- Daily Goals Section -->
     <section id=&quot;daily-goals&quot; class=&quot;mb-6&quot;>
       <div class=&quot;flex justify-between items-center mb-4&quot;>
@@ -588,7 +603,7 @@
       </a>
     </div>
   </nav>
-</section>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -629,4 +644,4 @@
 </script>
               </body>
             </html>
-          " frameborder="0" class="w-full h-max overflow-visible border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 1059px; min-height: 844px;"></iframe>
+          " frameborder="0" class="w-full h-full border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 844px;"></iframe>
