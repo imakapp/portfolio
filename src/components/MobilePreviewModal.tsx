@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, MouseEvent } from 'react';
 import Image from 'next/image';
 import { Joystick } from 'react-joystick-component';
+import styles from './MobilePreviewModal.module.css';
 
 interface MobilePreviewModalProps {
   isOpen: boolean;
@@ -139,15 +140,18 @@ const MobilePreviewModal = ({
 
   return (
     <div 
-      className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center backdrop-blur-sm transition-opacity duration-300"
+      className={styles.modalBackdrop}
       onClick={handleBackdropClick}
+      aria-modal="true"
+      role="dialog"
     >
       <div 
         ref={modalRef}
-        className="relative flex flex-row items-center animate-fade-in gap-6" 
+        className={styles.modalContent}
+        style={{ fontFamily: 'Inter, sans-serif' }}
       >
         {/* Joystick on the left */}
-        <div className="hidden sm:flex flex-col items-center justify-center">
+        <div className={styles.joystickPanel}>
           <Joystick
             size={80}
             baseColor="#23272f"
@@ -159,14 +163,14 @@ const MobilePreviewModal = ({
         {/* Mobile Device Frame */}
         <div 
           style={deviceContainerStyles} 
-          className="bg-black rounded-[36px] border-4 border-gray-800 relative overflow-hidden"
+          className={`${styles.deviceFrame} ${isPortrait ? styles.portrait : styles.landscape} ${styles.floating}`}
         >
           {/* Notch / Dynamic Island */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[30px] bg-black rounded-b-xl z-10" />
+          <div className={styles.deviceNotch} />
           {/* Status Bar */}
-          <div className="absolute top-0 left-0 right-0 h-[44px] px-6 flex justify-between items-center z-[5] bg-black/50 backdrop-blur-sm">
-            <div className="text-white text-xs font-medium">{currentTime}</div>
-            <div className="flex space-x-1.5">
+          <div className={styles.statusBar} style={{ fontFamily: 'Inter, sans-serif' }}>
+            <div className={styles.statusTime} style={{ textShadow: '0 2px 8px rgba(0,0,0,0.18)' }}>{currentTime}</div>
+            <div className={styles.statusIcons}>
               <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 18c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6zm0-10c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4z" />
                 <path d="M6.18 7.82a7.915 7.915 0 0 0-2.24 5.62c0 4.41 3.58 8 7.99 8 1.98 0 3.81-.73 5.21-1.93l-1.42-1.42a5.956 5.956 0 0 1-3.8 1.35c-3.31 0-6-2.69-6-6 0-1.4.5-2.68 1.31-3.69l-1.05-.93z" />
@@ -183,8 +187,8 @@ const MobilePreviewModal = ({
           {/* Content Area (scrollable) */}
           <div
             ref={contentWrapperRef}
-            className="w-full h-full overflow-auto rounded-[32px] bg-gradient-to-br from-gray-900 to-black"
-            style={{ WebkitOverflowScrolling: 'touch' }}
+            className={styles.deviceScreen}
+            style={{ WebkitOverflowScrolling: 'touch', fontFamily: 'Inter, sans-serif', padding: '0', boxSizing: 'border-box' }}
           >
             {projectTitle === 'HealthConnect Patient App' ? (
               <iframe
@@ -224,7 +228,7 @@ const MobilePreviewModal = ({
               {patientAppScreen === 'dashboard' && (
                 <button
                   onClick={() => setPatientAppScreen('splash')}
-                  className="bg-gray-800 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-600 transition"
+                  className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow} bg-gray-800 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-600 transition`}
                 >
                   Back
                 </button>
@@ -232,23 +236,23 @@ const MobilePreviewModal = ({
               {patientAppScreen === 'splash' && (
                 <button
                   onClick={() => setPatientAppScreen('dashboard')}
-                  className="bg-purple-600 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-700 transition"
+                  className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow} bg-purple-600 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-700 transition`}
                 >
                   Next
                 </button>
               )}
             </div>
           )}
+          {/* Home Indicator */}
+          <div className={styles.homeIndicator} />
+          {/* Reflection */}
+          <div className={styles.reflection} />
         </div>
-        
-        {/* Home Indicator */}
-        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1/3 h-1 bg-gray-500 rounded-full z-10" />
-        
         {/* Controls Panel */}
-        <div className="bg-gray-900/90 rounded-2xl p-2 ml-6 border border-gray-800 flex flex-col gap-5">
+        <div className={styles.controlsPanel} style={{ fontFamily: 'Inter, sans-serif' }}>
           <button 
             onClick={toggleOrientation}
-            className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white transition-colors"
+            className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Rotate device"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -258,7 +262,7 @@ const MobilePreviewModal = ({
           
           <button 
             onClick={zoomIn}
-            className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white transition-colors"
+            className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Zoom in"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -268,7 +272,7 @@ const MobilePreviewModal = ({
           
           <button 
             onClick={zoomOut}
-            className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white transition-colors"
+            className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Zoom out"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -278,7 +282,7 @@ const MobilePreviewModal = ({
           
           <button 
             onClick={sharePreview}
-            className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white transition-colors"
+            className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Share"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -288,7 +292,7 @@ const MobilePreviewModal = ({
           
           <button 
             onClick={takeScreenshot}
-            className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white transition-colors"
+            className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Take screenshot"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -297,17 +301,19 @@ const MobilePreviewModal = ({
             </svg>
           </button>
         </div>
-        
         {/* Close Button */}
         <button 
           onClick={onClose}
-          className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-red-500 transition-colors"
+          className={`${styles.closeButton} ${styles.interFont} ${styles.textShadow}`}
           aria-label="Close"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
+        {/* Vignette and Particles */}
+        <div className={styles.vignette} />
+        <div className={styles.particles} />
       </div>
     </div>
   );
