@@ -30,6 +30,9 @@ const MobilePreviewModal = ({
   // Determine if this is the FitTrack Pro special case
   const isFitTrackPro = projectUrl === '@FitTrackPro' || projectTitle === 'FitTrack Pro';
 
+  const contentWrapperRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
   // Set mounted state when component mounts
   useEffect(() => {
     setMounted(true);
@@ -112,27 +115,25 @@ const MobilePreviewModal = ({
   // Joystick handlers
   const handleJoystickMove = (e: any) => {
     if (!e.direction) return;
-    setPosition(prev => {
-      const step = 20;
-      let { x, y } = prev;
-      switch (e.direction) {
-        case 'FORWARD':
-          y -= step;
-          break;
-        case 'BACKWARD':
-          y += step;
-          break;
-        case 'LEFT':
-          x -= step;
-          break;
-        case 'RIGHT':
-          x += step;
-          break;
-        default:
-          break;
-      }
-      return { x, y };
-    });
+    const step = 40;
+    let dx = 0, dy = 0;
+    switch (e.direction) {
+      case 'FORWARD': dy = -step; break;
+      case 'BACKWARD': dy = step; break;
+      case 'LEFT': dx = -step; break;
+      case 'RIGHT': dx = step; break;
+      default: break;
+    }
+    // If iframe is present, scroll its content
+    if (iframeRef.current && iframeRef.current.contentWindow) {
+      try {
+        iframeRef.current.contentWindow.scrollBy(dx, dy);
+      } catch (err) {}
+    }
+    // If image wrapper is present, scroll it
+    if (contentWrapperRef.current) {
+      contentWrapperRef.current.scrollBy({ left: dx, top: dy, behavior: 'smooth' });
+    }
   };
   const handleJoystickStop = () => {};
 
@@ -179,33 +180,40 @@ const MobilePreviewModal = ({
               </svg>
             </div>
           </div>
-          {/* Content Area (movable) */}
-          <div style={{ transform: `translate(${position.x}px, ${position.y}px)`, transition: 'transform 0.2s' }} className="w-full h-full overflow-hidden rounded-[32px] bg-gradient-to-br from-gray-900 to-black">
+          {/* Content Area (scrollable) */}
+          <div
+            ref={contentWrapperRef}
+            className="w-full h-full overflow-auto rounded-[32px] bg-gradient-to-br from-gray-900 to-black"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
             {projectTitle === 'HealthConnect Patient App' ? (
-              <iframe 
-                src={patientAppScreen === 'splash' ? '/AppUI/HealthConnectPatientApp/splash.html' : '/AppUI/HealthConnectPatientApp/dashboard.html'} 
-                className="w-full h-full border-0" 
+              <iframe
+                ref={iframeRef}
+                src={patientAppScreen === 'splash' ? '/AppUI/HealthConnectPatientApp/splash.html' : '/AppUI/HealthConnectPatientApp/dashboard.html'}
+                className="w-full h-full border-0"
                 title="HealthConnect Patient App Interactive Prototype"
               />
             ) : isFitTrackPro ? (
-              <iframe 
-                src="/AppUI/FitTrackPro/Splash.html" 
-                className="w-full h-full border-0" 
+              <iframe
+                ref={iframeRef}
+                src="/AppUI/FitTrackPro/Splash.html"
+                className="w-full h-full border-0"
                 title="FitTrack Pro Interactive Prototype"
               />
             ) : imageUrl ? (
-              <Image 
-                src={imageUrl} 
-                alt="Mobile app preview" 
-                className="w-full h-full object-cover"
-                width={844}
-                height={844}
-                priority
-              />
+              <div className="w-full h-full flex items-center justify-center">
+                <img
+                  src={imageUrl}
+                  alt="Mobile app preview"
+                  className="object-cover"
+                  style={{ minWidth: '100%', minHeight: '100%' }}
+                />
+              </div>
             ) : (
-              <iframe 
-                src={projectUrl} 
-                className="w-full h-full border-0" 
+              <iframe
+                ref={iframeRef}
+                src={projectUrl}
+                className="w-full h-full border-0"
                 title="Mobile preview"
               />
             )}
