@@ -24,6 +24,9 @@ const MobilePreviewModal = ({
   const modalRef = useRef<HTMLDivElement>(null);
   // For HealthConnect Patient App interactive prototype navigation
   const [patientAppScreen, setPatientAppScreen] = useState<'splash' | 'dashboard'>('splash');
+  
+  // Determine if this is the FitTrack Pro special case
+  const isFitTrackPro = projectUrl === '@FitTrackPro' || projectTitle === 'FitTrack Pro';
 
   // Set mounted state when component mounts
   useEffect(() => {
@@ -36,6 +39,12 @@ const MobilePreviewModal = ({
       }
     };
 
+    // If the projectUrl is '@FitTrackPro', this is a special case
+    if (projectUrl === '@FitTrackPro' && projectTitle !== 'FitTrack Pro') {
+      // Force the title to be FitTrack Pro
+      projectTitle = 'FitTrack Pro';
+    }
+    
     // Only add event listener when modal is open
     if (isOpen) {
       document.addEventListener('keydown', handleEscKey);
@@ -139,6 +148,12 @@ const MobilePreviewModal = ({
               src={patientAppScreen === 'splash' ? '/AppUI/HealthConnectPatientApp/splash.html' : '/AppUI/HealthConnectPatientApp/dashboard.html'} 
               className="w-full h-full border-0" 
               title="HealthConnect Patient App Interactive Prototype"
+            />
+          ) : isFitTrackPro ? (
+            <iframe 
+              src="/AppUI/FitTrackPro/Splash.html" 
+              className="w-full h-full border-0" 
+              title="FitTrack Pro Interactive Prototype"
             />
           ) : imageUrl ? (
             <Image 

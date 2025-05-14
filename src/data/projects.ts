@@ -42,7 +42,7 @@ export const projectsData: Project[] = [
   },
   {
     id: 'fittrack',
-    title: 'FitTrack',
+    title: 'FitTrack Pro',
     description: 'Pro fitness tracking app with AI-powered workout recommendations',
     image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/ecfac37664-aaf002540768427d81c6.png',
     imageId: 'ecfac37664-aaf002540768427d81c6.png',

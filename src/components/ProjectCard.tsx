@@ -45,6 +45,11 @@ const ProjectCard = ({
     setIsPreviewOpen(false);
   };
   
+  // Define a special URL for FitTrack Pro
+  const previewUrl = id === 'fittrack' 
+    ? '@FitTrackPro'  // Use special tag for FitTrack Pro
+    : `/preview?image=${imageId}&project=${encodeURIComponent(title)}`;
+  
   return (
     <>
       <div className="group bg-[#1a1a4a] rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
@@ -158,9 +163,9 @@ const ProjectCard = ({
         <MobilePreviewModal 
           isOpen={isPreviewOpen}
           onClose={handleClosePreview}
-          projectUrl={`/preview?image=${imageId}&project=${encodeURIComponent(title)}`}
+          projectUrl={previewUrl}
           projectTitle={title}
-          imageUrl={`https://storage.googleapis.com/uxpilot-auth.appspot.com/${imageId}`}
+          imageUrl={id === 'fittrack' ? '/AppUI/FitTrackPro/FitTrackPro.JPG' : `https://storage.googleapis.com/uxpilot-auth.appspot.com/${imageId}`}
         />
       )}
     </>
