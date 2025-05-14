@@ -3,7 +3,6 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
-import PhonePreview from '@/components/PhonePreview';
 import PageLayout from '@/components/PageLayout';
 
 function PreviewContent() {
@@ -59,18 +58,6 @@ function PreviewContent() {
                 Hire Me For Similar Work
                 <i className="fa-solid fa-arrow-right ml-2"></i>
               </a>
-            </div>
-          </div>
-          
-          <div className="md:w-1/2 flex justify-center">
-            <div className="relative">
-              <div className="absolute -top-10 -left-10 w-40 h-40 bg-purple-600/30 rounded-full blur-3xl opacity-20"></div>
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-600/30 rounded-full blur-3xl opacity-20"></div>
-              
-              <PhonePreview 
-                url=""
-                imageUrl={imageUrl}
-              />
             </div>
           </div>
         </div>
