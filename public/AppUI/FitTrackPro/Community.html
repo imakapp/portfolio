@@ -1,0 +1,690 @@
+<iframe title="wireframe-XIvQFbCUbZYAt8zv3Wtq" srcdoc="
+            <html class=&quot;&quot;>
+              
+<head>
+    <link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+    
+  <script src=&quot;https://cdn.jsdelivr.net/npm/apexcharts&quot;></script>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <script>
+      window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+      };
+  </script>
+  <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+
+    
+<style>
+  * {
+    font-family: &quot;Inter&quot;, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+    
+<style>
+  .highlighted-section {
+    outline: 2px solid #3F20FB;
+    background-color: rgba(63, 32, 251, 0.1);
+  }
+
+  .edit-button {
+    position: absolute;
+    z-index: 1000;
+  }
+</style>
+
+    
+<style>
+   :root {
+          /* Base colors */
+          --color-base: #ffffff;
+          --color-base-50: #f9fafb;
+          --color-base-100: #f3f4f6;
+          --color-base-200: #e5e7eb;
+          --color-base-300: #d1d5db;
+          --color-base-400: #9ca3af;
+          --color-base-500: #6b7280;
+          --color-base-600: #4b5563;  
+          --color-base-700: #374151;
+          --color-base-800: #1f2937;  
+          --color-base-900: #111827;
+          --color-base-content: #1f2937;
+
+          /* Primary colors */
+          --color-primary: #3b82f6;
+          --color-primary-50: #eff6ff;
+          --color-primary-100: #dbeafe;
+          --color-primary-200: #bfdbfe;
+          --color-primary-300: #93c5fd;
+          --color-primary-400: #60a5fa;
+          --color-primary-500: #3b82f6;
+          --color-primary-600: #2563eb;
+          --color-primary-700: #1d4ed8;
+          --color-primary-800: #1e40af;
+          --color-primary-900: #1e3a8a;
+          --color-primary-focus: #2563eb;
+          --color-primary-content: #ffffff;
+
+          /* Secondary colors */
+          --color-secondary: #8b5cf6;
+          --color-secondary-50: #f5f3ff;
+          --color-secondary-100: #ede9fe;
+          --color-secondary-200: #ddd6fe;
+          --color-secondary-300: #c4b5fd;
+          --color-secondary-400: #a78bfa;
+          --color-secondary-500: #8b5cf6;
+          --color-secondary-600: #7c3aed;
+          --color-secondary-700: #6d28d9;
+          --color-secondary-800: #5b21b6;
+          --color-secondary-900: #4c1d95;
+          --color-secondary-focus: #7c3aed;
+          --color-secondary-content: #ffffff;
+
+          /* Accent colors */
+          --color-accent: #f472b6;
+          --color-accent-50: #fdf2f8;
+          --color-accent-100: #fce7f3;
+          --color-accent-200: #fbcfe8;
+          --color-accent-300: #f9a8d4;
+          --color-accent-400: #f472b6;
+          --color-accent-500: #ec4899;
+          --color-accent-600: #db2777;
+          --color-accent-700: #be185d;
+          --color-accent-800: #9d174d;
+          --color-accent-900: #831843;
+          --color-accent-focus: #db2777;
+          --color-accent-content: #ffffff;
+
+          /* Neutral colors */
+          --color-neutral: #6b7280;
+          --color-neutral-50: #f9fafb;
+          --color-neutral-100: #f3f4f6;
+          --color-neutral-200: #e5e7eb;
+          --color-neutral-300: #d1d5db;
+          --color-neutral-400: #9ca3af;
+          --color-neutral-500: #6b7280;
+          --color-neutral-600: #4b5563;
+          --color-neutral-700: #374151;
+          --color-neutral-800: #1f2937;
+          --color-neutral-900: #111827;
+          --color-neutral-focus: #4b5563;
+          --color-neutral-content: #ffffff;
+
+          /* Info colors */
+          --color-info: #3b82f6;
+          --color-info-50: #eff6ff;
+          --color-info-100: #dbeafe;
+          --color-info-200: #bfdbfe;
+          --color-info-300: #93c5fd;
+          --color-info-400: #60a5fa;
+          --color-info-500: #3b82f6;
+          --color-info-600: #2563eb;
+          --color-info-700: #1d4ed8;
+          --color-info-800: #1e40af;
+          --color-info-900: #1e3a8a;
+          --color-info-focus: #2563eb;
+          --color-info-content: #ffffff;
+
+          /* Success colors */
+          --color-success: #10b981;
+          --color-success-50: #ecfdf5;
+          --color-success-100: #d1fae5;
+          --color-success-200: #a7f3d0;
+          --color-success-300: #6ee7b7;
+          --color-success-400: #34d399;
+          --color-success-500: #10b981;
+          --color-success-600: #059669;
+          --color-success-700: #047857;
+          --color-success-800: #065f46;
+          --color-success-900: #064e3b;
+          --color-success-focus: #059669;
+          --color-success-content: #ffffff;
+
+          /* Warning colors */
+          --color-warning: #f59e0b;
+          --color-warning-50: #fffbeb;
+          --color-warning-100: #fef3c7;
+          --color-warning-200: #fde68a;
+          --color-warning-300: #fcd34d;
+          --color-warning-400: #fbbf24;
+          --color-warning-500: #f59e0b;
+          --color-warning-600: #d97706;
+          --color-warning-700: #b45309;
+          --color-warning-800: #92400e;
+          --color-warning-900: #78350f;
+          --color-warning-focus: #d97706;
+          --color-warning-content: #ffffff;
+
+          /* Error colors */
+          --color-error: #ef4444;
+          --color-error-50: #fef2f2;
+          --color-error-100: #fee2e2;
+          --color-error-200: #fecaca;
+          --color-error-300: #fca5a5;
+          --color-error-400: #f87171;
+          --color-error-500: #ef4444;
+          --color-error-600: #dc2626;
+          --color-error-700: #b91c1c;
+          --color-error-800: #991b1b;
+          --color-error-900: #7f1d1d;
+          --color-error-focus: #dc2626;
+          --color-error-content: #ffffff;
+        }
+</style>
+
+    
+<style>
+/* Dark theme */
+        .dark {
+          /* Base colors */
+          --color-base: #1f2937;
+          --color-base-50: #111827;
+          --color-base-100: #1f2937;
+          --color-base-200: #374151;
+          --color-base-300: #4b5563;
+          --color-base-400: #6b7280;
+          --color-base-500: #9ca3af;
+          --color-base-600: #d1d5db;
+          --color-base-700: #e5e7eb;
+          --color-base-800: #f3f4f6;
+          --color-base-900: #f9fafb;
+          --color-base-content: #f9fafb;
+
+          /* Primary colors */
+          --color-primary: #60a5fa;
+          --color-primary-50: #1e3a8a;
+          --color-primary-100: #1e40af;
+          --color-primary-200: #1d4ed8;
+          --color-primary-300: #2563eb;
+          --color-primary-400: #3b82f6;
+          --color-primary-500: #60a5fa;
+          --color-primary-600: #93c5fd;
+          --color-primary-700: #bfdbfe;
+          --color-primary-800: #dbeafe;
+          --color-primary-900: #eff6ff;
+          --color-primary-focus: #3b82f6;
+          --color-primary-content: #1f2937;
+
+          /* Secondary colors */
+          --color-secondary: #a78bfa;
+          --color-secondary-50: #4c1d95;
+          --color-secondary-100: #5b21b6;
+          --color-secondary-200: #6d28d9;
+          --color-secondary-300: #7c3aed;
+          --color-secondary-400: #8b5cf6;
+          --color-secondary-500: #a78bfa;
+          --color-secondary-600: #c4b5fd;
+          --color-secondary-700: #ddd6fe;
+          --color-secondary-800: #ede9fe;
+          --color-secondary-900: #f5f3ff;
+          --color-secondary-focus: #8b5cf6;
+          --color-secondary-content: #1f2937;
+
+          /* Accent colors */
+          --color-accent: #f472b6;
+          --color-accent-50: #831843;
+          --color-accent-100: #9d174d;
+          --color-accent-200: #be185d;
+          --color-accent-300: #db2777;
+          --color-accent-400: #ec4899;
+          --color-accent-500: #f472b6;
+          --color-accent-600: #f9a8d4;
+          --color-accent-700: #fbcfe8;
+          --color-accent-800: #fce7f3;
+          --color-accent-900: #fdf2f8;
+          --color-accent-focus: #ec4899;
+          --color-accent-content: #1f2937;
+
+          /* Neutral colors remain the same as light theme */
+
+          /* Info colors */
+          --color-info: #60a5fa;
+          --color-info-50: #1e3a8a;
+          --color-info-100: #1e40af;
+          --color-info-200: #1d4ed8;
+          --color-info-300: #2563eb;
+          --color-info-400: #3b82f6;
+          --color-info-500: #60a5fa;
+          --color-info-600: #93c5fd;
+          --color-info-700: #bfdbfe;
+          --color-info-800: #dbeafe;
+          --color-info-900: #eff6ff;
+          --color-info-focus: #3b82f6;
+          --color-info-content: #1f2937;
+
+          /* Success colors */
+          --color-success: #34d399;
+          --color-success-50: #064e3b;
+          --color-success-100: #065f46;
+          --color-success-200: #047857;
+          --color-success-300: #059669;
+          --color-success-400: #10b981;
+          --color-success-500: #34d399;
+          --color-success-600: #6ee7b7;
+          --color-success-700: #a7f3d0;
+          --color-success-800: #d1fae5;
+          --color-success-900: #ecfdf5;
+          --color-success-focus: #10b981;
+          --color-success-content: #1f2937;
+
+          /* Warning colors */
+          --color-warning: #fbbf24;
+          --color-warning-50: #78350f;
+          --color-warning-100: #92400e;
+          --color-warning-200: #b45309;
+          --color-warning-300: #d97706;
+          --color-warning-400: #f59e0b;
+          --color-warning-500: #fbbf24;
+          --color-warning-600: #fcd34d;
+          --color-warning-700: #fde68a;
+          --color-warning-800: #fef3c7;
+          --color-warning-900: #fffbeb;
+          --color-warning-focus: #f59e0b;
+          --color-warning-content: #1f2937;
+
+          /* Error colors */
+          --color-error: #f87171;
+          --color-error-50: #7f1d1d;
+          --color-error-100: #991b1b;
+          --color-error-200: #b91c1c;
+          --color-error-300: #dc2626;
+          --color-error-400: #ef4444;
+          --color-error-500: #f87171;
+          --color-error-600: #fca5a5;
+          --color-error-700: #fecaca;
+          --color-error-800: #fee2e2;
+          --color-error-900: #fef2f2;
+          --color-error-focus: #ef4444;
+          --color-error-content: #1f2937;
+        }
+</style>
+
+    
+  <script>
+        tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                ...{&quot;transparent&quot;:&quot;transparent&quot;,&quot;current&quot;:&quot;currentColor&quot;,&quot;black&quot;:&quot;#000000&quot;,&quot;white&quot;:&quot;#ffffff&quot;,&quot;gray&quot;:{&quot;50&quot;:&quot;#f9fafb&quot;,&quot;100&quot;:&quot;#f3f4f6&quot;,&quot;200&quot;:&quot;#e5e7eb&quot;,&quot;300&quot;:&quot;#d1d5db&quot;,&quot;400&quot;:&quot;#9ca3af&quot;,&quot;500&quot;:&quot;#6b7280&quot;,&quot;600&quot;:&quot;#4b5563&quot;,&quot;700&quot;:&quot;#374151&quot;,&quot;800&quot;:&quot;#1f2937&quot;,&quot;900&quot;:&quot;#111827&quot;},&quot;red&quot;:{&quot;50&quot;:&quot;#fef2f2&quot;,&quot;100&quot;:&quot;#fee2e2&quot;,&quot;200&quot;:&quot;#fecaca&quot;,&quot;300&quot;:&quot;#fca5a5&quot;,&quot;400&quot;:&quot;#f87171&quot;,&quot;500&quot;:&quot;#ef4444&quot;,&quot;600&quot;:&quot;#dc2626&quot;,&quot;700&quot;:&quot;#b91c1c&quot;,&quot;800&quot;:&quot;#991b1b&quot;,&quot;900&quot;:&quot;#7f1d1d&quot;},&quot;yellow&quot;:{&quot;50&quot;:&quot;#fffbeb&quot;,&quot;100&quot;:&quot;#fef3c7&quot;,&quot;200&quot;:&quot;#fde68a&quot;,&quot;300&quot;:&quot;#fcd34d&quot;,&quot;400&quot;:&quot;#fbbf24&quot;,&quot;500&quot;:&quot;#f59e0b&quot;,&quot;600&quot;:&quot;#d97706&quot;,&quot;700&quot;:&quot;#b45309&quot;,&quot;800&quot;:&quot;#92400e&quot;,&quot;900&quot;:&quot;#78350f&quot;},&quot;green&quot;:{&quot;50&quot;:&quot;#ecfdf5&quot;,&quot;100&quot;:&quot;#d1fae5&quot;,&quot;200&quot;:&quot;#a7f3d0&quot;,&quot;300&quot;:&quot;#6ee7b7&quot;,&quot;400&quot;:&quot;#34d399&quot;,&quot;500&quot;:&quot;#10b981&quot;,&quot;600&quot;:&quot;#059669&quot;,&quot;700&quot;:&quot;#047857&quot;,&quot;800&quot;:&quot;#065f46&quot;,&quot;900&quot;:&quot;#064e3b&quot;},&quot;blue&quot;:{&quot;50&quot;:&quot;#eff6ff&quot;,&quot;100&quot;:&quot;#dbeafe&quot;,&quot;200&quot;:&quot;#bfdbfe&quot;,&quot;300&quot;:&quot;#93c5fd&quot;,&quot;400&quot;:&quot;#60a5fa&quot;,&quot;500&quot;:&quot;#3b82f6&quot;,&quot;600&quot;:&quot;#2563eb&quot;,&quot;700&quot;:&quot;#1d4ed8&quot;,&quot;800&quot;:&quot;#1e40af&quot;,&quot;900&quot;:&quot;#1e3a8a&quot;},&quot;indigo&quot;:{&quot;50&quot;:&quot;#eef2ff&quot;,&quot;100&quot;:&quot;#e0e7ff&quot;,&quot;200&quot;:&quot;#c7d2fe&quot;,&quot;300&quot;:&quot;#a5b4fc&quot;,&quot;400&quot;:&quot;#818cf8&quot;,&quot;500&quot;:&quot;#6366f1&quot;,&quot;600&quot;:&quot;#4f46e5&quot;,&quot;700&quot;:&quot;#4338ca&quot;,&quot;800&quot;:&quot;#3730a3&quot;,&quot;900&quot;:&quot;#312e81&quot;},&quot;purple&quot;:{&quot;50&quot;:&quot;#f5f3ff&quot;,&quot;100&quot;:&quot;#ede9fe&quot;,&quot;200&quot;:&quot;#ddd6fe&quot;,&quot;300&quot;:&quot;#c4b5fd&quot;,&quot;400&quot;:&quot;#a78bfa&quot;,&quot;500&quot;:&quot;#8b5cf6&quot;,&quot;600&quot;:&quot;#7c3aed&quot;,&quot;700&quot;:&quot;#6d28d9&quot;,&quot;800&quot;:&quot;#5b21b6&quot;,&quot;900&quot;:&quot;#4c1d95&quot;},&quot;pink&quot;:{&quot;50&quot;:&quot;#fdf2f8&quot;,&quot;100&quot;:&quot;#fce7f3&quot;,&quot;200&quot;:&quot;#fbcfe8&quot;,&quot;300&quot;:&quot;#f9a8d4&quot;,&quot;400&quot;:&quot;#f472b6&quot;,&quot;500&quot;:&quot;#ec4899&quot;,&quot;600&quot;:&quot;#db2777&quot;,&quot;700&quot;:&quot;#be185d&quot;,&quot;800&quot;:&quot;#9d174d&quot;,&quot;900&quot;:&quot;#831843&quot;}},
+                ...{&quot;primary&quot;:{&quot;50&quot;:&quot;var(--color-primary-50)&quot;,&quot;100&quot;:&quot;var(--color-primary-100)&quot;,&quot;200&quot;:&quot;var(--color-primary-200)&quot;,&quot;300&quot;:&quot;var(--color-primary-300)&quot;,&quot;400&quot;:&quot;var(--color-primary-400)&quot;,&quot;500&quot;:&quot;var(--color-primary-500)&quot;,&quot;600&quot;:&quot;var(--color-primary-600)&quot;,&quot;700&quot;:&quot;var(--color-primary-700)&quot;,&quot;800&quot;:&quot;var(--color-primary-800)&quot;,&quot;900&quot;:&quot;var(--color-primary-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-primary)&quot;,&quot;focus&quot;:&quot;var(--color-primary-focus)&quot;,&quot;content&quot;:&quot;var(--color-primary-content)&quot;},&quot;secondary&quot;:{&quot;50&quot;:&quot;var(--color-secondary-50)&quot;,&quot;100&quot;:&quot;var(--color-secondary-100)&quot;,&quot;200&quot;:&quot;var(--color-secondary-200)&quot;,&quot;300&quot;:&quot;var(--color-secondary-300)&quot;,&quot;400&quot;:&quot;var(--color-secondary-400)&quot;,&quot;500&quot;:&quot;var(--color-secondary-500)&quot;,&quot;600&quot;:&quot;var(--color-secondary-600)&quot;,&quot;700&quot;:&quot;var(--color-secondary-700)&quot;,&quot;800&quot;:&quot;var(--color-secondary-800)&quot;,&quot;900&quot;:&quot;var(--color-secondary-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-secondary)&quot;,&quot;focus&quot;:&quot;var(--color-secondary-focus)&quot;,&quot;content&quot;:&quot;var(--color-secondary-content)&quot;},&quot;accent&quot;:{&quot;50&quot;:&quot;var(--color-accent-50)&quot;,&quot;100&quot;:&quot;var(--color-accent-100)&quot;,&quot;200&quot;:&quot;var(--color-accent-200)&quot;,&quot;300&quot;:&quot;var(--color-accent-300)&quot;,&quot;400&quot;:&quot;var(--color-accent-400)&quot;,&quot;500&quot;:&quot;var(--color-accent-500)&quot;,&quot;600&quot;:&quot;var(--color-accent-600)&quot;,&quot;700&quot;:&quot;var(--color-accent-700)&quot;,&quot;800&quot;:&quot;var(--color-accent-800)&quot;,&quot;900&quot;:&quot;var(--color-accent-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-accent)&quot;,&quot;focus&quot;:&quot;var(--color-accent-focus)&quot;,&quot;content&quot;:&quot;var(--color-accent-content)&quot;},&quot;neutral&quot;:{&quot;50&quot;:&quot;var(--color-neutral-50)&quot;,&quot;100&quot;:&quot;var(--color-neutral-100)&quot;,&quot;200&quot;:&quot;var(--color-neutral-200)&quot;,&quot;300&quot;:&quot;var(--color-neutral-300)&quot;,&quot;400&quot;:&quot;var(--color-neutral-400)&quot;,&quot;500&quot;:&quot;var(--color-neutral-500)&quot;,&quot;600&quot;:&quot;var(--color-neutral-600)&quot;,&quot;700&quot;:&quot;var(--color-neutral-700)&quot;,&quot;800&quot;:&quot;var(--color-neutral-800)&quot;,&quot;900&quot;:&quot;var(--color-neutral-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-neutral)&quot;,&quot;focus&quot;:&quot;var(--color-neutral-focus)&quot;,&quot;content&quot;:&quot;var(--color-neutral-content)&quot;},&quot;info&quot;:{&quot;50&quot;:&quot;var(--color-info-50)&quot;,&quot;100&quot;:&quot;var(--color-info-100)&quot;,&quot;200&quot;:&quot;var(--color-info-200)&quot;,&quot;300&quot;:&quot;var(--color-info-300)&quot;,&quot;400&quot;:&quot;var(--color-info-400)&quot;,&quot;500&quot;:&quot;var(--color-info-500)&quot;,&quot;600&quot;:&quot;var(--color-info-600)&quot;,&quot;700&quot;:&quot;var(--color-info-700)&quot;,&quot;800&quot;:&quot;var(--color-info-800)&quot;,&quot;900&quot;:&quot;var(--color-info-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-info)&quot;,&quot;focus&quot;:&quot;var(--color-info-focus)&quot;,&quot;content&quot;:&quot;var(--color-info-content)&quot;},&quot;success&quot;:{&quot;50&quot;:&quot;var(--color-success-50)&quot;,&quot;100&quot;:&quot;var(--color-success-100)&quot;,&quot;200&quot;:&quot;var(--color-success-200)&quot;,&quot;300&quot;:&quot;var(--color-success-300)&quot;,&quot;400&quot;:&quot;var(--color-success-400)&quot;,&quot;500&quot;:&quot;var(--color-success-500)&quot;,&quot;600&quot;:&quot;var(--color-success-600)&quot;,&quot;700&quot;:&quot;var(--color-success-700)&quot;,&quot;800&quot;:&quot;var(--color-success-800)&quot;,&quot;900&quot;:&quot;var(--color-success-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-success)&quot;,&quot;focus&quot;:&quot;var(--color-success-focus)&quot;,&quot;content&quot;:&quot;var(--color-success-content)&quot;},&quot;warning&quot;:{&quot;50&quot;:&quot;var(--color-warning-50)&quot;,&quot;100&quot;:&quot;var(--color-warning-100)&quot;,&quot;200&quot;:&quot;var(--color-warning-200)&quot;,&quot;300&quot;:&quot;var(--color-warning-300)&quot;,&quot;400&quot;:&quot;var(--color-warning-400)&quot;,&quot;500&quot;:&quot;var(--color-warning-500)&quot;,&quot;600&quot;:&quot;var(--color-warning-600)&quot;,&quot;700&quot;:&quot;var(--color-warning-700)&quot;,&quot;800&quot;:&quot;var(--color-warning-800)&quot;,&quot;900&quot;:&quot;var(--color-warning-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-warning)&quot;,&quot;focus&quot;:&quot;var(--color-warning-focus)&quot;,&quot;content&quot;:&quot;var(--color-warning-content)&quot;},&quot;error&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;},&quot;danger&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;},&quot;failure&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;}},
+                },
+              },
+            },
+            variants: {
+              extend: {
+                backgroundColor: ['active', 'group-hover'],
+                textColor: ['active', 'group-hover'],
+              },
+            },
+            plugins: [],
+          };
+  </script>
+
+</head>
+
+              <body class=&quot;h-full text-base-content&quot;>
+                <div id=&quot;community-screen&quot; class=&quot;min-h-screen bg-[#121721] text-white flex flex-col&quot;>
+  <!-- Status Bar -->
+  <div id=&quot;status-bar&quot; class=&quot;flex justify-between items-center px-4 pt-3 pb-2 bg-[#121721] fixed top-0 left-0 right-0 z-10&quot;>
+    <div class=&quot;text-sm font-medium&quot;>9:41</div>
+    <div class=&quot;flex space-x-2&quot;>
+      <i class=&quot;fa-solid fa-signal&quot;></i>
+      <i class=&quot;fa-solid fa-wifi&quot;></i>
+      <i class=&quot;fa-solid fa-battery-three-quarters&quot;></i>
+    </div>
+  </div>
+  
+  <!-- Header Section -->
+  <header class=&quot;px-6 pt-8 pb-4 flex justify-between items-center bg-[#121721] fixed top-6 left-0 right-0 z-10&quot;>
+    <h1 class=&quot;text-2xl font-bold&quot;>Community</h1>
+    <div class=&quot;flex space-x-2&quot;>
+      <button class=&quot;w-10 h-10 rounded-full bg-[#1E2532] flex items-center justify-center&quot;>
+        <i class=&quot;fa-solid fa-magnifying-glass text-white&quot;></i>
+      </button>
+      <button class=&quot;w-10 h-10 rounded-full bg-[#1E2532] flex items-center justify-center&quot;>
+        <i class=&quot;fa-solid fa-bell text-white&quot;></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class=&quot;flex-1 pt-28 pb-24&quot;>
+  <!-- Filters -->
+  <div id=&quot;feed-filters&quot; class=&quot;px-4 mb-4 overflow-x-auto&quot;>
+    <div class=&quot;flex space-x-2 py-2&quot;>
+      <button class=&quot;bg-[#6191FF] px-4 py-2 rounded-full text-sm whitespace-nowrap&quot;>All Activity</button>
+      <button class=&quot;bg-[#1E2632] px-4 py-2 rounded-full text-sm text-gray-300 whitespace-nowrap&quot;>Friends</button>
+      <button class=&quot;bg-[#1E2632] px-4 py-2 rounded-full text-sm text-gray-300 whitespace-nowrap&quot;>Challenges</button>
+      <button class=&quot;bg-[#1E2632] px-4 py-2 rounded-full text-sm text-gray-300 whitespace-nowrap&quot;>Leaderboards</button>
+    </div>
+  </div>
+
+  <!-- Featured Challenge -->
+  <div id=&quot;featured-challenge&quot; class=&quot;px-4 mb-4&quot;>
+    <div class=&quot;bg-gradient-to-r from-[#1E2632] to-[#273245] rounded-xl p-4&quot;>
+      <div class=&quot;flex justify-between items-center mb-3&quot;>
+        <span class=&quot;text-[#6191FF] font-medium text-sm&quot;>FEATURED CHALLENGE</span>
+        <span class=&quot;bg-[#6191FF] text-xs px-2 py-1 rounded-full&quot;>5 days left</span>
+      </div>
+      <h3 class=&quot;text-lg font-bold mb-2&quot;>10K Steps Challenge</h3>
+      <p class=&quot;text-sm text-gray-300 mb-3&quot;>Complete 10,000 steps daily for 7 days straight.</p>
+      <div class=&quot;flex justify-between items-center&quot;>
+        <div class=&quot;flex -space-x-2&quot;>
+          <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg&quot; alt=&quot;Participant&quot; class=&quot;w-7 h-7 rounded-full border-2 border-[#121721]&quot;>
+          <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg&quot; alt=&quot;Participant&quot; class=&quot;w-7 h-7 rounded-full border-2 border-[#121721]&quot;>
+          <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg&quot; alt=&quot;Participant&quot; class=&quot;w-7 h-7 rounded-full border-2 border-[#121721]&quot;>
+          <div class=&quot;w-7 h-7 rounded-full bg-[#1E2632] border-2 border-[#121721] flex items-center justify-center text-xs&quot;>+42</div>
+        </div>
+        <button class=&quot;bg-[#6191FF] text-white px-4 py-2 rounded-lg text-sm&quot;>Join</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feed -->
+  <div id=&quot;community-feed-content&quot; class=&quot;px-4 space-y-4 pb-20&quot;>
+    <!-- Post 1 -->
+    <div id=&quot;feed-post-1&quot; class=&quot;bg-[#1E2632] rounded-xl p-4&quot;>
+      <div class=&quot;flex items-center mb-3&quot;>
+        <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg&quot; alt=&quot;User&quot; class=&quot;w-10 h-10 rounded-full mr-3&quot;>
+        <div>
+          <div class=&quot;flex items-center&quot;>
+            <h4 class=&quot;font-medium&quot;>Jason Miller</h4>
+            <div class=&quot;ml-2 bg-[#6191FF] text-xs px-2 py-0.5 rounded-full&quot;>PRO</div>
+          </div>
+          <p class=&quot;text-xs text-gray-400&quot;>2 hours ago</p>
+        </div>
+        <button class=&quot;ml-auto&quot;>
+          <i class=&quot;fa-solid fa-ellipsis-vertical text-gray-400&quot;></i>
+        </button>
+      </div>
+      
+      <p class=&quot;text-sm mb-3&quot;>Just completed my morning run! 🏃‍♂️ Feeling amazing and ready for the day.</p>
+      
+      <div class=&quot;bg-[#273245] rounded-lg p-3 mb-3&quot;>
+        <div class=&quot;flex justify-between items-center mb-2&quot;>
+          <div>
+            <i class=&quot;fa-solid fa-running text-[#6191FF] mr-2&quot;></i>
+            <span class=&quot;text-sm font-medium&quot;>Morning Run</span>
+          </div>
+          <span class=&quot;text-[#6191FF] text-xs font-medium&quot;>VIEW DETAILS</span>
+        </div>
+        <div class=&quot;grid grid-cols-3 gap-2&quot;>
+          <div>
+            <p class=&quot;text-xs text-gray-400&quot;>Distance</p>
+            <p class=&quot;font-bold&quot;>5.2 km</p>
+          </div>
+          <div>
+            <p class=&quot;text-xs text-gray-400&quot;>Time</p>
+            <p class=&quot;font-bold&quot;>28:45</p>
+          </div>
+          <div>
+            <p class=&quot;text-xs text-gray-400&quot;>Pace</p>
+            <p class=&quot;font-bold&quot;>5:32/km</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class=&quot;flex justify-between items-center&quot;>
+        <div class=&quot;flex space-x-4&quot;>
+          <button class=&quot;flex items-center&quot;>
+            <i class=&quot;fa-solid fa-heart text-[#6191FF] mr-1&quot;></i>
+            <span class=&quot;text-sm&quot;>24</span>
+          </button>
+          <button class=&quot;flex items-center text-gray-400&quot;>
+            <i class=&quot;fa-solid fa-comment mr-1&quot;></i>
+            <span class=&quot;text-sm&quot;>8</span>
+          </button>
+        </div>
+        <button class=&quot;text-gray-400&quot;>
+          <i class=&quot;fa-solid fa-share-nodes&quot;></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Post 2 -->
+    <div id=&quot;feed-post-2&quot; class=&quot;bg-[#1E2632] rounded-xl p-4&quot;>
+      <div class=&quot;flex items-center mb-3&quot;>
+        <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg&quot; alt=&quot;User&quot; class=&quot;w-10 h-10 rounded-full mr-3&quot;>
+        <div>
+          <h4 class=&quot;font-medium&quot;>Sarah Johnson</h4>
+          <p class=&quot;text-xs text-gray-400&quot;>5 hours ago</p>
+        </div>
+        <button class=&quot;ml-auto&quot;>
+          <i class=&quot;fa-solid fa-ellipsis-vertical text-gray-400&quot;></i>
+        </button>
+      </div>
+      
+      <p class=&quot;text-sm mb-3&quot;>I finally achieved my goal of 20 pull-ups in a row! 💪 Hard work pays off.</p>
+      
+      <div class=&quot;relative mb-3&quot;>
+        <img class=&quot;rounded-lg w-full h-48 object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/6c4cd65155-f6e85b3659b9429fb1ff.png&quot; alt=&quot;fitness woman celebrating achievement in gym, dark moody lighting with blue accents&quot; />
+        <div class=&quot;absolute bottom-3 right-3 bg-[#121721] bg-opacity-70 p-1 px-2 rounded-full&quot;>
+          <i class=&quot;fa-solid fa-trophy text-yellow-400 mr-1&quot;></i>
+          <span class=&quot;text-xs&quot;>Achievement Unlocked</span>
+        </div>
+      </div>
+      
+      <div class=&quot;flex justify-between items-center&quot;>
+        <div class=&quot;flex space-x-4&quot;>
+          <button class=&quot;flex items-center&quot;>
+            <i class=&quot;fa-solid fa-heart text-[#6191FF] mr-1&quot;></i>
+            <span class=&quot;text-sm&quot;>42</span>
+          </button>
+          <button class=&quot;flex items-center text-gray-400&quot;>
+            <i class=&quot;fa-solid fa-comment mr-1&quot;></i>
+            <span class=&quot;text-sm&quot;>15</span>
+          </button>
+        </div>
+        <button class=&quot;text-gray-400&quot;>
+          <i class=&quot;fa-solid fa-share-nodes&quot;></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Leaderboard Card -->
+    <div id=&quot;leaderboard-card&quot; class=&quot;bg-[#1E2632] rounded-xl p-4&quot;>
+      <div class=&quot;flex justify-between items-center mb-4&quot;>
+        <h3 class=&quot;font-bold&quot;>Weekly Leaderboard</h3>
+        <span class=&quot;text-[#6191FF] text-xs&quot;>View All</span>
+      </div>
+      
+      <div class=&quot;space-y-3&quot;>
+        <div class=&quot;flex items-center&quot;>
+          <div class=&quot;w-6 text-center font-bold text-[#6191FF]&quot;>1</div>
+          <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg&quot; alt=&quot;Leader&quot; class=&quot;w-8 h-8 rounded-full mx-3&quot;>
+          <div class=&quot;flex-1&quot;>
+            <p class=&quot;text-sm font-medium&quot;>Mike Thompson</p>
+            <div class=&quot;w-full bg-[#273245] h-1.5 rounded-full&quot;>
+              <div class=&quot;bg-[#6191FF] h-1.5 rounded-full w-[95%]&quot;></div>
+            </div>
+          </div>
+          <p class=&quot;ml-3 font-bold&quot;>54.2K</p>
+        </div>
+        
+        <div class=&quot;flex items-center&quot;>
+          <div class=&quot;w-6 text-center font-bold text-gray-400&quot;>2</div>
+          <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg&quot; alt=&quot;Leader&quot; class=&quot;w-8 h-8 rounded-full mx-3&quot;>
+          <div class=&quot;flex-1&quot;>
+            <p class=&quot;text-sm font-medium&quot;>Emily Parker</p>
+            <div class=&quot;w-full bg-[#273245] h-1.5 rounded-full&quot;>
+              <div class=&quot;bg-[#6191FF] h-1.5 rounded-full w-[85%]&quot;></div>
+            </div>
+          </div>
+          <p class=&quot;ml-3 font-bold&quot;>47.8K</p>
+        </div>
+        
+        <div class=&quot;flex items-center&quot;>
+          <div class=&quot;w-6 text-center font-bold text-gray-400&quot;>3</div>
+          <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg&quot; alt=&quot;Leader&quot; class=&quot;w-8 h-8 rounded-full mx-3&quot;>
+          <div class=&quot;flex-1&quot;>
+            <p class=&quot;text-sm font-medium&quot;>David Wilson</p>
+            <div class=&quot;w-full bg-[#273245] h-1.5 rounded-full&quot;>
+              <div class=&quot;bg-[#6191FF] h-1.5 rounded-full w-[70%]&quot;></div>
+            </div>
+          </div>
+          <p class=&quot;ml-3 font-bold&quot;>38.5K</p>
+        </div>
+        
+        <div class=&quot;flex items-center bg-[#273245] p-2 rounded-lg&quot;>
+          <div class=&quot;w-6 text-center font-bold text-gray-400&quot;>12</div>
+          <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-9.jpg&quot; alt=&quot;Your position&quot; class=&quot;w-8 h-8 rounded-full mx-3&quot;>
+          <div class=&quot;flex-1&quot;>
+            <p class=&quot;text-sm font-medium&quot;>You</p>
+            <div class=&quot;w-full bg-[#1E2632] h-1.5 rounded-full&quot;>
+              <div class=&quot;bg-[#6191FF] h-1.5 rounded-full w-[40%]&quot;></div>
+            </div>
+          </div>
+          <p class=&quot;ml-3 font-bold&quot;>22.1K</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Post 3 -->
+    <div id=&quot;feed-post-3&quot; class=&quot;bg-[#1E2632] rounded-xl p-4&quot;>
+      <div class=&quot;flex items-center mb-3&quot;>
+        <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg&quot; alt=&quot;User&quot; class=&quot;w-10 h-10 rounded-full mr-3&quot;>
+        <div>
+          <h4 class=&quot;font-medium&quot;>Ryan Cooper</h4>
+          <p class=&quot;text-xs text-gray-400&quot;>Yesterday</p>
+        </div>
+        <button class=&quot;ml-auto&quot;>
+          <i class=&quot;fa-solid fa-ellipsis-vertical text-gray-400&quot;></i>
+        </button>
+      </div>
+      
+      <p class=&quot;text-sm mb-3&quot;>Just completed a 30-day yoga challenge! Feeling stronger and more flexible than ever.</p>
+      
+      <div class=&quot;bg-[#273245] rounded-lg p-3 mb-3&quot;>
+        <div class=&quot;flex justify-between items-center&quot;>
+          <div>
+            <i class=&quot;fa-solid fa-medal text-yellow-400 mr-2&quot;></i>
+            <span class=&quot;text-sm font-medium&quot;>Challenge Completed</span>
+          </div>
+          <span class=&quot;text-[#6191FF] text-xs font-medium&quot;>30 DAYS</span>
+        </div>
+      </div>
+      
+      <div class=&quot;flex justify-between items-center&quot;>
+        <div class=&quot;flex space-x-4&quot;>
+          <button class=&quot;flex items-center text-gray-400&quot;>
+            <i class=&quot;fa-regular fa-heart mr-1&quot;></i>
+            <span class=&quot;text-sm&quot;>18</span>
+          </button>
+          <button class=&quot;flex items-center text-gray-400&quot;>
+            <i class=&quot;fa-solid fa-comment mr-1&quot;></i>
+            <span class=&quot;text-sm&quot;>4</span>
+          </button>
+        </div>
+        <button class=&quot;text-gray-400&quot;>
+          <i class=&quot;fa-solid fa-share-nodes&quot;></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Action Button -->
+  <div id=&quot;floating-action-button&quot; class=&quot;fixed bottom-20 right-4&quot;>
+    <button class=&quot;w-14 h-14 bg-[#6191FF] rounded-full flex items-center justify-center shadow-lg&quot;>
+      <i class=&quot;fa-solid fa-plus text-white text-xl&quot;></i>
+    </button>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav id=&quot;bottom-nav&quot; class=&quot;fixed bottom-0 left-0 right-0 bg-[#1A1F2B] border-t border-gray-800 px-2 py-2 z-20&quot;>
+    <div class=&quot;flex justify-around items-center&quot;>
+      <a href=&quot;Dashboard.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+        <i class=&quot;fa-solid fa-house text-gray-500&quot;></i>
+        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Home</span>
+      </a>
+      
+      <a href=&quot;WorkoutDetails.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+        <i class=&quot;fa-solid fa-dumbbell text-gray-500&quot;></i>
+        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Workouts</span>
+      </a>
+      
+      <a href=&quot;Nutrition.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+        <i class=&quot;fa-solid fa-utensils text-gray-500&quot;></i>
+        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Nutrition</span>
+      </a>
+      
+      <a href=&quot;Progress.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+        <i class=&quot;fa-solid fa-chart-line text-gray-500&quot;></i>
+        <span class=&quot;text-xs text-gray-500 mt-1&quot;>Progress</span>
+      </a>
+      
+      <a href=&quot;Community.html&quot; class=&quot;flex flex-col items-center w-16 py-1&quot;>
+        <i class=&quot;fa-solid fa-users text-[#6191FF]&quot;></i>
+        <span class=&quot;text-xs text-[#6191FF] mt-1 font-medium&quot;>Community</span>
+      </a>
+    </div>
+  </nav>
+</main>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Floating Action Button Animation
+    const fab = document.getElementById('floating-action-button').querySelector('button');
+    fab.addEventListener('click', function() {
+      this.classList.add('scale-95');
+      setTimeout(() => {
+        this.classList.remove('scale-95');
+        // Add implementation for creating new post/challenge
+        console.log('Create new post or challenge');
+      }, 200);
+    });
+    
+    // Heart button interaction
+    const heartButtons = document.querySelectorAll('.fa-heart');
+    heartButtons.forEach(button => {
+      button.parentElement.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        const countElement = this.querySelector('span');
+        let count = parseInt(countElement.textContent);
+        
+        if (icon.classList.contains('fa-regular')) {
+          icon.classList.remove('fa-regular');
+          icon.classList.add('fa-solid');
+          icon.parentElement.classList.remove('text-gray-400');
+          icon.parentElement.classList.add('text-[#6191FF]');
+          countElement.textContent = count + 1;
+        } else {
+          icon.classList.remove('fa-solid');
+          icon.classList.add('fa-regular');
+          icon.parentElement.classList.remove('text-[#6191FF]');
+          icon.parentElement.classList.add('text-gray-400');
+          countElement.textContent = count - 1;
+        }
+      });
+    });
+
+    // Add tap effect to bottom navigation
+    const navButtons = document.querySelectorAll('#bottom-nav a');
+    navButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        // We don't prevent default here to allow actual navigation
+        
+        // Reset all buttons to inactive state
+        navButtons.forEach(btn => {
+          btn.querySelector('i').classList.add('text-gray-500');
+          btn.querySelector('i').classList.remove('text-[#6191FF]');
+          btn.querySelector('span').classList.add('text-gray-500');
+          btn.querySelector('span').classList.remove('text-[#6191FF]', 'font-medium');
+        });
+        
+        // Set clicked button to active state
+        this.querySelector('i').classList.remove('text-gray-500');
+        this.querySelector('i').classList.add('text-[#6191FF]');
+        this.querySelector('span').classList.remove('text-gray-500');
+        this.querySelector('span').classList.add('text-[#6191FF]', 'font-medium');
+      });
+    });
+  });
+</script>
+              </body>
+            </html>
+          " frameborder="0" class="w-full h-max overflow-visible border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 1553px; min-height: 844px;"></iframe>
