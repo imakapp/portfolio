@@ -157,12 +157,11 @@ const MobilePreviewModal = ({
         </div>
         {/* Mobile Device Frame */}
         <div 
-          style={{ ...deviceContainerStyles, transform: `translate(${position.x}px, ${position.y}px) scale(${scale})` }} 
+          style={deviceContainerStyles} 
           className="bg-black rounded-[36px] border-4 border-gray-800 relative overflow-hidden"
         >
           {/* Notch / Dynamic Island */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[30px] bg-black rounded-b-xl z-10" />
-          
           {/* Status Bar */}
           <div className="absolute top-0 left-0 right-0 h-[44px] px-6 flex justify-between items-center z-[5] bg-black/50 backdrop-blur-sm">
             <div className="text-white text-xs font-medium">{currentTime}</div>
@@ -180,36 +179,37 @@ const MobilePreviewModal = ({
               </svg>
             </div>
           </div>
-          
-          {/* Content Area */}
-          {projectTitle === 'HealthConnect Patient App' ? (
-            <iframe 
-              src={patientAppScreen === 'splash' ? '/AppUI/HealthConnectPatientApp/splash.html' : '/AppUI/HealthConnectPatientApp/dashboard.html'} 
-              className="w-full h-full border-0" 
-              title="HealthConnect Patient App Interactive Prototype"
-            />
-          ) : isFitTrackPro ? (
-            <iframe 
-              src="/AppUI/FitTrackPro/Splash.html" 
-              className="w-full h-full border-0" 
-              title="FitTrack Pro Interactive Prototype"
-            />
-          ) : imageUrl ? (
-            <Image 
-              src={imageUrl} 
-              alt="Mobile app preview" 
-              className="w-full h-full object-cover"
-              width={844}
-              height={844}
-              priority
-            />
-          ) : (
-            <iframe 
-              src={projectUrl} 
-              className="w-full h-full border-0" 
-              title="Mobile preview"
-            />
-          )}
+          {/* Content Area (movable) */}
+          <div style={{ transform: `translate(${position.x}px, ${position.y}px)`, transition: 'transform 0.2s' }} className="w-full h-full overflow-hidden rounded-[32px] bg-gradient-to-br from-gray-900 to-black">
+            {projectTitle === 'HealthConnect Patient App' ? (
+              <iframe 
+                src={patientAppScreen === 'splash' ? '/AppUI/HealthConnectPatientApp/splash.html' : '/AppUI/HealthConnectPatientApp/dashboard.html'} 
+                className="w-full h-full border-0" 
+                title="HealthConnect Patient App Interactive Prototype"
+              />
+            ) : isFitTrackPro ? (
+              <iframe 
+                src="/AppUI/FitTrackPro/Splash.html" 
+                className="w-full h-full border-0" 
+                title="FitTrack Pro Interactive Prototype"
+              />
+            ) : imageUrl ? (
+              <Image 
+                src={imageUrl} 
+                alt="Mobile app preview" 
+                className="w-full h-full object-cover"
+                width={844}
+                height={844}
+                priority
+              />
+            ) : (
+              <iframe 
+                src={projectUrl} 
+                className="w-full h-full border-0" 
+                title="Mobile preview"
+              />
+            )}
+          </div>
           {/* Navigation for HealthConnect Patient App */}
           {projectTitle === 'HealthConnect Patient App' && (
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-4 z-20">
