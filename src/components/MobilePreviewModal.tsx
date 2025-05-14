@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, MouseEvent } from 'react';
 import Image from 'next/image';
+import { Joystick } from 'react-joystick-component';
 
 interface MobilePreviewModalProps {
   isOpen: boolean;
@@ -21,6 +22,7 @@ const MobilePreviewModal = ({
   const [mounted, setMounted] = useState(false);
   const [isPortrait, setIsPortrait] = useState(true);
   const [scale, setScale] = useState(1);
+  const [position, setPosition] = useState({ x: 0, y: 0 }); // joystick movement state
   const modalRef = useRef<HTMLDivElement>(null);
   // For HealthConnect Patient App interactive prototype navigation
   const [patientAppScreen, setPatientAppScreen] = useState<'splash' | 'dashboard'>('splash');
@@ -107,6 +109,33 @@ const MobilePreviewModal = ({
     }
   };
 
+  // Joystick handlers
+  const handleJoystickMove = (e: any) => {
+    if (!e.direction) return;
+    setPosition(prev => {
+      const step = 20;
+      let { x, y } = prev;
+      switch (e.direction) {
+        case 'FORWARD':
+          y -= step;
+          break;
+        case 'BACKWARD':
+          y += step;
+          break;
+        case 'LEFT':
+          x -= step;
+          break;
+        case 'RIGHT':
+          x += step;
+          break;
+        default:
+          break;
+      }
+      return { x, y };
+    });
+  };
+  const handleJoystickStop = () => {};
+
   return (
     <div 
       className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center backdrop-blur-sm transition-opacity duration-300"
@@ -114,11 +143,21 @@ const MobilePreviewModal = ({
     >
       <div 
         ref={modalRef}
-        className="relative flex items-center animate-fade-in" 
+        className="relative flex flex-row items-center animate-fade-in gap-6" 
       >
+        {/* Joystick on the left */}
+        <div className="hidden sm:flex flex-col items-center justify-center">
+          <Joystick
+            size={80}
+            baseColor="#23272f"
+            stickColor="#8B5CF6"
+            move={handleJoystickMove}
+            stop={handleJoystickStop}
+          />
+        </div>
         {/* Mobile Device Frame */}
         <div 
-          style={deviceContainerStyles} 
+          style={{ ...deviceContainerStyles, transform: `translate(${position.x}px, ${position.y}px) scale(${scale})` }} 
           className="bg-black rounded-[36px] border-4 border-gray-800 relative overflow-hidden"
         >
           {/* Notch / Dynamic Island */}
