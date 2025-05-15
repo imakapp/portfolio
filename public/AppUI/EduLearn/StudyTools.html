@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.FontAwesomeConfig = {
+            autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        * {
+            font-family: "Inter", sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Mobile status bar styles */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 12px;
+            background-color: #ffffff;
+            height: 28px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .dark .status-bar {
+            background-color: #1f2937;
+            color: #ffffff;
+        }
+
+        /* Make content scrollable */
+        .scrollable-content {
+            height: calc(100vh - 128px); /* Adjust based on header + status bar + footer heights */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+    
+    <style>
+      .highlighted-section {
+        outline: 2px solid #3F20FB;
+        background-color: rgba(63, 32, 251, 0.1);
+      }
+
+      .edit-button {
+        position: absolute;
+        z-index: 1000;
+      }
+    </style>
+    
+    <style>
+       :root {
+              /* Base colors */
+              --color-base: #ffffff;
+              --color-base-50: #f9fafb;
+              --color-base-100: #f3f4f6;
+              --color-base-200: #e5e7eb;
+              --color-base-300: #d1d5db;
+              --color-base-400: #9ca3af;
+              --color-base-500: #6b7280;
+              --color-base-600: #4b5563;  
+              --color-base-700: #374151;
+              --color-base-800: #1f2937;  
+              --color-base-900: #111827;
+              --color-base-content: #1f2937;
+
+              /* Primary colors */
+              --color-primary: #3b82f6;
+              --color-primary-50: #eff6ff;
+              --color-primary-100: #dbeafe;
+              --color-primary-200: #bfdbfe;
+              --color-primary-300: #93c5fd;
+              --color-primary-400: #60a5fa;
+              --color-primary-500: #3b82f6;
+              --color-primary-600: #2563eb;
+              --color-primary-700: #1d4ed8;
+              --color-primary-800: #1e40af;
+              --color-primary-900: #1e3a8a;
+              --color-primary-focus: #2563eb;
+              --color-primary-content: #ffffff;
+
+              /* Secondary colors */
+              --color-secondary: #8b5cf6;
+              --color-secondary-50: #f5f3ff;
+              --color-secondary-100: #ede9fe;
+              --color-secondary-200: #ddd6fe;
+              --color-secondary-300: #c4b5fd;
+              --color-secondary-400: #a78bfa;
+              --color-secondary-500: #8b5cf6;
+              --color-secondary-600: #7c3aed;
+              --color-secondary-700: #6d28d9;
+              --color-secondary-800: #5b21b6;
+              --color-secondary-900: #4c1d95;
+              --color-secondary-focus: #7c3aed;
+              --color-secondary-content: #ffffff;
+
+              /* Accent colors */
+              --color-accent: #f472b6;
+              --color-accent-50: #fdf2f8;
+              --color-accent-100: #fce7f3;
+              --color-accent-200: #fbcfe8;
+              --color-accent-300: #f9a8d4;
+              --color-accent-400: #f472b6;
+              --color-accent-500: #ec4899;
+              --color-accent-600: #db2777;
+              --color-accent-700: #be185d;
+              --color-accent-800: #9d174d;
+              --color-accent-900: #831843;
+              --color-accent-focus: #db2777;
+              --color-accent-content: #ffffff;
+
+              /* Neutral colors */
+              --color-neutral: #6b7280;
+              --color-neutral-50: #f9fafb;
+              --color-neutral-100: #f3f4f6;
+              --color-neutral-200: #e5e7eb;
+              --color-neutral-300: #d1d5db;
+  <script src=&quot;https://cdn.jsdelivr.net/npm/apexcharts&quot;></script>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <script>
+      window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+      };
+  </script>
+  <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+
+    
+<style>
+  * {
+    font-family: &quot;Inter&quot;, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+    
+<style>
+  .highlighted-section {
+    outline: 2px solid #3F20FB;
+    background-color: rgba(63, 32, 251, 0.1);
+  }
+
+  .edit-button {
+    position: absolute;
+    z-index: 1000;
+  }
+</style>
+
+    
+<style>
+   :root {
+          /* Base colors */
+          --color-base: #ffffff;
+          --color-base-50: #f9fafb;
+          --color-base-100: #f3f4f6;
+          --color-base-200: #e5e7eb;
+          --color-base-300: #d1d5db;
+          --color-base-400: #9ca3af;
+          --color-base-500: #6b7280;
+          --color-base-600: #4b5563;  
+          --color-base-700: #374151;
+          --color-base-800: #1f2937;  
+          --color-base-900: #111827;
+          --color-base-content: #1f2937;
+
+          /* Primary colors */
+          --color-primary: #3b82f6;
+          --color-primary-50: #eff6ff;
+          --color-primary-100: #dbeafe;
+          --color-primary-200: #bfdbfe;
+          --color-primary-300: #93c5fd;
+          --color-primary-400: #60a5fa;
+          --color-primary-500: #3b82f6;
+          --color-primary-600: #2563eb;
+          --color-primary-700: #1d4ed8;
+          --color-primary-800: #1e40af;
+          --color-primary-900: #1e3a8a;
+          --color-primary-focus: #2563eb;
+          --color-primary-content: #ffffff;
+
+          /* Secondary colors */
+          --color-secondary: #8b5cf6;
+          --color-secondary-50: #f5f3ff;
+          --color-secondary-100: #ede9fe;
+          --color-secondary-200: #ddd6fe;
+          --color-secondary-300: #c4b5fd;
+          --color-secondary-400: #a78bfa;
+          --color-secondary-500: #8b5cf6;
+          --color-secondary-600: #7c3aed;
+          --color-secondary-700: #6d28d9;
+          --color-secondary-800: #5b21b6;
+          --color-secondary-900: #4c1d95;
+          --color-secondary-focus: #7c3aed;
+          --color-secondary-content: #ffffff;
+
+          /* Accent colors */
+          --color-accent: #f472b6;
+          --color-accent-50: #fdf2f8;
+          --color-accent-100: #fce7f3;
+          --color-accent-200: #fbcfe8;
+          --color-accent-300: #f9a8d4;
+          --color-accent-400: #f472b6;
+          --color-accent-500: #ec4899;
+          --color-accent-600: #db2777;
+          --color-accent-700: #be185d;
+          --color-accent-800: #9d174d;
+          --color-accent-900: #831843;
+          --color-accent-focus: #db2777;
+          --color-accent-content: #ffffff;
+
+          /* Neutral colors */
+          --color-neutral: #6b7280;
+          --color-neutral-50: #f9fafb;
+          --color-neutral-100: #f3f4f6;
+          --color-neutral-200: #e5e7eb;
+          --color-neutral-300: #d1d5db;
+          --color-neutral-400: #9ca3af;
+          --color-neutral-500: #6b7280;
+          --color-neutral-600: #4b5563;
+          --color-neutral-700: #374151;
+          --color-neutral-800: #1f2937;
+          --color-neutral-900: #111827;
+          --color-neutral-focus: #4b5563;
+          --color-neutral-content: #ffffff;
+
+          /* Info colors */
+          --color-info: #3b82f6;
+          --color-info-50: #eff6ff;
+          --color-info-100: #dbeafe;
+          --color-info-200: #bfdbfe;
+          --color-info-300: #93c5fd;
+          --color-info-400: #60a5fa;
+          --color-info-500: #3b82f6;
+          --color-info-600: #2563eb;
+          --color-info-700: #1d4ed8;
+          --color-info-800: #1e40af;
+          --color-info-900: #1e3a8a;
+          --color-info-focus: #2563eb;
+          --color-info-content: #ffffff;
+
+          /* Success colors */
+          --color-success: #10b981;
+          --color-success-50: #ecfdf5;
+          --color-success-100: #d1fae5;
+          --color-success-200: #a7f3d0;
+          --color-success-300: #6ee7b7;
+          --color-success-400: #34d399;
+          --color-success-500: #10b981;
+          --color-success-600: #059669;
+          --color-success-700: #047857;
+          --color-success-800: #065f46;
+          --color-success-900: #064e3b;
+          --color-success-focus: #059669;
+          --color-success-content: #ffffff;
+
+          /* Warning colors */
+          --color-warning: #f59e0b;
+          --color-warning-50: #fffbeb;
+          --color-warning-100: #fef3c7;
+          --color-warning-200: #fde68a;
+          --color-warning-300: #fcd34d;
+          --color-warning-400: #fbbf24;
+          --color-warning-500: #f59e0b;
+          --color-warning-600: #d97706;
+          --color-warning-700: #b45309;
+          --color-warning-800: #92400e;
+          --color-warning-900: #78350f;
+          --color-warning-focus: #d97706;
+          --color-warning-content: #ffffff;
+
+          /* Error colors */
+          --color-error: #ef4444;
+          --color-error-50: #fef2f2;
+          --color-error-100: #fee2e2;
+          --color-error-200: #fecaca;
+          --color-error-300: #fca5a5;
+          --color-error-400: #f87171;
+          --color-error-500: #ef4444;
+          --color-error-600: #dc2626;
+          --color-error-700: #b91c1c;
+          --color-error-800: #991b1b;
+          --color-error-900: #7f1d1d;
+          --color-error-focus: #dc2626;
+          --color-error-content: #ffffff;
+        }
+</style>
+
+    
+<style>
+/* Dark theme */
+        .dark {
+          /* Base colors */
+          --color-base: #1f2937;
+          --color-base-50: #111827;
+          --color-base-100: #1f2937;
+          --color-base-200: #374151;
+          --color-base-300: #4b5563;
+          --color-base-400: #6b7280;
+          --color-base-500: #9ca3af;
+          --color-base-600: #d1d5db;
+          --color-base-700: #e5e7eb;
+          --color-base-800: #f3f4f6;
+          --color-base-900: #f9fafb;
+          --color-base-content: #f9fafb;
+
+          /* Primary colors */
+          --color-primary: #60a5fa;
+          --color-primary-50: #1e3a8a;
+          --color-primary-100: #1e40af;
+          --color-primary-200: #1d4ed8;
+          --color-primary-300: #2563eb;
+          --color-primary-400: #3b82f6;
+          --color-primary-500: #60a5fa;
+          --color-primary-600: #93c5fd;
+          --color-primary-700: #bfdbfe;
+          --color-primary-800: #dbeafe;
+          --color-primary-900: #eff6ff;
+          --color-primary-focus: #3b82f6;
+          --color-primary-content: #1f2937;
+
+          /* Secondary colors */
+          --color-secondary: #a78bfa;
+          --color-secondary-50: #4c1d95;
+          --color-secondary-100: #5b21b6;
+          --color-secondary-200: #6d28d9;
+          --color-secondary-300: #7c3aed;
+          --color-secondary-400: #8b5cf6;
+          --color-secondary-500: #a78bfa;
+          --color-secondary-600: #c4b5fd;
+          --color-secondary-700: #ddd6fe;
+          --color-secondary-800: #ede9fe;
+          --color-secondary-900: #f5f3ff;
+          --color-secondary-focus: #8b5cf6;
+          --color-secondary-content: #1f2937;
+
+          /* Accent colors */
+          --color-accent: #f472b6;
+          --color-accent-50: #831843;
+          --color-accent-100: #9d174d;
+          --color-accent-200: #be185d;
+          --color-accent-300: #db2777;
+          --color-accent-400: #ec4899;
+          --color-accent-500: #f472b6;
+          --color-accent-600: #f9a8d4;
+          --color-accent-700: #fbcfe8;
+          --color-accent-800: #fce7f3;
+          --color-accent-900: #fdf2f8;
+          --color-accent-focus: #ec4899;
+          --color-accent-content: #1f2937;
+
+          /* Neutral colors remain the same as light theme */
+
+          /* Info colors */
+          --color-info: #60a5fa;
+          --color-info-50: #1e3a8a;
+          --color-info-100: #1e40af;
+          --color-info-200: #1d4ed8;
+          --color-info-300: #2563eb;
+          --color-info-400: #3b82f6;
+          --color-info-500: #60a5fa;
+          --color-info-600: #93c5fd;
+          --color-info-700: #bfdbfe;
+          --color-info-800: #dbeafe;
+          --color-info-900: #eff6ff;
+          --color-info-focus: #3b82f6;
+          --color-info-content: #1f2937;
+
+          /* Success colors */
+          --color-success: #34d399;
+          --color-success-50: #064e3b;
+          --color-success-100: #065f46;
+          --color-success-200: #047857;
+          --color-success-300: #059669;
+          --color-success-400: #10b981;
+          --color-success-500: #34d399;
+          --color-success-600: #6ee7b7;
+          --color-success-700: #a7f3d0;
+          --color-success-800: #d1fae5;
+          --color-success-900: #ecfdf5;
+          --color-success-focus: #10b981;
+          --color-success-content: #1f2937;
+
+          /* Warning colors */
+          --color-warning: #fbbf24;
+          --color-warning-50: #78350f;
+          --color-warning-100: #92400e;
+          --color-warning-200: #b45309;
+          --color-warning-300: #d97706;
+          --color-warning-400: #f59e0b;
+          --color-warning-500: #fbbf24;
+          --color-warning-600: #fcd34d;
+          --color-warning-700: #fde68a;
+          --color-warning-800: #fef3c7;
+          --color-warning-900: #fffbeb;
+          --color-warning-focus: #f59e0b;
+          --color-warning-content: #1f2937;
+
+          /* Error colors */
+          --color-error: #f87171;
+          --color-error-50: #7f1d1d;
+          --color-error-100: #991b1b;
+          --color-error-200: #b91c1c;
+          --color-error-300: #dc2626;
+          --color-error-400: #ef4444;
+          --color-error-500: #f87171;
+          --color-error-600: #fca5a5;
+          --color-error-700: #fecaca;
+          --color-error-800: #fee2e2;
+          --color-error-900: #fef2f2;
+          --color-error-focus: #ef4444;
+          --color-error-content: #1f2937;
+        }
+</style>
+
+    
+  <script>
+        tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                ...{&quot;transparent&quot;:&quot;transparent&quot;,&quot;current&quot;:&quot;currentColor&quot;,&quot;black&quot;:&quot;#000000&quot;,&quot;white&quot;:&quot;#ffffff&quot;,&quot;gray&quot;:{&quot;50&quot;:&quot;#f9fafb&quot;,&quot;100&quot;:&quot;#f3f4f6&quot;,&quot;200&quot;:&quot;#e5e7eb&quot;,&quot;300&quot;:&quot;#d1d5db&quot;,&quot;400&quot;:&quot;#9ca3af&quot;,&quot;500&quot;:&quot;#6b7280&quot;,&quot;600&quot;:&quot;#4b5563&quot;,&quot;700&quot;:&quot;#374151&quot;,&quot;800&quot;:&quot;#1f2937&quot;,&quot;900&quot;:&quot;#111827&quot;},&quot;red&quot;:{&quot;50&quot;:&quot;#fef2f2&quot;,&quot;100&quot;:&quot;#fee2e2&quot;,&quot;200&quot;:&quot;#fecaca&quot;,&quot;300&quot;:&quot;#fca5a5&quot;,&quot;400&quot;:&quot;#f87171&quot;,&quot;500&quot;:&quot;#ef4444&quot;,&quot;600&quot;:&quot;#dc2626&quot;,&quot;700&quot;:&quot;#b91c1c&quot;,&quot;800&quot;:&quot;#991b1b&quot;,&quot;900&quot;:&quot;#7f1d1d&quot;},&quot;yellow&quot;:{&quot;50&quot;:&quot;#fffbeb&quot;,&quot;100&quot;:&quot;#fef3c7&quot;,&quot;200&quot;:&quot;#fde68a&quot;,&quot;300&quot;:&quot;#fcd34d&quot;,&quot;400&quot;:&quot;#fbbf24&quot;,&quot;500&quot;:&quot;#f59e0b&quot;,&quot;600&quot;:&quot;#d97706&quot;,&quot;700&quot;:&quot;#b45309&quot;,&quot;800&quot;:&quot;#92400e&quot;,&quot;900&quot;:&quot;#78350f&quot;},&quot;green&quot;:{&quot;50&quot;:&quot;#ecfdf5&quot;,&quot;100&quot;:&quot;#d1fae5&quot;,&quot;200&quot;:&quot;#a7f3d0&quot;,&quot;300&quot;:&quot;#6ee7b7&quot;,&quot;400&quot;:&quot;#34d399&quot;,&quot;500&quot;:&quot;#10b981&quot;,&quot;600&quot;:&quot;#059669&quot;,&quot;700&quot;:&quot;#047857&quot;,&quot;800&quot;:&quot;#065f46&quot;,&quot;900&quot;:&quot;#064e3b&quot;},&quot;blue&quot;:{&quot;50&quot;:&quot;#eff6ff&quot;,&quot;100&quot;:&quot;#dbeafe&quot;,&quot;200&quot;:&quot;#bfdbfe&quot;,&quot;300&quot;:&quot;#93c5fd&quot;,&quot;400&quot;:&quot;#60a5fa&quot;,&quot;500&quot;:&quot;#3b82f6&quot;,&quot;600&quot;:&quot;#2563eb&quot;,&quot;700&quot;:&quot;#1d4ed8&quot;,&quot;800&quot;:&quot;#1e40af&quot;,&quot;900&quot;:&quot;#1e3a8a&quot;},&quot;indigo&quot;:{&quot;50&quot;:&quot;#eef2ff&quot;,&quot;100&quot;:&quot;#e0e7ff&quot;,&quot;200&quot;:&quot;#c7d2fe&quot;,&quot;300&quot;:&quot;#a5b4fc&quot;,&quot;400&quot;:&quot;#818cf8&quot;,&quot;500&quot;:&quot;#6366f1&quot;,&quot;600&quot;:&quot;#4f46e5&quot;,&quot;700&quot;:&quot;#4338ca&quot;,&quot;800&quot;:&quot;#3730a3&quot;,&quot;900&quot;:&quot;#312e81&quot;},&quot;purple&quot;:{&quot;50&quot;:&quot;#f5f3ff&quot;,&quot;100&quot;:&quot;#ede9fe&quot;,&quot;200&quot;:&quot;#ddd6fe&quot;,&quot;300&quot;:&quot;#c4b5fd&quot;,&quot;400&quot;:&quot;#a78bfa&quot;,&quot;500&quot;:&quot;#8b5cf6&quot;,&quot;600&quot;:&quot;#7c3aed&quot;,&quot;700&quot;:&quot;#6d28d9&quot;,&quot;800&quot;:&quot;#5b21b6&quot;,&quot;900&quot;:&quot;#4c1d95&quot;},&quot;pink&quot;:{&quot;50&quot;:&quot;#fdf2f8&quot;,&quot;100&quot;:&quot;#fce7f3&quot;,&quot;200&quot;:&quot;#fbcfe8&quot;,&quot;300&quot;:&quot;#f9a8d4&quot;,&quot;400&quot;:&quot;#f472b6&quot;,&quot;500&quot;:&quot;#ec4899&quot;,&quot;600&quot;:&quot;#db2777&quot;,&quot;700&quot;:&quot;#be185d&quot;,&quot;800&quot;:&quot;#9d174d&quot;,&quot;900&quot;:&quot;#831843&quot;}},
+                ...{&quot;primary&quot;:{&quot;50&quot;:&quot;var(--color-primary-50)&quot;,&quot;100&quot;:&quot;var(--color-primary-100)&quot;,&quot;200&quot;:&quot;var(--color-primary-200)&quot;,&quot;300&quot;:&quot;var(--color-primary-300)&quot;,&quot;400&quot;:&quot;var(--color-primary-400)&quot;,&quot;500&quot;:&quot;var(--color-primary-500)&quot;,&quot;600&quot;:&quot;var(--color-primary-600)&quot;,&quot;700&quot;:&quot;var(--color-primary-700)&quot;,&quot;800&quot;:&quot;var(--color-primary-800)&quot;,&quot;900&quot;:&quot;var(--color-primary-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-primary)&quot;,&quot;focus&quot;:&quot;var(--color-primary-focus)&quot;,&quot;content&quot;:&quot;var(--color-primary-content)&quot;},&quot;secondary&quot;:{&quot;50&quot;:&quot;var(--color-secondary-50)&quot;,&quot;100&quot;:&quot;var(--color-secondary-100)&quot;,&quot;200&quot;:&quot;var(--color-secondary-200)&quot;,&quot;300&quot;:&quot;var(--color-secondary-300)&quot;,&quot;400&quot;:&quot;var(--color-secondary-400)&quot;,&quot;500&quot;:&quot;var(--color-secondary-500)&quot;,&quot;600&quot;:&quot;var(--color-secondary-600)&quot;,&quot;700&quot;:&quot;var(--color-secondary-700)&quot;,&quot;800&quot;:&quot;var(--color-secondary-800)&quot;,&quot;900&quot;:&quot;var(--color-secondary-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-secondary)&quot;,&quot;focus&quot;:&quot;var(--color-secondary-focus)&quot;,&quot;content&quot;:&quot;var(--color-secondary-content)&quot;},&quot;accent&quot;:{&quot;50&quot;:&quot;var(--color-accent-50)&quot;,&quot;100&quot;:&quot;var(--color-accent-100)&quot;,&quot;200&quot;:&quot;var(--color-accent-200)&quot;,&quot;300&quot;:&quot;var(--color-accent-300)&quot;,&quot;400&quot;:&quot;var(--color-accent-400)&quot;,&quot;500&quot;:&quot;var(--color-accent-500)&quot;,&quot;600&quot;:&quot;var(--color-accent-600)&quot;,&quot;700&quot;:&quot;var(--color-accent-700)&quot;,&quot;800&quot;:&quot;var(--color-accent-800)&quot;,&quot;900&quot;:&quot;var(--color-accent-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-accent)&quot;,&quot;focus&quot;:&quot;var(--color-accent-focus)&quot;,&quot;content&quot;:&quot;var(--color-accent-content)&quot;},&quot;neutral&quot;:{&quot;50&quot;:&quot;var(--color-neutral-50)&quot;,&quot;100&quot;:&quot;var(--color-neutral-100)&quot;,&quot;200&quot;:&quot;var(--color-neutral-200)&quot;,&quot;300&quot;:&quot;var(--color-neutral-300)&quot;,&quot;400&quot;:&quot;var(--color-neutral-400)&quot;,&quot;500&quot;:&quot;var(--color-neutral-500)&quot;,&quot;600&quot;:&quot;var(--color-neutral-600)&quot;,&quot;700&quot;:&quot;var(--color-neutral-700)&quot;,&quot;800&quot;:&quot;var(--color-neutral-800)&quot;,&quot;900&quot;:&quot;var(--color-neutral-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-neutral)&quot;,&quot;focus&quot;:&quot;var(--color-neutral-focus)&quot;,&quot;content&quot;:&quot;var(--color-neutral-content)&quot;},&quot;info&quot;:{&quot;50&quot;:&quot;var(--color-info-50)&quot;,&quot;100&quot;:&quot;var(--color-info-100)&quot;,&quot;200&quot;:&quot;var(--color-info-200)&quot;,&quot;300&quot;:&quot;var(--color-info-300)&quot;,&quot;400&quot;:&quot;var(--color-info-400)&quot;,&quot;500&quot;:&quot;var(--color-info-500)&quot;,&quot;600&quot;:&quot;var(--color-info-600)&quot;,&quot;700&quot;:&quot;var(--color-info-700)&quot;,&quot;800&quot;:&quot;var(--color-info-800)&quot;,&quot;900&quot;:&quot;var(--color-info-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-info)&quot;,&quot;focus&quot;:&quot;var(--color-info-focus)&quot;,&quot;content&quot;:&quot;var(--color-info-content)&quot;},&quot;success&quot;:{&quot;50&quot;:&quot;var(--color-success-50)&quot;,&quot;100&quot;:&quot;var(--color-success-100)&quot;,&quot;200&quot;:&quot;var(--color-success-200)&quot;,&quot;300&quot;:&quot;var(--color-success-300)&quot;,&quot;400&quot;:&quot;var(--color-success-400)&quot;,&quot;500&quot;:&quot;var(--color-success-500)&quot;,&quot;600&quot;:&quot;var(--color-success-600)&quot;,&quot;700&quot;:&quot;var(--color-success-700)&quot;,&quot;800&quot;:&quot;var(--color-success-800)&quot;,&quot;900&quot;:&quot;var(--color-success-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-success)&quot;,&quot;focus&quot;:&quot;var(--color-success-focus)&quot;,&quot;content&quot;:&quot;var(--color-success-content)&quot;},&quot;warning&quot;:{&quot;50&quot;:&quot;var(--color-warning-50)&quot;,&quot;100&quot;:&quot;var(--color-warning-100)&quot;,&quot;200&quot;:&quot;var(--color-warning-200)&quot;,&quot;300&quot;:&quot;var(--color-warning-300)&quot;,&quot;400&quot;:&quot;var(--color-warning-400)&quot;,&quot;500&quot;:&quot;var(--color-warning-500)&quot;,&quot;600&quot;:&quot;var(--color-warning-600)&quot;,&quot;700&quot;:&quot;var(--color-warning-700)&quot;,&quot;800&quot;:&quot;var(--color-warning-800)&quot;,&quot;900&quot;:&quot;var(--color-warning-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-warning)&quot;,&quot;focus&quot;:&quot;var(--color-warning-focus)&quot;,&quot;content&quot;:&quot;var(--color-warning-content)&quot;},&quot;error&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;},&quot;danger&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;},&quot;failure&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;}},
+                },
+              },
+            },
+            variants: {
+              extend: {
+                backgroundColor: ['active', 'group-hover'],
+                textColor: ['active', 'group-hover'],
+              },
+            },
+            plugins: [],
+          };
+  </script>
+
+</head>
+
+              <body class=&quot;h-full text-base-content&quot;>
+                <main id=&quot;discovery-screen&quot; class=&quot;pt-14 pb-20 min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300&quot;>
+  <header id=&quot;header&quot; class=&quot;fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-sm&quot;>
+    <div class=&quot;flex items-center justify-between px-4 py-3&quot;>
+      <div class=&quot;flex items-center space-x-3&quot;>
+        <button class=&quot;text-gray-600 dark:text-gray-300&quot;>
+          <i class=&quot;fa-solid fa-chevron-left&quot;></i>
+        </button>
+        <h1 class=&quot;text-lg font-semibold text-gray-800 dark:text-white&quot;>Learning Tools</h1>
+      </div>
+      <div class=&quot;flex items-center space-x-4&quot;>
+        <button class=&quot;text-gray-600 dark:text-gray-300&quot;>
+          <i class=&quot;fa-solid fa-share-nodes&quot;></i>
+        </button>
+        <button class=&quot;text-gray-600 dark:text-gray-300&quot;>
+          <i class=&quot;fa-solid fa-ellipsis-vertical&quot;></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section id=&quot;learning-tools&quot; class=&quot;mt-6 px-5&quot;>
+    <h3 class=&quot;text-base font-semibold text-gray-800 dark:text-white mb-4&quot;>Learning Tools</h3>
+    
+    <div class=&quot;grid grid-cols-2 gap-4&quot;>
+      <div id=&quot;code-playground&quot; class=&quot;bg-gradient-to-br from-purple-600/10 to-purple-600/5 dark:from-purple-500/20 dark:to-purple-500/10 rounded-xl p-4&quot;>
+        <div class=&quot;flex items-center justify-between mb-3&quot;>
+          <div class=&quot;w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center&quot;>
+            <i class=&quot;fa-solid fa-code text-purple-600 dark:text-purple-400 text-lg&quot;></i>
+          </div>
+          <span class=&quot;bg-white/70 dark:bg-gray-800/70 text-xs text-gray-600 dark:text-gray-300 px-2 py-1 rounded-full&quot;>New</span>
+        </div>
+        <h4 class=&quot;font-semibold text-gray-800 dark:text-white text-sm&quot;>Code Playground</h4>
+        <p class=&quot;text-xs text-gray-600 dark:text-gray-300 mt-1&quot;>Practice coding in real-time</p>
+        <button class=&quot;mt-3 w-full bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 text-xs font-medium px-3 py-2 rounded-lg&quot;>Open IDE</button>
+      </div>
+
+      <div id=&quot;design-sandbox&quot; class=&quot;bg-gradient-to-br from-teal-500/10 to-teal-500/5 dark:from-cyan-400/20 dark:to-cyan-400/10 rounded-xl p-4&quot;>
+        <div class=&quot;flex items-center justify-between mb-3&quot;>
+          <div class=&quot;w-10 h-10 bg-teal-100 dark:bg-teal-900/30 rounded-lg flex items-center justify-center&quot;>
+            <i class=&quot;fa-solid fa-pen-ruler text-teal-600 dark:text-cyan-400 text-lg&quot;></i>
+          </div>
+          <div class=&quot;flex items-center&quot;>
+            <i class=&quot;fa-solid fa-bolt text-yellow-400 text-xs mr-1&quot;></i>
+            <span class=&quot;bg-white/70 dark:bg-gray-800/70 text-xs text-gray-600 dark:text-gray-300 px-2 py-1 rounded-full&quot;>Popular</span>
+          </div>
+        </div>
+        <h4 class=&quot;font-semibold text-gray-800 dark:text-white text-sm&quot;>Design Sandbox</h4>
+        <p class=&quot;text-xs text-gray-600 dark:text-gray-300 mt-1&quot;>Create UI prototypes</p>
+        <button class=&quot;mt-3 w-full bg-white dark:bg-gray-800 text-teal-600 dark:text-cyan-400 text-xs font-medium px-3 py-2 rounded-lg&quot;>Start Design</button>
+      </div>
+    </div>
+  </section>
+
+  <section id=&quot;project-gallery&quot; class=&quot;mt-6 px-5&quot;>
+    <div class=&quot;flex justify-between items-center mb-4&quot;>
+      <h3 class=&quot;text-base font-semibold text-gray-800 dark:text-white&quot;>Project Gallery</h3>
+      <button class=&quot;text-sm text-purple-600 dark:text-purple-400 font-medium&quot;>View All</button>
+    </div>
+
+    <div class=&quot;space-y-4&quot;>
+      <div id=&quot;project-1&quot; class=&quot;bg-white dark:bg-gray-800 rounded-xl overflow-hidden&quot;>
+        <div class=&quot;p-4&quot;>
+          <div class=&quot;flex items-center&quot;>
+            <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg&quot; alt=&quot;Student&quot; class=&quot;w-8 h-8 rounded-full&quot;>
+            <div class=&quot;ml-3&quot;>
+              <h4 class=&quot;text-sm font-medium text-gray-800 dark:text-white&quot;>Mobile App Design</h4>
+              <p class=&quot;text-xs text-gray-500 dark:text-gray-400&quot;>by Alex Morgan</p>
+            </div>
+            <div class=&quot;ml-auto flex items-center&quot;>
+              <i class=&quot;fa-solid fa-star text-yellow-400 text-xs&quot;></i>
+              <span class=&quot;ml-1 text-xs text-gray-600 dark:text-gray-400&quot;>4.9</span>
+            </div>
+          </div>
+          <div class=&quot;mt-3 grid grid-cols-3 gap-2 h-24&quot;>
+            <div class=&quot;rounded-lg overflow-hidden&quot;>
+              <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/152232fbc9-631f100e4b8a0450343d.png&quot; alt=&quot;Project preview&quot; class=&quot;w-full h-full object-cover&quot;>
+            </div>
+            <div class=&quot;rounded-lg overflow-hidden&quot;>
+              <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/11617790d0-3cd73b1b2bf14e3602c2.png&quot; alt=&quot;Project preview&quot; class=&quot;w-full h-full object-cover&quot;>
+            </div>
+            <div class=&quot;rounded-lg overflow-hidden relative&quot;>
+              <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/b5a24c20c6-e42e3f82ab202d605582.png&quot; alt=&quot;Project preview&quot; class=&quot;w-full h-full object-cover&quot;>
+              <div class=&quot;absolute inset-0 bg-black/50 flex items-center justify-center&quot;>
+                <span class=&quot;text-white text-sm&quot;>+3</span>
+              </div>
+            </div>
+          </div>
+          <div class=&quot;mt-3 flex items-center justify-between&quot;>
+            <div class=&quot;flex items-center space-x-3&quot;>
+              <button class=&quot;flex items-center space-x-1&quot;>
+                <i class=&quot;fa-regular fa-heart text-gray-400&quot;></i>
+                <span class=&quot;text-xs text-gray-600 dark:text-gray-400&quot;>24</span>
+              </button>
+              <button class=&quot;flex items-center space-x-1&quot;>
+                <i class=&quot;fa-regular fa-comment text-gray-400&quot;></i>
+                <span class=&quot;text-xs text-gray-600 dark:text-gray-400&quot;>8</span>
+              </button>
+            </div>
+            <button class=&quot;bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-3 py-1.5 rounded-lg&quot;>View Project</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id=&quot;assignment-tools&quot; class=&quot;mt-6 px-5&quot;>
+    <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-4&quot;>
+      <h3 class=&quot;text-base font-semibold text-gray-800 dark:text-white mb-4&quot;>Assignment Tools</h3>
+      
+      <div class=&quot;space-y-4&quot;>
+        <div id=&quot;file-upload&quot; class=&quot;border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-lg p-4&quot;>
+          <div class=&quot;flex flex-col items-center&quot;>
+            <i class=&quot;fa-solid fa-cloud-arrow-up text-purple-600 dark:text-purple-400 text-2xl mb-2&quot;></i>
+            <p class=&quot;text-sm text-gray-600 dark:text-gray-300 text-center&quot;>Drag &amp; drop files here or</p>
+            <button class=&quot;mt-2 bg-purple-600 dark:bg-purple-500 text-white text-sm font-medium px-4 py-2 rounded-lg&quot;>Browse Files</button>
+            <p class=&quot;mt-2 text-xs text-gray-500 dark:text-gray-400&quot;>Supported formats: PDF, PSD, AI, Sketch</p>
+          </div>
+        </div>
+
+        <div id=&quot;peer-review&quot; class=&quot;flex items-center justify-between&quot;>
+          <div class=&quot;flex items-center&quot;>
+            <div class=&quot;w-10 h-10 bg-teal-100 dark:bg-teal-900/30 rounded-lg flex items-center justify-center&quot;>
+              <i class=&quot;fa-solid fa-users text-teal-600 dark:text-cyan-400&quot;></i>
+            </div>
+            <div class=&quot;ml-3&quot;>
+              <h4 class=&quot;text-sm font-medium text-gray-800 dark:text-white&quot;>Peer Review</h4>
+              <p class=&quot;text-xs text-gray-500 dark:text-gray-400&quot;>Give &amp; receive feedback</p>
+            </div>
+          </div>
+          <button class=&quot;bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-cyan-400 text-xs font-medium px-3 py-1.5 rounded-lg&quot;>Start Review</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 z-40">
+    <div class="flex justify-around items-center px-2 py-2">
+      <a href="StudentDashboard.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+        <i class="fa-solid fa-house text-lg"></i>
+        <span class="text-xs mt-1">Home</span>
+      </a>
+      
+      <a href="CourseCatalog.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+        <i class="fa-solid fa-compass text-lg"></i>
+        <span class="text-xs mt-1">Explore</span>
+      </a>
+      
+      <a href="LearningProgress.html" class="flex flex-col items-center justify-center w-16 py-1.5">
+        <div class="h-10 w-10 bg-purple-600 dark:bg-purple-500 rounded-full flex items-center justify-center">
+          <i class="fa-solid fa-play text-white"></i>
+        </div>
+      </a>
+      
+      <a href="CourseDetails.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+        <i class="fa-solid fa-book-open text-lg"></i>
+        <span class="text-xs mt-1">Courses</span>
+      </a>
+      
+      <a href="Profile.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+        <i class="fa-solid fa-user text-lg"></i>
+        <span class="text-xs mt-1">Profile</span>
+      </a>
+    </div>
+  </footer>
+</main>
+
+<script>
+document.querySelectorAll('[id^=&quot;wishlist-&quot;]').forEach(button => {
+  button.addEventListener('click', function() {
+    const heartIcon = this.querySelector('i');
+    heartIcon.classList.toggle('fa-regular');
+    heartIcon.classList.toggle('fa-solid');
+  });
+});
+</script>
+              </body>
+            </html>
+          " frameborder="0" class="w-full h-max overflow-visible border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 985px; min-height: 844px;"></iframe>
