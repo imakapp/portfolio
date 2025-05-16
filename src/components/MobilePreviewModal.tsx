@@ -30,6 +30,8 @@ const MobilePreviewModal = ({
   
   // Determine if this is the FitTrack Pro special case
   const isFitTrackPro = projectUrl === '@FitTrackPro' || projectTitle === 'FitTrack Pro';
+  // Determine if this is the EduLearn special case
+  const isEduLearn = projectUrl === '@EduLearn' || projectTitle === 'EduLearn';
 
   const contentWrapperRef = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -199,6 +201,13 @@ const MobilePreviewModal = ({
                 className="w-full h-full border-0"
                 title="FitTrack Pro Interactive Prototype"
               />
+            ) : isEduLearn ? (
+              <iframe
+                ref={iframeRef}
+                src="/AppUI/EduLearn/Onboarding.html"
+                className="w-full h-full border-0"
+                title="EduLearn Interactive Prototype"
+              />
             ) : imageUrl ? (
               <div className="w-full h-full flex items-center justify-center">
                 <img
@@ -247,7 +256,7 @@ const MobilePreviewModal = ({
         <div className={styles.controlsPanel} style={{ fontFamily: 'Inter, sans-serif' }}>
           <button 
             onClick={toggleOrientation}
-            className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow}`}
+            className={`${styles.controlButton} ${styles.modalButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Rotate device"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -257,7 +266,7 @@ const MobilePreviewModal = ({
           
           <button 
             onClick={zoomIn}
-            className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow}`}
+            className={`${styles.controlButton} ${styles.modalButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Zoom in"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -267,7 +276,7 @@ const MobilePreviewModal = ({
           
           <button 
             onClick={zoomOut}
-            className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow}`}
+            className={`${styles.controlButton} ${styles.modalButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Zoom out"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -277,7 +286,7 @@ const MobilePreviewModal = ({
           
           <button 
             onClick={sharePreview}
-            className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow}`}
+            className={`${styles.controlButton} ${styles.modalButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Share"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -287,7 +296,7 @@ const MobilePreviewModal = ({
           
           <button 
             onClick={takeScreenshot}
-            className={`${styles.controlButton} ${styles.interFont} ${styles.textShadow}`}
+            className={`${styles.controlButton} ${styles.modalButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Take screenshot"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

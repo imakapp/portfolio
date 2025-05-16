@@ -265,7 +265,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-h2, .modalContent h2 {
+.modalTitle {
   color: var(--text);
   font-family: 'Inter', sans-serif;
   text-shadow: 0 2px 8px rgba(0,0,0,0.18);
@@ -275,7 +275,7 @@ h2, .modalContent h2 {
   padding-bottom: 24px;
 }
 
-button, .controlButton {
+.modalButton {
   font-family: 'Inter', sans-serif;
   text-shadow: 0 2px 8px rgba(0,0,0,0.18);
 } 
