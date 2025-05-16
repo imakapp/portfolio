@@ -12,10 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
       * { font-family: "Inter", sans-serif; }
-      ::-webkit-scrollbar { width: 0px; height: 0px; background: transparent; display: none; }
-      html, body { margin: 0; padding: 0; height: 100%; -ms-overflow-style: none; scrollbar-width: none; overflow-y: auto; }
-      section { -ms-overflow-style: none; scrollbar-width: none; overflow-y: auto; }
-      section::-webkit-scrollbar { display: none; width: 0; height: 0; }
+      ::-webkit-scrollbar { display: none; }
     </style>
     <style>
       .highlighted-section { outline: 2px solid #3F20FB; background-color: rgba(63, 32, 251, 0.1); }
@@ -370,43 +367,18 @@
             this.classList.remove('animate-pulse');
           }, 1000);
         });
-        // Get Started button interaction
+        // Get Started button interaction (in-frame navigation)
         const getStartedBtn = document.getElementById('get-started-btn');
         getStartedBtn.addEventListener('click', function(e) {
           this.classList.add('scale-95');
           e.preventDefault(); // Prevent default link behavior
           setTimeout(() => {
             this.classList.remove('scale-95');
-            // Navigate to Dashboard.html in the current window
-            window.location.href = 'Dashboard.html';
+            // Navigate to dashboard.html in the same frame (not parent)
+            window.location.href = 'dashboard.html';
           }, 200);
         });
       });
     </script>
-    <!-- Bottom Navigation -->
-    <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 bg-[#1A1F2B] border-t border-gray-800 px-2 py-2 z-20">
-      <div class="flex justify-around items-center">
-        <a href="Dashboard.html" class="nav-link flex flex-col items-center w-16 py-1">
-          <i class="fa-solid fa-house text-gray-500"></i>
-          <span class="text-xs text-gray-500 mt-1">Home</span>
-        </a>
-        <a href="WorkoutDetails.html" class="nav-link flex flex-col items-center w-16 py-1">
-          <i class="fa-solid fa-dumbbell text-gray-500"></i>
-          <span class="text-xs text-gray-500 mt-1">Workouts</span>
-        </a>
-        <a href="Nutrition.html" class="nav-link flex flex-col items-center w-16 py-1">
-          <i class="fa-solid fa-utensils text-gray-500"></i>
-          <span class="text-xs text-gray-500 mt-1">Nutrition</span>
-        </a>
-        <a href="Progress.html" class="nav-link flex flex-col items-center w-16 py-1">
-          <i class="fa-solid fa-chart-line text-gray-500"></i>
-          <span class="text-xs text-gray-500 mt-1">Progress</span>
-        </a>
-        <a href="Community.html" class="nav-link flex flex-col items-center w-16 py-1">
-          <i class="fa-solid fa-users text-gray-500"></i>
-          <span class="text-xs text-gray-500 mt-1">Community</span>
-        </a>
-      </div>
-    </nav>
   </body>
 </html>
