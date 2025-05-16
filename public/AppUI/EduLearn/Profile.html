@@ -336,6 +336,17 @@
       document.getElementById('tab-' + tab).classList.add('text-purple-600', 'dark:text-purple-400', 'border-b-2', 'border-purple-600', 'dark:border-purple-400');
       document.getElementById('tab-' + tab).classList.remove('text-gray-500', 'dark:text-gray-400');
     }
+
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'joystick-scroll') {
+            var dx = event.data.dx || 0;
+            var dy = event.data.dy || 0;
+            var scrollable = document.querySelector('.scrollable-content') || document.querySelector('main');
+            if (scrollable) {
+                scrollable.scrollBy({ left: dx, top: dy, behavior: 'smooth' });
+            }
+        }
+    });
   </script>
 </body>
 </html> 

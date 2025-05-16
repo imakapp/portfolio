@@ -380,5 +380,17 @@
         });
       });
     </script>
+    <script>
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'joystick-scroll') {
+            var dx = event.data.dx || 0;
+            var dy = event.data.dy || 0;
+            var scrollable = document.querySelector('.scrollable-content') || document.querySelector('main');
+            if (scrollable) {
+                scrollable.scrollBy({ left: dx, top: dy, behavior: 'smooth' });
+            }
+        }
+    });
+    </script>
   </body>
 </html>
