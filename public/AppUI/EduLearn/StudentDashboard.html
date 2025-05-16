@@ -391,7 +391,7 @@
         <section id="progress-indicators" class="mt-6 px-5">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-base font-semibold text-gray-800 dark:text-white">Your Progress</h3>
-                <button class="text-sm text-purple-600 dark:text-purple-400 font-medium">View All</button>
+                <button class="text-sm text-purple-600 dark:text-purple-400 font-medium"><a href="LearningProgress.html">View All</a></button>
             </div>
             
             <div class="flex space-x-4 overflow-x-auto pb-2 scrollbar-hide">
@@ -444,7 +444,7 @@
         <section id="upcoming-deadlines" class="mt-6 px-5">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-base font-semibold text-gray-800 dark:text-white">Upcoming Deadlines</h3>
-                <button class="text-sm text-purple-600 dark:text-purple-400 font-medium">Calendar</button>
+                <button class="text-sm text-purple-600 dark:text-purple-400 font-medium"><a href="SessionSchedule.html">Calendar</a></button>
             </div>
             
             <div class="space-y-3">
@@ -498,14 +498,30 @@
             </div>
         </section>
 
+        <!-- Live Sessions Quick Access Card -->
+        <section id="live-sessions-link" class="mt-6 px-5">
+            <a href="LiveSessions.html" class="block bg-gradient-to-r from-purple-600 to-teal-500 dark:from-purple-500 dark:to-cyan-400 text-white font-semibold py-4 rounded-xl shadow hover:from-purple-700 hover:to-teal-600 dark:hover:from-purple-600 dark:hover:to-cyan-500 transition text-center text-lg">
+                <i class="fa-solid fa-video mr-2"></i>
+                Join Live Sessions
+            </a>
+        </section>
+
+        <!-- Career Hub Quick Access Card -->
+        <section id="career-hub-link" class="mt-4 px-5">
+            <a href="CareerHub.html" class="block bg-gradient-to-r from-purple-600 to-teal-500 dark:from-purple-500 dark:to-cyan-400 text-white font-semibold py-4 rounded-xl shadow hover:from-purple-700 hover:to-teal-600 dark:hover:from-purple-600 dark:hover:to-cyan-500 transition text-center text-lg">
+                <i class="fa-solid fa-briefcase mr-2"></i>
+                Career Hub
+            </a>
+        </section>
+
         <section id="recommended-courses" class="mt-6 px-5">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-base font-semibold text-gray-800 dark:text-white">Recommended for You</h3>
-                <button class="text-sm text-purple-600 dark:text-purple-400 font-medium">See All</button>
+                <button class="text-sm text-purple-600 dark:text-purple-400 font-medium"><a href="CourseCatalog.html">See All</a></button>
             </div>
             
             <div class="flex space-x-4 overflow-x-auto pb-2 scrollbar-hide">
-                <div id="course-1" class="flex-shrink-0 w-60 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10">
+                <a id="course-1" class="flex-shrink-0 w-60 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10" href="CourseDetails.html">
                     <div class="h-28 bg-purple-100 dark:bg-purple-900/20 relative">
                         <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/4f94cabf93-a680667ef32b05bc143c.png" alt="UI design course thumbnail with purple gradient background and interface elements" />
                         <div class="absolute top-2 right-2 bg-purple-600 dark:bg-purple-500 text-white text-xs px-2 py-1 rounded-lg font-medium">Popular</div>
@@ -529,9 +545,9 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </a>
                 
-                <div id="course-2" class="flex-shrink-0 w-60 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10">
+                <a id="course-2" class="flex-shrink-0 w-60 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10" href="CourseDetails.html">
                     <div class="h-28 bg-teal-100 dark:bg-teal-900/20 relative">
                         <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f2d9a2f5f7-a4c5d0959e1b7c5f3675.png" alt="React Native mobile app development course thumbnail with code and phone interface" />
                         <div class="absolute top-2 right-2 bg-teal-600 dark:bg-cyan-500 text-white text-xs px-2 py-1 rounded-lg font-medium">New</div>
@@ -555,9 +571,9 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </a>
                 
-                <div id="course-3" class="flex-shrink-0 w-60 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10">
+                <a id="course-3" class="flex-shrink-0 w-60 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10" href="CourseDetails.html">
                     <div class="h-28 bg-blue-100 dark:bg-blue-900/20 relative">
                         <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e802b3b180-cb9773841d23a24f06a3.png" alt="Python data science course thumbnail with charts and graphs" />
                     </div>
@@ -580,14 +596,14 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
 
         <section id="recent-lessons" class="mt-6 px-5">
             <h3 class="text-base font-semibold text-gray-800 dark:text-white mb-4">Continue Learning</h3>
             
-            <div id="recent-lesson-1" class="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-sm dark:shadow-gray-700/10 flex items-center">
+            <a href="AssessmentQuiz.html" id="recent-lesson-1" class="block bg-white dark:bg-gray-800 rounded-xl p-3 shadow-sm dark:shadow-gray-700/10 flex items-center transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-purple-500">
                 <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
                     <i class="fa-solid fa-laptop-code text-purple-600 dark:text-purple-400"></i>
                 </div>
@@ -600,12 +616,12 @@
                         <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">65%</span>
                     </div>
                 </div>
-                <button class="ml-3 w-9 h-9 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center">
+                <div class="ml-3 w-9 h-9 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center">
                     <i class="fa-solid fa-play text-purple-600 dark:text-purple-400 text-sm"></i>
-                </button>
-            </div>
+                </div>
+            </a>
             
-            <div id="recent-lesson-2" class="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-sm dark:shadow-gray-700/10 flex items-center mt-3">
+            <a href="AssessmentQuiz.html" id="recent-lesson-2" class="block bg-white dark:bg-gray-800 rounded-xl p-3 shadow-sm dark:shadow-gray-700/10 flex items-center mt-3 transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-teal-500">
                 <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-lg flex items-center justify-center">
                     <i class="fa-solid fa-code text-teal-600 dark:text-cyan-400"></i>
                 </div>
@@ -618,10 +634,10 @@
                         <span class="ml-2 text-xs text-gray-500 dark:text-gray-400">30%</span>
                     </div>
                 </div>
-                <button class="ml-3 w-9 h-9 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center">
+                <div class="ml-3 w-9 h-9 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center">
                     <i class="fa-solid fa-play text-teal-600 dark:text-cyan-400 text-sm"></i>
-                </button>
-            </div>
+                </div>
+            </a>
         </section>
 
         <section id="daily-goals" class="mt-6 px-5 pb-6">

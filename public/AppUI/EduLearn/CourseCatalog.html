@@ -2,62 +2,22 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
-    
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         window.FontAwesomeConfig = {
-            autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+            autoReplaceSvg: 'nest',
         };
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <style>
-        * {
-            font-family: "Inter", sans-serif;
-        }
-
-        ::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Mobile status bar styles */
-        .status-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 6px 12px;
-            background-color: #ffffff;
-            height: 28px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .dark .status-bar {
-            background-color: #1f2937;
-            color: #ffffff;
-        }
-
-        /* Make content scrollable */
-        .scrollable-content {
-            height: calc(100vh - 128px); /* Adjust based on header + status bar + footer heights */
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
+        * { font-family: "Inter", sans-serif; }
+        ::-webkit-scrollbar { display: none; }
     </style>
-
     <style>
-        .highlighted-section {
-            outline: 2px solid #3F20FB;
-            background-color: rgba(63, 32, 251, 0.1);
-        }
-
-        .edit-button {
-            position: absolute;
-            z-index: 1000;
-        }
+        .highlighted-section { outline: 2px solid #3F20FB; background-color: rgba(63, 32, 251, 0.1); }
+        .edit-button { position: absolute; z-index: 1000; }
     </style>
-
     <style>
         :root {
             /* Base colors */
@@ -195,7 +155,6 @@
             --color-error-content: #ffffff;
         }
     </style>
-
     <style>
         /* Dark theme */
         .dark {
@@ -321,7 +280,22 @@
             --color-error-content: #1f2937;
         }
     </style>
-
+    <style>
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 12px;
+            background-color: #ffffff;
+            height: 28px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .dark .status-bar {
+            background-color: #1f2937;
+            color: #ffffff;
+        }
+    </style>
     <script>
         tailwind.config = {
             theme: {
@@ -342,18 +316,16 @@
         };
     </script>
 </head>
-
 <body class="h-full text-base-content">
     <!-- Mobile Status Bar -->
-    <div class="status-bar fixed top-0 left-0 right-0 z-50">
+    <div class="status-bar fixed top-0 left-0 right-0 z-50 flex justify-between items-center">
         <div class="status-time">9:41</div>
-        <div class="status-icons">
+        <div class="status-icons flex items-center">
             <i class="fa-solid fa-signal mr-1"></i>
             <i class="fa-solid fa-wifi mr-1"></i>
             <i class="fa-solid fa-battery-full"></i>
         </div>
     </div>
-
     <header id="header" class="fixed top-[28px] left-0 right-0 z-40 bg-white dark:bg-gray-900 shadow-md dark:shadow-gray-800/20">
         <div class="flex items-center justify-between px-4 py-3">
             <div class="flex items-center">
@@ -361,6 +333,9 @@
                 <h1 class="ml-2 font-bold text-lg text-gray-800 dark:text-white">EduLearn</h1>
             </div>
             <div class="flex items-center space-x-3">
+                <button id="search-btn" class="p-2">
+                    <i class="fa-solid fa-magnifying-glass text-gray-600 dark:text-gray-300"></i>
+                </button>
                 <button id="notifications-btn" class="relative p-2">
                     <i class="fa-regular fa-bell text-gray-600 dark:text-gray-300"></i>
                     <span class="absolute top-1 right-1 w-2 h-2 bg-teal-500 dark:bg-cyan-400 rounded-full"></span>
@@ -372,8 +347,7 @@
             </div>
         </div>
     </header>
-
-    <main class="scrollable-content pt-[76px] pb-20 min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <main class="pt-14 pb-20 min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <section id="featured-banner" class="relative h-48 overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-r from-purple-600/90 to-teal-500/90 dark:from-purple-500/90 dark:to-cyan-400/90"></div>
             <img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-80" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/1444783265-46c09e5d8533e52b3c1f.png" alt="modern e-learning interface with abstract geometric shapes, purple and teal color scheme, minimalist design" />
@@ -395,41 +369,34 @@
                 </div>
             </div>
         </section>
-
         <section id="categories-section" class="mt-4 px-5">
             <div class="flex justify-between items-center mb-3">
                 <h3 class="text-base font-semibold text-gray-800 dark:text-white">Browse Categories</h3>
                 <button class="text-sm text-purple-600 dark:text-purple-400 font-medium">View All</button>
             </div>
-            
             <div id="categories-scroll" class="flex space-x-3 overflow-x-auto pb-2 scrollbar-hide">
                 <button id="category-all" class="flex-shrink-0 flex items-center bg-purple-600 dark:bg-purple-500 px-4 py-2 rounded-full">
                     <i class="fa-solid fa-border-all text-white text-sm"></i>
                     <span class="ml-2 text-white text-sm font-medium">All</span>
                 </button>
-                
                 <button id="category-design" class="flex-shrink-0 flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="fa-solid fa-palette text-gray-600 dark:text-gray-300 text-sm"></i>
                     <span class="ml-2 text-gray-700 dark:text-gray-300 text-sm">Design</span>
                 </button>
-                
                 <button id="category-dev" class="flex-shrink-0 flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="fa-solid fa-code text-gray-600 dark:text-gray-300 text-sm"></i>
                     <span class="ml-2 text-gray-700 dark:text-gray-300 text-sm">Development</span>
                 </button>
-                
                 <button id="category-business" class="flex-shrink-0 flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="fa-solid fa-briefcase text-gray-600 dark:text-gray-300 text-sm"></i>
                     <span class="ml-2 text-gray-700 dark:text-gray-300 text-sm">Business</span>
                 </button>
-                
                 <button id="category-data" class="flex-shrink-0 flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full">
                     <i class="fa-solid fa-chart-pie text-gray-600 dark:text-gray-300 text-sm"></i>
                     <span class="ml-2 text-gray-700 dark:text-gray-300 text-sm">Data Science</span>
                 </button>
             </div>
         </section>
-
         <section id="search-section" class="mt-4 px-5">
             <div id="search-bar" class="relative">
                 <div class="bg-white dark:bg-gray-800 rounded-xl flex items-center px-4 py-3 shadow-sm dark:shadow-gray-800/30">
@@ -439,7 +406,6 @@
                         <i class="fa-solid fa-sliders text-gray-500 dark:text-gray-400"></i>
                     </button>
                 </div>
-                
                 <div id="search-tags" class="flex flex-wrap gap-2 mt-3">
                     <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs px-3 py-1.5 rounded-full">Popular</span>
                     <span class="bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-cyan-400 text-xs px-3 py-1.5 rounded-full">Trending</span>
@@ -447,7 +413,6 @@
                 </div>
             </div>
         </section>
-
         <section id="popular-courses" class="mt-6 px-5">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-base font-semibold text-gray-800 dark:text-white">Popular Courses</h3>
@@ -460,7 +425,6 @@
                     </select>
                 </div>
             </div>
-            
             <div id="courses-grid" class="grid grid-cols-2 gap-4">
                 <div id="course-card-1" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10">
                     <div class="h-32 relative">
@@ -490,11 +454,10 @@
                         </div>
                         <div class="mt-3 flex justify-between items-center">
                             <span class="font-bold text-purple-600 dark:text-purple-400">$49.99</span>
-                            <button class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg">Details</button>
+                            <a class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg" href="CourseDetails.html">Details</a>
                         </div>
                     </div>
                 </div>
-                
                 <div id="course-card-2" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10">
                     <div class="h-32 relative">
                         <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/11617790d0-3cd73b1b2bf14e3602c2.png" alt="React Native mobile development course with code and smartphone interfaces, modern tech design">
@@ -529,11 +492,10 @@
                         </div>
                         <div class="mt-3 flex justify-between items-center">
                             <span class="font-bold text-purple-600 dark:text-purple-400">$59.99</span>
-                            <button class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg">Details</button>
+                            <a class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg" href="CourseDetails.html">Details</a>
                         </div>
                     </div>
                 </div>
-                
                 <div id="course-card-3" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10">
                     <div class="h-32 relative">
                         <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b5a24c20c6-e42e3f82ab202d605582.png" alt="Python data analysis course with charts and code examples, modern tech aesthetic">
@@ -562,11 +524,10 @@
                         </div>
                         <div class="mt-3 flex justify-between items-center">
                             <span class="font-bold text-purple-600 dark:text-purple-400">$39.99</span>
-                            <button class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg">Details</button>
+                            <a class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg" href="CourseDetails.html">Details</a>
                         </div>
                     </div>
                 </div>
-                
                 <div id="course-card-4" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10">
                     <div class="h-32 relative">
                         <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a0ef2f15e5-85d89f39365b3636346e.png" alt="UX research and user testing course with wireframes and usability tests, modern design">
@@ -601,17 +562,15 @@
                         </div>
                         <div class="mt-3 flex justify-between items-center">
                             <span class="font-bold text-purple-600 dark:text-purple-400">$44.99</span>
-                            <button class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg">Details</button>
+                            <a class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg" href="CourseDetails.html">Details</a>
                         </div>
                     </div>
                 </div>
             </div>
-            
             <button id="load-more" class="mt-5 w-full py-2.5 border border-purple-600 dark:border-purple-400 text-purple-600 dark:text-purple-400 font-medium rounded-lg text-sm">
                 Load More Courses
             </button>
         </section>
-
         <section id="personalized-section" class="mt-8 px-5 pb-6">
             <div class="bg-gradient-to-r from-purple-600/10 to-teal-500/10 dark:from-purple-500/20 dark:to-cyan-400/20 rounded-xl p-4">
                 <div class="flex items-start">
@@ -626,9 +585,8 @@
                         <i class="fa-solid fa-ellipsis-vertical text-gray-600 dark:text-gray-400"></i>
                     </button>
                 </div>
-                
                 <div id="personalized-courses" class="mt-4 space-y-3">
-                    <div id="recommended-course-1" class="bg-white dark:bg-gray-800 rounded-lg p-3 flex items-center">
+                    <a id="recommended-course-1" class="bg-white dark:bg-gray-800 rounded-lg p-3 flex items-center" href="CourseDetails.html">
                         <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex-shrink-0 overflow-hidden">
                             <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/c8453f9900-a8ce2059a1e038fe4256.png" alt="figma UI design interface thumbnail, minimalist">
                         </div>
@@ -646,750 +604,104 @@
                                 <span class="text-xs text-gray-500 dark:text-gray-400">Matches your design interests</span>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div id="recommended-course-2" class="bg-white dark:bg-gray-800 rounded-lg p-3 flex items-center">
+                    </a>
+                    <a id="recommended-course-2" class="bg-white dark:bg-gray-800 rounded-lg p-3 flex items-center" href="CourseDetails.html">
                         <div class="w-12 h-12 rounded-lg bg-teal-100 dark:bg-teal-900/30 flex-shrink-0 overflow-hidden">
-  <script src=&quot;https://cdn.jsdelivr.net/npm/apexcharts&quot;></script>
-  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
-  <script>
-      window.FontAwesomeConfig = {
-          autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
-      };
-  </script>
-  <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
-
-    
-<style>
-  * {
-    font-family: &quot;Inter&quot;, sans-serif;
-  }
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-</style>
-
-    
-<style>
-  .highlighted-section {
-    outline: 2px solid #3F20FB;
-    background-color: rgba(63, 32, 251, 0.1);
-  }
-
-  .edit-button {
-    position: absolute;
-    z-index: 1000;
-  }
-</style>
-
-    
-<style>
-   :root {
-          /* Base colors */
-          --color-base: #ffffff;
-          --color-base-50: #f9fafb;
-          --color-base-100: #f3f4f6;
-          --color-base-200: #e5e7eb;
-          --color-base-300: #d1d5db;
-          --color-base-400: #9ca3af;
-          --color-base-500: #6b7280;
-          --color-base-600: #4b5563;  
-          --color-base-700: #374151;
-          --color-base-800: #1f2937;  
-          --color-base-900: #111827;
-          --color-base-content: #1f2937;
-
-          /* Primary colors */
-          --color-primary: #3b82f6;
-          --color-primary-50: #eff6ff;
-          --color-primary-100: #dbeafe;
-          --color-primary-200: #bfdbfe;
-          --color-primary-300: #93c5fd;
-          --color-primary-400: #60a5fa;
-          --color-primary-500: #3b82f6;
-          --color-primary-600: #2563eb;
-          --color-primary-700: #1d4ed8;
-          --color-primary-800: #1e40af;
-          --color-primary-900: #1e3a8a;
-          --color-primary-focus: #2563eb;
-          --color-primary-content: #ffffff;
-
-          /* Secondary colors */
-          --color-secondary: #8b5cf6;
-          --color-secondary-50: #f5f3ff;
-          --color-secondary-100: #ede9fe;
-          --color-secondary-200: #ddd6fe;
-          --color-secondary-300: #c4b5fd;
-          --color-secondary-400: #a78bfa;
-          --color-secondary-500: #8b5cf6;
-          --color-secondary-600: #7c3aed;
-          --color-secondary-700: #6d28d9;
-          --color-secondary-800: #5b21b6;
-          --color-secondary-900: #4c1d95;
-          --color-secondary-focus: #7c3aed;
-          --color-secondary-content: #ffffff;
-
-          /* Accent colors */
-          --color-accent: #f472b6;
-          --color-accent-50: #fdf2f8;
-          --color-accent-100: #fce7f3;
-          --color-accent-200: #fbcfe8;
-          --color-accent-300: #f9a8d4;
-          --color-accent-400: #f472b6;
-          --color-accent-500: #ec4899;
-          --color-accent-600: #db2777;
-          --color-accent-700: #be185d;
-          --color-accent-800: #9d174d;
-          --color-accent-900: #831843;
-          --color-accent-focus: #db2777;
-          --color-accent-content: #ffffff;
-
-          /* Neutral colors */
-          --color-neutral: #6b7280;
-          --color-neutral-50: #f9fafb;
-          --color-neutral-100: #f3f4f6;
-          --color-neutral-200: #e5e7eb;
-          --color-neutral-300: #d1d5db;
-          --color-neutral-400: #9ca3af;
-          --color-neutral-500: #6b7280;
-          --color-neutral-600: #4b5563;
-          --color-neutral-700: #374151;
-          --color-neutral-800: #1f2937;
-          --color-neutral-900: #111827;
-          --color-neutral-focus: #4b5563;
-          --color-neutral-content: #ffffff;
-
-          /* Info colors */
-          --color-info: #3b82f6;
-          --color-info-50: #eff6ff;
-          --color-info-100: #dbeafe;
-          --color-info-200: #bfdbfe;
-          --color-info-300: #93c5fd;
-          --color-info-400: #60a5fa;
-          --color-info-500: #3b82f6;
-          --color-info-600: #2563eb;
-          --color-info-700: #1d4ed8;
-          --color-info-800: #1e40af;
-          --color-info-900: #1e3a8a;
-          --color-info-focus: #2563eb;
-          --color-info-content: #ffffff;
-
-          /* Success colors */
-          --color-success: #10b981;
-          --color-success-50: #ecfdf5;
-          --color-success-100: #d1fae5;
-          --color-success-200: #a7f3d0;
-          --color-success-300: #6ee7b7;
-          --color-success-400: #34d399;
-          --color-success-500: #10b981;
-          --color-success-600: #059669;
-          --color-success-700: #047857;
-          --color-success-800: #065f46;
-          --color-success-900: #064e3b;
-          --color-success-focus: #059669;
-          --color-success-content: #ffffff;
-
-          /* Warning colors */
-          --color-warning: #f59e0b;
-          --color-warning-50: #fffbeb;
-          --color-warning-100: #fef3c7;
-          --color-warning-200: #fde68a;
-          --color-warning-300: #fcd34d;
-          --color-warning-400: #fbbf24;
-          --color-warning-500: #f59e0b;
-          --color-warning-600: #d97706;
-          --color-warning-700: #b45309;
-          --color-warning-800: #92400e;
-          --color-warning-900: #78350f;
-          --color-warning-focus: #d97706;
-          --color-warning-content: #ffffff;
-
-          /* Error colors */
-          --color-error: #ef4444;
-          --color-error-50: #fef2f2;
-          --color-error-100: #fee2e2;
-          --color-error-200: #fecaca;
-          --color-error-300: #fca5a5;
-          --color-error-400: #f87171;
-          --color-error-500: #ef4444;
-          --color-error-600: #dc2626;
-          --color-error-700: #b91c1c;
-          --color-error-800: #991b1b;
-          --color-error-900: #7f1d1d;
-          --color-error-focus: #dc2626;
-          --color-error-content: #ffffff;
-        }
-</style>
-
-    
-<style>
-/* Dark theme */
-        .dark {
-          /* Base colors */
-          --color-base: #1f2937;
-          --color-base-50: #111827;
-          --color-base-100: #1f2937;
-          --color-base-200: #374151;
-          --color-base-300: #4b5563;
-          --color-base-400: #6b7280;
-          --color-base-500: #9ca3af;
-          --color-base-600: #d1d5db;
-          --color-base-700: #e5e7eb;
-          --color-base-800: #f3f4f6;
-          --color-base-900: #f9fafb;
-          --color-base-content: #f9fafb;
-
-          /* Primary colors */
-          --color-primary: #60a5fa;
-          --color-primary-50: #1e3a8a;
-          --color-primary-100: #1e40af;
-          --color-primary-200: #1d4ed8;
-          --color-primary-300: #2563eb;
-          --color-primary-400: #3b82f6;
-          --color-primary-500: #60a5fa;
-          --color-primary-600: #93c5fd;
-          --color-primary-700: #bfdbfe;
-          --color-primary-800: #dbeafe;
-          --color-primary-900: #eff6ff;
-          --color-primary-focus: #3b82f6;
-          --color-primary-content: #1f2937;
-
-          /* Secondary colors */
-          --color-secondary: #a78bfa;
-          --color-secondary-50: #4c1d95;
-          --color-secondary-100: #5b21b6;
-          --color-secondary-200: #6d28d9;
-          --color-secondary-300: #7c3aed;
-          --color-secondary-400: #8b5cf6;
-          --color-secondary-500: #a78bfa;
-          --color-secondary-600: #c4b5fd;
-          --color-secondary-700: #ddd6fe;
-          --color-secondary-800: #ede9fe;
-          --color-secondary-900: #f5f3ff;
-          --color-secondary-focus: #8b5cf6;
-          --color-secondary-content: #1f2937;
-
-          /* Accent colors */
-          --color-accent: #f472b6;
-          --color-accent-50: #831843;
-          --color-accent-100: #9d174d;
-          --color-accent-200: #be185d;
-          --color-accent-300: #db2777;
-          --color-accent-400: #ec4899;
-          --color-accent-500: #f472b6;
-          --color-accent-600: #f9a8d4;
-          --color-accent-700: #fbcfe8;
-          --color-accent-800: #fce7f3;
-          --color-accent-900: #fdf2f8;
-          --color-accent-focus: #ec4899;
-          --color-accent-content: #1f2937;
-
-          /* Neutral colors remain the same as light theme */
-
-          /* Info colors */
-          --color-info: #60a5fa;
-          --color-info-50: #1e3a8a;
-          --color-info-100: #1e40af;
-          --color-info-200: #1d4ed8;
-          --color-info-300: #2563eb;
-          --color-info-400: #3b82f6;
-          --color-info-500: #60a5fa;
-          --color-info-600: #93c5fd;
-          --color-info-700: #bfdbfe;
-          --color-info-800: #dbeafe;
-          --color-info-900: #eff6ff;
-          --color-info-focus: #3b82f6;
-          --color-info-content: #1f2937;
-
-          /* Success colors */
-          --color-success: #34d399;
-          --color-success-50: #064e3b;
-          --color-success-100: #065f46;
-          --color-success-200: #047857;
-          --color-success-300: #059669;
-          --color-success-400: #10b981;
-          --color-success-500: #34d399;
-          --color-success-600: #6ee7b7;
-          --color-success-700: #a7f3d0;
-          --color-success-800: #d1fae5;
-          --color-success-900: #ecfdf5;
-          --color-success-focus: #10b981;
-          --color-success-content: #1f2937;
-
-          /* Warning colors */
-          --color-warning: #fbbf24;
-          --color-warning-50: #78350f;
-          --color-warning-100: #92400e;
-          --color-warning-200: #b45309;
-          --color-warning-300: #d97706;
-          --color-warning-400: #f59e0b;
-          --color-warning-500: #fbbf24;
-          --color-warning-600: #fcd34d;
-          --color-warning-700: #fde68a;
-          --color-warning-800: #fef3c7;
-          --color-warning-900: #fffbeb;
-          --color-warning-focus: #f59e0b;
-          --color-warning-content: #1f2937;
-
-          /* Error colors */
-          --color-error: #f87171;
-          --color-error-50: #7f1d1d;
-          --color-error-100: #991b1b;
-          --color-error-200: #b91c1c;
-          --color-error-300: #dc2626;
-          --color-error-400: #ef4444;
-          --color-error-500: #f87171;
-          --color-error-600: #fca5a5;
-          --color-error-700: #fecaca;
-          --color-error-800: #fee2e2;
-          --color-error-900: #fef2f2;
-          --color-error-focus: #ef4444;
-          --color-error-content: #1f2937;
-        }
-</style>
-
-    
-  <script>
-        tailwind.config = {
-            theme: {
-              extend: {
-                colors: {
-                ...{&quot;transparent&quot;:&quot;transparent&quot;,&quot;current&quot;:&quot;currentColor&quot;,&quot;black&quot;:&quot;#000000&quot;,&quot;white&quot;:&quot;#ffffff&quot;,&quot;gray&quot;:{&quot;50&quot;:&quot;#f9fafb&quot;,&quot;100&quot;:&quot;#f3f4f6&quot;,&quot;200&quot;:&quot;#e5e7eb&quot;,&quot;300&quot;:&quot;#d1d5db&quot;,&quot;400&quot;:&quot;#9ca3af&quot;,&quot;500&quot;:&quot;#6b7280&quot;,&quot;600&quot;:&quot;#4b5563&quot;,&quot;700&quot;:&quot;#374151&quot;,&quot;800&quot;:&quot;#1f2937&quot;,&quot;900&quot;:&quot;#111827&quot;},&quot;red&quot;:{&quot;50&quot;:&quot;#fef2f2&quot;,&quot;100&quot;:&quot;#fee2e2&quot;,&quot;200&quot;:&quot;#fecaca&quot;,&quot;300&quot;:&quot;#fca5a5&quot;,&quot;400&quot;:&quot;#f87171&quot;,&quot;500&quot;:&quot;#ef4444&quot;,&quot;600&quot;:&quot;#dc2626&quot;,&quot;700&quot;:&quot;#b91c1c&quot;,&quot;800&quot;:&quot;#991b1b&quot;,&quot;900&quot;:&quot;#7f1d1d&quot;},&quot;yellow&quot;:{&quot;50&quot;:&quot;#fffbeb&quot;,&quot;100&quot;:&quot;#fef3c7&quot;,&quot;200&quot;:&quot;#fde68a&quot;,&quot;300&quot;:&quot;#fcd34d&quot;,&quot;400&quot;:&quot;#fbbf24&quot;,&quot;500&quot;:&quot;#f59e0b&quot;,&quot;600&quot;:&quot;#d97706&quot;,&quot;700&quot;:&quot;#b45309&quot;,&quot;800&quot;:&quot;#92400e&quot;,&quot;900&quot;:&quot;#78350f&quot;},&quot;green&quot;:{&quot;50&quot;:&quot;#ecfdf5&quot;,&quot;100&quot;:&quot;#d1fae5&quot;,&quot;200&quot;:&quot;#a7f3d0&quot;,&quot;300&quot;:&quot;#6ee7b7&quot;,&quot;400&quot;:&quot;#34d399&quot;,&quot;500&quot;:&quot;#10b981&quot;,&quot;600&quot;:&quot;#059669&quot;,&quot;700&quot;:&quot;#047857&quot;,&quot;800&quot;:&quot;#065f46&quot;,&quot;900&quot;:&quot;#064e3b&quot;},&quot;blue&quot;:{&quot;50&quot;:&quot;#eff6ff&quot;,&quot;100&quot;:&quot;#dbeafe&quot;,&quot;200&quot;:&quot;#bfdbfe&quot;,&quot;300&quot;:&quot;#93c5fd&quot;,&quot;400&quot;:&quot;#60a5fa&quot;,&quot;500&quot;:&quot;#3b82f6&quot;,&quot;600&quot;:&quot;#2563eb&quot;,&quot;700&quot;:&quot;#1d4ed8&quot;,&quot;800&quot;:&quot;#1e40af&quot;,&quot;900&quot;:&quot;#1e3a8a&quot;},&quot;indigo&quot;:{&quot;50&quot;:&quot;#eef2ff&quot;,&quot;100&quot;:&quot;#e0e7ff&quot;,&quot;200&quot;:&quot;#c7d2fe&quot;,&quot;300&quot;:&quot;#a5b4fc&quot;,&quot;400&quot;:&quot;#818cf8&quot;,&quot;500&quot;:&quot;#6366f1&quot;,&quot;600&quot;:&quot;#4f46e5&quot;,&quot;700&quot;:&quot;#4338ca&quot;,&quot;800&quot;:&quot;#3730a3&quot;,&quot;900&quot;:&quot;#312e81&quot;},&quot;purple&quot;:{&quot;50&quot;:&quot;#f5f3ff&quot;,&quot;100&quot;:&quot;#ede9fe&quot;,&quot;200&quot;:&quot;#ddd6fe&quot;,&quot;300&quot;:&quot;#c4b5fd&quot;,&quot;400&quot;:&quot;#a78bfa&quot;,&quot;500&quot;:&quot;#8b5cf6&quot;,&quot;600&quot;:&quot;#7c3aed&quot;,&quot;700&quot;:&quot;#6d28d9&quot;,&quot;800&quot;:&quot;#5b21b6&quot;,&quot;900&quot;:&quot;#4c1d95&quot;},&quot;pink&quot;:{&quot;50&quot;:&quot;#fdf2f8&quot;,&quot;100&quot;:&quot;#fce7f3&quot;,&quot;200&quot;:&quot;#fbcfe8&quot;,&quot;300&quot;:&quot;#f9a8d4&quot;,&quot;400&quot;:&quot;#f472b6&quot;,&quot;500&quot;:&quot;#ec4899&quot;,&quot;600&quot;:&quot;#db2777&quot;,&quot;700&quot;:&quot;#be185d&quot;,&quot;800&quot;:&quot;#9d174d&quot;,&quot;900&quot;:&quot;#831843&quot;}},
-                ...{&quot;primary&quot;:{&quot;50&quot;:&quot;var(--color-primary-50)&quot;,&quot;100&quot;:&quot;var(--color-primary-100)&quot;,&quot;200&quot;:&quot;var(--color-primary-200)&quot;,&quot;300&quot;:&quot;var(--color-primary-300)&quot;,&quot;400&quot;:&quot;var(--color-primary-400)&quot;,&quot;500&quot;:&quot;var(--color-primary-500)&quot;,&quot;600&quot;:&quot;var(--color-primary-600)&quot;,&quot;700&quot;:&quot;var(--color-primary-700)&quot;,&quot;800&quot;:&quot;var(--color-primary-800)&quot;,&quot;900&quot;:&quot;var(--color-primary-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-primary)&quot;,&quot;focus&quot;:&quot;var(--color-primary-focus)&quot;,&quot;content&quot;:&quot;var(--color-primary-content)&quot;},&quot;secondary&quot;:{&quot;50&quot;:&quot;var(--color-secondary-50)&quot;,&quot;100&quot;:&quot;var(--color-secondary-100)&quot;,&quot;200&quot;:&quot;var(--color-secondary-200)&quot;,&quot;300&quot;:&quot;var(--color-secondary-300)&quot;,&quot;400&quot;:&quot;var(--color-secondary-400)&quot;,&quot;500&quot;:&quot;var(--color-secondary-500)&quot;,&quot;600&quot;:&quot;var(--color-secondary-600)&quot;,&quot;700&quot;:&quot;var(--color-secondary-700)&quot;,&quot;800&quot;:&quot;var(--color-secondary-800)&quot;,&quot;900&quot;:&quot;var(--color-secondary-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-secondary)&quot;,&quot;focus&quot;:&quot;var(--color-secondary-focus)&quot;,&quot;content&quot;:&quot;var(--color-secondary-content)&quot;},&quot;accent&quot;:{&quot;50&quot;:&quot;var(--color-accent-50)&quot;,&quot;100&quot;:&quot;var(--color-accent-100)&quot;,&quot;200&quot;:&quot;var(--color-accent-200)&quot;,&quot;300&quot;:&quot;var(--color-accent-300)&quot;,&quot;400&quot;:&quot;var(--color-accent-400)&quot;,&quot;500&quot;:&quot;var(--color-accent-500)&quot;,&quot;600&quot;:&quot;var(--color-accent-600)&quot;,&quot;700&quot;:&quot;var(--color-accent-700)&quot;,&quot;800&quot;:&quot;var(--color-accent-800)&quot;,&quot;900&quot;:&quot;var(--color-accent-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-accent)&quot;,&quot;focus&quot;:&quot;var(--color-accent-focus)&quot;,&quot;content&quot;:&quot;var(--color-accent-content)&quot;},&quot;neutral&quot;:{&quot;50&quot;:&quot;var(--color-neutral-50)&quot;,&quot;100&quot;:&quot;var(--color-neutral-100)&quot;,&quot;200&quot;:&quot;var(--color-neutral-200)&quot;,&quot;300&quot;:&quot;var(--color-neutral-300)&quot;,&quot;400&quot;:&quot;var(--color-neutral-400)&quot;,&quot;500&quot;:&quot;var(--color-neutral-500)&quot;,&quot;600&quot;:&quot;var(--color-neutral-600)&quot;,&quot;700&quot;:&quot;var(--color-neutral-700)&quot;,&quot;800&quot;:&quot;var(--color-neutral-800)&quot;,&quot;900&quot;:&quot;var(--color-neutral-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-neutral)&quot;,&quot;focus&quot;:&quot;var(--color-neutral-focus)&quot;,&quot;content&quot;:&quot;var(--color-neutral-content)&quot;},&quot;info&quot;:{&quot;50&quot;:&quot;var(--color-info-50)&quot;,&quot;100&quot;:&quot;var(--color-info-100)&quot;,&quot;200&quot;:&quot;var(--color-info-200)&quot;,&quot;300&quot;:&quot;var(--color-info-300)&quot;,&quot;400&quot;:&quot;var(--color-info-400)&quot;,&quot;500&quot;:&quot;var(--color-info-500)&quot;,&quot;600&quot;:&quot;var(--color-info-600)&quot;,&quot;700&quot;:&quot;var(--color-info-700)&quot;,&quot;800&quot;:&quot;var(--color-info-800)&quot;,&quot;900&quot;:&quot;var(--color-info-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-info)&quot;,&quot;focus&quot;:&quot;var(--color-info-focus)&quot;,&quot;content&quot;:&quot;var(--color-info-content)&quot;},&quot;success&quot;:{&quot;50&quot;:&quot;var(--color-success-50)&quot;,&quot;100&quot;:&quot;var(--color-success-100)&quot;,&quot;200&quot;:&quot;var(--color-success-200)&quot;,&quot;300&quot;:&quot;var(--color-success-300)&quot;,&quot;400&quot;:&quot;var(--color-success-400)&quot;,&quot;500&quot;:&quot;var(--color-success-500)&quot;,&quot;600&quot;:&quot;var(--color-success-600)&quot;,&quot;700&quot;:&quot;var(--color-success-700)&quot;,&quot;800&quot;:&quot;var(--color-success-800)&quot;,&quot;900&quot;:&quot;var(--color-success-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-success)&quot;,&quot;focus&quot;:&quot;var(--color-success-focus)&quot;,&quot;content&quot;:&quot;var(--color-success-content)&quot;},&quot;warning&quot;:{&quot;50&quot;:&quot;var(--color-warning-50)&quot;,&quot;100&quot;:&quot;var(--color-warning-100)&quot;,&quot;200&quot;:&quot;var(--color-warning-200)&quot;,&quot;300&quot;:&quot;var(--color-warning-300)&quot;,&quot;400&quot;:&quot;var(--color-warning-400)&quot;,&quot;500&quot;:&quot;var(--color-warning-500)&quot;,&quot;600&quot;:&quot;var(--color-warning-600)&quot;,&quot;700&quot;:&quot;var(--color-warning-700)&quot;,&quot;800&quot;:&quot;var(--color-warning-800)&quot;,&quot;900&quot;:&quot;var(--color-warning-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-warning)&quot;,&quot;focus&quot;:&quot;var(--color-warning-focus)&quot;,&quot;content&quot;:&quot;var(--color-warning-content)&quot;},&quot;error&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;},&quot;danger&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;},&quot;failure&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;}},
-                },
-              },
-            },
-            variants: {
-              extend: {
-                backgroundColor: ['active', 'group-hover'],
-                textColor: ['active', 'group-hover'],
-              },
-            },
-            plugins: [],
-          };
-  </script>
-
-</head>
-
-              <body class=&quot;h-full text-base-content&quot;>
-                <header id=&quot;header&quot; class=&quot;fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-md dark:shadow-gray-800/20&quot;>
-  <div class=&quot;flex items-center justify-between px-4 py-3&quot;>
-    <div class=&quot;flex items-center&quot;>
-      <i class=&quot;fa-solid fa-graduation-cap text-purple-700 dark:text-purple-400 text-2xl&quot;></i>
-      <h1 class=&quot;ml-2 font-bold text-lg text-gray-800 dark:text-white&quot;>EduLearn</h1>
-    </div>
-    <div id=&quot;header-controls&quot; class=&quot;flex items-center space-x-3&quot;>
-      <button id=&quot;search-btn&quot; class=&quot;p-2&quot;>
-        <i class=&quot;fa-solid fa-magnifying-glass text-gray-600 dark:text-gray-300&quot;></i>
-      </button>
-      <button id=&quot;notifications-btn&quot; class=&quot;relative p-2&quot;>
-        <i class=&quot;fa-regular fa-bell text-gray-600 dark:text-gray-300&quot;></i>
-        <span class=&quot;absolute top-1 right-1 w-2 h-2 bg-teal-500 dark:bg-cyan-400 rounded-full&quot;></span>
-      </button>
-      <button id=&quot;theme-toggle&quot; class=&quot;p-2&quot;>
-        <i class=&quot;fa-solid fa-moon text-gray-600 dark:text-gray-300 dark:hidden&quot;></i>
-        <i class=&quot;fa-solid fa-sun text-gray-300 hidden dark:block&quot;></i>
-      </button>
-    </div>
-  </div>
-</header>
-
-<main id=&quot;discovery-screen&quot; class=&quot;pt-14 pb-20 min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300&quot;>
-  <section id=&quot;featured-banner&quot; class=&quot;relative h-48 overflow-hidden&quot;>
-    <div class=&quot;absolute inset-0 bg-gradient-to-r from-purple-600/90 to-teal-500/90 dark:from-purple-500/90 dark:to-cyan-400/90&quot;></div>
-    <img class=&quot;absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-80&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/1444783265-46c09e5d8533e52b3c1f.png&quot; alt=&quot;modern e-learning interface with abstract geometric shapes, purple and teal color scheme, minimalist design&quot; />
-    <div class=&quot;relative z-10 px-5 py-6 h-full flex flex-col justify-between&quot;>
-      <div>
-        <span class=&quot;bg-white/20 dark:bg-white/25 text-white text-xs px-2.5 py-1 rounded-full font-medium&quot;>Featured</span>
-        <h2 class=&quot;text-white text-xl font-bold mt-2&quot;>UX/UI Design Masterclass</h2>
-        <p class=&quot;text-white/90 text-sm mt-1&quot;>Learn the fundamentals of modern interface design</p>
-      </div>
-      <div class=&quot;flex items-center justify-between&quot;>
-        <div class=&quot;flex items-center&quot;>
-          <div class=&quot;flex -space-x-2&quot;>
-            <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg&quot; alt=&quot;Instructor&quot; class=&quot;w-8 h-8 rounded-full border-2 border-white&quot;>
-            <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg&quot; alt=&quot;Instructor&quot; class=&quot;w-8 h-8 rounded-full border-2 border-white&quot;>
-          </div>
-          <span class=&quot;ml-2 text-white text-xs&quot;>Top instructors</span>
+                            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a8989a560a-9ecb704fe50a77caee35.png" alt="javascript modern coding thumbnail, minimalist">
+                        </div>
+                        <div class="ml-3 flex-1">
+                            <div class="flex items-center">
+                                <span class="text-xs bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-cyan-400 px-1.5 py-0.5 rounded">JavaScript</span>
+                                <div class="ml-2 flex items-center">
+                                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                                    <span class="ml-0.5 text-xs text-gray-600 dark:text-gray-400">4.7</span>
+                                </div>
+                            </div>
+                            <h4 class="font-medium text-gray-800 dark:text-white text-sm mt-1">Modern JavaScript ES6+</h4>
+                            <div class="flex items-center mt-1">
+                                <i class="fa-solid fa-robot text-xs text-purple-500 mr-1"></i>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Popular in your region</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <a class="mt-4 w-full py-2 bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 font-medium rounded-lg text-sm shadow-sm flex items-center justify-center" href="CourseDetails.html">View All Recommendations</a>
+            </div>
+        </section>
+    </main>
+    <footer id="footer" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 z-40">
+        <div class="flex justify-around items-center px-2 py-2">
+            <a href="StudentDashboard.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+                <i class="fa-solid fa-house text-lg"></i>
+                <span class="text-xs mt-1">Home</span>
+            </a>
+            <a href="CourseCatalog.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-purple-600 dark:text-purple-400 font-medium">
+                <i class="fa-solid fa-compass text-lg"></i>
+                <span class="text-xs mt-1 font-medium">Explore</span>
+            </a>
+            <a href="LearningProgress.html" class="flex flex-col items-center justify-center w-16 py-1.5">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-teal-500 dark:from-purple-500 dark:to-cyan-400 flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-play text-white text-lg"></i>
+                </div>
+            </a>
+            <a href="CourseDetails.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+                <i class="fa-solid fa-book-open text-lg"></i>
+                <span class="text-xs mt-1">Courses</span>
+            </a>
+            <a href="Profile.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+                <i class="fa-solid fa-user text-lg"></i>
+                <span class="text-xs mt-1">Profile</span>
+            </a>
         </div>
-        <button class=&quot;bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 text-xs font-medium px-3 py-1.5 rounded-lg&quot;>Enroll Now</button>
-      </div>
-    </div>
-  </section>
-
-  <section id=&quot;categories-section&quot; class=&quot;mt-4 px-5&quot;>
-    <div class=&quot;flex justify-between items-center mb-3&quot;>
-      <h3 class=&quot;text-base font-semibold text-gray-800 dark:text-white&quot;>Browse Categories</h3>
-      <button class=&quot;text-sm text-purple-600 dark:text-purple-400 font-medium&quot;>View All</button>
-    </div>
-    
-    <div id=&quot;categories-scroll&quot; class=&quot;flex space-x-3 overflow-x-auto pb-2 scrollbar-hide&quot;>
-      <button id=&quot;category-all&quot; class=&quot;flex-shrink-0 flex items-center bg-purple-600 dark:bg-purple-500 px-4 py-2 rounded-full&quot;>
-        <i class=&quot;fa-solid fa-border-all text-white text-sm&quot;></i>
-        <span class=&quot;ml-2 text-white text-sm font-medium&quot;>All</span>
-      </button>
-      
-      <button id=&quot;category-design&quot; class=&quot;flex-shrink-0 flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full&quot;>
-        <i class=&quot;fa-solid fa-palette text-gray-600 dark:text-gray-300 text-sm&quot;></i>
-        <span class=&quot;ml-2 text-gray-700 dark:text-gray-300 text-sm&quot;>Design</span>
-      </button>
-      
-      <button id=&quot;category-dev&quot; class=&quot;flex-shrink-0 flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full&quot;>
-        <i class=&quot;fa-solid fa-code text-gray-600 dark:text-gray-300 text-sm&quot;></i>
-        <span class=&quot;ml-2 text-gray-700 dark:text-gray-300 text-sm&quot;>Development</span>
-      </button>
-      
-      <button id=&quot;category-business&quot; class=&quot;flex-shrink-0 flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full&quot;>
-        <i class=&quot;fa-solid fa-briefcase text-gray-600 dark:text-gray-300 text-sm&quot;></i>
-        <span class=&quot;ml-2 text-gray-700 dark:text-gray-300 text-sm&quot;>Business</span>
-      </button>
-      
-      <button id=&quot;category-data&quot; class=&quot;flex-shrink-0 flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full&quot;>
-        <i class=&quot;fa-solid fa-chart-pie text-gray-600 dark:text-gray-300 text-sm&quot;></i>
-        <span class=&quot;ml-2 text-gray-700 dark:text-gray-300 text-sm&quot;>Data Science</span>
-      </button>
-    </div>
-  </section>
-
-  <section id=&quot;search-section&quot; class=&quot;mt-4 px-5&quot;>
-    <div id=&quot;search-bar&quot; class=&quot;relative&quot;>
-      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl flex items-center px-4 py-3 shadow-sm dark:shadow-gray-800/30&quot;>
-        <i class=&quot;fa-solid fa-magnifying-glass text-gray-400 dark:text-gray-500&quot;></i>
-        <input type=&quot;text&quot; placeholder=&quot;Search for courses, topics, instructors...&quot; class=&quot;ml-3 flex-1 bg-transparent text-gray-700 dark:text-gray-200 text-sm outline-none&quot;>
-        <button id=&quot;filter-button&quot; class=&quot;ml-2&quot;>
-          <i class=&quot;fa-solid fa-sliders text-gray-500 dark:text-gray-400&quot;></i>
-        </button>
-      </div>
-      
-      <div id=&quot;search-tags&quot; class=&quot;flex flex-wrap gap-2 mt-3&quot;>
-        <span class=&quot;bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs px-3 py-1.5 rounded-full&quot;>Popular</span>
-        <span class=&quot;bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-cyan-400 text-xs px-3 py-1.5 rounded-full&quot;>Trending</span>
-        <span class=&quot;bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs px-3 py-1.5 rounded-full&quot;>New Releases</span>
-      </div>
-    </div>
-  </section>
-
-  <section id=&quot;popular-courses&quot; class=&quot;mt-6 px-5&quot;>
-    <div class=&quot;flex justify-between items-center mb-4&quot;>
-      <h3 class=&quot;text-base font-semibold text-gray-800 dark:text-white&quot;>Popular Courses</h3>
-      <div class=&quot;flex items-center&quot;>
-        <span class=&quot;text-xs text-gray-500 dark:text-gray-400 mr-2&quot;>Sort by:</span>
-        <select class=&quot;text-xs text-purple-600 dark:text-purple-400 font-medium bg-transparent outline-none&quot;>
-          <option>Trending</option>
-          <option>Newest</option>
-          <option>Top Rated</option>
-        </select>
-      </div>
-    </div>
-    
-    <div id=&quot;courses-grid&quot; class=&quot;grid grid-cols-2 gap-4&quot;>
-      <div id=&quot;course-card-1&quot; class=&quot;bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10&quot;>
-        <div class=&quot;h-32 relative&quot;>
-          <img class=&quot;absolute inset-0 w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/152232fbc9-631f100e4b8a0450343d.png&quot; alt=&quot;UI design course with purple and teal interface elements, modern aesthetic&quot; />
-          <button id=&quot;wishlist-1&quot; class=&quot;absolute top-2 right-2 w-8 h-8 bg-white/70 dark:bg-gray-800/70 rounded-full flex items-center justify-center&quot;>
-            <i class=&quot;fa-regular fa-heart text-red-500&quot;></i>
-          </button>
-        </div>
-        <div class=&quot;p-3&quot;>
-          <div class=&quot;flex items-center&quot;>
-            <span class=&quot;text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-2 py-0.5 rounded&quot;>Design</span>
-            <div class=&quot;ml-auto flex items-center&quot;>
-              <i class=&quot;fa-solid fa-star text-yellow-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-600 dark:text-gray-400&quot;>4.8</span>
-            </div>
-          </div>
-          <h4 class=&quot;font-medium text-gray-800 dark:text-white text-sm mt-2&quot;>UI Design Principles</h4>
-          <div class=&quot;mt-2 flex items-center justify-between&quot;>
-            <div class=&quot;flex items-center&quot;>
-              <i class=&quot;fa-regular fa-clock text-gray-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-500 dark:text-gray-400&quot;>6h 30m</span>
-            </div>
-            <div class=&quot;flex items-center&quot;>
-              <i class=&quot;fa-solid fa-signal text-teal-500 dark:text-cyan-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-500 dark:text-gray-400&quot;>Beginner</span>
-            </div>
-          </div>
-          <div class=&quot;mt-3 flex justify-between items-center&quot;>
-            <span class=&quot;font-bold text-purple-600 dark:text-purple-400&quot;>$49.99</span>
-            <button class=&quot;bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg&quot;>Details</button>
-          </div>
-        </div>
-      </div>
-      
-      <div id=&quot;course-card-2&quot; class=&quot;bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10&quot;>
-        <div class=&quot;h-32 relative&quot;>
-          <img class=&quot;absolute inset-0 w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/11617790d0-3cd73b1b2bf14e3602c2.png&quot; alt=&quot;React Native mobile development course with code and smartphone interfaces, modern tech design&quot; />
-          <button id=&quot;wishlist-2&quot; class=&quot;absolute top-2 right-2 w-8 h-8 bg-white/70 dark:bg-gray-800/70 rounded-full flex items-center justify-center&quot;>
-            <i class=&quot;fa-solid fa-heart text-red-500&quot;></i>
-          </button>
-          <div class=&quot;absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent py-1 px-2&quot;>
-            <div class=&quot;flex items-center&quot;>
-              <i class=&quot;fa-solid fa-bolt text-yellow-400 text-xs&quot;></i>
-              <span class=&quot;text-white text-xs ml-1&quot;>Hot &amp; New</span>
-            </div>
-          </div>
-        </div>
-        <div class=&quot;p-3&quot;>
-          <div class=&quot;flex items-center&quot;>
-            <span class=&quot;text-xs bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-cyan-400 px-2 py-0.5 rounded&quot;>Development</span>
-            <div class=&quot;ml-auto flex items-center&quot;>
-              <i class=&quot;fa-solid fa-star text-yellow-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-600 dark:text-gray-400&quot;>4.9</span>
-            </div>
-          </div>
-          <h4 class=&quot;font-medium text-gray-800 dark:text-white text-sm mt-2&quot;>React Native Masterclass</h4>
-          <div class=&quot;mt-2 flex items-center justify-between&quot;>
-            <div class=&quot;flex items-center&quot;>
-              <i class=&quot;fa-regular fa-clock text-gray-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-500 dark:text-gray-400&quot;>12h 45m</span>
-            </div>
-            <div class=&quot;flex items-center&quot;>
-              <i class=&quot;fa-solid fa-signal text-teal-500 dark:text-cyan-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-500 dark:text-gray-400&quot;>Intermediate</span>
-            </div>
-          </div>
-          <div class=&quot;mt-3 flex justify-between items-center&quot;>
-            <span class=&quot;font-bold text-purple-600 dark:text-purple-400&quot;>$59.99</span>
-            <button class=&quot;bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg&quot;>Details</button>
-          </div>
-        </div>
-      </div>
-      
-      <div id=&quot;course-card-3&quot; class=&quot;bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10&quot;>
-        <div class=&quot;h-32 relative&quot;>
-          <img class=&quot;absolute inset-0 w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/b5a24c20c6-e42e3f82ab202d605582.png&quot; alt=&quot;Python data analysis course with charts and code examples, modern tech aesthetic&quot; />
-          <button id=&quot;wishlist-3&quot; class=&quot;absolute top-2 right-2 w-8 h-8 bg-white/70 dark:bg-gray-800/70 rounded-full flex items-center justify-center&quot;>
-            <i class=&quot;fa-regular fa-heart text-red-500&quot;></i>
-          </button>
-        </div>
-        <div class=&quot;p-3&quot;>
-          <div class=&quot;flex items-center&quot;>
-            <span class=&quot;text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded&quot;>Data Science</span>
-            <div class=&quot;ml-auto flex items-center&quot;>
-              <i class=&quot;fa-solid fa-star text-yellow-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-600 dark:text-gray-400&quot;>4.7</span>
-            </div>
-          </div>
-          <h4 class=&quot;font-medium text-gray-800 dark:text-white text-sm mt-2&quot;>Python for Data Analysis</h4>
-          <div class=&quot;mt-2 flex items-center justify-between&quot;>
-            <div class=&quot;flex items-center&quot;>
-              <i class=&quot;fa-regular fa-clock text-gray-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-500 dark:text-gray-400&quot;>10h 15m</span>
-            </div>
-            <div class=&quot;flex items-center&quot;>
-              <i class=&quot;fa-solid fa-signal text-teal-500 dark:text-cyan-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-500 dark:text-gray-400&quot;>All Levels</span>
-            </div>
-          </div>
-          <div class=&quot;mt-3 flex justify-between items-center&quot;>
-            <span class=&quot;font-bold text-purple-600 dark:text-purple-400&quot;>$39.99</span>
-            <button class=&quot;bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg&quot;>Details</button>
-          </div>
-        </div>
-      </div>
-      
-      <div id=&quot;course-card-4&quot; class=&quot;bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm dark:shadow-gray-700/10&quot;>
-        <div class=&quot;h-32 relative&quot;>
-          <img class=&quot;absolute inset-0 w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/a0ef2f15e5-85d89f39365b3636346e.png&quot; alt=&quot;UX research and user testing course with wireframes and usability tests, modern design&quot; />
-          <button id=&quot;wishlist-4&quot; class=&quot;absolute top-2 right-2 w-8 h-8 bg-white/70 dark:bg-gray-800/70 rounded-full flex items-center justify-center&quot;>
-            <i class=&quot;fa-regular fa-heart text-gray-400 dark:text-gray-500&quot;></i>
-          </button>
-          <div class=&quot;absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent py-1 px-2&quot;>
-            <div class=&quot;flex items-center&quot;>
-              <i class=&quot;fa-solid fa-robot text-purple-400 text-xs&quot;></i>
-              <span class=&quot;text-white text-xs ml-1&quot;>AI Recommended</span>
-            </div>
-          </div>
-        </div>
-        <div class=&quot;p-3&quot;>
-          <div class=&quot;flex items-center&quot;>
-            <span class=&quot;text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-2 py-0.5 rounded&quot;>UX Research</span>
-            <div class=&quot;ml-auto flex items-center&quot;>
-              <i class=&quot;fa-solid fa-star text-yellow-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-600 dark:text-gray-400&quot;>4.6</span>
-            </div>
-          </div>
-          <h4 class=&quot;font-medium text-gray-800 dark:text-white text-sm mt-2&quot;>UX Research Methods</h4>
-          <div class=&quot;mt-2 flex items-center justify-between&quot;>
-            <div class=&quot;flex items-center&quot;>
-              <i class=&quot;fa-regular fa-clock text-gray-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-500 dark:text-gray-400&quot;>8h 20m</span>
-            </div>
-            <div class=&quot;flex items-center&quot;>
-              <i class=&quot;fa-solid fa-signal text-teal-500 dark:text-cyan-400 text-xs&quot;></i>
-              <span class=&quot;ml-1 text-xs text-gray-500 dark:text-gray-400&quot;>Beginner</span>
-            </div>
-          </div>
-          <div class=&quot;mt-3 flex justify-between items-center&quot;>
-            <span class=&quot;font-bold text-purple-600 dark:text-purple-400&quot;>$44.99</span>
-            <button class=&quot;bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-2.5 py-1 rounded-lg&quot;>Details</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <button id=&quot;load-more&quot; class=&quot;mt-5 w-full py-2.5 border border-purple-600 dark:border-purple-400 text-purple-600 dark:text-purple-400 font-medium rounded-lg text-sm&quot;>
-      Load More Courses
-    </button>
-  </section>
-
-  <section id=&quot;personalized-section&quot; class=&quot;mt-8 px-5 pb-6&quot;>
-    <div class=&quot;bg-gradient-to-r from-purple-600/10 to-teal-500/10 dark:from-purple-500/20 dark:to-cyan-400/20 rounded-xl p-4&quot;>
-      <div class=&quot;flex items-start&quot;>
-        <div class=&quot;flex-1&quot;>
-          <div class=&quot;flex items-center&quot;>
-            <i class=&quot;fa-solid fa-lightbulb text-yellow-500 mr-2&quot;></i>
-            <h3 class=&quot;text-base font-semibold text-gray-800 dark:text-white&quot;>Personalized For You</h3>
-          </div>
-          <p class=&quot;text-sm text-gray-600 dark:text-gray-300 mt-2&quot;>Based on your interests and learning history</p>
-        </div>
-        <button class=&quot;bg-white/70 dark:bg-gray-800/70 p-1.5 rounded-lg&quot;>
-          <i class=&quot;fa-solid fa-ellipsis-vertical text-gray-600 dark:text-gray-400&quot;></i>
-        </button>
-      </div>
-      
-      <div id=&quot;personalized-courses&quot; class=&quot;mt-4 space-y-3&quot;>
-        <div id=&quot;recommended-course-1&quot; class=&quot;bg-white dark:bg-gray-800 rounded-lg p-3 flex items-center&quot;>
-          <div class=&quot;w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex-shrink-0 overflow-hidden&quot;>
-            <img class=&quot;w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/c8453f9900-a8ce2059a1e038fe4256.png&quot; alt=&quot;figma UI design interface thumbnail, minimalist&quot; />
-          </div>
-          <div class=&quot;ml-3 flex-1&quot;>
-            <div class=&quot;flex items-center&quot;>
-              <span class=&quot;text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-1.5 py-0.5 rounded&quot;>UI Design</span>
-              <div class=&quot;ml-2 flex items-center&quot;>
-                <i class=&quot;fa-solid fa-star text-yellow-400 text-xs&quot;></i>
-                <span class=&quot;ml-0.5 text-xs text-gray-600 dark:text-gray-400&quot;>4.9</span>
-              </div>
-            </div>
-            <h4 class=&quot;font-medium text-gray-800 dark:text-white text-sm mt-1&quot;>Advanced Figma Techniques</h4>
-            <div class=&quot;flex items-center mt-1&quot;>
-              <i class=&quot;fa-solid fa-robot text-xs text-purple-500 mr-1&quot;></i>
-              <span class=&quot;text-xs text-gray-500 dark:text-gray-400&quot;>Matches your design interests</span>
-            </div>
-          </div>
-        </div>
-        
-        <div id=&quot;recommended-course-2&quot; class=&quot;bg-white dark:bg-gray-800 rounded-lg p-3 flex items-center&quot;>
-          <div class=&quot;w-12 h-12 rounded-lg bg-teal-100 dark:bg-teal-900/30 flex-shrink-0 overflow-hidden&quot;>
-            <img class=&quot;w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/a8989a560a-9ecb704fe50a77caee35.png&quot; alt=&quot;javascript modern coding thumbnail, minimalist&quot; />
-          </div>
-          <div class=&quot;ml-3 flex-1&quot;>
-            <div class=&quot;flex items-center&quot;>
-              <span class=&quot;text-xs bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-cyan-400 px-1.5 py-0.5 rounded&quot;>JavaScript</span>
-              <div class=&quot;ml-2 flex items-center&quot;>
-                <i class=&quot;fa-solid fa-star text-yellow-400 text-xs&quot;></i>
-                <span class=&quot;ml-0.5 text-xs text-gray-600 dark:text-gray-400&quot;>4.7</span>
-              </div>
-            </div>
-            <h4 class=&quot;font-medium text-gray-800 dark:text-white text-sm mt-1&quot;>Modern JavaScript ES6+</h4>
-            <div class=&quot;flex items-center mt-1&quot;>
-              <i class=&quot;fa-solid fa-robot text-xs text-purple-500 mr-1&quot;></i>
-              <span class=&quot;text-xs text-gray-500 dark:text-gray-400&quot;>Popular in your region</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <button class=&quot;mt-4 w-full py-2 bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 font-medium rounded-lg text-sm shadow-sm&quot;>View All Recommendations</button>
-    </div>
-  </section>
-</main>
-
-<footer id=&quot;footer&quot; class=&quot;fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 z-40&quot;>
-  <div class=&quot;flex justify-around items-center px-2 py-2&quot;>
-    <a href=&quot;StudentDashboard.html&quot; class=&quot;flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500&quot;>
-      <i class=&quot;fa-solid fa-house text-lg&quot;></i>
-      <span class=&quot;text-xs mt-1&quot;>Home</span>
-    </a>
-    
-    <a href=&quot;CourseCatalog.html&quot; class=&quot;flex flex-col items-center justify-center w-16 py-1.5 text-purple-600 dark:text-purple-400&quot;>
-      <i class=&quot;fa-solid fa-compass text-lg&quot;></i>
-      <span class=&quot;text-xs mt-1 font-medium&quot;>Explore</span>
-    </a>
-    
-    <a href=&quot;LearningProgress.html&quot; class=&quot;flex flex-col items-center justify-center w-16 py-1.5&quot;>
-      <div class=&quot;w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-teal-500 dark:from-purple-500 dark:to-cyan-400 flex items-center justify-center shadow-md&quot;>
-        <i class=&quot;fa-solid fa-play text-white text-lg&quot;></i>
-      </div>
-    </a>
-    
-    <a href=&quot;CourseDetails.html&quot; class=&quot;flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500&quot;>
-      <i class=&quot;fa-solid fa-book-open text-lg&quot;></i>
-      <span class=&quot;text-xs mt-1&quot;>Courses</span>
-    </a>
-    
-    <a href=&quot;#&quot; class=&quot;flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500&quot;>
-      <i class=&quot;fa-solid fa-user text-lg&quot;></i>
-      <span class=&quot;text-xs mt-1&quot;>Profile</span>
-    </a>
-  </div>
-</footer>
-
-<script>
-  // Theme toggle functionality
-  document.getElementById('theme-toggle').addEventListener('click', function() {
-    document.documentElement.classList.toggle('dark');
-    
-    // Add haptic feedback (would be implemented in React Native)
-    // ReactNative.Haptics.impactAsync(ReactNative.Haptics.ImpactFeedbackStyle.Light);
-  });
-  
-  // Wishlist button toggle
-  document.querySelectorAll('[id^=&quot;wishlist-&quot;]').forEach(button => {
-    button.addEventListener('click', function() {
-      const heartIcon = this.querySelector('i');
-      if (heartIcon.classList.contains('fa-regular')) {
-        heartIcon.classList.remove('fa-regular');
-        heartIcon.classList.add('fa-solid');
-        // Add animation class (would be implemented with React Native Animated)
-      } else {
-        heartIcon.classList.remove('fa-solid');
-        heartIcon.classList.add('fa-regular');
-      }
-    });
-  });
-  
-  // Category selection
-  document.querySelectorAll('[id^=&quot;category-&quot;]').forEach(button => {
-    button.addEventListener('click', function() {
-      // Reset all buttons
-      document.querySelectorAll('[id^=&quot;category-&quot;]').forEach(btn => {
-        btn.classList.remove('bg-purple-600', 'dark:bg-purple-500');
-        btn.classList.add('bg-white', 'dark:bg-gray-800');
-        
-        const icon = btn.querySelector('i');
-        icon.classList.remove('text-white');
-        icon.classList.add('text-gray-600', 'dark:text-gray-300');
-        
-        const text = btn.querySelector('span');
-        text.classList.remove('text-white');
-        text.classList.add('text-gray-700', 'dark:text-gray-300');
-      });
-      
-      // Set active button
-      this.classList.remove('bg-white', 'dark:bg-gray-800');
-      this.classList.add('bg-purple-600', 'dark:bg-purple-500');
-      
-      const icon = this.querySelector('i');
-      icon.classList.remove('text-gray-600', 'dark:text-gray-300');
-      icon.classList.add('text-white');
-      
-      const text = this.querySelector('span');
-      text.classList.remove('text-gray-700', 'dark:text-gray-300');
-      text.classList.add('text-white');
-    });
-  });
-  
-  // Search expand/collapse
-  document.getElementById('search-btn').addEventListener('click', function() {
-    const searchSection = document.getElementById('search-section');
-    searchSection.classList.toggle('expanded');
-    // In React Native, this would trigger an animation to expand the search bar
-  });
-  
-  // Pull-to-refresh would be implemented using React Native's RefreshControl
-</script>
-              </body>
-            </html>
-          " frameborder="0" class="w-full h-max overflow-visible border-2 border-carbon-300 border-solid rounded-lg" style="width: 390px; height: 1649px; min-height: 844px;"></iframe>
+    </footer>
+    <script>
+        // Theme toggle functionality
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+        });
+        // Wishlist button toggle
+        document.querySelectorAll('[id^="wishlist-"]').forEach(button => {
+            button.addEventListener('click', function() {
+                const heartIcon = this.querySelector('i');
+                if (heartIcon.classList.contains('fa-regular')) {
+                    heartIcon.classList.remove('fa-regular');
+                    heartIcon.classList.add('fa-solid');
+                } else {
+                    heartIcon.classList.remove('fa-solid');
+                    heartIcon.classList.add('fa-regular');
+                }
+            });
+        });
+        // Category selection
+        document.querySelectorAll('[id^="category-"]').forEach(button => {
+            button.addEventListener('click', function() {
+                // Reset all buttons
+                document.querySelectorAll('[id^="category-"]').forEach(btn => {
+                    btn.classList.remove('bg-purple-600', 'dark:bg-purple-500');
+                    btn.classList.add('bg-white', 'dark:bg-gray-800');
+                    const icon = btn.querySelector('i');
+                    icon.classList.remove('text-white');
+                    icon.classList.add('text-gray-600', 'dark:text-gray-300');
+                    const text = btn.querySelector('span');
+                    text.classList.remove('text-white');
+                    text.classList.add('text-gray-700', 'dark:text-gray-300');
+                });
+                // Set active button
+                this.classList.remove('bg-white', 'dark:bg-gray-800');
+                this.classList.add('bg-purple-600', 'dark:bg-purple-500');
+                const icon = this.querySelector('i');
+                icon.classList.remove('text-gray-600', 'dark:text-gray-300');
+                icon.classList.add('text-white');
+                const text = this.querySelector('span');
+                text.classList.remove('text-gray-700', 'dark:text-gray-300');
+                text.classList.add('text-white');
+            });
+        });
+        // Search expand/collapse
+        document.getElementById('search-btn').addEventListener('click', function() {
+            const searchSection = document.getElementById('search-section');
+            searchSection.classList.toggle('expanded');
+        });
+    </script>
+</body>
+</html> 
