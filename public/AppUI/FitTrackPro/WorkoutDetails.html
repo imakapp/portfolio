@@ -587,26 +587,5 @@
           });
         });
       </script>
-      <script>
-        // Joystick scroll handler
-        window.addEventListener('message', function(event) {
-          if (event.data && event.data.type === 'fittrackpro_scroll') {
-            var main = document.querySelector('main');
-            if (main) {
-              main.scrollBy(event.data.dx, event.data.dy);
-            } else {
-              var flex1 = document.querySelector('.flex-1');
-              if (flex1) {
-                flex1.scrollBy(event.data.dx, event.data.dy);
-              } else {
-                var section = document.querySelector('section');
-                if (section) {
-                  section.scrollBy(event.data.dx, event.data.dy);
-                }
-              }
-            }
-          }
-        });
-      </script>
     </body>
 </html>

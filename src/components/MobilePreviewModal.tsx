@@ -154,12 +154,7 @@ const MobilePreviewModal = ({
       case 'RIGHT': dx = step; break;
       default: break;
     }
-    // If FitTrack Pro, send postMessage to iframe for scrolling
-    if (isFitTrackPro && iframeRef.current && iframeRef.current.contentWindow) {
-      iframeRef.current.contentWindow.postMessage({ type: 'fittrackpro_scroll', dx, dy }, '*');
-      return;
-    }
-    // If iframe is present, scroll its content (for other apps)
+    // If iframe is present, scroll its content
     if (iframeRef.current && iframeRef.current.contentWindow) {
       try {
         iframeRef.current.contentWindow.scrollBy(dx, dy);
