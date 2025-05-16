@@ -45,9 +45,11 @@ const ProjectCard = ({
     setIsPreviewOpen(false);
   };
   
-  // Define a special URL for FitTrack Pro
+  // Define a special URL for FitTrack Pro and EduLearn
   const previewUrl = id === 'fittrack' 
     ? '@FitTrackPro'  // Use special tag for FitTrack Pro
+    : id === 'edulearn'
+    ? '@EduLearn'  // Use special tag for EduLearn
     : `/preview?image=${imageId}&project=${encodeURIComponent(title)}`;
   
   return (
@@ -79,7 +81,8 @@ const ProjectCard = ({
               <i className="fa-solid fa-arrow-up-right"></i>
             </span>
           </div>
-          <div className="flex flex-wrap gap-3 mb-8">
+          
+          <div className="flex flex-wrap gap-2 mb-6">
             {tags.map((tag: string) => {
               let icon = 'fa-code';
               if (tag.toLowerCase().includes('react')) {
@@ -102,59 +105,58 @@ const ProjectCard = ({
               );
             })}
           </div>
-          <div className="flex flex-col gap-4">
-            <button 
-              onClick={handleOpenPreview}
-              className="button w-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#7c4fe0] hover:to-[#d9418a] transition-all flex items-center justify-center"
-            >
-              <i className="fa-solid fa-eye mr-2"></i>
-              Live Preview
-              <i className="fa-solid fa-arrow-right ml-3"></i>
-            </button>
-            <div className="flex gap-4 mt-4 button-container">
-              {platforms.includes('ios') && (
-                id === 'vytal' && appStore ? (
-                  <a 
-                    href={appStore} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
-                  >
-                    <i className="fa-brands fa-apple mr-2"></i>
-                    App Store
-                  </a>
-                ) : (
-                  <Link 
-                    href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=ios`} 
-                    className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
-                  >
-                    <i className="fa-brands fa-apple mr-2"></i>
-                    App Store
-                  </Link>
-                )
-              )}
-              {platforms.includes('android') && (
-                id === 'vytal' && playStore ? (
-                  <a 
-                    href={playStore} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
-                  >
-                    <i className="fa-brands fa-google-play mr-2"></i>
-                    Play Store
-                  </a>
-                ) : (
-                  <Link 
-                    href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=android`} 
-                    className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
-                  >
-                    <i className="fa-brands fa-google-play mr-2"></i>
-                    Play Store
-                  </Link>
-                )
-              )}
-            </div>
+          
+          <button 
+            onClick={handleOpenPreview}
+            className="button w-full bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white py-3 px-6 rounded-lg font-semibold hover:from-[#7c4fe0] hover:to-[#d9418a] transition-all flex items-center justify-center"
+          >
+            <i className="fa-solid fa-eye mr-2"></i>
+            Live Preview
+            <i className="fa-solid fa-arrow-right ml-3"></i>
+          </button>
+          <div className="flex gap-4 mt-4 button-container">
+            {platforms.includes('ios') && (
+              id === 'vytal' && appStore ? (
+                <a 
+                  href={appStore} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
+                >
+                  <i className="fa-brands fa-apple mr-2"></i>
+                  App Store
+                </a>
+              ) : (
+                <Link 
+                  href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=ios`} 
+                  className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
+                >
+                  <i className="fa-brands fa-apple mr-2"></i>
+                  App Store
+                </Link>
+              )
+            )}
+            {platforms.includes('android') && (
+              id === 'vytal' && playStore ? (
+                <a 
+                  href={playStore} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
+                >
+                  <i className="fa-brands fa-google-play mr-2"></i>
+                  Play Store
+                </a>
+              ) : (
+                <Link 
+                  href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=android`} 
+                  className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
+                >
+                  <i className="fa-brands fa-google-play mr-2"></i>
+                  Play Store
+                </Link>
+              )
+            )}
           </div>
         </div>
       </div>
@@ -172,4 +174,4 @@ const ProjectCard = ({
   );
 };
 
-export default ProjectCard; 
+export default ProjectCard;

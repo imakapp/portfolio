@@ -41,6 +41,11 @@ export default function FeaturedProjectCard({
   // Extract app name without additional text
   const appName = title.split(':')[0].trim();
 
+  // Define preview URL based on project ID
+  const previewUrl = id === 'edulearn' 
+    ? '@EduLearn'  // Use special tag for EduLearn
+    : `/preview?image=${imageId}&project=${encodeURIComponent(title)}`;
+
   return (
     <>
       <div className="relative group bg-[#282562] rounded-xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all shadow-xl">
@@ -109,7 +114,7 @@ export default function FeaturedProjectCard({
         <MobilePreviewModal 
           isOpen={isPreviewOpen}
           onClose={handleClosePreview}
-          projectUrl={`/preview?image=${imageId}&project=${encodeURIComponent(title)}`}
+          projectUrl={previewUrl}
           projectTitle={title}
           imageUrl={`https://storage.googleapis.com/uxpilot-auth.appspot.com/${imageId}`}
         />

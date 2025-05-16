@@ -29,12 +29,12 @@ export const projectsData: Project[] = [
     appStore: 'https://apps.apple.com/us/app/vytal/id1476201142'
   },
   {
-    id: 'wealthwise',
-    title: 'WealthWise',
-    description: 'Personal finance management with investment tracking',
+    id: 'edulearn',
+    title: 'EduLearn',
+    description: 'Comprehensive learning platform with personalized education tracking',
     image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/2bb554b93d-077ccd5a2cfb0b1469f9.png',
     imageId: '2bb554b93d-077ccd5a2cfb0b1469f9.png',
-    tags: ['Flutter', 'GraphQL', 'AWS'],
+    tags: ['React Native', 'Education', 'Learning Analytics'],
     category: 'mobile',
     platforms: ['ios', 'android'],
     featured: true,
