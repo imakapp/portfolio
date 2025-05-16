@@ -743,19 +743,5 @@
         updateStatusBarTime();
         setInterval(updateStatusBarTime, 60000); // Update every minute
     </script>
-
-    <script>
-    window.addEventListener('message', function(event) {
-        // Only accept messages from the parent window
-        if (event.data && event.data.type === 'joystick-scroll') {
-            var dx = event.data.dx || 0;
-            var dy = event.data.dy || 0;
-            var scrollable = document.querySelector('.scrollable-content');
-            if (scrollable) {
-                scrollable.scrollBy({ left: dx, top: dy, behavior: 'smooth' });
-            }
-        }
-    });
-    </script>
 </body>
 </html>
