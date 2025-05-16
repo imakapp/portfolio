@@ -27,6 +27,8 @@ const MobilePreviewModal = ({
   const modalRef = useRef<HTMLDivElement>(null);
   // For HealthConnect Patient App interactive prototype navigation
   const [patientAppScreen, setPatientAppScreen] = useState<'splash' | 'dashboard'>('splash');
+  // For FitTrack Pro interactive prototype navigation
+  const [fitTrackScreen, setFitTrackScreen] = useState<'splash' | 'dashboard'>('splash');
   
   // Determine if this is the FitTrack Pro special case
   const isFitTrackPro = projectUrl === '@FitTrackPro' || projectTitle === 'FitTrack Pro';
@@ -39,6 +41,11 @@ const MobilePreviewModal = ({
   // Set mounted state when component mounts
   useEffect(() => {
     setMounted(true);
+    
+    // Reset FitTrack Pro screen to splash every time modal is opened
+    if (isOpen && isFitTrackPro) {
+      setFitTrackScreen('splash');
+    }
     
     // Register escape key listener
     const handleEscKey = (e: KeyboardEvent) => {
@@ -58,6 +65,21 @@ const MobilePreviewModal = ({
       document.addEventListener('keydown', handleEscKey);
       // Prevent body scrolling when modal is open
       document.body.style.overflow = 'hidden';
+      // Listen for FitTrack Pro navigation messages
+      const handleMessage = (event: MessageEvent) => {
+        if (isFitTrackPro && event.data && event.data.type === 'fittrackpro_navigate') {
+          if (event.data.screen === 'dashboard') {
+            setFitTrackScreen('dashboard');
+          }
+        }
+      };
+      window.addEventListener('message', handleMessage);
+      return () => {
+        document.removeEventListener('keydown', handleEscKey);
+        // Re-enable body scrolling when modal is closed
+        document.body.style.overflow = '';
+        window.removeEventListener('message', handleMessage);
+      };
     }
     
     return () => {
@@ -65,7 +87,7 @@ const MobilePreviewModal = ({
       // Re-enable body scrolling when modal is closed
       document.body.style.overflow = '';
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, isFitTrackPro]);
 
   // Don't render anything until mounted and modal is open
   if (!mounted || !isOpen) return null;
@@ -197,7 +219,7 @@ const MobilePreviewModal = ({
             ) : isFitTrackPro ? (
               <iframe
                 ref={iframeRef}
-                src="/AppUI/FitTrackPro/Splash.html"
+                src={fitTrackScreen === 'splash' ? '/AppUI/FitTrackPro/Splash.html' : '/AppUI/FitTrackPro/Dashboard.html'}
                 className="w-full h-full border-0"
                 title="FitTrack Pro Interactive Prototype"
               />

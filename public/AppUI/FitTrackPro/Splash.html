@@ -341,7 +341,7 @@
             <div class="w-2 h-2 rounded-full bg-gray-600"></div>
           </div>
         </div>
-        <a href="Dashboard.html" id="get-started-btn" class="block w-full py-4 bg-[#6191FF] text-white font-semibold rounded-xl shadow-lg transform transition-all duration-300 hover:bg-[#4A7AE8] hover:shadow-xl text-center">
+        <a href="dashboard.html" id="get-started-btn" class="block w-full py-4 bg-[#6191FF] text-white font-semibold rounded-xl shadow-lg transform transition-all duration-300 hover:bg-[#4A7AE8] hover:shadow-xl text-center">
           Get Started
         </a>
         <div class="mt-4 text-center">
@@ -367,15 +367,15 @@
             this.classList.remove('animate-pulse');
           }, 1000);
         });
-        // Get Started button interaction (in-frame navigation)
+        // Get Started button interaction
         const getStartedBtn = document.getElementById('get-started-btn');
         getStartedBtn.addEventListener('click', function(e) {
           this.classList.add('scale-95');
           e.preventDefault(); // Prevent default link behavior
           setTimeout(() => {
             this.classList.remove('scale-95');
-            // Navigate to Dashboard.html in the same frame (not parent)
-            window.location.href = 'Dashboard.html';
+            // Send a message to the parent window to navigate to dashboard
+            window.parent.postMessage({ type: 'fittrackpro_navigate', screen: 'dashboard' }, '*');
           }, 200);
         });
       });
