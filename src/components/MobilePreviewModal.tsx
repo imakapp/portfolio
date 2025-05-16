@@ -29,6 +29,8 @@ const MobilePreviewModal = ({
   const [patientAppScreen, setPatientAppScreen] = useState<'splash' | 'dashboard'>('splash');
   // For FitTrack Pro interactive prototype navigation
   const [fitTrackScreen, setFitTrackScreen] = useState<'splash' | 'dashboard'>('splash');
+  // Track current FitTrack Pro iframe src for joystick scrolling
+  const [fitTrackIframeSrc, setFitTrackIframeSrc] = useState<string>('/AppUI/FitTrackPro/Splash.html');
   
   // Determine if this is the FitTrack Pro special case
   const isFitTrackPro = projectUrl === '@FitTrackPro' || projectTitle === 'FitTrack Pro';
@@ -45,6 +47,7 @@ const MobilePreviewModal = ({
     // Reset FitTrack Pro screen to splash every time modal is opened
     if (isOpen && isFitTrackPro) {
       setFitTrackScreen('splash');
+      setFitTrackIframeSrc('/AppUI/FitTrackPro/Splash.html');
     }
     
     // Register escape key listener
@@ -70,7 +73,9 @@ const MobilePreviewModal = ({
         if (isFitTrackPro && event.data && event.data.type === 'fittrackpro_navigate') {
           if (event.data.screen === 'dashboard') {
             setFitTrackScreen('dashboard');
+            setFitTrackIframeSrc('/AppUI/FitTrackPro/Dashboard.html');
           }
+          // Support navigation to other screens via postMessage
         }
       };
       window.addEventListener('message', handleMessage);
@@ -219,9 +224,20 @@ const MobilePreviewModal = ({
             ) : isFitTrackPro ? (
               <iframe
                 ref={iframeRef}
-                src={fitTrackScreen === 'splash' ? '/AppUI/FitTrackPro/Splash.html' : '/AppUI/FitTrackPro/Dashboard.html'}
+                src={fitTrackIframeSrc}
                 className="w-full h-full border-0"
                 title="FitTrack Pro Interactive Prototype"
+                onLoad={() => {
+                  // Listen for navigation changes inside the iframe
+                  if (iframeRef.current && iframeRef.current.contentWindow) {
+                    try {
+                      const iframePath = iframeRef.current.contentWindow.location.pathname;
+                      if (iframePath.startsWith('/AppUI/FitTrackPro/')) {
+                        setFitTrackIframeSrc(iframePath);
+                      }
+                    } catch (err) {}
+                  }
+                }}
               />
             ) : isEduLearn ? (
               <iframe
