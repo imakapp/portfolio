@@ -145,7 +145,7 @@ const MobilePreviewModal = ({
   // Joystick handlers
   const handleJoystickMove = (e: any) => {
     if (!e.direction) return;
-    const step = 40;
+    const step = 100;
     let dx = 0, dy = 0;
     switch (e.direction) {
       case 'FORWARD': dy = -step; break;
