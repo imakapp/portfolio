@@ -154,13 +154,18 @@ const MobilePreviewModal = ({
       case 'RIGHT': dx = step; break;
       default: break;
     }
-    // If iframe is present, scroll its content
-    if (iframeRef.current && iframeRef.current.contentWindow) {
+    // If EduLearn, send joystick scroll message to iframe
+    if (isEduLearn && iframeRef.current && iframeRef.current.contentWindow) {
+      iframeRef.current.contentWindow.postMessage({
+        type: 'joystick-scroll',
+        dx,
+        dy
+      }, '*');
+    } else if (iframeRef.current && iframeRef.current.contentWindow) {
       try {
         iframeRef.current.contentWindow.scrollBy(dx, dy);
       } catch (err) {}
     }
-    // If image wrapper is present, scroll it
     if (contentWrapperRef.current) {
       contentWrapperRef.current.scrollBy({ left: dx, top: dy, behavior: 'smooth' });
     }
