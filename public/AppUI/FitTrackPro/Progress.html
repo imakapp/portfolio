@@ -29,6 +29,16 @@
     <style>
       .dark { /* ... dark theme color variables ... */ }
     </style>
+    <style>
+      html, body, #app-container, .screen.active {
+        height: 100%;
+        overflow: visible !important;
+      }
+      main {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
     <script>
       tailwind.config = { /* ... tailwind config ... */ };
     </script>
