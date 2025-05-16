@@ -139,12 +139,7 @@ const MobilePreviewModal = ({
   const handleJoystickStop = () => {};
 
   return (
-    <div 
-      className={styles.modalBackdrop}
-      onClick={handleBackdropClick}
-      aria-modal="true"
-      role="dialog"
-    >
+    <div className={`${styles.modalContainer} ${styles.modalBackdrop}`} onClick={handleBackdropClick} aria-modal="true" role="dialog">
       <div 
         ref={modalRef}
         className={styles.modalContent}
