@@ -368,7 +368,7 @@
             </div>
         </div>
     </header>
-    <main class="pt-14 pb-20 min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <main style="padding-top: 72px; padding-bottom: 88px; min-height: 0; height: calc(100vh - 160px); overflow-y: auto !important; -webkit-overflow-scrolling: touch;">
         <section id="featured-banner" class="relative h-48 overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-r from-purple-600/90 to-teal-500/90 dark:from-purple-500/90 dark:to-cyan-400/90"></div>
             <img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-80" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/1444783265-46c09e5d8533e52b3c1f.png" alt="modern e-learning interface with abstract geometric shapes, purple and teal color scheme, minimalist design" />
@@ -729,7 +729,7 @@
                 var dy = event.data.dy || 0;
                 var scrollable = document.querySelector('main');
                 if (scrollable) {
-                    scrollable.scrollBy({ left: dx, top: dy, behavior: 'smooth' });
+                    scrollable.scrollBy({ left: dx * 2, top: dy * 2, behavior: 'smooth' });
                 }
             }
         });
