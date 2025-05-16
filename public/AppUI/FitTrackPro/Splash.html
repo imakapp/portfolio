@@ -12,7 +12,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
       * { font-family: "Inter", sans-serif; }
-      ::-webkit-scrollbar { display: none; }
+      ::-webkit-scrollbar { width: 0px; height: 0px; background: transparent; display: none; }
+      html, body { margin: 0; padding: 0; height: 100%; -ms-overflow-style: none; scrollbar-width: none; overflow-y: auto; }
+      section { -ms-overflow-style: none; scrollbar-width: none; overflow-y: auto; }
+      section::-webkit-scrollbar { display: none; width: 0; height: 0; }
     </style>
     <style>
       .highlighted-section { outline: 2px solid #3F20FB; background-color: rgba(63, 32, 251, 0.1); }
@@ -374,8 +377,8 @@
           e.preventDefault(); // Prevent default link behavior
           setTimeout(() => {
             this.classList.remove('scale-95');
-            // Navigate to dashboard.html in the parent window (outside the iframe)
-            window.parent.location.href = 'dashboard.html';
+            // Navigate to Dashboard.html in the current window
+            window.location.href = 'Dashboard.html';
           }, 200);
         });
       });
