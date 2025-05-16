@@ -145,7 +145,7 @@ const MobilePreviewModal = ({
   // Joystick handlers
   const handleJoystickMove = (e: any) => {
     if (!e.direction) return;
-    const step = 100;
+    const step = 200;
     let dx = 0, dy = 0;
     switch (e.direction) {
       case 'FORWARD': dy = -step; break;
@@ -154,17 +154,13 @@ const MobilePreviewModal = ({
       case 'RIGHT': dx = step; break;
       default: break;
     }
-    // If EduLearn, send joystick scroll message to iframe
-    if (isEduLearn && iframeRef.current && iframeRef.current.contentWindow) {
+    // Always send joystick scroll message to iframe for all screens
+    if (iframeRef.current && iframeRef.current.contentWindow) {
       iframeRef.current.contentWindow.postMessage({
         type: 'joystick-scroll',
         dx,
         dy
       }, '*');
-    } else if (iframeRef.current && iframeRef.current.contentWindow) {
-      try {
-        iframeRef.current.contentWindow.scrollBy(dx, dy);
-      } catch (err) {}
     }
     if (contentWrapperRef.current) {
       contentWrapperRef.current.scrollBy({ left: dx, top: dy, behavior: 'smooth' });
