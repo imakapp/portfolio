@@ -135,10 +135,10 @@ const MobilePreviewModal = ({
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
   
   const deviceContainerStyles = {
-    transform: `scale(${scale})${!isPortrait ? ' rotate(90deg)' : ''}`,
+    transform: `scale(${scale})`,
     width: isPortrait ? '390px' : '844px',
     height: isPortrait ? '844px' : '390px',
-    transition: 'width 0.3s ease, height 0.3s ease, transform 0.3s'
+    transition: 'width 0.3s ease, height 0.3s ease, transform 0.2s ease'
   };
 
   const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -191,12 +191,8 @@ const MobilePreviewModal = ({
         </div>
         {/* Mobile Device Frame */}
         <div 
-          style={deviceContainerStyles}
-          className={[
-            styles.deviceFrame,
-            isPortrait ? styles.portrait : styles.landscape,
-            styles.floating
-          ].join(' ')}
+          style={deviceContainerStyles} 
+          className={`${styles.deviceFrame} ${isPortrait ? styles.portrait : styles.landscape} ${styles.floating} ${!isPortrait ? styles.rotated : ''}`}
         >
           {/* Notch / Dynamic Island */}
           <div className={styles.deviceNotch} />
