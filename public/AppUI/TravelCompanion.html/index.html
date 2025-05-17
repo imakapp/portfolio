@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelCompanion Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    body, html { font-family: 'SF Pro Display', 'Roboto', Arial, sans-serif; }
+    ::-webkit-scrollbar { display: none; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .glass { backdrop-filter: blur(16px) saturate(180%); background-color: rgba(255,255,255,0.25); border-radius: 1.5rem; border: 1px solid rgba(255,255,255,0.18); }
+    .glass-dark { backdrop-filter: blur(16px) saturate(160%); background: rgba(18,31,61,0.55); border-radius: 1.5rem; border: 1px solid rgba(92,225,230,0.10); }
+  </style>
+</head>
+<body class="bg-white dark:bg-[#121F3D] text-gray-900 dark:text-white transition-colors duration-500">
+
+  <!-- Splash Screen -->
+  <section id="splash-screen">
+    <!-- Splash content from splash.html will go here -->
+  </section>
+
+  <!-- Home Screen -->
+  <section id="home-screen" style="display:none;">
+    <!-- Home content from home.html will go here -->
+  </section>
+
+  <!-- Itinerary Screen -->
+  <section id="itinerary-screen" style="display:none;">
+    <!-- Itinerary content from itinerary.html will go here -->
+  </section>
+
+  <!-- Explore Screen -->
+  <section id="explore-screen" style="display:none;"></section>
+  <!-- Bookings Screen -->
+  <section id="bookings-screen" style="display:none;"></section>
+  <!-- Profile Screen -->
+  <section id="profile-screen" style="display:none;"></section>
+  <!-- Budget Screen -->
+  <section id="budget-screen" style="display:none;"></section>
+
+  <script>
+    // SPA navigation logic
+    function showScreen(screenId) {
+      document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(screenId).style.display = '';
+    }
+    // After splash animation, show home screen
+    setTimeout(() => {
+      document.getElementById('splash-screen').classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        document.getElementById('splash-screen').style.display = 'none';
+        showScreen('home-screen');
+      }, 500);
+    }, 2850);
+
+    // Navigation for bottom nav and other buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      // Replace all <a href="home.html"> with SPA navigation
+      document.querySelectorAll('a[href="home.html"]').forEach(el => {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          showScreen('home-screen');
+        });
+      });
+      document.querySelectorAll('a[href="itinerary.html"]').forEach(el => {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          showScreen('itinerary-screen');
+        });
+      });
+      document.querySelectorAll('a[href="explore.html"]').forEach(el => {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          showScreen('explore-screen');
+        });
+      });
+      document.querySelectorAll('a[href="bookings.html"]').forEach(el => {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          showScreen('bookings-screen');
+        });
+      });
+      document.querySelectorAll('a[href="profile.html"]').forEach(el => {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          showScreen('profile-screen');
+        });
+      });
+      document.querySelectorAll('a[href="budget.html"]').forEach(el => {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          showScreen('budget-screen');
+        });
+      });
+      // Add more as needed for other screens (explore, bookings, profile, etc.)
+    });
+  </script>
+</body>
+</html>
