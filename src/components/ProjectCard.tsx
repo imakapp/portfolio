@@ -81,49 +81,53 @@ const ProjectCard = ({
   return (
     <>
       <div className="group bg-[#1a1a4a] rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
-        <div className="relative h-[400px]">
-          {/* Mobile Device Frame UI */}
-          <div className="relative w-full h-full bg-black rounded-t-2xl overflow-hidden flex items-center justify-center">
-            <div className="relative w-[85%] h-[90%] bg-black rounded-3xl overflow-hidden border-4 border-[#2a2a45] shadow-2xl">
-              {/* Notch / Dynamic Island */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-7 bg-black rounded-b-xl z-10"></div>
-              
-              {/* Status Bar */}
-              <div className="absolute top-0 left-0 right-0 h-7 flex justify-between items-center px-5 z-5">
-                <div className="text-white text-xs font-medium">{currentTime}</div>
-                <div className="flex space-x-1">
-                  <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 18c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6z" />
-                  </svg>
-                  <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9z" />
-                  </svg>
-                  <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z" />
-                  </svg>
-                </div>
+        <div className="relative h-[400px] p-6 flex items-center justify-center bg-gradient-to-br from-[#181C23] to-[#0F172A]">
+          {/* Mobile Device Frame UI - styled to match MobilePreviewModal */}
+          <div className="relative bg-gradient-to-br from-[#2D3748] to-[#1E293B] rounded-[38px] shadow-xl border-4 border-[#23272f] overflow-hidden w-[240px] h-[500px] transition-transform hover:scale-[1.02] hover:rotate-1 hover:shadow-2xl hover:shadow-purple-500/20 translate-y-0 animate-float">
+            {/* Notch / Dynamic Island */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-7 bg-[#181C23] rounded-b-[18px] shadow-md z-10"></div>
+            
+            {/* Status Bar */}
+            <div className="absolute top-0 left-0 right-0 h-11 flex justify-between items-center px-6 z-5 bg-[#0F172A80] backdrop-blur-md">
+              <div className="text-white text-xs font-medium drop-shadow-md">{currentTime}</div>
+              <div className="flex space-x-1">
+                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 18c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6z" />
+                </svg>
+                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9z" />
+                </svg>
+                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z" />
+                </svg>
               </div>
-              
-              {/* Content Area */}
-              <div className="absolute inset-0 pt-7 flex items-center justify-center overflow-hidden">
-                {isFitTrackPro || isTravelCompanion || isEduLearn || isHealthConnectPatient ? (
-                  <iframe
-                    src={getLaunchScreenSrc()}
-                    className="w-full h-full border-0"
-                    title={`${title} Launch Screen`}
-                  />
-                ) : (
-                  <img
-                    src={getLaunchScreenSrc()}
-                    alt={title}
-                    className="w-full h-full object-cover"
-                  />
-                )}
-              </div>
-              
-              {/* Home Indicator */}
-              <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-white rounded-full opacity-70"></div>
             </div>
+            
+            {/* Content Area */}
+            <div className="absolute inset-0 rounded-[32px] overflow-hidden bg-gradient-to-br from-[#23243a] to-[#181C23] shadow-inner shadow-purple-500/10 filter brightness-110 z-2">
+              {isFitTrackPro || isTravelCompanion || isEduLearn || isHealthConnectPatient ? (
+                <iframe
+                  src={getLaunchScreenSrc()}
+                  className="w-full h-full border-0"
+                  title={`${title} Launch Screen`}
+                />
+              ) : (
+                <img
+                  src={getLaunchScreenSrc()}
+                  alt={title}
+                  className="w-full h-full object-cover"
+                />
+              )}
+            </div>
+            
+            {/* Home Indicator */}
+            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-[#444b5a] rounded-full opacity-70 z-10"></div>
+            
+            {/* Reflection effect */}
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 scale-y-[-1] w-4/5 h-10 bg-gradient-to-b from-white/10 to-transparent blur-md opacity-10 pointer-events-none z-1"></div>
+            
+            {/* Vignette effect */}
+            <div className="pointer-events-none absolute inset-0 rounded-[38px] shadow-[0_0_120px_40px_#0F172A_inset,0_0_80px_20px_#1E293B_inset] z-[10]"></div>
             
             {featured && (
               <span className="absolute top-6 left-6 bg-purple-500/20 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30 z-20">
