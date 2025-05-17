@@ -44,7 +44,6 @@ const MobilePreviewModal = ({
 
   const contentWrapperRef = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [rotating, setRotating] = useState(false);
 
   // Set mounted state when component mounts
   useEffect(() => {
@@ -104,9 +103,7 @@ const MobilePreviewModal = ({
   if (!mounted || !isOpen) return null;
 
   const toggleOrientation = () => {
-    setRotating(true);
     setIsPortrait(!isPortrait);
-    setTimeout(() => setRotating(false), 400);
   };
 
   const zoomIn = () => {
@@ -194,8 +191,13 @@ const MobilePreviewModal = ({
         </div>
         {/* Mobile Device Frame */}
         <div 
-          style={deviceContainerStyles} 
-          className={`${styles.deviceFrame} ${isPortrait ? styles.portrait : styles.landscape} ${styles.floating}`}
+          style={deviceContainerStyles}
+          className={[
+            styles.deviceFrame,
+            isPortrait ? styles.portrait : styles.landscape,
+            styles.floating,
+            !isPortrait ? styles.rotated : ''
+          ].join(' ')}
         >
           {/* Notch / Dynamic Island */}
           <div className={styles.deviceNotch} />
@@ -323,12 +325,7 @@ const MobilePreviewModal = ({
             className={`${styles.controlButton} ${styles.modalButton} ${styles.interFont} ${styles.textShadow}`}
             aria-label="Rotate device"
           >
-            <svg
-              className={`w-5 h-5 transition-transform duration-300 ${rotating ? 'rotate-180' : ''}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </button>

@@ -75,7 +75,6 @@
   max-height: 844px;
   transition: box-shadow 0.3s, transform 0.3s;
   will-change: transform;
-  border-bottom: none !important;
 }
 .portrait {
   width: 390px;
@@ -144,8 +143,6 @@
   position: relative;
   z-index: 2;
   font-family: 'Inter', sans-serif;
-  border-bottom: none !important;
-  box-shadow: none !important;
 }
 .homeIndicator {
   position: absolute;
@@ -281,4 +278,9 @@
 .modalButton {
   font-family: 'Inter', sans-serif;
   text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.rotated {
+  transform: rotate(90deg);
+  transition: transform 0.3s;
 } 
