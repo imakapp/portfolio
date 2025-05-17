@@ -33,7 +33,7 @@ const MobilePreviewModal = ({
   const [fitTrackIframeSrc, setFitTrackIframeSrc] = useState<string>('/AppUI/FitTrackPro/Splash.html');
   // For TravelCompanion interactive prototype navigation
   const [travelCompanionScreen, setTravelCompanionScreen] = useState<'splash' | 'home' | 'itinerary'>('splash');
-  const [travelCompanionIframeSrc, setTravelCompanionIframeSrc] = useState<string>('/AppUI/TravelCompanion.html/splash.html');
+  const [travelCompanionIframeSrc, setTravelCompanionIframeSrc] = useState<string>('/AppUI/TravelCompanion.html/index.html');
   
   // Determine if this is the FitTrack Pro special case
   const isFitTrackPro = projectUrl === '@FitTrackPro' || projectTitle === 'FitTrack Pro';
