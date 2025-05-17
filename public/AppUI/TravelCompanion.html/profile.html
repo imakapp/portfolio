@@ -367,444 +367,393 @@
     <header id="header" class="fixed top-[44px] left-0 right-0 z-40 bg-white dark:bg-[#121F3D] shadow-sm px-4 py-3">
       <div class="flex justify-between items-center">
         <div>
-          <h1 class="text-xl font-semibold">My Bookings</h1>
-          <p class="text-sm text-gray-500 dark:text-gray-400">All your travel documents in one place</p>
+          <h1 class="text-xl font-semibold">Good morning, Alex</h1>
+          <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+            <i class="fa-solid fa-cloud-sun mr-1 text-[#FF7A5A] dark:text-[#5CE1E6]"></i>
+            72°F • Sunny in San Francisco
+          </p>
         </div>
         <div class="flex items-center space-x-3">
-          <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-800">
-            <i class="fa-solid fa-search text-[#1A73E8] dark:text-[#5CE1E6]"></i>
+          <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 relative">
+            <i class="fa-solid fa-bell text-[#1A73E8] dark:text-[#5CE1E6]"></i>
+            <span class="absolute -top-1 -right-1 bg-[#FF7A5A] dark:bg-[#5CE1E6] text-white dark:text-[#121F3D] text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
           </button>
-          <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-800">
-            <i class="fa-solid fa-filter text-[#1A73E8] dark:text-[#5CE1E6]"></i>
-          </button>
+          <div class="h-10 w-10 rounded-full overflow-hidden">
+            <a href="profile.html">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Profile" class="h-full w-full object-cover" />
+            </a>
+          </div>
         </div>
       </div>
     </header>
   
     <!-- Main Content -->
     <main id="main-content" class="pb-20 pt-[100px]">
-      <!-- Booking Timeline Tabs -->
-      <section id="booking-timeline-tabs" class="px-4 pt-4 pb-2 bg-white dark:bg-[#121F3D] sticky top-[72px] z-[5]">
-        <div class="flex space-x-4 overflow-x-auto hide-scrollbar">
-          <button class="px-4 py-2 text-[#1A73E8] dark:text-[#5CE1E6] border-b-2 border-[#1A73E8] dark:border-[#5CE1E6] font-medium text-sm whitespace-nowrap">
-            Upcoming
-          </button>
-          <button class="px-4 py-2 text-gray-500 dark:text-gray-400 font-medium text-sm whitespace-nowrap">
-            Past
-          </button>
-          <button class="px-4 py-2 text-gray-500 dark:text-gray-400 font-medium text-sm whitespace-nowrap">
-            Cancelled
-          </button>
-          <button class="px-4 py-2 text-gray-500 dark:text-gray-400 font-medium text-sm whitespace-nowrap">
-            Documents
-          </button>
-        </div>
-      </section>
-  
-      <!-- Timeline View -->
-      <section id="timeline-view" class="px-4 py-5">
-        <!-- Timeline Date -->
-        <div id="timeline-date-1" class="flex items-center mb-3">
-          <div class="h-8 w-8 rounded-full bg-[#1A73E8] dark:bg-[#5CE1E6] flex items-center justify-center text-white dark:text-[#121F3D] text-xs font-medium">
-            15
+      <!-- Trip Countdown Widget -->
+      <section id="trip-countdown" class="px-4 py-4">
+        <div class="bg-gradient-to-r from-[#1A73E8] to-[#5b98e5] dark:from-[#121F3D] dark:to-[#1e3366] rounded-xl p-4 shadow-md overflow-hidden relative">
+          <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+            <i class="fa-solid fa-plane text-white text-[100px] transform -rotate-45"></i>
           </div>
-          <div class="ml-3">
-            <h3 class="font-semibold">May 15, 2025</h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Thursday • 3 bookings</p>
-          </div>
-        </div>
-  
-        <!-- Flight Ticket Card -->
-        <div id="booking-card-flight" class="mb-5 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md">
-          <div class="p-4 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center">
-            <div class="flex items-center">
-              <div class="w-10 h-10 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center">
-                <i class="fa-solid fa-plane text-[#1A73E8] dark:text-[#5CE1E6]"></i>
-              </div>
-              <div class="ml-3">
-                <h3 class="font-semibold">Flight to Santorini</h3>
-                <p class="text-xs text-gray-500 dark:text-gray-400">Delta Airlines • DL1822</p>
-              </div>
+          <h2 class="text-white font-semibold mb-2">Your next adventure</h2>
+          <div class="flex items-center">
+            <div class="bg-white/20 dark:bg-white/10 rounded-lg p-2 mr-3">
+              <i class="fa-solid fa-passport text-white text-xl"></i>
             </div>
-            <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700">
-              <i class="fa-solid fa-ellipsis-vertical text-gray-500 dark:text-gray-400"></i>
-            </button>
-          </div>
-          
-          <div class="p-4">
-            <div class="flex justify-between items-center mb-4">
-              <div>
-                <p class="text-2xl font-bold">SFO</p>
-                <p class="text-xs text-gray-500 dark:text-gray-400">10:45 AM</p>
-              </div>
-              
-              <div class="flex flex-col items-center">
-                <div class="flex items-center">
-                  <div class="h-[1px] w-12 bg-gray-300 dark:bg-gray-600"></div>
-                  <div class="mx-2">
-                    <i class="fa-solid fa-plane text-xs text-gray-400 dark:text-gray-500"></i>
-                  </div>
-                  <div class="h-[1px] w-12 bg-gray-300 dark:bg-gray-600"></div>
-                </div>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">10h 20m</p>
-              </div>
-              
-              <div class="text-right">
-                <p class="text-2xl font-bold">ATH</p>
-                <p class="text-xs text-gray-500 dark:text-gray-400">8:05 PM</p>
-              </div>
-            </div>
-            
-            <div class="flex justify-between items-center mt-4">
-              <div class="flex items-center">
-                <i class="fa-solid fa-user text-[#1A73E8] dark:text-[#5CE1E6] text-xs"></i>
-                <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">Seat 24A</span>
-              </div>
-              
-              <div class="flex space-x-2">
-                <button class="px-3 py-1.5 rounded-lg bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 text-[#1A73E8] dark:text-[#5CE1E6] text-xs font-medium">
-                  Check-in
-                </button>
-                <button class="px-3 py-1.5 rounded-lg bg-[#1A73E8] dark:bg-[#5CE1E6] text-white dark:text-[#121F3D] text-xs font-medium">
-                  View Ticket
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Hotel Booking Card -->
-        <div id="booking-card-hotel" class="mb-5 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md">
-          <div class="p-4 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center">
-            <div class="flex items-center">
-              <div class="w-10 h-10 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center">
-                <i class="fa-solid fa-hotel text-[#1A73E8] dark:text-[#5CE1E6]"></i>
-              </div>
-              <div class="ml-3">
-                <h3 class="font-semibold">Santorini Secret Suites</h3>
-                <p class="text-xs text-gray-500 dark:text-gray-400">Check-in: May 15 • 7 nights</p>
-              </div>
-            </div>
-            <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700">
-              <i class="fa-solid fa-ellipsis-vertical text-gray-500 dark:text-gray-400"></i>
-            </button>
-          </div>
-          
-          <div class="h-[120px] relative">
-            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2f5715a318-3daddcac7a9a8c4faf27.png" alt="Santorini hotel with infinity pool" />
-            <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
-              <div class="flex justify-between items-center">
-                <div>
-                  <p class="text-white text-xs">Caldera View Suite</p>
-                  <div class="flex items-center">
-                    <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-                    <span class="text-white text-xs ml-1">4.9</span>
-                  </div>
-                </div>
-                <button class="px-3 py-1.5 rounded-lg bg-white/20 backdrop-blur-sm text-white text-xs font-medium">
-                  View Booking
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Car Rental Card -->
-        <div id="booking-card-car" class="mb-5 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md">
-          <div class="p-4 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center">
-            <div class="flex items-center">
-              <div class="w-10 h-10 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center">
-                <i class="fa-solid fa-car text-[#1A73E8] dark:text-[#5CE1E6]"></i>
-              </div>
-              <div class="ml-3">
-                <h3 class="font-semibold">Santorini Car Rental</h3>
-                <p class="text-xs text-gray-500 dark:text-gray-400">May 15-22 • Convertible</p>
-              </div>
-            </div>
-            <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700">
-              <i class="fa-solid fa-ellipsis-vertical text-gray-500 dark:text-gray-400"></i>
-            </button>
-          </div>
-          
-          <div class="p-4 flex justify-between">
             <div>
-              <p class="text-sm font-medium">Pickup Details</p>
-              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Santorini Airport</p>
-              <p class="text-xs text-gray-500 dark:text-gray-400">May 15, 2025 • 9:00 PM</p>
-            </div>
-            
-            <div class="text-right">
-              <p class="text-sm font-medium">Return Details</p>
-              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Santorini Airport</p>
-              <p class="text-xs text-gray-500 dark:text-gray-400">May 22, 2025 • 7:00 PM</p>
+              <h3 class="text-white font-bold text-lg">Bali, Indonesia</h3>
+              <p class="text-white/80 text-sm">May 15-22, 2025</p>
             </div>
           </div>
           
-          <div class="px-4 pb-4 flex justify-end">
-            <button class="px-3 py-1.5 rounded-lg bg-[#1A73E8] dark:bg-[#5CE1E6] text-white dark:text-[#121F3D] text-xs font-medium">
-              View Voucher
-            </button>
-          </div>
-        </div>
-        
-        <!-- Timeline Date 2 -->
-        <div id="timeline-date-2" class="flex items-center mb-3 mt-6">
-          <div class="h-8 w-8 rounded-full bg-[#1A73E8]/20 dark:bg-[#5CE1E6]/20 flex items-center justify-center text-[#1A73E8] dark:text-[#5CE1E6] text-xs font-medium">
-            22
-          </div>
-          <div class="ml-3">
-            <h3 class="font-semibold">May 22, 2025</h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Thursday • 1 booking</p>
-          </div>
-        </div>
-        
-        <!-- Return Flight Ticket Card -->
-        <div id="booking-card-return-flight" class="mb-5 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md">
-          <div class="p-4 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center">
-            <div class="flex items-center">
-              <div class="w-10 h-10 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center">
-                <i class="fa-solid fa-plane text-[#1A73E8] dark:text-[#5CE1E6]"></i>
-              </div>
-              <div class="ml-3">
-                <h3 class="font-semibold">Flight from Santorini</h3>
-                <p class="text-xs text-gray-500 dark:text-gray-400">Delta Airlines • DL1823</p>
-              </div>
+          <div class="mt-4 flex justify-between">
+            <div class="bg-white/20 dark:bg-white/10 rounded-lg p-2 text-center flex-1 mr-2">
+              <span class="text-white font-bold text-xl block">18</span>
+              <span class="text-white/80 text-xs">Days</span>
             </div>
-            <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700">
-              <i class="fa-solid fa-ellipsis-vertical text-gray-500 dark:text-gray-400"></i>
-            </button>
+            <div class="bg-white/20 dark:bg-white/10 rounded-lg p-2 text-center flex-1 mr-2">
+              <span class="text-white font-bold text-xl block">07</span>
+              <span class="text-white/80 text-xs">Hours</span>
+            </div>
+            <div class="bg-white/20 dark:bg-white/10 rounded-lg p-2 text-center flex-1 mr-2">
+              <span class="text-white font-bold text-xl block">32</span>
+              <span class="text-white/80 text-xs">Minutes</span>
+            </div>
+            <div class="bg-white/20 dark:bg-white/10 rounded-lg p-2 text-center flex-1">
+              <span class="text-white font-bold text-xl block">15</span>
+              <span class="text-white/80 text-xs">Seconds</span>
+            </div>
           </div>
           
-          <div class="p-4">
-            <div class="flex justify-between items-center mb-4">
-              <div>
-                <p class="text-2xl font-bold">ATH</p>
-                <p class="text-xs text-gray-500 dark:text-gray-400">9:30 PM</p>
-              </div>
-              
-              <div class="flex flex-col items-center">
-                <div class="flex items-center">
-                  <div class="h-[1px] w-12 bg-gray-300 dark:bg-gray-600"></div>
-                  <div class="mx-2">
-                    <i class="fa-solid fa-plane text-xs text-gray-400 dark:text-gray-500"></i>
-                  </div>
-                  <div class="h-[1px] w-12 bg-gray-300 dark:bg-gray-600"></div>
-                </div>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">11h 05m</p>
-              </div>
-              
-              <div class="text-right">
-                <p class="text-2xl font-bold">SFO</p>
-                <p class="text-xs text-gray-500 dark:text-gray-400">11:35 AM</p>
-              </div>
-            </div>
-            
-            <div class="flex justify-between items-center mt-4">
-              <div class="flex items-center">
-                <i class="fa-solid fa-user text-[#1A73E8] dark:text-[#5CE1E6] text-xs"></i>
-                <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">Seat 18C</span>
-              </div>
-              
-              <div class="flex space-x-2">
-                <button class="px-3 py-1.5 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 text-xs font-medium">
-                  Check-in (Opens in 7d)
-                </button>
-                <button class="px-3 py-1.5 rounded-lg bg-[#1A73E8] dark:bg-[#5CE1E6] text-white dark:text-[#121F3D] text-xs font-medium">
-                  View Ticket
-                </button>
-              </div>
-            </div>
+          <div class="mt-4 flex">
+            <button class="bg-white text-[#1A73E8] dark:text-[#121F3D] rounded-lg px-4 py-2 text-sm font-medium flex items-center flex-1 justify-center mr-2">
+              <i class="fa-solid fa-list-check mr-2"></i>
+              View Checklist
+            </button>
+            <button class="bg-white/20 dark:bg-white/10 text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center flex-1 justify-center">
+              <i class="fa-solid fa-route mr-2"></i>
+              Itinerary
+            </button>
           </div>
         </div>
       </section>
-      
-      <!-- Digital Wallet Section -->
-      <section id="digital-wallet" class="px-4 py-5 bg-white dark:bg-[#121F3D]">
+  
+      <!-- AI-Curated Destinations -->
+      <section id="ai-curated-destinations" class="px-4 py-3">
         <div class="flex justify-between items-center mb-4">
-          <h2 class="text-lg font-semibold">Digital Wallet</h2>
-          <button class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">View All</button>
+          <div>
+            <h2 class="text-lg font-semibold">AI-Picked for You</h2>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Based on your travel preferences</p>
+          </div>
+          <button class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">Refresh</button>
         </div>
         
         <div class="relative">
           <div class="flex overflow-x-auto pb-4 -mx-4 px-4 space-x-4 hide-scrollbar">
-            <!-- QR Ticket Card -->
-            <div id="qr-ticket-card-1" class="flex-shrink-0 w-[200px] rounded-xl overflow-hidden bg-gradient-to-br from-[#1A73E8] to-[#5E94F2] dark:from-[#5CE1E6] dark:to-[#2BB1E0] shadow-md p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="font-semibold text-white dark:text-[#121F3D]">Boarding Pass</h3>
-                  <p class="text-xs text-white/80 dark:text-[#121F3D]/80">DL1822 • May 15</p>
+            <!-- AI Destination Card 1 -->
+            <div id="ai-destination-card-1" class="flex-shrink-0 w-[260px] rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md relative">
+              <div class="h-[160px] relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2f5715a318-3daddcac7a9a8c4faf27.png" alt="Santorini Greece" />
+                <div class="absolute top-2 right-2 z-20 bg-white/80 dark:bg-[#121F3D]/80 backdrop-blur-sm rounded-full p-2">
+                  <i class="fa-solid fa-heart text-[#FF7A5A] dark:text-[#5CE1E6]"></i>
                 </div>
-                <i class="fa-solid fa-plane text-white/80 dark:text-[#121F3D]/80"></i>
-              </div>
-              
-              <div class="mt-3 bg-white rounded-lg p-2 flex items-center justify-center">
-                <div class="w-[150px] h-[150px] bg-white flex items-center justify-center">
-                  <i class="fa-solid fa-qrcode text-6xl text-[#1A73E8] dark:text-[#121F3D]"></i>
+                <div class="absolute bottom-2 left-2 z-20">
+                  <span class="bg-[#FF7A5A]/90 dark:bg-[#5CE1E6]/90 text-white dark:text-[#121F3D] text-xs py-1 px-2 rounded-full font-medium">93% Match</span>
                 </div>
               </div>
-              
-              <div class="mt-3 flex justify-between items-center">
-                <button class="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
-                  <i class="fa-solid fa-download text-white dark:text-[#121F3D] text-xs"></i>
-                </button>
-                <button class="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
-                  <i class="fa-solid fa-share-nodes text-white dark:text-[#121F3D] text-xs"></i>
-                </button>
-                <button class="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
-                  <i class="fa-solid fa-wallet text-white dark:text-[#121F3D] text-xs"></i>
-                </button>
+              <div class="p-3">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Santorini, Greece</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      Perfect for your preference for scenic views and romantic getaways
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-3 flex justify-between items-center">
+                  <div class="flex items-center text-yellow-500">
+                    <i class="fa-solid fa-star text-xs"></i>
+                    <span class="ml-1 text-xs font-medium">4.8</span>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">$1,299</span>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <!-- QR Ticket Card 2 -->
-            <div id="qr-ticket-card-2" class="flex-shrink-0 w-[200px] rounded-xl overflow-hidden bg-gradient-to-br from-[#FF7A5A] to-[#FF9E80] shadow-md p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="font-semibold text-white">Hotel Voucher</h3>
-                  <p class="text-xs text-white/80">Secret Suites • May 15</p>
+            <!-- AI Destination Card 2 -->
+            <div id="ai-destination-card-2" class="flex-shrink-0 w-[260px] rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md relative">
+              <div class="h-[160px] relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e47c3148dc-5043509eb18601f034ec.png" alt="Kyoto Japan" />
+                <div class="absolute top-2 right-2 z-20 bg-white/80 dark:bg-[#121F3D]/80 backdrop-blur-sm rounded-full p-2">
+                  <i class="fa-regular fa-heart text-[#FF7A5A] dark:text-[#5CE1E6]"></i>
                 </div>
-                <i class="fa-solid fa-hotel text-white/80"></i>
-              </div>
-              
-              <div class="mt-3 bg-white rounded-lg p-2 flex items-center justify-center">
-                <div class="w-[150px] h-[150px] bg-white flex items-center justify-center">
-                  <i class="fa-solid fa-qrcode text-6xl text-[#FF7A5A]"></i>
+                <div class="absolute bottom-2 left-2 z-20">
+                  <span class="bg-[#FF7A5A]/90 dark:bg-[#5CE1E6]/90 text-white dark:text-[#121F3D] text-xs py-1 px-2 rounded-full font-medium">87% Match</span>
                 </div>
               </div>
-              
-              <div class="mt-3 flex justify-between items-center">
-                <button class="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
-                  <i class="fa-solid fa-download text-white text-xs"></i>
-                </button>
-                <button class="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
-                  <i class="fa-solid fa-share-nodes text-white text-xs"></i>
-                </button>
-                <button class="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
-                  <i class="fa-solid fa-wallet text-white text-xs"></i>
-                </button>
+              <div class="p-3">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Kyoto, Japan</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      Matches your interest in cultural experiences and photography
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-3 flex justify-between items-center">
+                  <div class="flex items-center text-yellow-500">
+                    <i class="fa-solid fa-star text-xs"></i>
+                    <span class="ml-1 text-xs font-medium">4.7</span>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">$1,850</span>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <!-- QR Ticket Card 3 -->
-            <div id="qr-ticket-card-3" class="flex-shrink-0 w-[200px] rounded-xl overflow-hidden bg-gradient-to-br from-[#8E44AD] to-[#9B59B6] shadow-md p-4">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="font-semibold text-white">Car Rental</h3>
-                  <p class="text-xs text-white/80">Convertible • May 15</p>
+            <!-- AI Destination Card 3 -->
+            <div id="ai-destination-card-3" class="flex-shrink-0 w-[260px] rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md relative">
+              <div class="h-[160px] relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/059a651aff-63ac8d30c54eb89e7cd3.png" alt="Bali Indonesia" />
+                <div class="absolute top-2 right-2 z-20 bg-white/80 dark:bg-[#121F3D]/80 backdrop-blur-sm rounded-full p-2">
+                  <i class="fa-regular fa-heart text-[#FF7A5A] dark:text-[#5CE1E6]"></i>
                 </div>
-                <i class="fa-solid fa-car text-white/80"></i>
-              </div>
-              
-              <div class="mt-3 bg-white rounded-lg p-2 flex items-center justify-center">
-                <div class="w-[150px] h-[150px] bg-white flex items-center justify-center">
-                  <i class="fa-solid fa-qrcode text-6xl text-[#8E44AD]"></i>
+                <div class="absolute bottom-2 left-2 z-20">
+                  <span class="bg-[#FF7A5A]/90 dark:bg-[#5CE1E6]/90 text-white dark:text-[#121F3D] text-xs py-1 px-2 rounded-full font-medium">82% Match</span>
                 </div>
               </div>
-              
-              <div class="mt-3 flex justify-between items-center">
-                <button class="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
-                  <i class="fa-solid fa-download text-white text-xs"></i>
-                </button>
-                <button class="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
-                  <i class="fa-solid fa-share-nodes text-white text-xs"></i>
-                </button>
-                <button class="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
-                  <i class="fa-solid fa-wallet text-white text-xs"></i>
-                </button>
+              <div class="p-3">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Bali, Indonesia</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      Aligns with your love for beaches and outdoor adventures
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-3 flex justify-between items-center">
+                  <div class="flex items-center text-yellow-500">
+                    <i class="fa-solid fa-star text-xs"></i>
+                    <span class="ml-1 text-xs font-medium">4.6</span>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">$1,150</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
-      <!-- Travel Expense Tracking -->
-      <section id="expense-tracking" class="px-4 py-5">
+  
+      <!-- Upcoming Bookings Timeline -->
+      <section id="upcoming-bookings" class="px-4 py-4">
         <div class="flex justify-between items-center mb-4">
-          <h2 class="text-lg font-semibold">Trip Expenses</h2>
+          <h2 class="text-lg font-semibold">Upcoming Bookings</h2>
           <button class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">View All</button>
         </div>
         
         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
-          <div class="flex justify-between items-center mb-4">
-            <div>
-              <h3 class="font-semibold">Santorini Trip</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-400">May 15-22, 2025</p>
-            </div>
-            <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-3 py-1">
-              <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">$2,845</span>
-            </div>
-          </div>
-          
-          <div class="h-[5px] w-full bg-gray-200 dark:bg-gray-700 rounded-full mb-4">
-            <div class="h-full w-[65%] bg-[#1A73E8] dark:bg-[#5CE1E6] rounded-full"></div>
-          </div>
-          
-          <div class="grid grid-cols-3 gap-2 mb-4">
-            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-2">
-              <div class="flex items-center mb-1">
-                <i class="fa-solid fa-plane-up text-xs text-[#1A73E8] dark:text-[#5CE1E6] mr-1"></i>
-                <span class="text-xs font-medium">Flights</span>
+          <div class="relative pl-6 border-l-2 border-[#1A73E8] dark:border-[#5CE1E6]">
+            <!-- Booking Item 1 -->
+            <div id="booking-item-1" class="mb-5 relative">
+              <div class="absolute -left-[19px] top-0 w-8 h-8 rounded-full bg-[#1A73E8] dark:bg-[#5CE1E6] flex items-center justify-center">
+                <i class="fa-solid fa-plane text-white dark:text-[#121F3D] text-sm"></i>
               </div>
-              <p class="text-sm font-semibold">$1,200</p>
+              <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 ml-2">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Flight to Bali</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Singapore Airlines • SQ-942</p>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-xs font-medium">May 15, 2025</span>
+                  </div>
+                </div>
+                <div class="mt-2 flex items-center">
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-clock mr-1"></i>
+                    <span>Departing 9:45 AM</span>
+                  </div>
+                  <span class="mx-2 text-gray-300 dark:text-gray-600">•</span>
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-user mr-1"></i>
+                    <span>Terminal 3</span>
+                  </div>
+                </div>
+              </div>
             </div>
             
-            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-2">
-              <div class="flex items-center mb-1">
-                <i class="fa-solid fa-hotel text-xs text-[#1A73E8] dark:text-[#5CE1E6] mr-1"></i>
-                <span class="text-xs font-medium">Hotel</span>
+            <!-- Booking Item 2 -->
+            <div id="booking-item-2" class="mb-5 relative">
+              <div class="absolute -left-[19px] top-0 w-8 h-8 rounded-full bg-[#1A73E8] dark:bg-[#5CE1E6] flex items-center justify-center">
+                <i class="fa-solid fa-hotel text-white dark:text-[#121F3D] text-sm"></i>
               </div>
-              <p class="text-sm font-semibold">$1,050</p>
+              <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 ml-2">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Ubud Jungle Resort</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Deluxe Villa with Private Pool</p>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-xs font-medium">May 15-22</span>
+                  </div>
+                </div>
+                <div class="mt-2 flex items-center">
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-check-circle mr-1"></i>
+                    <span>Confirmed</span>
+                  </div>
+                  <span class="mx-2 text-gray-300 dark:text-gray-600">•</span>
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-user-group mr-1"></i>
+                    <span>2 Guests</span>
+                  </div>
+                </div>
+              </div>
             </div>
             
-            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-2">
-              <div class="flex items-center mb-1">
-                <i class="fa-solid fa-car text-xs text-[#1A73E8] dark:text-[#5CE1E6] mr-1"></i>
-                <span class="text-xs font-medium">Car</span>
+            <!-- Booking Item 3 -->
+            <div id="booking-item-3" class="relative">
+              <div class="absolute -left-[19px] top-0 w-8 h-8 rounded-full bg-[#1A73E8] dark:bg-[#5CE1E6] flex items-center justify-center">
+                <i class="fa-solid fa-car text-white dark:text-[#121F3D] text-sm"></i>
               </div>
-              <p class="text-sm font-semibold">$595</p>
+              <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 ml-2">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Car Rental</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Toyota Avanza • Automatic</p>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-xs font-medium">May 16-21</span>
+                  </div>
+                </div>
+                <div class="mt-2 flex items-center">
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-map-marker-alt mr-1"></i>
+                    <span>Pickup at Airport</span>
+                  </div>
+                  <span class="mx-2 text-gray-300 dark:text-gray-600">•</span>
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-gas-pump mr-1"></i>
+                    <span>Full to Full</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <button class="w-full py-2 rounded-lg border border-[#1A73E8] dark:border-[#5CE1E6] text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">
-            Add Expense
-          </button>
         </div>
       </section>
-      
-      <!-- Travel Support -->
-      <section id="travel-support" class="px-4 py-5">
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center">
-              <i class="fa-solid fa-headset text-[#1A73E8] dark:text-[#5CE1E6]"></i>
+  
+      <!-- Quick Action Cards -->
+      <section id="quick-actions" class="px-4 py-4">
+        <h2 class="text-lg font-semibold mb-4">Recent Searches</h2>
+        
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Quick Action Card 1 -->
+          <div id="quick-action-card-1" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm p-3">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-2">
+                <i class="fa-solid fa-plane text-[#1A73E8] dark:text-[#5CE1E6] text-sm"></i>
+              </div>
+              <div class="text-sm font-medium">SF → Tokyo</div>
             </div>
-            <div class="ml-3">
-              <h3 class="font-semibold">24/7 Travel Support</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-400">Get help with your bookings</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Jun 10-20, 2025 • 1 Adult</p>
+            <button class="w-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 text-[#1A73E8] dark:text-[#5CE1E6] rounded-lg py-1.5 text-xs font-medium">
+              Continue Search
+            </button>
+          </div>
+          
+          <!-- Quick Action Card 2 -->
+          <div id="quick-action-card-2" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm p-3">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-2">
+                <i class="fa-solid fa-hotel text-[#1A73E8] dark:text-[#5CE1E6] text-sm"></i>
+              </div>
+              <div class="text-sm font-medium">Paris Hotels</div>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Sep 5-12, 2025 • 2 Guests</p>
+            <button class="w-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 text-[#1A73E8] dark:text-[#5CE1E6] rounded-lg py-1.5 text-xs font-medium">
+              Continue Search
+            </button>
+          </div>
+          
+          <!-- Quick Action Card 3 -->
+          <div id="quick-action-card-3" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm p-3">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-2">
+                <i class="fa-solid fa-umbrella-beach text-[#1A73E8] dark:text-[#5CE1E6] text-sm"></i>
+              </div>
+              <div class="text-sm font-medium">Cancun Activities</div>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Aug 15-22, 2025 • 2 Adults</p>
+            <button class="w-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 text-[#1A73E8] dark:text-[#5CE1E6] rounded-lg py-1.5 text-xs font-medium">
+              Continue Search
+            </button>
+          </div>
+          
+          <!-- Quick Action Card 4 -->
+          <div id="quick-action-card-4" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm p-3">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-2">
+                <i class="fa-solid fa-car text-[#1A73E8] dark:text-[#5CE1E6] text-sm"></i>
+              </div>
+              <div class="text-sm font-medium">Barcelona Cars</div>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Jul 3-10, 2025 • Economy</p>
+            <button class="w-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 text-[#1A73E8] dark:text-[#5CE1E6] rounded-lg py-1.5 text-xs font-medium">
+              Continue Search
+            </button>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Travel Insights -->
+      <section id="travel-insights" class="px-4 py-4 mb-4">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold">Travel Insights</h2>
+          <button class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">More</button>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
+          <div class="flex items-start">
+            <div class="w-10 h-10 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-3 flex-shrink-0">
+              <i class="fa-solid fa-lightbulb text-[#1A73E8] dark:text-[#5CE1E6]"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">Price Drop Alert</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Flights to Bali are currently 23% cheaper than average for your travel dates. Consider booking soon.</p>
             </div>
           </div>
           
-          <div class="flex space-x-2">
-            <button class="flex-1 py-2 rounded-lg bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium flex items-center justify-center">
-              <i class="fa-solid fa-message mr-1"></i>
-              Chat
-            </button>
-            <button class="flex-1 py-2 rounded-lg bg-[#1A73E8] dark:bg-[#5CE1E6] text-white dark:text-[#121F3D] text-sm font-medium flex items-center justify-center">
-              <i class="fa-solid fa-phone mr-1"></i>
-              Call
-            </button>
+          <div class="h-[1px] bg-gray-200 dark:bg-gray-700 my-4"></div>
+          
+          <div class="flex items-start">
+            <div class="w-10 h-10 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-3 flex-shrink-0">
+              <i class="fa-solid fa-calendar-check text-[#1A73E8] dark:text-[#5CE1E6]"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">Best Time to Visit</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Based on your preferences, May is the ideal month for your Bali trip with perfect weather and fewer crowds.</p>
+            </div>
           </div>
         </div>
       </section>
     </main>
   
     <!-- Bottom Navigation -->
-    <nav id="bottom-navigation" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#121F3D] border-t border-gray-200 dark:border-gray-800 px-2 py-2 flex justify-between items-center">
+    <nav id="bottom-navigation" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#121F3D] border-t border-gray-200 dark:border-gray-800 px-2 py-2 flex justify-between items-center z-50">
       <a href="home.html" class="flex flex-col items-center justify-center flex-1 py-1 text-gray-500 dark:text-gray-400 cursor-pointer">
         <i class="fa-solid fa-house text-lg"></i>
         <span class="text-xs mt-1">Home</span>
       </a>
-      <a href="explore.html" class="flex flex-col items-center justify-center flex-1 py-1 text-gray-500 dark:text-gray-400 cursor-pointer">
+      <a href="explore.html" class="flex flex-col items-center justify-center flex-1 py-1 text-[#1A73E8] dark:text-[#5CE1E6] cursor-pointer">
         <i class="fa-solid fa-compass text-lg"></i>
         <span class="text-xs mt-1">Explore</span>
       </a>
@@ -816,16 +765,16 @@
         <i class="fa-solid fa-ticket text-lg"></i>
         <span class="text-xs mt-1">Bookings</span>
       </a>
-      <a href="profile.html" class="flex flex-col items-center justify-center flex-1 py-1 text-[#1A73E8] dark:text-[#5CE1E6] cursor-pointer">
+      <a href="profile.html" class="flex flex-col items-center justify-center flex-1 py-1 text-gray-500 dark:text-gray-400 cursor-pointer">
         <i class="fa-solid fa-user text-lg"></i>
         <span class="text-xs mt-1">Profile</span>
       </a>
     </nav>
   
     <!-- Floating Action Button -->
-    <a href="budget.html" style="position:relative;z-index:100;">
+    <a href="explore.html" style="position:relative;z-index:100;">
       <button id="fab-button" class="fixed bottom-20 right-5 h-14 w-14 rounded-full bg-[#1A73E8] dark:bg-[#5CE1E6] shadow-lg flex items-center justify-center text-white dark:text-[#121F3D]">
-        <i class="fa-solid fa-plus text-xl"></i>
+        <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
       </button>
     </a>
   </section>
@@ -839,6 +788,58 @@
       scrollbar-width: none;
     }
   </style>
+  
+  <script>
+    // Countdown timer functionality
+    function updateCountdown() {
+      // Set the target date (May 15, 2025)
+      const targetDate = new Date('May 15, 2025 00:00:00').getTime();
+      
+      // Update the countdown every second
+      setInterval(function() {
+        // Get current date and time
+        const now = new Date().getTime();
+        
+        // Calculate the time remaining
+        const distance = targetDate - now;
+        
+        // Calculate days, hours, minutes, seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Display the results
+        document.querySelector('#trip-countdown span:nth-child(1)').textContent = days.toString().padStart(2, '0');
+        document.querySelector('#trip-countdown span:nth-child(3)').textContent = hours.toString().padStart(2, '0');
+        document.querySelector('#trip-countdown span:nth-child(5)').textContent = minutes.toString().padStart(2, '0');
+        document.querySelector('#trip-countdown span:nth-child(7)').textContent = seconds.toString().padStart(2, '0');
+      }, 1000);
+    }
+    
+    // Dynamic greeting based on time of day
+    function setGreeting() {
+      const hour = new Date().getHours();
+      const greetingElement = document.querySelector('#header h1');
+      let greeting = 'Good ';
+      
+      if (hour < 12) {
+        greeting += 'morning';
+      } else if (hour < 18) {
+        greeting += 'afternoon';
+      } else {
+        greeting += 'evening';
+      }
+      
+      greetingElement.textContent = `${greeting}, Alex`;
+    }
+    
+    // Initialize functions when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCountdown();
+      setGreeting();
+    });
+  </script>
                 
               
             </body></html>
