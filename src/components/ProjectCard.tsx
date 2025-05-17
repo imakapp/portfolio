@@ -83,11 +83,11 @@ const ProjectCard = ({
       <div className="group bg-[#1a1a4a] rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
         <div className="relative h-[400px] p-6 flex items-center justify-center bg-gradient-to-br from-[#181C23] to-[#0F172A]">
           {/* Mobile Device Frame UI - styled to match MobilePreviewModal */}
-          <div className="relative bg-white/5 rounded-[38px] shadow-xl border border-white/20 overflow-hidden w-[240px] h-[480px] transition-transform hover:scale-[1.01] hover:shadow-2xl hover:shadow-purple-500/20">
+          <div className="relative bg-white/5 rounded-[28px] shadow-xl border border-white/20 overflow-hidden w-[180px] h-[360px] transition-transform hover:scale-[1.01] hover:shadow-2xl hover:shadow-purple-500/20">
             {/* Phone shape - outer rim */}
-            <div className="absolute inset-0 rounded-[38px] bg-gradient-to-r from-gray-300/20 to-white/30 p-[1px] overflow-hidden">
+            <div className="absolute inset-0 rounded-[28px] bg-gradient-to-r from-gray-300/20 to-white/30 p-[1px] overflow-hidden">
               {/* Screen area */}
-              <div className="bg-gradient-to-b from-[#131836] to-[#151a30] h-full w-full rounded-[36px] overflow-hidden relative">
+              <div className="bg-gradient-to-b from-[#131836] to-[#151a30] h-full w-full rounded-[27px] overflow-hidden relative">
                 {/* Content Area */}
                 <div className="absolute inset-0 overflow-hidden">
                   {isFitTrackPro || isTravelCompanion || isEduLearn || isHealthConnectPatient ? (
@@ -106,13 +106,13 @@ const ProjectCard = ({
                 </div>
                 
                 {/* Home Indicator */}
-                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-white/50 rounded-full opacity-70 z-10"></div>
+                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1/3 h-[2px] bg-white/50 rounded-full opacity-70 z-10"></div>
               </div>
             </div>
             
             {featured && (
-              <span className="absolute top-6 left-6 bg-purple-900/40 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30 z-20">
-                Featured Project
+              <span className="absolute top-3 left-3 bg-purple-900/40 text-purple-200 text-[10px] py-1 px-2 rounded-full border border-purple-500/30 z-20">
+                Featured
               </span>
             )}
           </div>

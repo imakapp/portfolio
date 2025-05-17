@@ -87,11 +87,11 @@ export default function FeaturedProjectCard({
           </div>
           
           {/* Mobile Device Frame UI - styled to match screenshot */}
-          <div className="relative bg-white/5 rounded-[38px] shadow-xl border border-white/20 overflow-hidden w-[220px] h-[440px] transition-transform hover:scale-[1.01] hover:shadow-2xl hover:shadow-purple-500/20">
+          <div className="relative bg-white/5 rounded-[28px] shadow-xl border border-white/20 overflow-hidden w-[170px] h-[340px] transition-transform hover:scale-[1.01] hover:shadow-2xl hover:shadow-purple-500/20">
             {/* Phone shape - outer rim */}
-            <div className="absolute inset-0 rounded-[38px] bg-gradient-to-r from-gray-300/20 to-white/30 p-[1px] overflow-hidden">
+            <div className="absolute inset-0 rounded-[28px] bg-gradient-to-r from-gray-300/20 to-white/30 p-[1px] overflow-hidden">
               {/* Screen area */}
-              <div className="bg-gradient-to-b from-[#131836] to-[#151a30] h-full w-full rounded-[36px] overflow-hidden relative">
+              <div className="bg-gradient-to-b from-[#131836] to-[#151a30] h-full w-full rounded-[27px] overflow-hidden relative">
                 {/* Content Area */}
                 <div className="absolute inset-0 overflow-hidden">
                   {isFitTrackPro || isTravelCompanion || isEduLearn || isHealthConnectPatient ? (
@@ -110,7 +110,7 @@ export default function FeaturedProjectCard({
                 </div>
                 
                 {/* Home Indicator */}
-                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-white/50 rounded-full opacity-70 z-10"></div>
+                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1/3 h-[2px] bg-white/50 rounded-full opacity-70 z-10"></div>
               </div>
             </div>
           </div>
