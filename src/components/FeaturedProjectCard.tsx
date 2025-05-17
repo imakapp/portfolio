@@ -80,45 +80,47 @@ export default function FeaturedProjectCard({
         {/* Mobile Device Frame */}
         <div className="relative h-[360px] flex flex-col justify-end">
           {/* Mobile Device Frame UI */}
-          <div className="relative w-full h-full bg-black overflow-hidden">
-            {/* Notch / Dynamic Island */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-6 bg-black rounded-b-xl z-10"></div>
-            
-            {/* Status Bar */}
-            <div className="absolute top-0 left-0 right-0 h-6 flex justify-between items-center px-5 z-5">
-              <div className="text-white text-xs font-medium">{currentTime}</div>
-              <div className="flex space-x-1">
-                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 18c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6z" />
-                </svg>
-                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9z" />
-                </svg>
-                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z" />
-                </svg>
+          <div className="relative w-full h-full bg-black overflow-hidden flex items-center justify-center">
+            <div className="relative w-[85%] h-[90%] bg-black rounded-3xl overflow-hidden border-4 border-[#2a2a45] shadow-2xl">
+              {/* Notch / Dynamic Island */}
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-6 bg-black rounded-b-xl z-10"></div>
+              
+              {/* Status Bar */}
+              <div className="absolute top-0 left-0 right-0 h-6 flex justify-between items-center px-5 z-5">
+                <div className="text-white text-xs font-medium">{currentTime}</div>
+                <div className="flex space-x-1">
+                  <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 18c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6z" />
+                  </svg>
+                  <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9z" />
+                  </svg>
+                  <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z" />
+                  </svg>
+                </div>
               </div>
+              
+              {/* Content Area */}
+              <div className="absolute inset-0 pt-6 flex items-center justify-center overflow-hidden">
+                {isFitTrackPro || isTravelCompanion || isEduLearn || isHealthConnectPatient ? (
+                  <iframe
+                    src={getLaunchScreenSrc()}
+                    className="w-full h-full border-0"
+                    title={`${title} Launch Screen`}
+                  />
+                ) : (
+                  <img
+                    src={getLaunchScreenSrc()}
+                    alt={appName}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+              
+              {/* Home Indicator */}
+              <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-white rounded-full opacity-70"></div>
             </div>
-            
-            {/* Content Area */}
-            <div className="absolute inset-0 pt-6 flex items-center justify-center overflow-hidden">
-              {isFitTrackPro || isTravelCompanion || isEduLearn || isHealthConnectPatient ? (
-                <iframe
-                  src={getLaunchScreenSrc()}
-                  className="w-full h-full border-0"
-                  title={`${title} Launch Screen`}
-                />
-              ) : (
-                <img
-                  src={getLaunchScreenSrc()}
-                  alt={appName}
-                  className="w-full h-full object-cover"
-                />
-              )}
-            </div>
-            
-            {/* Home Indicator */}
-            <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-white rounded-full opacity-70"></div>
           </div>
           
           {/* Text Overlay (Bottom-Left) */}
