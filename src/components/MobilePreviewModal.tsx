@@ -31,6 +31,9 @@ const MobilePreviewModal = ({
   const [fitTrackScreen, setFitTrackScreen] = useState<'splash' | 'dashboard'>('splash');
   // Track current FitTrack Pro iframe src for joystick scrolling
   const [fitTrackIframeSrc, setFitTrackIframeSrc] = useState<string>('/AppUI/FitTrackPro/Splash.html');
+  // For TravelCompanion interactive prototype navigation
+  const [travelCompanionScreen, setTravelCompanionScreen] = useState<'splash' | 'home' | 'itinerary'>('splash');
+  const [travelCompanionIframeSrc, setTravelCompanionIframeSrc] = useState<string>('/AppUI/TravelCompanion.html/splash.html');
   
   // Determine if this is the FitTrack Pro special case
   const isFitTrackPro = projectUrl === '@FitTrackPro' || projectTitle === 'FitTrack Pro';
@@ -251,9 +254,20 @@ const MobilePreviewModal = ({
             ) : isTravelCompanion ? (
               <iframe
                 ref={iframeRef}
-                src="/AppUI/TravelCompanion.html/mobile-preview.html"
+                src={travelCompanionIframeSrc}
                 className="w-full h-full border-0"
-                title="TravelCompanion Mobile Preview"
+                title="TravelCompanion Interactive Prototype"
+                onLoad={() => {
+                  // Listen for navigation changes inside the iframe (future: postMessage or manual navigation)
+                  if (iframeRef.current && iframeRef.current.contentWindow) {
+                    try {
+                      const iframePath = iframeRef.current.contentWindow.location.pathname;
+                      if (iframePath.startsWith('/AppUI/TravelCompanion.html/')) {
+                        setTravelCompanionIframeSrc(iframePath);
+                      }
+                    } catch (err) {}
+                  }
+                }}
               />
             ) : imageUrl ? (
               <div className="w-full h-full flex items-center justify-center">
