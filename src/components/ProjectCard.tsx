@@ -45,11 +45,13 @@ const ProjectCard = ({
     setIsPreviewOpen(false);
   };
   
-  // Define a special URL for FitTrack Pro and EduLearn
+  // Define a special URL for FitTrack Pro, EduLearn, and TravelCompanion
   const previewUrl = id === 'fittrack' 
     ? '@FitTrackPro'  // Use special tag for FitTrack Pro
     : id === 'edulearn'
     ? '@EduLearn'  // Use special tag for EduLearn
+    : id === 'travelcompanion'
+    ? '@TravelCompanion' // Use special tag for TravelCompanion
     : `/preview?image=${imageId}&project=${encodeURIComponent(title)}`;
   
   return (
@@ -167,7 +169,7 @@ const ProjectCard = ({
           onClose={handleClosePreview}
           projectUrl={previewUrl}
           projectTitle={title}
-          imageUrl={id === 'fittrack' ? '/AppUI/FitTrackPro/FitTrackPro.JPG' : `https://storage.googleapis.com/uxpilot-auth.appspot.com/${imageId}`}
+          imageUrl={id === 'fittrack' ? '/AppUI/FitTrackPro/FitTrackPro.JPG' : id === 'travelcompanion' ? undefined : `https://storage.googleapis.com/uxpilot-auth.appspot.com/${imageId}`}
         />
       )}
     </>

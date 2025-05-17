@@ -36,6 +36,8 @@ const MobilePreviewModal = ({
   const isFitTrackPro = projectUrl === '@FitTrackPro' || projectTitle === 'FitTrack Pro';
   // Determine if this is the EduLearn special case
   const isEduLearn = projectUrl === '@EduLearn' || projectTitle === 'EduLearn';
+  // Determine if this is the TravelCompanion special case
+  const isTravelCompanion = projectUrl === '@TravelCompanion' || projectTitle === 'TravelCompanion';
 
   const contentWrapperRef = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -245,6 +247,13 @@ const MobilePreviewModal = ({
                 src="/AppUI/EduLearn/Onboarding.html"
                 className="w-full h-full border-0"
                 title="EduLearn Interactive Prototype"
+              />
+            ) : isTravelCompanion ? (
+              <iframe
+                ref={iframeRef}
+                src="/AppUI/TravelCompanion.html/mobile-preview.html"
+                className="w-full h-full border-0"
+                title="TravelCompanion Mobile Preview"
               />
             ) : imageUrl ? (
               <div className="w-full h-full flex items-center justify-center">
