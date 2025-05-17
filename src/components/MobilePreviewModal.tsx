@@ -136,9 +136,7 @@ const MobilePreviewModal = ({
   
   const deviceContainerStyles = {
     transform: `scale(${scale})`,
-    width: isPortrait ? '390px' : '844px',
-    height: isPortrait ? '844px' : '390px',
-    transition: 'width 0.3s ease, height 0.3s ease, transform 0.2s ease'
+    transition: 'transform 0.2s ease'
   };
 
   const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -172,11 +170,18 @@ const MobilePreviewModal = ({
   };
   const handleJoystickStop = () => {};
 
+  // --- ORIENTATION LOGIC ---
+  // isPortrait: true = portrait, false = landscape
+  // .landscapeMode class is applied to modal container and modalContent in landscape
+  // .rotated class is applied to deviceFrame in landscape
+
   return (
-    <div className={`${styles.modalContainer} ${styles.modalBackdrop}`} onClick={handleBackdropClick} aria-modal="true" role="dialog">
+    <div className={
+      `${styles.modalContainer} ${styles.modalBackdrop} ${!isPortrait ? styles.landscapeMode : ''}`
+    } onClick={handleBackdropClick} aria-modal="true" role="dialog">
       <div 
         ref={modalRef}
-        className={styles.modalContent}
+        className={`${styles.modalContent} ${!isPortrait ? styles.landscapeMode : ''}`}
         style={{ fontFamily: 'Inter, sans-serif' }}
       >
         {/* Joystick on the left */}
@@ -192,7 +197,9 @@ const MobilePreviewModal = ({
         {/* Mobile Device Frame */}
         <div 
           style={deviceContainerStyles} 
-          className={`${styles.deviceFrame} ${isPortrait ? styles.portrait : styles.landscape} ${styles.floating}`}
+          className={
+            `${styles.deviceFrame} ${isPortrait ? styles.portrait : styles.landscape} ${styles.floating} ${!isPortrait ? styles.rotated : ''}`
+          }
         >
           {/* Notch / Dynamic Island */}
           <div className={styles.deviceNotch} />
