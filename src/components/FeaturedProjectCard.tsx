@@ -81,57 +81,38 @@ export default function FeaturedProjectCard({
         <div className="relative h-[360px] bg-gradient-to-br from-[#181C23] to-[#0F172A] flex items-center justify-center">
           {/* Featured Project badge */}
           <div className="absolute top-3 left-3 z-30">
-            <span className="bg-purple-500/20 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30">
+            <span className="bg-purple-900/40 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30">
               Featured Project
             </span>
           </div>
           
           {/* Mobile Device Frame UI - styled to match screenshot */}
-          <div className="relative bg-gradient-to-br from-[#2D3748] to-[#1E293B] rounded-[38px] shadow-xl border-4 border-[#23272f] overflow-hidden w-[200px] h-[420px] transition-transform hover:scale-[1.01] hover:rotate-1 hover:shadow-2xl hover:shadow-purple-500/20 translate-y-0 animate-float">
-            {/* Notch / Dynamic Island */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-6 bg-[#181C23] rounded-b-[18px] shadow-md z-10"></div>
-            
-            {/* Status Bar */}
-            <div className="absolute top-0 left-0 right-0 h-10 flex justify-between items-center px-6 z-5 bg-[#0F172A80] backdrop-blur-md">
-              <div className="text-white text-xs font-medium drop-shadow-md">{currentTime}</div>
-              <div className="flex space-x-1">
-                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 18c3.31 0 6-2.69 6-6s-2.69-6-6-6-6 2.69-6 6 2.69 6 6 6z" />
-                </svg>
-                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9z" />
-                </svg>
-                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z" />
-                </svg>
+          <div className="relative bg-white/5 rounded-[38px] shadow-xl border border-white/20 overflow-hidden w-[220px] h-[440px] transition-transform hover:scale-[1.01] hover:shadow-2xl hover:shadow-purple-500/20">
+            {/* Phone shape - outer rim */}
+            <div className="absolute inset-0 rounded-[38px] bg-gradient-to-r from-gray-300/20 to-white/30 p-[1px] overflow-hidden">
+              {/* Screen area */}
+              <div className="bg-gradient-to-b from-[#131836] to-[#151a30] h-full w-full rounded-[36px] overflow-hidden relative">
+                {/* Content Area */}
+                <div className="absolute inset-0 overflow-hidden">
+                  {isFitTrackPro || isTravelCompanion || isEduLearn || isHealthConnectPatient ? (
+                    <iframe
+                      src={getLaunchScreenSrc()}
+                      className="w-full h-full border-0"
+                      title={`${title} Launch Screen`}
+                    />
+                  ) : (
+                    <img
+                      src={getLaunchScreenSrc()}
+                      alt={appName}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                </div>
+                
+                {/* Home Indicator */}
+                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-white/50 rounded-full opacity-70 z-10"></div>
               </div>
             </div>
-            
-            {/* Content Area */}
-            <div className="absolute inset-0 rounded-[32px] overflow-hidden bg-gradient-to-br from-[#23243a] to-[#181C23] shadow-inner shadow-purple-500/10 filter brightness-110 z-2">
-              {isFitTrackPro || isTravelCompanion || isEduLearn || isHealthConnectPatient ? (
-                <iframe
-                  src={getLaunchScreenSrc()}
-                  className="w-full h-full border-0"
-                  title={`${title} Launch Screen`}
-                />
-              ) : (
-                <img
-                  src={getLaunchScreenSrc()}
-                  alt={appName}
-                  className="w-full h-full object-cover"
-                />
-              )}
-            </div>
-            
-            {/* Home Indicator */}
-            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-[#444b5a] rounded-full opacity-70 z-10"></div>
-            
-            {/* Reflection effect */}
-            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 scale-y-[-1] w-4/5 h-10 bg-gradient-to-b from-white/10 to-transparent blur-md opacity-10 pointer-events-none z-1"></div>
-            
-            {/* Vignette effect */}
-            <div className="pointer-events-none absolute inset-0 rounded-[38px] shadow-[0_0_120px_40px_#0F172A_inset,0_0_80px_20px_#1E293B_inset] z-[10]"></div>
           </div>
         </div>
         
