@@ -75,6 +75,7 @@
   max-height: 844px;
   transition: box-shadow 0.3s, transform 0.3s;
   will-change: transform;
+  border-bottom: none !important;
 }
 .portrait {
   width: 390px;
@@ -143,6 +144,8 @@
   position: relative;
   z-index: 2;
   font-family: 'Inter', sans-serif;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 .homeIndicator {
   position: absolute;
