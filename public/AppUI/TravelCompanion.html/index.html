@@ -158,17 +158,16 @@
       document.getElementById(screenId).style.display = '';
     }
     // After splash animation, show home screen
-    setTimeout(() => {
-      document.getElementById('splash-screen').classList.add('opacity-0', 'pointer-events-none');
-      setTimeout(() => {
-        document.getElementById('splash-screen').style.display = 'none';
-        showScreen('home-screen');
-      }, 500);
-    }, 2850);
-
-    // Navigation for bottom nav and other buttons
     document.addEventListener('DOMContentLoaded', function() {
-      // Replace all <a href="home.html"> with SPA navigation
+      setTimeout(() => {
+        document.getElementById('splash-screen').classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          document.getElementById('splash-screen').style.display = 'none';
+          showScreen('home-screen');
+        }, 500);
+      }, 2850);
+
+      // Navigation for bottom nav and other buttons
       document.querySelectorAll('a[href="home.html"]').forEach(el => {
         el.addEventListener('click', function(e) {
           e.preventDefault();
