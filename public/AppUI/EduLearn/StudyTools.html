@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.FontAwesomeConfig = {
+            autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+        };
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {},
+                },
+            },
+            variants: {
+                extend: {
+                    backgroundColor: ['active', 'group-hover'],
+                    textColor: ['active', 'group-hover'],
+                },
+            },
+            plugins: [],
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * {
+            font-family: "Inter", sans-serif;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        /* Mobile status bar styles */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 12px;
+            background-color: #ffffff;
+            height: 28px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .dark .status-bar {
+            background-color: #1f2937;
+            color: #ffffff;
+        }
+        /* Make content scrollable */
+        .scrollable-content {
+            height: calc(100vh - 128px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .highlighted-section {
+            outline: 2px solid #3F20FB;
+            background-color: rgba(63, 32, 251, 0.1);
+        }
+        .edit-button {
+            position: absolute;
+            z-index: 1000;
+        }
+        :root {
+            --color-base: #ffffff;
+            --color-base-50: #f9fafb;
+            --color-base-100: #f3f4f6;
+            --color-base-200: #e5e7eb;
+            --color-base-300: #d1d5db;
+            --color-base-400: #9ca3af;
+            --color-base-500: #6b7280;
+            --color-base-600: #4b5563;
+            --color-base-700: #374151;
+            --color-base-800: #1f2937;
+            --color-base-900: #111827;
+            --color-base-content: #1f2937;
+            --color-primary: #3b82f6;
+            --color-primary-50: #eff6ff;
+            --color-primary-100: #dbeafe;
+            --color-primary-200: #bfdbfe;
+            --color-primary-300: #93c5fd;
+            --color-primary-400: #60a5fa;
+            --color-primary-500: #3b82f6;
+            --color-primary-600: #2563eb;
+            --color-primary-700: #1d4ed8;
+            --color-primary-800: #1e40af;
+            --color-primary-900: #1e3a8a;
+            --color-primary-focus: #2563eb;
+            --color-primary-content: #ffffff;
+            --color-secondary: #8b5cf6;
+            --color-secondary-50: #f5f3ff;
+            --color-secondary-100: #ede9fe;
+            --color-secondary-200: #ddd6fe;
+            --color-secondary-300: #c4b5fd;
+            --color-secondary-400: #a78bfa;
+            --color-secondary-500: #8b5cf6;
+            --color-secondary-600: #7c3aed;
+            --color-secondary-700: #6d28d9;
+            --color-secondary-800: #5b21b6;
+            --color-secondary-900: #4c1d95;
+            --color-secondary-focus: #7c3aed;
+            --color-secondary-content: #ffffff;
+            --color-accent: #f472b6;
+            --color-accent-50: #fdf2f8;
+            --color-accent-100: #fce7f3;
+            --color-accent-200: #fbcfe8;
+            --color-accent-300: #f9a8d4;
+            --color-accent-400: #f472b6;
+            --color-accent-500: #ec4899;
+            --color-accent-600: #db2777;
+            --color-accent-700: #be185d;
+            --color-accent-800: #9d174d;
+            --color-accent-900: #831843;
+            --color-accent-focus: #db2777;
+            --color-accent-content: #ffffff;
+            --color-neutral: #6b7280;
+            --color-neutral-50: #f9fafb;
+            --color-neutral-100: #f3f4f6;
+            --color-neutral-200: #e5e7eb;
+            --color-neutral-300: #d1d5db;
+            --color-neutral-400: #9ca3af;
+            --color-neutral-500: #6b7280;
+            --color-neutral-600: #4b5563;
+            --color-neutral-700: #374151;
+            --color-neutral-800: #1f2937;
+            --color-neutral-900: #111827;
+            --color-neutral-focus: #4b5563;
+            --color-neutral-content: #ffffff;
+            --color-info: #3b82f6;
+            --color-info-50: #eff6ff;
+            --color-info-100: #dbeafe;
+            --color-info-200: #bfdbfe;
+            --color-info-300: #93c5fd;
+            --color-info-400: #60a5fa;
+            --color-info-500: #3b82f6;
+            --color-info-600: #2563eb;
+            --color-info-700: #1d4ed8;
+            --color-info-800: #1e40af;
+            --color-info-900: #1e3a8a;
+            --color-info-focus: #2563eb;
+            --color-info-content: #ffffff;
+            --color-success: #10b981;
+            --color-success-50: #ecfdf5;
+            --color-success-100: #d1fae5;
+            --color-success-200: #a7f3d0;
+            --color-success-300: #6ee7b7;
+            --color-success-400: #34d399;
+            --color-success-500: #10b981;
+            --color-success-600: #059669;
+            --color-success-700: #047857;
+            --color-success-800: #065f46;
+            --color-success-900: #064e3b;
+            --color-success-focus: #059669;
+            --color-success-content: #ffffff;
+            --color-warning: #f59e0b;
+            --color-warning-50: #fffbeb;
+            --color-warning-100: #fef3c7;
+            --color-warning-200: #fde68a;
+            --color-warning-300: #fcd34d;
+            --color-warning-400: #fbbf24;
+            --color-warning-500: #f59e0b;
+            --color-warning-600: #d97706;
+            --color-warning-700: #b45309;
+            --color-warning-800: #92400e;
+            --color-warning-900: #78350f;
+            --color-warning-focus: #d97706;
+            --color-warning-content: #ffffff;
+            --color-error: #f87171;
+            --color-error-50: #7f1d1d;
+            --color-error-100: #991b1b;
+            --color-error-200: #b91c1c;
+            --color-error-300: #dc2626;
+            --color-error-400: #ef4444;
+            --color-error-500: #f87171;
+            --color-error-600: #fca5a5;
+            --color-error-700: #fecaca;
+            --color-error-800: #fee2e2;
+            --color-error-900: #fef2f2;
+            --color-error-focus: #ef4444;
+            --color-error-content: #1f2937;
+        }
+        /* Dark theme */
+        .dark {
+            --color-base: #1f2937;
+            --color-base-50: #111827;
+            --color-base-100: #1f2937;
+            --color-base-200: #374151;
+            --color-base-300: #4b5563;
+            --color-base-400: #6b7280;
+            --color-base-500: #9ca3af;
+            --color-base-600: #d1d5db;
+            --color-base-700: #e5e7eb;
+            --color-base-800: #f3f4f6;
+            --color-base-900: #f9fafb;
+            --color-base-content: #f9fafb;
+            --color-primary: #60a5fa;
+            --color-primary-50: #1e3a8a;
+            --color-primary-100: #1e40af;
+            --color-primary-200: #1d4ed8;
+            --color-primary-300: #2563eb;
+            --color-primary-400: #3b82f6;
+            --color-primary-500: #60a5fa;
+            --color-primary-600: #93c5fd;
+            --color-primary-700: #bfdbfe;
+            --color-primary-800: #dbeafe;
+            --color-primary-900: #eff6ff;
+            --color-primary-focus: #3b82f6;
+            --color-primary-content: #1f2937;
+            --color-secondary: #a78bfa;
+            --color-secondary-50: #4c1d95;
+            --color-secondary-100: #5b21b6;
+            --color-secondary-200: #6d28d9;
+            --color-secondary-300: #7c3aed;
+            --color-secondary-400: #8b5cf6;
+            --color-secondary-500: #a78bfa;
+            --color-secondary-600: #c4b5fd;
+            --color-secondary-700: #ddd6fe;
+            --color-secondary-800: #ede9fe;
+            --color-secondary-900: #f5f3ff;
+            --color-secondary-focus: #8b5cf6;
+            --color-secondary-content: #1f2937;
+            --color-accent: #f472b6;
+            --color-accent-50: #831843;
+            --color-accent-100: #9d174d;
+            --color-accent-200: #be185d;
+            --color-accent-300: #db2777;
+            --color-accent-400: #ec4899;
+            --color-accent-500: #f472b6;
+            --color-accent-600: #f9a8d4;
+            --color-accent-700: #fbcfe8;
+            --color-accent-800: #fce7f3;
+            --color-accent-900: #fdf2f8;
+            --color-accent-focus: #ec4899;
+            --color-accent-content: #1f2937;
+            /* Neutral colors remain the same as light theme */
+            --color-info: #60a5fa;
+            --color-info-50: #1e3a8a;
+            --color-info-100: #1e40af;
+            --color-info-200: #1d4ed8;
+            --color-info-300: #2563eb;
+            --color-info-400: #3b82f6;
+            --color-info-500: #60a5fa;
+            --color-info-600: #93c5fd;
+            --color-info-700: #bfdbfe;
+            --color-info-800: #dbeafe;
+            --color-info-900: #eff6ff;
+            --color-info-focus: #3b82f6;
+            --color-info-content: #1f2937;
+            --color-success: #34d399;
+            --color-success-50: #064e3b;
+            --color-success-100: #065f46;
+            --color-success-200: #047857;
+            --color-success-300: #059669;
+            --color-success-400: #10b981;
+            --color-success-500: #34d399;
+            --color-success-600: #6ee7b7;
+            --color-success-700: #a7f3d0;
+            --color-success-800: #d1fae5;
+            --color-success-900: #ecfdf5;
+            --color-success-focus: #10b981;
+            --color-success-content: #1f2937;
+            --color-warning: #fbbf24;
+            --color-warning-50: #78350f;
+            --color-warning-100: #92400e;
+            --color-warning-200: #b45309;
+            --color-warning-300: #d97706;
+            --color-warning-400: #f59e0b;
+            --color-warning-500: #fbbf24;
+            --color-warning-600: #fcd34d;
+            --color-warning-700: #fde68a;
+            --color-warning-800: #fef3c7;
+            --color-warning-900: #fffbeb;
+            --color-warning-focus: #f59e0b;
+            --color-warning-content: #1f2937;
+            --color-error: #f87171;
+            --color-error-50: #7f1d1d;
+            --color-error-100: #991b1b;
+            --color-error-200: #b91c1c;
+            --color-error-300: #dc2626;
+            --color-error-400: #ef4444;
+            --color-error-500: #f87171;
+            --color-error-600: #fca5a5;
+            --color-error-700: #fecaca;
+            --color-error-800: #fee2e2;
+            --color-error-900: #fef2f2;
+            --color-error-focus: #ef4444;
+            --color-error-content: #1f2937;
+        }
+    </style>
+</head>
+
+<body class="h-full text-base-content">
+    <!-- Mobile Status Bar -->
+    <div class="status-bar fixed top-0 left-0 right-0 z-50">
+        <div class="status-time">9:41</div>
+        <div class="status-icons">
+            <i class="fa-solid fa-signal mr-1"></i>
+            <i class="fa-solid fa-wifi mr-1"></i>
+            <i class="fa-solid fa-battery-full"></i>
+        </div>
+    </div>
+  <main id="discovery-screen" class="pt-14 pb-20 min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <header id="header" class="fixed top-[28px] left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-sm">
+      <div class="flex items-center justify-between px-4 py-3">
+        <div class="flex items-center space-x-3">
+          <button class="text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Learning Tools</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-share-nodes"></i>
+          </button>
+          <button class="text-gray-600 dark:text-gray-300">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section id="learning-tools" class="mt-6 px-5">
+      <h3 class="text-base font-semibold text-gray-800 dark:text-white mb-4">Learning Tools</h3>
+      
+      <div class="grid grid-cols-2 gap-4">
+        <div id="code-playground" class="bg-gradient-to-br from-purple-600/10 to-purple-600/5 dark:from-purple-500/20 dark:to-purple-500/10 rounded-xl p-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-code text-purple-600 dark:text-purple-400 text-lg"></i>
+            </div>
+            <span class="bg-white/70 dark:bg-gray-800/70 text-xs text-gray-600 dark:text-gray-300 px-2 py-1 rounded-full">New</span>
+          </div>
+          <h4 class="font-semibold text-gray-800 dark:text-white text-sm">Code Playground</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Practice coding in real-time</p>
+          <button class="mt-3 w-full bg-white dark:bg-gray-800 text-purple-600 dark:text-purple-400 text-xs font-medium px-3 py-2 rounded-lg">Open IDE</button>
+        </div>
+
+        <div id="design-sandbox" class="bg-gradient-to-br from-teal-500/10 to-teal-500/5 dark:from-cyan-400/20 dark:to-cyan-400/10 rounded-xl p-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 bg-teal-100 dark:bg-teal-900/30 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-pen-ruler text-teal-600 dark:text-cyan-400 text-lg"></i>
+            </div>
+            <div class="flex items-center">
+              <i class="fa-solid fa-bolt text-yellow-400 text-xs mr-1"></i>
+              <span class="bg-white/70 dark:bg-gray-800/70 text-xs text-gray-600 dark:text-gray-300 px-2 py-1 rounded-full">Popular</span>
+            </div>
+          </div>
+          <h4 class="font-semibold text-gray-800 dark:text-white text-sm">Design Sandbox</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Create UI prototypes</p>
+          <button class="mt-3 w-full bg-white dark:bg-gray-800 text-teal-600 dark:text-cyan-400 text-xs font-medium px-3 py-2 rounded-lg">Start Design</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="project-gallery" class="mt-6 px-5">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-base font-semibold text-gray-800 dark:text-white">Project Gallery</h3>
+        <button class="text-sm text-purple-600 dark:text-purple-400 font-medium">View All</button>
+      </div>
+
+      <div class="space-y-4">
+        <div id="project-1" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
+          <div class="p-4">
+            <div class="flex items-center">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Student" class="w-8 h-8 rounded-full">
+              <div class="ml-3">
+                <h4 class="text-sm font-medium text-gray-800 dark:text-white">Mobile App Design</h4>
+                <p class="text-xs text-gray-500 dark:text-gray-400">by Alex Morgan</p>
+              </div>
+              <div class="ml-auto flex items-center">
+                <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+                <span class="ml-1 text-xs text-gray-600 dark:text-gray-400">4.9</span>
+              </div>
+            </div>
+            <div class="mt-3 grid grid-cols-3 gap-2 h-24">
+              <div class="rounded-lg overflow-hidden">
+                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/152232fbc9-631f100e4b8a0450343d.png" alt="Project preview" class="w-full h-full object-cover">
+              </div>
+              <div class="rounded-lg overflow-hidden">
+                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/11617790d0-3cd73b1b2bf14e3602c2.png" alt="Project preview" class="w-full h-full object-cover">
+              </div>
+              <div class="rounded-lg overflow-hidden relative">
+                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b5a24c20c6-e42e3f82ab202d605582.png" alt="Project preview" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                  <span class="text-white text-sm">+3</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <button class="flex items-center space-x-1">
+                  <i class="fa-regular fa-heart text-gray-400"></i>
+                  <span class="text-xs text-gray-600 dark:text-gray-400">24</span>
+                </button>
+                <button class="flex items-center space-x-1">
+                  <i class="fa-regular fa-comment text-gray-400"></i>
+                  <span class="text-xs text-gray-600 dark:text-gray-400">8</span>
+                </button>
+              </div>
+              <button class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-medium px-3 py-1.5 rounded-lg">View Project</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="assignment-tools" class="mt-6 px-5">
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-4">
+        <h3 class="text-base font-semibold text-gray-800 dark:text-white mb-4">Assignment Tools</h3>
+        
+        <div class="space-y-4">
+          <div id="file-upload" class="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-lg p-4">
+            <div class="flex flex-col items-center">
+              <i class="fa-solid fa-cloud-arrow-up text-purple-600 dark:text-purple-400 text-2xl mb-2"></i>
+              <p class="text-sm text-gray-600 dark:text-gray-300 text-center">Drag &amp; drop files here or</p>
+              <button class="mt-2 bg-purple-600 dark:bg-purple-500 text-white text-sm font-medium px-4 py-2 rounded-lg">Browse Files</button>
+              <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">Supported formats: PDF, PSD, AI, Sketch</p>
+            </div>
+          </div>
+
+          <div id="peer-review" class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-teal-100 dark:bg-teal-900/30 rounded-lg flex items-center justify-center">
+                <i class="fa-solid fa-users text-teal-600 dark:text-cyan-400"></i>
+              </div>
+              <div class="ml-3">
+                <h4 class="text-sm font-medium text-gray-800 dark:text-white">Peer Review</h4>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Give &amp; receive feedback</p>
+              </div>
+            </div>
+            <button class="bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-cyan-400 text-xs font-medium px-3 py-1.5 rounded-lg">Start Review</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 z-40">
+      <div class="flex justify-around items-center px-2 py-2">
+        <a href="StudentDashboard.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+          <i class="fa-solid fa-house text-lg"></i>
+          <span class="text-xs mt-1">Home</span>
+        </a>
+        
+        <a href="CourseCatalog.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+          <i class="fa-solid fa-compass text-lg"></i>
+          <span class="text-xs mt-1">Explore</span>
+        </a>
+        
+        <a href="LearningProgress.html" class="flex flex-col items-center justify-center w-16 py-1.5">
+          <div class="h-10 w-10 bg-purple-600 dark:bg-purple-500 rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-play text-white"></i>
+          </div>
+        </a>
+        
+        <a href="CourseDetails.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+          <i class="fa-solid fa-book-open text-lg"></i>
+          <span class="text-xs mt-1">Courses</span>
+        </a>
+        
+        <a href="Profile.html" class="flex flex-col items-center justify-center w-16 py-1.5 text-gray-400 dark:text-gray-500">
+          <i class="fa-solid fa-user text-lg"></i>
+          <span class="text-xs mt-1">Profile</span>
+        </a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+  document.querySelectorAll('[id^="wishlist-"]').forEach(button => {
+    button.addEventListener('click', function() {
+      const heartIcon = this.querySelector('i');
+      heartIcon.classList.toggle('fa-regular');
+      heartIcon.classList.toggle('fa-solid');
+    });
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,622 @@
+<link rel="stylesheet" href="styles.css">
+<html class="">
+              
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+      window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+      };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    
+<style>
+  * {
+    font-family: "Inter", sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+    
+<style>
+  .highlighted-section {
+    outline: 2px solid #3F20FB;
+    background-color: rgba(63, 32, 251, 0.1);
+  }
+
+  .edit-button {
+    position: absolute;
+    z-index: 1000;
+  }
+</style>
+
+    
+<style>
+   :root {
+          /* Base colors */
+          --color-base: #ffffff;
+          --color-base-50: #f9fafb;
+          --color-base-100: #f3f4f6;
+          --color-base-200: #e5e7eb;
+          --color-base-300: #d1d5db;
+          --color-base-400: #9ca3af;
+          --color-base-500: #6b7280;
+          --color-base-600: #4b5563;  
+          --color-base-700: #374151;
+          --color-base-800: #1f2937;  
+          --color-base-900: #111827;
+          --color-base-content: #1f2937;
+
+          /* Primary colors */
+          --color-primary: #3b82f6;
+          --color-primary-50: #eff6ff;
+          --color-primary-100: #dbeafe;
+          --color-primary-200: #bfdbfe;
+          --color-primary-300: #93c5fd;
+          --color-primary-400: #60a5fa;
+          --color-primary-500: #3b82f6;
+          --color-primary-600: #2563eb;
+          --color-primary-700: #1d4ed8;
+          --color-primary-800: #1e40af;
+          --color-primary-900: #1e3a8a;
+          --color-primary-focus: #2563eb;
+          --color-primary-content: #ffffff;
+
+          /* Secondary colors */
+          --color-secondary: #8b5cf6;
+          --color-secondary-50: #f5f3ff;
+          --color-secondary-100: #ede9fe;
+          --color-secondary-200: #ddd6fe;
+          --color-secondary-300: #c4b5fd;
+          --color-secondary-400: #a78bfa;
+          --color-secondary-500: #8b5cf6;
+          --color-secondary-600: #7c3aed;
+          --color-secondary-700: #6d28d9;
+          --color-secondary-800: #5b21b6;
+          --color-secondary-900: #4c1d95;
+          --color-secondary-focus: #7c3aed;
+          --color-secondary-content: #ffffff;
+
+          /* Accent colors */
+          --color-accent: #f472b6;
+          --color-accent-50: #fdf2f8;
+          --color-accent-100: #fce7f3;
+          --color-accent-200: #fbcfe8;
+          --color-accent-300: #f9a8d4;
+          --color-accent-400: #f472b6;
+          --color-accent-500: #ec4899;
+          --color-accent-600: #db2777;
+          --color-accent-700: #be185d;
+          --color-accent-800: #9d174d;
+          --color-accent-900: #831843;
+          --color-accent-focus: #db2777;
+          --color-accent-content: #ffffff;
+
+          /* Neutral colors */
+          --color-neutral: #6b7280;
+          --color-neutral-50: #f9fafb;
+          --color-neutral-100: #f3f4f6;
+          --color-neutral-200: #e5e7eb;
+          --color-neutral-300: #d1d5db;
+          --color-neutral-400: #9ca3af;
+          --color-neutral-500: #6b7280;
+          --color-neutral-600: #4b5563;
+          --color-neutral-700: #374151;
+          --color-neutral-800: #1f2937;
+          --color-neutral-900: #111827;
+          --color-neutral-focus: #4b5563;
+          --color-neutral-content: #ffffff;
+
+          /* Info colors */
+          --color-info: #3b82f6;
+          --color-info-50: #eff6ff;
+          --color-info-100: #dbeafe;
+          --color-info-200: #bfdbfe;
+          --color-info-300: #93c5fd;
+          --color-info-400: #60a5fa;
+          --color-info-500: #3b82f6;
+          --color-info-600: #2563eb;
+          --color-info-700: #1d4ed8;
+          --color-info-800: #1e40af;
+          --color-info-900: #1e3a8a;
+          --color-info-focus: #2563eb;
+          --color-info-content: #ffffff;
+
+          /* Success colors */
+          --color-success: #10b981;
+          --color-success-50: #ecfdf5;
+          --color-success-100: #d1fae5;
+          --color-success-200: #a7f3d0;
+          --color-success-300: #6ee7b7;
+          --color-success-400: #34d399;
+          --color-success-500: #10b981;
+          --color-success-600: #059669;
+          --color-success-700: #047857;
+          --color-success-800: #065f46;
+          --color-success-900: #064e3b;
+          --color-success-focus: #059669;
+          --color-success-content: #ffffff;
+
+          /* Warning colors */
+          --color-warning: #f59e0b;
+          --color-warning-50: #fffbeb;
+          --color-warning-100: #fef3c7;
+          --color-warning-200: #fde68a;
+          --color-warning-300: #fcd34d;
+          --color-warning-400: #fbbf24;
+          --color-warning-500: #f59e0b;
+          --color-warning-600: #d97706;
+          --color-warning-700: #b45309;
+          --color-warning-800: #92400e;
+          --color-warning-900: #78350f;
+          --color-warning-focus: #d97706;
+          --color-warning-content: #ffffff;
+
+          /* Error colors */
+          --color-error: #ef4444;
+          --color-error-50: #fef2f2;
+          --color-error-100: #fee2e2;
+          --color-error-200: #fecaca;
+          --color-error-300: #fca5a5;
+          --color-error-400: #f87171;
+          --color-error-500: #ef4444;
+          --color-error-600: #dc2626;
+          --color-error-700: #b91c1c;
+          --color-error-800: #991b1b;
+          --color-error-900: #7f1d1d;
+          --color-error-focus: #dc2626;
+          --color-error-content: #ffffff;
+        }
+</style>
+
+    
+<style>
+/* Dark theme */
+        .dark {
+          /* Base colors */
+          --color-base: #1f2937;
+          --color-base-50: #111827;
+          --color-base-100: #1f2937;
+          --color-base-200: #374151;
+          --color-base-300: #4b5563;
+          --color-base-400: #6b7280;
+          --color-base-500: #9ca3af;
+          --color-base-600: #d1d5db;
+          --color-base-700: #e5e7eb;
+          --color-base-800: #f3f4f6;
+          --color-base-900: #f9fafb;
+          --color-base-content: #f9fafb;
+
+          /* Primary colors */
+          --color-primary: #60a5fa;
+          --color-primary-50: #1e3a8a;
+          --color-primary-100: #1e40af;
+          --color-primary-200: #1d4ed8;
+          --color-primary-300: #2563eb;
+          --color-primary-400: #3b82f6;
+          --color-primary-500: #60a5fa;
+          --color-primary-600: #93c5fd;
+          --color-primary-700: #bfdbfe;
+          --color-primary-800: #dbeafe;
+          --color-primary-900: #eff6ff;
+          --color-primary-focus: #3b82f6;
+          --color-primary-content: #1f2937;
+
+          /* Secondary colors */
+          --color-secondary: #a78bfa;
+          --color-secondary-50: #4c1d95;
+          --color-secondary-100: #5b21b6;
+          --color-secondary-200: #6d28d9;
+          --color-secondary-300: #7c3aed;
+          --color-secondary-400: #8b5cf6;
+          --color-secondary-500: #a78bfa;
+          --color-secondary-600: #c4b5fd;
+          --color-secondary-700: #ddd6fe;
+          --color-secondary-800: #ede9fe;
+          --color-secondary-900: #f5f3ff;
+          --color-secondary-focus: #8b5cf6;
+          --color-secondary-content: #1f2937;
+
+          /* Accent colors */
+          --color-accent: #f472b6;
+          --color-accent-50: #831843;
+          --color-accent-100: #9d174d;
+          --color-accent-200: #be185d;
+          --color-accent-300: #db2777;
+          --color-accent-400: #ec4899;
+          --color-accent-500: #f472b6;
+          --color-accent-600: #f9a8d4;
+          --color-accent-700: #fbcfe8;
+          --color-accent-800: #fce7f3;
+          --color-accent-900: #fdf2f8;
+          --color-accent-focus: #ec4899;
+          --color-accent-content: #1f2937;
+
+          /* Neutral colors remain the same as light theme */
+
+          /* Info colors */
+          --color-info: #60a5fa;
+          --color-info-50: #1e3a8a;
+          --color-info-100: #1e40af;
+          --color-info-200: #1d4ed8;
+          --color-info-300: #2563eb;
+          --color-info-400: #3b82f6;
+          --color-info-500: #60a5fa;
+          --color-info-600: #93c5fd;
+          --color-info-700: #bfdbfe;
+          --color-info-800: #dbeafe;
+          --color-info-900: #eff6ff;
+          --color-info-focus: #3b82f6;
+          --color-info-content: #1f2937;
+
+          /* Success colors */
+          --color-success: #34d399;
+          --color-success-50: #064e3b;
+          --color-success-100: #065f46;
+          --color-success-200: #047857;
+          --color-success-300: #059669;
+          --color-success-400: #10b981;
+          --color-success-500: #34d399;
+          --color-success-600: #6ee7b7;
+          --color-success-700: #a7f3d0;
+          --color-success-800: #d1fae5;
+          --color-success-900: #ecfdf5;
+          --color-success-focus: #10b981;
+          --color-success-content: #1f2937;
+
+          /* Warning colors */
+          --color-warning: #fbbf24;
+          --color-warning-50: #78350f;
+          --color-warning-100: #92400e;
+          --color-warning-200: #b45309;
+          --color-warning-300: #d97706;
+          --color-warning-400: #f59e0b;
+          --color-warning-500: #fbbf24;
+          --color-warning-600: #fcd34d;
+          --color-warning-700: #fde68a;
+          --color-warning-800: #fef3c7;
+          --color-warning-900: #fffbeb;
+          --color-warning-focus: #f59e0b;
+          --color-warning-content: #1f2937;
+
+          /* Error colors */
+          --color-error: #f87171;
+          --color-error-50: #7f1d1d;
+          --color-error-100: #991b1b;
+          --color-error-200: #b91c1c;
+          --color-error-300: #dc2626;
+          --color-error-400: #ef4444;
+          --color-error-500: #f87171;
+          --color-error-600: #fca5a5;
+          --color-error-700: #fecaca;
+          --color-error-800: #fee2e2;
+          --color-error-900: #fef2f2;
+          --color-error-focus: #ef4444;
+          --color-error-content: #1f2937;
+        }
+</style>
+
+    
+  <script>
+        tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                ...{"transparent":"transparent","current":"currentColor","black":"#000000","white":"#ffffff","gray":{"50":"#f9fafb","100":"#f3f4f6","200":"#e5e7eb","300":"#d1d5db","400":"#9ca3af","500":"#6b7280","600":"#4b5563","700":"#374151","800":"#1f2937","900":"#111827"},"red":{"50":"#fef2f2","100":"#fee2e2","200":"#fecaca","300":"#fca5a5","400":"#f87171","500":"#ef4444","600":"#dc2626","700":"#b91c1c","800":"#991b1b","900":"#7f1d1d"},"yellow":{"50":"#fffbeb","100":"#fef3c7","200":"#fde68a","300":"#fcd34d","400":"#fbbf24","500":"#f59e0b","600":"#d97706","700":"#b45309","800":"#92400e","900":"#78350f"},"green":{"50":"#ecfdf5","100":"#d1fae5","200":"#a7f3d0","300":"#6ee7b7","400":"#34d399","500":"#10b981","600":"#059669","700":"#047857","800":"#065f46","900":"#064e3b"},"blue":{"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a"},"indigo":{"50":"#eef2ff","100":"#e0e7ff","200":"#c7d2fe","300":"#a5b4fc","400":"#818cf8","500":"#6366f1","600":"#4f46e5","700":"#4338ca","800":"#3730a3","900":"#312e81"},"purple":{"50":"#f5f3ff","100":"#ede9fe","200":"#ddd6fe","300":"#c4b5fd","400":"#a78bfa","500":"#8b5cf6","600":"#7c3aed","700":"#6d28d9","800":"#5b21b6","900":"#4c1d95"},"pink":{"50":"#fdf2f8","100":"#fce7f3","200":"#fbcfe8","300":"#f9a8d4","400":"#f472b6","500":"#ec4899","600":"#db2777","700":"#be185d","800":"#9d174d","900":"#831843"}},
+                ...{"primary":{"50":"var(--color-primary-50)","100":"var(--color-primary-100)","200":"var(--color-primary-200)","300":"var(--color-primary-300)","400":"var(--color-primary-400)","500":"var(--color-primary-500)","600":"var(--color-primary-600)","700":"var(--color-primary-700)","800":"var(--color-primary-800)","900":"var(--color-primary-900)","DEFAULT":"var(--color-primary)","focus":"var(--color-primary-focus)","content":"var(--color-primary-content)"},"secondary":{"50":"var(--color-secondary-50)","100":"var(--color-secondary-100)","200":"var(--color-secondary-200)","300":"var(--color-secondary-300)","400":"var(--color-secondary-400)","500":"var(--color-secondary-500)","600":"var(--color-secondary-600)","700":"var(--color-secondary-700)","800":"var(--color-secondary-800)","900":"var(--color-secondary-900)","DEFAULT":"var(--color-secondary)","focus":"var(--color-secondary-focus)","content":"var(--color-secondary-content)"},"accent":{"50":"var(--color-accent-50)","100":"var(--color-accent-100)","200":"var(--color-accent-200)","300":"var(--color-accent-300)","400":"var(--color-accent-400)","500":"var(--color-accent-500)","600":"var(--color-accent-600)","700":"var(--color-accent-700)","800":"var(--color-accent-800)","900":"var(--color-accent-900)","DEFAULT":"var(--color-accent)","focus":"var(--color-accent-focus)","content":"var(--color-accent-content)"},"neutral":{"50":"var(--color-neutral-50)","100":"var(--color-neutral-100)","200":"var(--color-neutral-200)","300":"var(--color-neutral-300)","400":"var(--color-neutral-400)","500":"var(--color-neutral-500)","600":"var(--color-neutral-600)","700":"var(--color-neutral-700)","800":"var(--color-neutral-800)","900":"var(--color-neutral-900)","DEFAULT":"var(--color-neutral)","focus":"var(--color-neutral-focus)","content":"var(--color-neutral-content)"},"info":{"50":"var(--color-info-50)","100":"var(--color-info-100)","200":"var(--color-info-200)","300":"var(--color-info-300)","400":"var(--color-info-400)","500":"var(--color-info-500)","600":"var(--color-info-600)","700":"var(--color-info-700)","800":"var(--color-info-800)","900":"var(--color-info-900)","DEFAULT":"var(--color-info)","focus":"var(--color-info-focus)","content":"var(--color-info-content)"},"success":{"50":"var(--color-success-50)","100":"var(--color-success-100)","200":"var(--color-success-200)","300":"var(--color-success-300)","400":"var(--color-success-400)","500":"var(--color-success-500)","600":"var(--color-success-600)","700":"var(--color-success-700)","800":"var(--color-success-800)","900":"var(--color-success-900)","DEFAULT":"var(--color-success)","focus":"var(--color-success-focus)","content":"var(--color-success-content)"},"warning":{"50":"var(--color-warning-50)","100":"var(--color-warning-100)","200":"var(--color-warning-200)","300":"var(--color-warning-300)","400":"var(--color-warning-400)","500":"var(--color-warning-500)","600":"var(--color-warning-600)","700":"var(--color-warning-700)","800":"var(--color-warning-800)","900":"var(--color-warning-900)","DEFAULT":"var(--color-warning)","focus":"var(--color-warning-focus)","content":"var(--color-warning-content)"},"error":{"50":"var(--color-error-50)","100":"var(--color-error-100)","200":"var(--color-error-200)","300":"var(--color-error-300)","400":"var(--color-error-400)","500":"var(--color-error-500)","600":"var(--color-error-600)","700":"var(--color-error-700)","800":"var(--color-error-800)","900":"var(--color-error-900)","DEFAULT":"var(--color-error)","focus":"var(--color-error-focus)","content":"var(--color-error-content)"},"danger":{"50":"var(--color-error-50)","100":"var(--color-error-100)","200":"var(--color-error-200)","300":"var(--color-error-300)","400":"var(--color-error-400)","500":"var(--color-error-500)","600":"var(--color-error-600)","700":"var(--color-error-700)","800":"var(--color-error-800)","900":"var(--color-error-900)","DEFAULT":"var(--color-error)","focus":"var(--color-error-focus)","content":"var(--color-error-content)"}},
+                },
+              },
+            },
+            variants: {
+              extend: {
+                backgroundColor: ['active', 'group-hover'],
+                textColor: ['active', 'group-hover'],
+              },
+            },
+            plugins: [],
+          };
+  </script>
+
+  <style>
+    /* removed for fixed portrait mode */
+    .top-bar { position: sticky; top: 0; z-index: 50; }
+  </style>
+
+</head>
+
+              <body class="h-full text-base-content">
+                <!-- Sidebar Menu Overlay -->
+                <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+                <!-- Sidebar Menu -->
+                <div id="sidebar-menu" class="fixed top-0 left-0 h-full w-[280px] bg-white z-50 transform -translate-x-full transition-transform duration-300 shadow-xl">
+                  <div class="p-4 border-b border-gray-100">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-12 h-12 rounded-full overflow-hidden">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Sarah Smith" class="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-gray-800">Sarah Smith</h3>
+                        <p class="text-sm text-gray-500">Patient ID: #284751</p>
+                      </div>
+                    </div>
+                  </div>
+                  <nav class="p-4">
+                    <ul class="space-y-2">
+                      <li>
+                        <a href="dashboard.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                          <i class="fa-solid fa-house text-lg w-6"></i>
+                          <span>Home</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="find-doctor.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                          <i class="fa-solid fa-user-doctor text-lg w-6"></i>
+                          <span>My Doctors</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="my-appointments.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                          <i class="fa-solid fa-calendar-check text-lg w-6"></i>
+                          <span>Appointments</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="medical-records.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                          <i class="fa-solid fa-file-medical text-lg w-6"></i>
+                          <span>Medical Records</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="medications.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                          <i class="fa-solid fa-pills text-lg w-6"></i>
+                          <span>Medications</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="health-tracking.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                          <i class="fa-solid fa-chart-line text-lg w-6"></i>
+                          <span>Health Tracking</span>
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="border-t border-gray-100 mt-6 pt-6">
+                      <ul class="space-y-2">
+                        <li>
+                          <a href="settings.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                            <i class="fa-solid fa-gear text-lg w-6"></i>
+                            <span>Settings</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="help-support.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 cursor-pointer">
+                            <i class="fa-solid fa-circle-question text-lg w-6"></i>
+                            <span>Help & Support</span>
+                          </a>
+                        </li>
+                        <li>
+                          <span class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-red-600 hover:bg-red-50 cursor-pointer">
+                            <i class="fa-solid fa-right-from-bracket text-lg w-6"></i>
+                            <span>Log Out</span>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+                </div>
+
+                <!-- Header -->
+                <header id="header" class="bg-white p-4 flex items-center justify-center shadow-sm">
+                  <button id="menu-btn" class="p-2 absolute left-4">
+                    <i class="fa-solid fa-bars text-gray-600 text-xl"></i>
+                  </button>
+                  <div class="flex items-center justify-center w-full">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7c3911bc6d-d411b520ca5f3ac925ec.png" alt="HealthConnect logo" class="h-12 w-12 mr-2" />
+                    <h1 class="text-xl font-semibold text-gray-800 text-center">HealthConnect</h1>
+                  </div>
+                </header>
+
+                <!-- Main Content -->
+                <main class="main-content flex-1 overflow-y-auto" style="padding-bottom:0;">
+                  <!-- Welcome Section -->
+                  <section id="welcome-section" class="px-4 pt-4 pb-2">
+                    <h2 class="text-2xl font-bold text-gray-800">Good morning, Sarah</h2>
+                    <p class="text-gray-600">How are you feeling today?</p>
+                  </section>
+
+                  <!-- Upcoming Appointments -->
+                  <section id="appointments-section" class="px-4 py-3">
+                    <div class="flex items-center justify-between mb-3">
+                      <h3 class="text-lg font-semibold text-gray-800">Upcoming Appointments</h3>
+                      <span class="text-[#00B8D4] text-sm font-medium cursor-pointer">View all</span>
+                    </div>
+                    
+                    <div class="overflow-x-auto -mx-4 px-4">
+                      <div class="flex space-x-4">
+                        <!-- Appointment Card 1 -->
+                        <div id="appointment-card-1" class="flex-shrink-0 w-64 bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+                          <div class="flex justify-between items-start mb-3">
+                            <div>
+                              <p class="text-[#00B8D4] font-semibold">Today</p>
+                              <p class="text-gray-800 font-medium">10:30 AM</p>
+                            </div>
+                            <span class="bg-[#00B8D4] bg-opacity-10 text-[#00B8D4] text-xs px-2 py-1 rounded-full">Confirmed</span>
+                          </div>
+                          <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Dr. James Wilson" class="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                              <p class="font-medium text-gray-800">Dr. James Wilson</p>
+                              <p class="text-sm text-gray-600">Cardiologist</p>
+                            </div>
+                          </div>
+                          <div class="flex justify-between mt-2">
+                            <button class="text-[#00B8D4]">
+                              <i class="fa-solid fa-video mr-1"></i> Join
+                            </button>
+                            <button class="text-gray-500">
+                              <i class="fa-solid fa-calendar-alt mr-1"></i> Reschedule
+                            </button>
+                          </div>
+                        </div>
+                        
+                        <!-- Appointment Card 2 -->
+                        <div id="appointment-card-2" class="flex-shrink-0 w-64 bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+                          <div class="flex justify-between items-start mb-3">
+                            <div>
+                              <p class="text-[#00B8D4] font-semibold">Tomorrow</p>
+                              <p class="text-gray-800 font-medium">2:00 PM</p>
+                            </div>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">Pending</span>
+                          </div>
+                          <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Dr. Emily Chen" class="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                              <p class="font-medium text-gray-800">Dr. Emily Chen</p>
+                              <p class="text-sm text-gray-600">Dermatologist</p>
+                            </div>
+                          </div>
+                          <div class="flex justify-between mt-2">
+                            <button class="text-gray-500">
+                              <i class="fa-solid fa-check-circle mr-1"></i> Confirm
+                            </button>
+                            <button class="text-gray-500">
+                              <i class="fa-solid fa-calendar-alt mr-1"></i> Reschedule
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Quick Actions -->
+                  <section id="quick-actions-section" class="px-4 py-3">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Quick Actions</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                      <div id="action-book" class="bg-white rounded-xl p-4 shadow-sm flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-[#00B8D4] bg-opacity-10 flex items-center justify-center mb-2">
+                          <i class="fa-solid fa-calendar-plus text-[#00B8D4] text-xl"></i>
+                        </div>
+                        <p class="text-gray-800 font-medium text-sm">Book Appointment</p>
+                      </div>
+                      <div id="action-message" class="bg-white rounded-xl p-4 shadow-sm flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-[#00B8D4] bg-opacity-10 flex items-center justify-center mb-2">
+                          <i class="fa-solid fa-comment-medical text-[#00B8D4] text-xl"></i>
+                        </div>
+                        <p class="text-gray-800 font-medium text-sm">Message Doctor</p>
+                      </div>
+                      <div id="action-medications" class="bg-white rounded-xl p-4 shadow-sm flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-[#00B8D4] bg-opacity-10 flex items-center justify-center mb-2">
+                          <i class="fa-solid fa-pills text-[#00B8D4] text-xl"></i>
+                        </div>
+                        <p class="text-gray-800 font-medium text-sm">My Medications</p>
+                      </div>
+                      <div id="action-records" class="bg-white rounded-xl p-4 shadow-sm flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-[#00B8D4] bg-opacity-10 flex items-center justify-center mb-2">
+                          <i class="fa-solid fa-file-medical text-[#00B8D4] text-xl"></i>
+                        </div>
+                        <p class="text-gray-800 font-medium text-sm">Medical Records</p>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Health Metrics -->
+                  <section id="health-metrics-section" class="px-4 py-3">
+                    <div class="flex items-center justify-between mb-3">
+                      <h3 class="text-lg font-semibold text-gray-800">Health Metrics</h3>
+                      <span class="text-[#00B8D4] text-sm font-medium cursor-pointer">View details</span>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-4">
+                      <div class="flex justify-between">
+                        <!-- Heart Rate Widget -->
+                        <div id="heart-rate-widget" class="flex-1 border-r border-gray-100 pr-3">
+                          <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center mr-2">
+                              <i class="fa-solid fa-heartbeat text-red-500"></i>
+                            </div>
+                            <p class="text-sm text-gray-600">Heart Rate</p>
+                          </div>
+                          <div class="flex items-baseline">
+                            <p class="text-2xl font-bold text-gray-800">72</p>
+                            <p class="ml-1 text-gray-600 text-sm">bpm</p>
+                          </div>
+                          <div class="mt-2 h-10 flex items-end">
+                            <div class="w-1/6 h-4 bg-red-200 rounded-sm mx-0.5"></div>
+                            <div class="w-1/6 h-6 bg-red-300 rounded-sm mx-0.5"></div>
+                            <div class="w-1/6 h-8 bg-red-400 rounded-sm mx-0.5"></div>
+                            <div class="w-1/6 h-10 bg-red-500 rounded-sm mx-0.5"></div>
+                            <div class="w-1/6 h-7 bg-red-400 rounded-sm mx-0.5"></div>
+                            <div class="w-1/6 h-5 bg-red-300 rounded-sm mx-0.5"></div>
+                          </div>
+                        </div>
+                        
+                        <!-- Step Count Widget -->
+                        <div id="step-count-widget" class="flex-1 pl-3">
+                          <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-2">
+                              <i class="fa-solid fa-shoe-prints text-blue-500"></i>
+                            </div>
+                            <p class="text-sm text-gray-600">Step Count</p>
+                          </div>
+                          <div class="flex items-baseline">
+                            <p class="text-2xl font-bold text-gray-800">8,432</p>
+                            <p class="ml-1 text-gray-600 text-sm">steps</p>
+                          </div>
+                          <div class="mt-2 relative pt-1">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-blue-100">
+                              <div class="w-3/4 shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 rounded"></div>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                              <span>0</span>
+                              <span>Goal: 10,000</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </main>
+
+                <!-- Bottom Navigation -->
+                <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-4 py-2 flex items-center justify-around z-50">
+                  <a href="dashboard.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="text-xs mt-1">Home</span>
+                  </a>
+                  <a href="find-doctor.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+                    <i class="fa-solid fa-user-md"></i>
+                    <span class="text-xs mt-1">Find Doctor</span>
+                  </a>
+                  <a href="my-appointments.html" class="flex flex-col items-center text-[#00B8D4]">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span class="text-xs mt-1">Appointments</span>
+                  </a>
+                  <a href="chat.html" class="flex flex-col items-center text-gray-400 hover:text-[#00B8D4]">
+                    <i class="fa-solid fa-comments"></i>
+                    <span class="text-xs mt-1">Messages</span>
+                  </a>
+                </nav>
+
+<script>
+document.getElementById('menu-btn').addEventListener('click', function() {
+  document.getElementById('sidebar-menu').classList.toggle('-translate-x-full');
+  document.getElementById('sidebar-overlay').classList.toggle('hidden');
+});
+document.getElementById('sidebar-overlay').addEventListener('click', function() {
+  document.getElementById('sidebar-menu').classList.add('-translate-x-full');
+  document.getElementById('sidebar-overlay').classList.add('hidden');
+});
+</script>
+              </body>
+            </html>
+          

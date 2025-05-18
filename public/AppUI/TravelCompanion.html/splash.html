@@ -1,0 +1,116 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      body, html {
+        font-family: 'SF Pro Display', 'Roboto', Arial, sans-serif;
+      }
+      ::-webkit-scrollbar { display: none;}
+      .hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      .glass {
+        backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(255,255,255,0.25);
+        border-radius: 1.5rem;
+        border: 1px solid rgba(255,255,255,0.18);
+      }
+      .glass-dark {
+        backdrop-filter: blur(16px) saturate(160%);
+        background: rgba(18,31,61,0.55);
+        border-radius: 1.5rem;
+        border: 1px solid rgba(92,225,230,0.10);
+      }
+    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&amp;display=swap" /><style>
+  .highlighted-section {
+    outline: 2px solid #3F20FB;
+    background-color: rgba(63, 32, 251, 0.1);
+  }
+
+  .edit-button {
+    position: absolute;
+    z-index: 1000;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  </style></head>
+<body class="bg-white dark:bg-[#121F3D] text-gray-900 dark:text-white transition-colors duration-500">
+
+<section id="splash-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center h-[100vh] w-full bg-white dark:bg-[#121F3D] transition-colors duration-500">
+  <!-- Animated Logo Container -->
+  <div id="splash-logo-container" class="flex flex-col items-center justify-center space-y-6">
+    <div class="relative w-28 h-28 flex items-center justify-center">
+      <!-- Ocean Blue + Aqua Glass Morphism Circle -->
+      <div class="absolute inset-0 rounded-full glass dark:glass-dark shadow-xl"></div>
+      <!-- Wave Animation SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" id="splash-waves" class="absolute inset-0 w-full h-full" viewBox="0 0 112 112" fill="none">
+        <path id="wave1" d="M16,80 Q56,40 96,80" stroke="#1A73E8" stroke-width="4" fill="none" opacity="0.85"/>
+        <path id="wave2" d="M22,88 Q56,56 90,88" stroke="#5CE1E6" stroke-width="3" fill="none" opacity="0.65"/>
+        <path id="wave3" d="M32,98 Q56,76 80,98" stroke="#FF7A5A" stroke-width="2" fill="none" opacity="0.40"/>
+      </svg>
+      <!-- Paper Plane Icon -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <i class="fa-solid fa-paper-plane text-4xl text-[#1A73E8] dark:text-[#5CE1E6] transition-all duration-700" id="plane-icon"></i>
+      </div>
+    </div>
+    <div class="flex flex-col items-center">
+      <span class="text-2xl font-bold tracking-tight" style="font-family:'SF Pro Display', 'Roboto', sans-serif;">TravelCompanion</span>
+      <span class="text-base text-gray-400 dark:text-gray-300 mt-1">AI-powered Travel, Just for You</span>
+    </div>
+  </div>
+  <!-- Loading Dots Animation -->
+  <div id="splash-loading-dots" class="flex space-x-1 mt-8">
+    <span class="block w-2.5 h-2.5 rounded-full bg-[#1A73E8] dark:bg-[#5CE1E6] animate-bounce" style="animation-delay:0s"></span>
+    <span class="block w-2.5 h-2.5 rounded-full bg-[#FF7A5A] dark:bg-[#5CE1E6]/70 animate-bounce" style="animation-delay:0.15s"></span>
+    <span class="block w-2.5 h-2.5 rounded-full bg-[#5CE1E6] dark:bg-[#FF7A5A]/80 animate-bounce" style="animation-delay:0.3s"></span>
+  </div>
+</section>
+
+<script>
+  // Animate the plane icon "flying" up after a short delay
+  setTimeout(() => {
+    document.getElementById('plane-icon').classList.add('translate-y-[-16px]', 'scale-110');
+  }, 500);
+
+  // Animate the waves (SVG path) using CSS keyframes (hacky, but visible)
+  const wave1 = document.getElementById('wave1');
+  const wave2 = document.getElementById('wave2');
+  const wave3 = document.getElementById('wave3');
+  setTimeout(() => {
+    wave1.style.strokeDasharray = wave1.getTotalLength();
+    wave1.style.strokeDashoffset = wave1.getTotalLength();
+    wave1.style.transition = "stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)";
+    wave1.style.strokeDashoffset = "0";
+    wave2.style.strokeDasharray = wave2.getTotalLength();
+    wave2.style.strokeDashoffset = wave2.getTotalLength();
+    wave2.style.transition = "stroke-dashoffset 1.6s cubic-bezier(0.4,0,0.2,1)";
+    wave2.style.strokeDashoffset = "0";
+    wave3.style.strokeDasharray = wave3.getTotalLength();
+    wave3.style.strokeDashoffset = wave3.getTotalLength();
+    wave3.style.transition = "stroke-dashoffset 2.1s cubic-bezier(0.4,0,0.2,1)";
+    wave3.style.strokeDashoffset = "0";
+  }, 180);
+
+  // Splash auto-dismiss (simulate navigation to Home)
+  setTimeout(() => {
+    document.getElementById('splash-screen').classList.add('opacity-0', 'pointer-events-none');
+    setTimeout(() => {
+      document.getElementById('splash-screen').style.display = 'none';
+      window.location.href = 'home.html';
+    }, 500);
+  }, 2850);
+</script>
+
+
+</body></html>

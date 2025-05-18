@@ -1,0 +1,845 @@
+<html xmlns="http://www.w3.org/1999/xhtml" class=""><head>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.FontAwesomeConfig = {
+            autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+      
+  <style>
+    * {
+      font-family: "Inter", sans-serif;
+    }
+  
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  
+      
+  <style>
+    .highlighted-section {
+      outline: 2px solid #3F20FB;
+      background-color: rgba(63, 32, 251, 0.1);
+    }
+  
+    .edit-button {
+      position: absolute;
+      z-index: 1000;
+    }
+  </style>
+  
+      
+  <style>
+     :root {
+            /* Base colors */
+            --color-base: #ffffff;
+            --color-base-50: #f9fafb;
+            --color-base-100: #f3f4f6;
+            --color-base-200: #e5e7eb;
+            --color-base-300: #d1d5db;
+            --color-base-400: #9ca3af;
+            --color-base-500: #6b7280;
+            --color-base-600: #4b5563;  
+            --color-base-700: #374151;
+            --color-base-800: #1f2937;  
+            --color-base-900: #111827;
+            --color-base-content: #1f2937;
+  
+            /* Primary colors */
+            --color-primary: #3b82f6;
+            --color-primary-50: #eff6ff;
+            --color-primary-100: #dbeafe;
+            --color-primary-200: #bfdbfe;
+            --color-primary-300: #93c5fd;
+            --color-primary-400: #60a5fa;
+            --color-primary-500: #3b82f6;
+            --color-primary-600: #2563eb;
+            --color-primary-700: #1d4ed8;
+            --color-primary-800: #1e40af;
+            --color-primary-900: #1e3a8a;
+            --color-primary-focus: #2563eb;
+            --color-primary-content: #ffffff;
+  
+            /* Secondary colors */
+            --color-secondary: #8b5cf6;
+            --color-secondary-50: #f5f3ff;
+            --color-secondary-100: #ede9fe;
+            --color-secondary-200: #ddd6fe;
+            --color-secondary-300: #c4b5fd;
+            --color-secondary-400: #a78bfa;
+            --color-secondary-500: #8b5cf6;
+            --color-secondary-600: #7c3aed;
+            --color-secondary-700: #6d28d9;
+            --color-secondary-800: #5b21b6;
+            --color-secondary-900: #4c1d95;
+            --color-secondary-focus: #7c3aed;
+            --color-secondary-content: #ffffff;
+  
+            /* Accent colors */
+            --color-accent: #f472b6;
+            --color-accent-50: #fdf2f8;
+            --color-accent-100: #fce7f3;
+            --color-accent-200: #fbcfe8;
+            --color-accent-300: #f9a8d4;
+            --color-accent-400: #f472b6;
+            --color-accent-500: #ec4899;
+            --color-accent-600: #db2777;
+            --color-accent-700: #be185d;
+            --color-accent-800: #9d174d;
+            --color-accent-900: #831843;
+            --color-accent-focus: #db2777;
+            --color-accent-content: #ffffff;
+  
+            /* Neutral colors */
+            --color-neutral: #6b7280;
+            --color-neutral-50: #f9fafb;
+            --color-neutral-100: #f3f4f6;
+            --color-neutral-200: #e5e7eb;
+            --color-neutral-300: #d1d5db;
+            --color-neutral-400: #9ca3af;
+            --color-neutral-500: #6b7280;
+            --color-neutral-600: #4b5563;
+            --color-neutral-700: #374151;
+            --color-neutral-800: #1f2937;
+            --color-neutral-900: #111827;
+            --color-neutral-focus: #4b5563;
+            --color-neutral-content: #ffffff;
+  
+            /* Info colors */
+            --color-info: #3b82f6;
+            --color-info-50: #eff6ff;
+            --color-info-100: #dbeafe;
+            --color-info-200: #bfdbfe;
+            --color-info-300: #93c5fd;
+            --color-info-400: #60a5fa;
+            --color-info-500: #3b82f6;
+            --color-info-600: #2563eb;
+            --color-info-700: #1d4ed8;
+            --color-info-800: #1e40af;
+            --color-info-900: #1e3a8a;
+            --color-info-focus: #2563eb;
+            --color-info-content: #ffffff;
+  
+            /* Success colors */
+            --color-success: #10b981;
+            --color-success-50: #ecfdf5;
+            --color-success-100: #d1fae5;
+            --color-success-200: #a7f3d0;
+            --color-success-300: #6ee7b7;
+            --color-success-400: #34d399;
+            --color-success-500: #10b981;
+            --color-success-600: #059669;
+            --color-success-700: #047857;
+            --color-success-800: #065f46;
+            --color-success-900: #064e3b;
+            --color-success-focus: #059669;
+            --color-success-content: #ffffff;
+  
+            /* Warning colors */
+            --color-warning: #f59e0b;
+            --color-warning-50: #fffbeb;
+            --color-warning-100: #fef3c7;
+            --color-warning-200: #fde68a;
+            --color-warning-300: #fcd34d;
+            --color-warning-400: #fbbf24;
+            --color-warning-500: #f59e0b;
+            --color-warning-600: #d97706;
+            --color-warning-700: #b45309;
+            --color-warning-800: #92400e;
+            --color-warning-900: #78350f;
+            --color-warning-focus: #d97706;
+            --color-warning-content: #ffffff;
+  
+            /* Error colors */
+            --color-error: #ef4444;
+            --color-error-50: #fef2f2;
+            --color-error-100: #fee2e2;
+            --color-error-200: #fecaca;
+            --color-error-300: #fca5a5;
+            --color-error-400: #f87171;
+            --color-error-500: #ef4444;
+            --color-error-600: #dc2626;
+            --color-error-700: #b91c1c;
+            --color-error-800: #991b1b;
+            --color-error-900: #7f1d1d;
+            --color-error-focus: #dc2626;
+            --color-error-content: #ffffff;
+          }
+  </style>
+  
+      
+  <style>
+  /* Dark theme */
+          .dark {
+            /* Base colors */
+            --color-base: #1f2937;
+            --color-base-50: #111827;
+            --color-base-100: #1f2937;
+            --color-base-200: #374151;
+            --color-base-300: #4b5563;
+            --color-base-400: #6b7280;
+            --color-base-500: #9ca3af;
+            --color-base-600: #d1d5db;
+            --color-base-700: #e5e7eb;
+            --color-base-800: #f3f4f6;
+            --color-base-900: #f9fafb;
+            --color-base-content: #f9fafb;
+  
+            /* Primary colors */
+            --color-primary: #60a5fa;
+            --color-primary-50: #1e3a8a;
+            --color-primary-100: #1e40af;
+            --color-primary-200: #1d4ed8;
+            --color-primary-300: #2563eb;
+            --color-primary-400: #3b82f6;
+            --color-primary-500: #60a5fa;
+            --color-primary-600: #93c5fd;
+            --color-primary-700: #bfdbfe;
+            --color-primary-800: #dbeafe;
+            --color-primary-900: #eff6ff;
+            --color-primary-focus: #3b82f6;
+            --color-primary-content: #1f2937;
+  
+            /* Secondary colors */
+            --color-secondary: #a78bfa;
+            --color-secondary-50: #4c1d95;
+            --color-secondary-100: #5b21b6;
+            --color-secondary-200: #6d28d9;
+            --color-secondary-300: #7c3aed;
+            --color-secondary-400: #8b5cf6;
+            --color-secondary-500: #a78bfa;
+            --color-secondary-600: #c4b5fd;
+            --color-secondary-700: #ddd6fe;
+            --color-secondary-800: #ede9fe;
+            --color-secondary-900: #f5f3ff;
+            --color-secondary-focus: #8b5cf6;
+            --color-secondary-content: #1f2937;
+  
+            /* Accent colors */
+            --color-accent: #f472b6;
+            --color-accent-50: #831843;
+            --color-accent-100: #9d174d;
+            --color-accent-200: #be185d;
+            --color-accent-300: #db2777;
+            --color-accent-400: #ec4899;
+            --color-accent-500: #f472b6;
+            --color-accent-600: #f9a8d4;
+            --color-accent-700: #fbcfe8;
+            --color-accent-800: #fce7f3;
+            --color-accent-900: #fdf2f8;
+            --color-accent-focus: #ec4899;
+            --color-accent-content: #1f2937;
+  
+            /* Neutral colors remain the same as light theme */
+  
+            /* Info colors */
+            --color-info: #60a5fa;
+            --color-info-50: #1e3a8a;
+            --color-info-100: #1e40af;
+            --color-info-200: #1d4ed8;
+            --color-info-300: #2563eb;
+            --color-info-400: #3b82f6;
+            --color-info-500: #60a5fa;
+            --color-info-600: #93c5fd;
+            --color-info-700: #bfdbfe;
+            --color-info-800: #dbeafe;
+            --color-info-900: #eff6ff;
+            --color-info-focus: #3b82f6;
+            --color-info-content: #1f2937;
+  
+            /* Success colors */
+            --color-success: #34d399;
+            --color-success-50: #064e3b;
+            --color-success-100: #065f46;
+            --color-success-200: #047857;
+            --color-success-300: #059669;
+            --color-success-400: #10b981;
+            --color-success-500: #34d399;
+            --color-success-600: #6ee7b7;
+            --color-success-700: #a7f3d0;
+            --color-success-800: #d1fae5;
+            --color-success-900: #ecfdf5;
+            --color-success-focus: #10b981;
+            --color-success-content: #1f2937;
+  
+            /* Warning colors */
+            --color-warning: #fbbf24;
+            --color-warning-50: #78350f;
+            --color-warning-100: #92400e;
+            --color-warning-200: #b45309;
+            --color-warning-300: #d97706;
+            --color-warning-400: #f59e0b;
+            --color-warning-500: #fbbf24;
+            --color-warning-600: #fcd34d;
+            --color-warning-700: #fde68a;
+            --color-warning-800: #fef3c7;
+            --color-warning-900: #fffbeb;
+            --color-warning-focus: #f59e0b;
+            --color-warning-content: #1f2937;
+  
+            /* Error colors */
+            --color-error: #f87171;
+            --color-error-50: #7f1d1d;
+            --color-error-100: #991b1b;
+            --color-error-200: #b91c1c;
+            --color-error-300: #dc2626;
+            --color-error-400: #ef4444;
+            --color-error-500: #f87171;
+            --color-error-600: #fca5a5;
+            --color-error-700: #fecaca;
+            --color-error-800: #fee2e2;
+            --color-error-900: #fef2f2;
+            --color-error-focus: #ef4444;
+            --color-error-content: #1f2937;
+          }
+  </style>
+  
+      
+    <script>
+          tailwind.config = {
+              theme: {
+                extend: {
+                  colors: {
+                  ...{"transparent":"transparent","current":"currentColor","black":"#000000","white":"#ffffff","gray":{"50":"#f9fafb","100":"#f3f4f6","200":"#e5e7eb","300":"#d1d5db","400":"#9ca3af","500":"#6b7280","600":"#4b5563","700":"#374151","800":"#1f2937","900":"#111827"},"red":{"50":"#fef2f2","100":"#fee2e2","200":"#fecaca","300":"#fca5a5","400":"#f87171","500":"#ef4444","600":"#dc2626","700":"#b91c1c","800":"#991b1b","900":"#7f1d1d"},"yellow":{"50":"#fffbeb","100":"#fef3c7","200":"#fde68a","300":"#fcd34d","400":"#fbbf24","500":"#f59e0b","600":"#d97706","700":"#b45309","800":"#92400e","900":"#78350f"},"green":{"50":"#ecfdf5","100":"#d1fae5","200":"#a7f3d0","300":"#6ee7b7","400":"#34d399","500":"#10b981","600":"#059669","700":"#047857","800":"#065f46","900":"#064e3b"},"blue":{"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a"},"indigo":{"50":"#eef2ff","100":"#e0e7ff","200":"#c7d2fe","300":"#a5b4fc","400":"#818cf8","500":"#6366f1","600":"#4f46e5","700":"#4338ca","800":"#3730a3","900":"#312e81"},"purple":{"50":"#f5f3ff","100":"#ede9fe","200":"#ddd6fe","300":"#c4b5fd","400":"#a78bfa","500":"#8b5cf6","600":"#7c3aed","700":"#6d28d9","800":"#5b21b6","900":"#4c1d95"},"pink":{"50":"#fdf2f8","100":"#fce7f3","200":"#fbcfe8","300":"#f9a8d4","400":"#f472b6","500":"#ec4899","600":"#db2777","700":"#be185d","800":"#9d174d","900":"#831843"}},
+                  ...{"primary":{"50":"var(--color-primary-50)","100":"var(--color-primary-100)","200":"var(--color-primary-200)","300":"var(--color-primary-300)","400":"var(--color-primary-400)","500":"var(--color-primary-500)","600":"var(--color-primary-600)","700":"var(--color-primary-700)","800":"var(--color-primary-800)","900":"var(--color-primary-900)","DEFAULT":"var(--color-primary)","focus":"var(--color-primary-focus)","content":"var(--color-primary-content)"},"secondary":{"50":"var(--color-secondary-50)","100":"var(--color-secondary-100)","200":"var(--color-secondary-200)","300":"var(--color-secondary-300)","400":"var(--color-secondary-400)","500":"var(--color-secondary-500)","600":"var(--color-secondary-600)","700":"var(--color-secondary-700)","800":"var(--color-secondary-800)","900":"var(--color-secondary-900)","DEFAULT":"var(--color-secondary)","focus":"var(--color-secondary-focus)","content":"var(--color-secondary-content)"},"accent":{"50":"var(--color-accent-50)","100":"var(--color-accent-100)","200":"var(--color-accent-200)","300":"var(--color-accent-300)","400":"var(--color-accent-400)","500":"var(--color-accent-500)","600":"var(--color-accent-600)","700":"var(--color-accent-700)","800":"var(--color-accent-800)","900":"var(--color-accent-900)","DEFAULT":"var(--color-accent)","focus":"var(--color-accent-focus)","content":"var(--color-accent-content)"},"neutral":{"50":"var(--color-neutral-50)","100":"var(--color-neutral-100)","200":"var(--color-neutral-200)","300":"var(--color-neutral-300)","400":"var(--color-neutral-400)","500":"var(--color-neutral-500)","600":"var(--color-neutral-600)","700":"var(--color-neutral-700)","800":"var(--color-neutral-800)","900":"var(--color-neutral-900)","DEFAULT":"var(--color-neutral)","focus":"var(--color-neutral-focus)","content":"var(--color-neutral-content)"},"info":{"50":"var(--color-info-50)","100":"var(--color-info-100)","200":"var(--color-info-200)","300":"var(--color-info-300)","400":"var(--color-info-400)","500":"var(--color-info-500)","600":"var(--color-info-600)","700":"var(--color-info-700)","800":"var(--color-info-800)","900":"var(--color-info-900)","DEFAULT":"var(--color-info)","focus":"var(--color-info-focus)","content":"var(--color-info-content)"},"success":{"50":"var(--color-success-50)","100":"var(--color-success-100)","200":"var(--color-success-200)","300":"var(--color-success-300)","400":"var(--color-success-400)","500":"var(--color-success-500)","600":"var(--color-success-600)","700":"var(--color-success-700)","800":"var(--color-success-800)","900":"var(--color-success-900)","DEFAULT":"var(--color-success)","focus":"var(--color-success-focus)","content":"var(--color-success-content)"},"warning":{"50":"var(--color-warning-50)","100":"var(--color-warning-100)","200":"var(--color-warning-200)","300":"var(--color-warning-300)","400":"var(--color-warning-400)","500":"var(--color-warning-500)","600":"var(--color-warning-600)","700":"var(--color-warning-700)","800":"var(--color-warning-800)","900":"var(--color-warning-900)","DEFAULT":"var(--color-warning)","focus":"var(--color-warning-focus)","content":"var(--color-warning-content)"},"error":{"50":"var(--color-error-50)","100":"var(--color-error-100)","200":"var(--color-error-200)","300":"var(--color-error-300)","400":"var(--color-error-400)","500":"var(--color-error-500)","600":"var(--color-error-600)","700":"var(--color-error-700)","800":"var(--color-error-800)","900":"var(--color-error-900)","DEFAULT":"var(--color-error)","focus":"var(--color-error-focus)","content":"var(--color-error-content)"},"danger":{"50":"var(--color-error-50)","100":"var(--color-error-100)","200":"var(--color-error-200)","300":"var(--color-error-300)","400":"var(--color-error-400)","500":"var(--color-error-500)","600":"var(--color-error-600)","700":"var(--color-error-700)","800":"var(--color-error-800)","900":"var(--color-error-900)","DEFAULT":"var(--color-error)","focus":"var(--color-error-focus)","content":"var(--color-error-content)"},"failure":{"50":"var(--color-error-50)","100":"var(--color-error-100)","200":"var(--color-error-200)","300":"var(--color-error-300)","400":"var(--color-error-400)","500":"var(--color-error-500)","600":"var(--color-error-600)","700":"var(--color-error-700)","800":"var(--color-error-800)","900":"var(--color-error-900)","DEFAULT":"var(--color-error)","focus":"var(--color-error-focus)","content":"var(--color-error-content)"}},
+                  },
+                },
+              },
+              variants: {
+                extend: {
+                  backgroundColor: ['active', 'group-hover'],
+                  textColor: ['active', 'group-hover'],
+                },
+              },
+              plugins: [],
+            };
+    </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&amp;display=swap" /><style>
+        body {
+          font-family: 'Inter', sans-serif !important;
+        }
+        
+        /* Preserve Font Awesome icons */
+        .fa, .fas, .far, .fal, .fab {
+          font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+        }
+      </style><style>
+    .highlighted-section {
+      outline: 2px solid #3F20FB;
+      background-color: rgba(63, 32, 251, 0.1);
+    }
+  
+    .edit-button {
+      position: absolute;
+      z-index: 1000;
+    }
+  
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  
+    html, body {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    </style></head>
+  
+                <body class="h-full text-base-content">
+                  <section id="app-wrapper" class="bg-gray-100 dark:bg-gray-900 min-h-[100vh] font-['Inter'] text-gray-900 dark:text-white">
+    <!-- Status Bar -->
+    <div id="status-bar" class="flex justify-between items-center px-4 bg-white dark:bg-[#121F3D] fixed top-0 left-0 right-0 z-50" style="height:44px;">
+      <div class="text-sm font-medium">9:20 AM</div>
+      <div class="flex items-center space-x-1">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-three-quarters"></i>
+      </div>
+    </div>
+  
+    <!-- Header -->
+    <header id="header" class="fixed top-[44px] left-0 right-0 z-40 bg-white dark:bg-[#121F3D] shadow-sm px-4 py-3">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-xl font-semibold">Good morning, Alex</h1>
+          <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+            <i class="fa-solid fa-cloud-sun mr-1 text-[#FF7A5A] dark:text-[#5CE1E6]"></i>
+            72°F • Sunny in San Francisco
+          </p>
+        </div>
+        <div class="flex items-center space-x-3">
+          <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 relative">
+            <i class="fa-solid fa-bell text-[#1A73E8] dark:text-[#5CE1E6]"></i>
+            <span class="absolute -top-1 -right-1 bg-[#FF7A5A] dark:bg-[#5CE1E6] text-white dark:text-[#121F3D] text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+          </button>
+          <div class="h-10 w-10 rounded-full overflow-hidden">
+            <a href="profile.html">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Profile" class="h-full w-full object-cover" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  
+    <!-- Main Content -->
+    <main id="main-content" class="pb-20 pt-[100px]">
+      <!-- Trip Countdown Widget -->
+      <section id="trip-countdown" class="px-4 py-4">
+        <div class="bg-gradient-to-r from-[#1A73E8] to-[#5b98e5] dark:from-[#121F3D] dark:to-[#1e3366] rounded-xl p-4 shadow-md overflow-hidden relative">
+          <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+            <i class="fa-solid fa-plane text-white text-[100px] transform -rotate-45"></i>
+          </div>
+          <h2 class="text-white font-semibold mb-2">Your next adventure</h2>
+          <div class="flex items-center">
+            <div class="bg-white/20 dark:bg-white/10 rounded-lg p-2 mr-3">
+              <i class="fa-solid fa-passport text-white text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-white font-bold text-lg">Bali, Indonesia</h3>
+              <p class="text-white/80 text-sm">May 15-22, 2025</p>
+            </div>
+          </div>
+          
+          <div class="mt-4 flex justify-between">
+            <div class="bg-white/20 dark:bg-white/10 rounded-lg p-2 text-center flex-1 mr-2">
+              <span class="text-white font-bold text-xl block">18</span>
+              <span class="text-white/80 text-xs">Days</span>
+            </div>
+            <div class="bg-white/20 dark:bg-white/10 rounded-lg p-2 text-center flex-1 mr-2">
+              <span class="text-white font-bold text-xl block">07</span>
+              <span class="text-white/80 text-xs">Hours</span>
+            </div>
+            <div class="bg-white/20 dark:bg-white/10 rounded-lg p-2 text-center flex-1 mr-2">
+              <span class="text-white font-bold text-xl block">32</span>
+              <span class="text-white/80 text-xs">Minutes</span>
+            </div>
+            <div class="bg-white/20 dark:bg-white/10 rounded-lg p-2 text-center flex-1">
+              <span class="text-white font-bold text-xl block">15</span>
+              <span class="text-white/80 text-xs">Seconds</span>
+            </div>
+          </div>
+          
+          <div class="mt-4 flex">
+            <button class="bg-white text-[#1A73E8] dark:text-[#121F3D] rounded-lg px-4 py-2 text-sm font-medium flex items-center flex-1 justify-center mr-2">
+              <i class="fa-solid fa-list-check mr-2"></i>
+              View Checklist
+            </button>
+            <button class="bg-white/20 dark:bg-white/10 text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center flex-1 justify-center">
+              <i class="fa-solid fa-route mr-2"></i>
+              Itinerary
+            </button>
+          </div>
+        </div>
+      </section>
+  
+      <!-- AI-Curated Destinations -->
+      <section id="ai-curated-destinations" class="px-4 py-3">
+        <div class="flex justify-between items-center mb-4">
+          <div>
+            <h2 class="text-lg font-semibold">AI-Picked for You</h2>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Based on your travel preferences</p>
+          </div>
+          <button class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">Refresh</button>
+        </div>
+        
+        <div class="relative">
+          <div class="flex overflow-x-auto pb-4 -mx-4 px-4 space-x-4 hide-scrollbar">
+            <!-- AI Destination Card 1 -->
+            <div id="ai-destination-card-1" class="flex-shrink-0 w-[260px] rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md relative">
+              <div class="h-[160px] relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2f5715a318-3daddcac7a9a8c4faf27.png" alt="Santorini Greece" />
+                <div class="absolute top-2 right-2 z-20 bg-white/80 dark:bg-[#121F3D]/80 backdrop-blur-sm rounded-full p-2">
+                  <i class="fa-solid fa-heart text-[#FF7A5A] dark:text-[#5CE1E6]"></i>
+                </div>
+                <div class="absolute bottom-2 left-2 z-20">
+                  <span class="bg-[#FF7A5A]/90 dark:bg-[#5CE1E6]/90 text-white dark:text-[#121F3D] text-xs py-1 px-2 rounded-full font-medium">93% Match</span>
+                </div>
+              </div>
+              <div class="p-3">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Santorini, Greece</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      Perfect for your preference for scenic views and romantic getaways
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-3 flex justify-between items-center">
+                  <div class="flex items-center text-yellow-500">
+                    <i class="fa-solid fa-star text-xs"></i>
+                    <span class="ml-1 text-xs font-medium">4.8</span>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">$1,299</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- AI Destination Card 2 -->
+            <div id="ai-destination-card-2" class="flex-shrink-0 w-[260px] rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md relative">
+              <div class="h-[160px] relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e47c3148dc-5043509eb18601f034ec.png" alt="Kyoto Japan" />
+                <div class="absolute top-2 right-2 z-20 bg-white/80 dark:bg-[#121F3D]/80 backdrop-blur-sm rounded-full p-2">
+                  <i class="fa-regular fa-heart text-[#FF7A5A] dark:text-[#5CE1E6]"></i>
+                </div>
+                <div class="absolute bottom-2 left-2 z-20">
+                  <span class="bg-[#FF7A5A]/90 dark:bg-[#5CE1E6]/90 text-white dark:text-[#121F3D] text-xs py-1 px-2 rounded-full font-medium">87% Match</span>
+                </div>
+              </div>
+              <div class="p-3">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Kyoto, Japan</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      Matches your interest in cultural experiences and photography
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-3 flex justify-between items-center">
+                  <div class="flex items-center text-yellow-500">
+                    <i class="fa-solid fa-star text-xs"></i>
+                    <span class="ml-1 text-xs font-medium">4.7</span>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">$1,850</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- AI Destination Card 3 -->
+            <div id="ai-destination-card-3" class="flex-shrink-0 w-[260px] rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-md relative">
+              <div class="h-[160px] relative">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/059a651aff-63ac8d30c54eb89e7cd3.png" alt="Bali Indonesia" />
+                <div class="absolute top-2 right-2 z-20 bg-white/80 dark:bg-[#121F3D]/80 backdrop-blur-sm rounded-full p-2">
+                  <i class="fa-regular fa-heart text-[#FF7A5A] dark:text-[#5CE1E6]"></i>
+                </div>
+                <div class="absolute bottom-2 left-2 z-20">
+                  <span class="bg-[#FF7A5A]/90 dark:bg-[#5CE1E6]/90 text-white dark:text-[#121F3D] text-xs py-1 px-2 rounded-full font-medium">82% Match</span>
+                </div>
+              </div>
+              <div class="p-3">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Bali, Indonesia</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      Aligns with your love for beaches and outdoor adventures
+                    </p>
+                  </div>
+                </div>
+                <div class="mt-3 flex justify-between items-center">
+                  <div class="flex items-center text-yellow-500">
+                    <i class="fa-solid fa-star text-xs"></i>
+                    <span class="ml-1 text-xs font-medium">4.6</span>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">$1,150</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Upcoming Bookings Timeline -->
+      <section id="upcoming-bookings" class="px-4 py-4">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold">Upcoming Bookings</h2>
+          <button class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">View All</button>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
+          <div class="relative pl-6 border-l-2 border-[#1A73E8] dark:border-[#5CE1E6]">
+            <!-- Booking Item 1 -->
+            <div id="booking-item-1" class="mb-5 relative">
+              <div class="absolute -left-[19px] top-0 w-8 h-8 rounded-full bg-[#1A73E8] dark:bg-[#5CE1E6] flex items-center justify-center">
+                <i class="fa-solid fa-plane text-white dark:text-[#121F3D] text-sm"></i>
+              </div>
+              <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 ml-2">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Flight to Bali</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Singapore Airlines • SQ-942</p>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-xs font-medium">May 15, 2025</span>
+                  </div>
+                </div>
+                <div class="mt-2 flex items-center">
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-clock mr-1"></i>
+                    <span>Departing 9:45 AM</span>
+                  </div>
+                  <span class="mx-2 text-gray-300 dark:text-gray-600">•</span>
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-user mr-1"></i>
+                    <span>Terminal 3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Booking Item 2 -->
+            <div id="booking-item-2" class="mb-5 relative">
+              <div class="absolute -left-[19px] top-0 w-8 h-8 rounded-full bg-[#1A73E8] dark:bg-[#5CE1E6] flex items-center justify-center">
+                <i class="fa-solid fa-hotel text-white dark:text-[#121F3D] text-sm"></i>
+              </div>
+              <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 ml-2">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Ubud Jungle Resort</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Deluxe Villa with Private Pool</p>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-xs font-medium">May 15-22</span>
+                  </div>
+                </div>
+                <div class="mt-2 flex items-center">
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-check-circle mr-1"></i>
+                    <span>Confirmed</span>
+                  </div>
+                  <span class="mx-2 text-gray-300 dark:text-gray-600">•</span>
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-user-group mr-1"></i>
+                    <span>2 Guests</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Booking Item 3 -->
+            <div id="booking-item-3" class="relative">
+              <div class="absolute -left-[19px] top-0 w-8 h-8 rounded-full bg-[#1A73E8] dark:bg-[#5CE1E6] flex items-center justify-center">
+                <i class="fa-solid fa-car text-white dark:text-[#121F3D] text-sm"></i>
+              </div>
+              <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 ml-2">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold">Car Rental</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Toyota Avanza • Automatic</p>
+                  </div>
+                  <div class="bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 rounded-lg px-2 py-1">
+                    <span class="text-[#1A73E8] dark:text-[#5CE1E6] text-xs font-medium">May 16-21</span>
+                  </div>
+                </div>
+                <div class="mt-2 flex items-center">
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-map-marker-alt mr-1"></i>
+                    <span>Pickup at Airport</span>
+                  </div>
+                  <span class="mx-2 text-gray-300 dark:text-gray-600">•</span>
+                  <div class="flex items-center text-gray-600 dark:text-gray-300 text-xs">
+                    <i class="fa-solid fa-gas-pump mr-1"></i>
+                    <span>Full to Full</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Quick Action Cards -->
+      <section id="quick-actions" class="px-4 py-4">
+        <h2 class="text-lg font-semibold mb-4">Recent Searches</h2>
+        
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Quick Action Card 1 -->
+          <div id="quick-action-card-1" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm p-3">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-2">
+                <i class="fa-solid fa-plane text-[#1A73E8] dark:text-[#5CE1E6] text-sm"></i>
+              </div>
+              <div class="text-sm font-medium">SF → Tokyo</div>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Jun 10-20, 2025 • 1 Adult</p>
+            <button class="w-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 text-[#1A73E8] dark:text-[#5CE1E6] rounded-lg py-1.5 text-xs font-medium">
+              Continue Search
+            </button>
+          </div>
+          
+          <!-- Quick Action Card 2 -->
+          <div id="quick-action-card-2" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm p-3">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-2">
+                <i class="fa-solid fa-hotel text-[#1A73E8] dark:text-[#5CE1E6] text-sm"></i>
+              </div>
+              <div class="text-sm font-medium">Paris Hotels</div>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Sep 5-12, 2025 • 2 Guests</p>
+            <button class="w-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 text-[#1A73E8] dark:text-[#5CE1E6] rounded-lg py-1.5 text-xs font-medium">
+              Continue Search
+            </button>
+          </div>
+          
+          <!-- Quick Action Card 3 -->
+          <div id="quick-action-card-3" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm p-3">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-2">
+                <i class="fa-solid fa-umbrella-beach text-[#1A73E8] dark:text-[#5CE1E6] text-sm"></i>
+              </div>
+              <div class="text-sm font-medium">Cancun Activities</div>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Aug 15-22, 2025 • 2 Adults</p>
+            <button class="w-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 text-[#1A73E8] dark:text-[#5CE1E6] rounded-lg py-1.5 text-xs font-medium">
+              Continue Search
+            </button>
+          </div>
+          
+          <!-- Quick Action Card 4 -->
+          <div id="quick-action-card-4" class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm p-3">
+            <div class="flex items-center mb-2">
+              <div class="w-8 h-8 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-2">
+                <i class="fa-solid fa-car text-[#1A73E8] dark:text-[#5CE1E6] text-sm"></i>
+              </div>
+              <div class="text-sm font-medium">Barcelona Cars</div>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Jul 3-10, 2025 • Economy</p>
+            <button class="w-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 text-[#1A73E8] dark:text-[#5CE1E6] rounded-lg py-1.5 text-xs font-medium">
+              Continue Search
+            </button>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Travel Insights -->
+      <section id="travel-insights" class="px-4 py-4 mb-4">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold">Travel Insights</h2>
+          <button class="text-[#1A73E8] dark:text-[#5CE1E6] text-sm font-medium">More</button>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
+          <div class="flex items-start">
+            <div class="w-10 h-10 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-3 flex-shrink-0">
+              <i class="fa-solid fa-lightbulb text-[#1A73E8] dark:text-[#5CE1E6]"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">Price Drop Alert</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Flights to Bali are currently 23% cheaper than average for your travel dates. Consider booking soon.</p>
+            </div>
+          </div>
+          
+          <div class="h-[1px] bg-gray-200 dark:bg-gray-700 my-4"></div>
+          
+          <div class="flex items-start">
+            <div class="w-10 h-10 rounded-full bg-[#1A73E8]/10 dark:bg-[#5CE1E6]/20 flex items-center justify-center mr-3 flex-shrink-0">
+              <i class="fa-solid fa-calendar-check text-[#1A73E8] dark:text-[#5CE1E6]"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">Best Time to Visit</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Based on your preferences, May is the ideal month for your Bali trip with perfect weather and fewer crowds.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  
+    <!-- Bottom Navigation -->
+    <nav id="bottom-navigation" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#121F3D] border-t border-gray-200 dark:border-gray-800 px-2 py-2 flex justify-between items-center z-50">
+      <a href="home.html" class="flex flex-col items-center justify-center flex-1 py-1 text-gray-500 dark:text-gray-400 cursor-pointer">
+        <i class="fa-solid fa-house text-lg"></i>
+        <span class="text-xs mt-1">Home</span>
+      </a>
+      <a href="explore.html" class="flex flex-col items-center justify-center flex-1 py-1 text-gray-500 dark:text-gray-400 cursor-pointer">
+        <i class="fa-solid fa-compass text-lg"></i>
+        <span class="text-xs mt-1">Explore</span>
+      </a>
+      <a href="itinerary.html" class="flex flex-col items-center justify-center flex-1 py-1 text-gray-500 dark:text-gray-400 cursor-pointer">
+        <i class="fa-solid fa-route text-lg"></i>
+        <span class="text-xs mt-1">Itinerary</span>
+      </a>
+      <a href="bookings.html" class="flex flex-col items-center justify-center flex-1 py-1 text-gray-500 dark:text-gray-400 cursor-pointer">
+        <i class="fa-solid fa-ticket text-lg"></i>
+        <span class="text-xs mt-1">Bookings</span>
+      </a>
+      <a href="profile.html" class="flex flex-col items-center justify-center flex-1 py-1 text-[#1A73E8] dark:text-[#5CE1E6] cursor-pointer">
+        <i class="fa-solid fa-user text-lg"></i>
+        <span class="text-xs mt-1">Profile</span>
+      </a>
+    </nav>
+  
+    <!-- Floating Action Button -->
+    <a href="explore.html" style="position:relative;z-index:100;">
+      <button id="fab-button" class="fixed bottom-20 right-5 h-14 w-14 rounded-full bg-[#1A73E8] dark:bg-[#5CE1E6] shadow-lg flex items-center justify-center text-white dark:text-[#121F3D]">
+        <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+      </button>
+    </a>
+  </section>
+  
+  <style>
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+  
+  <script>
+    // Countdown timer functionality
+    function updateCountdown() {
+      // Set the target date (May 15, 2025)
+      const targetDate = new Date('May 15, 2025 00:00:00').getTime();
+      
+      // Update the countdown every second
+      setInterval(function() {
+        // Get current date and time
+        const now = new Date().getTime();
+        
+        // Calculate the time remaining
+        const distance = targetDate - now;
+        
+        // Calculate days, hours, minutes, seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Display the results
+        document.querySelector('#trip-countdown span:nth-child(1)').textContent = days.toString().padStart(2, '0');
+        document.querySelector('#trip-countdown span:nth-child(3)').textContent = hours.toString().padStart(2, '0');
+        document.querySelector('#trip-countdown span:nth-child(5)').textContent = minutes.toString().padStart(2, '0');
+        document.querySelector('#trip-countdown span:nth-child(7)').textContent = seconds.toString().padStart(2, '0');
+      }, 1000);
+    }
+    
+    // Dynamic greeting based on time of day
+    function setGreeting() {
+      const hour = new Date().getHours();
+      const greetingElement = document.querySelector('#header h1');
+      let greeting = 'Good ';
+      
+      if (hour < 12) {
+        greeting += 'morning';
+      } else if (hour < 18) {
+        greeting += 'afternoon';
+      } else {
+        greeting += 'evening';
+      }
+      
+      greetingElement.textContent = `${greeting}, Alex`;
+    }
+    
+    // Initialize functions when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCountdown();
+      setGreeting();
+    });
+  </script>
+                
+              
+            </body></html>

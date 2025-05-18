@@ -1,0 +1,329 @@
+.modalContainer {
+  --primary-purple: #8B5CF6;
+  --secondary-purple: #6B4DE6;
+  --dark-bg: #0F172A;
+  --lighter-dark: #1E293B;
+  --device-frame: #2D3748;
+  --text: #fff;
+  --muted-text: #94A3B8;
+  --accent-pink: #EC4899;
+  --modal-padding-desktop: 40px;
+  --modal-padding-mobile: 20px;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-bg), var(--lighter-dark));
+  overflow: auto;
+  padding: var(--modal-padding-desktop);
+  backdrop-filter: blur(10px);
+  animation: modal-fade-in 0.5s cubic-bezier(.4,0,.2,1);
+}
+
+@media (max-width: 600px) {
+  .modalBackdrop {
+    padding: var(--modal-padding-mobile);
+  }
+}
+
+.modalContent {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2.5rem;
+  min-width: 0;
+  min-height: 0;
+  animation: modal-content-in 0.7s cubic-bezier(.4,0,.2,1);
+  padding: 40px;
+  transition: padding 0.5s, gap 0.5s, flex-direction 0.5s;
+}
+
+@media (max-width: 600px) {
+  .modalContent {
+    padding: 20px;
+  }
+}
+
+.joystickPanel {
+  display: none;
+}
+@media (min-width: 640px) {
+  .joystickPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.deviceFrame {
+  position: relative;
+  background: linear-gradient(135deg, var(--device-frame) 80%, var(--lighter-dark));
+  border-radius: 38px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 80px rgba(107,77,230,0.1);
+  border: 4px solid #23272f;
+  overflow: visible;
+  aspect-ratio: 9/19.5;
+  min-width: 260px;
+  max-width: 390px;
+  min-height: 500px;
+  max-height: 844px;
+  transition: box-shadow 0.3s, transform 0.3s;
+  will-change: transform;
+}
+.portrait {
+  width: 390px;
+  height: 844px;
+}
+.landscape {
+  width: 844px;
+  height: 390px;
+}
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-16px) scale(1.01); }
+}
+.deviceFrame:hover {
+  transform: rotate(2deg) scale(1.02);
+  box-shadow: 0 32px 64px rgba(0,0,0,0.4), 0 0 120px var(--primary-purple, #8B5CF6);
+}
+.deviceNotch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 30px;
+  background: #181C23;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+.statusBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  background: rgba(15,23,42,0.5);
+  backdrop-filter: blur(8px);
+  font-family: 'Inter', sans-serif;
+}
+.statusTime {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.statusIcons {
+  display: flex;
+  gap: 0.25rem;
+}
+.deviceScreen {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  border-radius: 32px;
+  background: linear-gradient(135deg, #23243a 60%, #181C23 100%);
+  box-shadow: inset 0 0 20px rgba(139,92,246,0.1);
+  filter: brightness(1.08);
+  position: relative;
+  z-index: 2;
+  font-family: 'Inter', sans-serif;
+}
+.homeIndicator {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 5px;
+  background: #444b5a;
+  border-radius: 3px;
+  opacity: 0.7;
+  z-index: 10;
+}
+.reflection {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%) scaleY(-1);
+  width: 80%;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+  filter: blur(6px);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+}
+.vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 48px;
+  box-shadow: 0 0 120px 40px #0F172A inset, 0 0 80px 20px #1E293B inset;
+  z-index: 100;
+}
+.particles {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 99;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="1.5" fill="%238B5CF6" opacity="0.18"/><circle cx="80" cy="60" r="1" fill="%23EC4899" opacity="0.12"/><circle cx="160" cy="120" r="1.2" fill="%236B4DE6" opacity="0.13"/><circle cx="300" cy="200" r="1.7" fill="%23fff" opacity="0.08"/></svg>');
+  background-repeat: repeat;
+  opacity: 0.5;
+  mix-blend-mode: lighten;
+}
+.controlsPanel {
+  background: rgba(30,41,59,0.85);
+  border-radius: 20px;
+  padding: 12px;
+  margin-left: 1.5rem;
+  border: 1.5px solid #23272f;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 4px 24px rgba(139,92,246,0.08);
+  z-index: 10;
+}
+.controlButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(36,37,54,0.9);
+  color: var(--primary-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: none;
+  box-shadow: 0 2px 8px rgba(139,92,246,0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+.controlButton:hover {
+  background: var(--primary-purple);
+  color: #fff;
+  box-shadow: 0 4px 16px var(--primary-purple, #8B5CF6);
+  transform: scale(1.08);
+}
+.closeButton {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(36,37,54,0.7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 16px rgba(139,92,246,0.12);
+  border: 1.5px solid #23272f;
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.closeButton:hover {
+  background: var(--accent-pink);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--accent-pink, #EC4899);
+  transform: scale(1.08) rotate(8deg);
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes modal-content-in {
+  from { opacity: 0; transform: translateY(40px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.textShadow {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.interFont {
+  font-family: 'Inter', sans-serif;
+}
+
+.modalTitle {
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  padding-bottom: 24px;
+}
+
+.modalButton {
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.rotated {
+  transform: rotate(90deg) scale(0.85);
+  transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+  transform-origin: center center;
+}
+
+/* Modal container landscape mode modifier */
+.landscapeMode {
+  /* These values may be tweaked as needed for your modal */
+  min-width: 900px;
+  min-height: 480px;
+  max-width: 100vw;
+  max-height: 100vh;
+  transition: min-width 0.5s, min-height 0.5s, max-width 0.5s, max-height 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add transition for modalContent size/position changes */
+.modalContent {
+  /* ... existing code ... */
+  transition: padding 0.5s, gap 0.5s, flex-direction 0.5s;
+}
+
+/* Responsive adjustments for modalContent in landscape mode */
+.landscapeMode .modalContent {
+  flex-direction: row;
+  gap: 3.5rem;
+  padding: 32px 48px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .landscapeMode {
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+  }
+  .landscapeMode .modalContent {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 16px 8px;
+  }
+} 
