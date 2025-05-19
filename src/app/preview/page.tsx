@@ -50,14 +50,13 @@ function PreviewContent() {
             </div>
             
             <div className="mt-8">
-              <a 
-                href="https://www.upwork.com/freelancers/~019779b29316047eb1?mp_source=share" 
-                target="_blank" 
+              <Link 
+                href="/projects" 
                 className="button primary-button inline-flex items-center"
               >
-                Hire Me For Similar Work
-                <i className="fa-solid fa-arrow-right ml-2"></i>
-              </a>
+                Back to Projects
+                <i className="fa-solid fa-arrow-left ml-2"></i>
+              </Link>
             </div>
           </div>
         </div>

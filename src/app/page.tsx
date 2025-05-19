@@ -68,10 +68,6 @@ export default function Home() {
                   View My Work
                   <i className="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </Link>
-                <a href="https://www.upwork.com/freelancers/~019779b29316047eb1?mp_source=share" target="_blank" className="button secondary-button">
-                  <i className="fa-brands fa-upwork mr-2"></i>
-                  Hire Me on Upwork
-                </a>
               </div>
             </div>
             <div className="relative h-[500px]">
@@ -488,10 +484,6 @@ export default function Home() {
                 Start a Project
                 <i className="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
               </button>
-              <a href="https://www.upwork.com/freelancers/~019779b29316047eb1?mp_source=share" className="button secondary-button flex items-center justify-center" target="_blank">
-                <i className="fa-brands fa-upwork mr-2"></i>
-                Hire Me on Upwork
-              </a>
             </div>
           </div>
         </div>
