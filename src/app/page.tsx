@@ -74,7 +74,7 @@ export default function Home() {
               <div id="phone-mockup" className="absolute inset-0 flex items-center justify-center">
                 <div 
                   ref={phoneRef}
-                  className="w-[280px] h-[560px] bg-black rounded-[36px] border-4 border-purple-500/30 relative shadow-2xl shadow-purple-500/20 phone-container backdrop-blur-xl"
+                  className="w-[380px] h-[760px] bg-black rounded-[36px] border-4 border-purple-500/30 relative shadow-2xl shadow-purple-500/20 phone-container backdrop-blur-xl"
                 >
                   <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1/3 h-[30px] bg-black rounded-b-xl flex items-center justify-center">
                     <div className="w-16 h-4 bg-gray-900 rounded-full mt-2 flex items-center px-2">
