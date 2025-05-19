@@ -52,14 +52,16 @@ export default function FeaturedProjectCard({
       <div className="relative group bg-[#282562] rounded-xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all shadow-xl">
         {/* App Screenshot */}
         <div className="relative h-[360px] flex flex-col justify-end items-center">
-          <MobileFrame scale={0.55}>
-            <Image 
-              src={image}
-              alt={appName}
-              fill
-              className="object-cover"
-            />
-          </MobileFrame>
+          <div className="relative w-full h-full">
+            <MobileFrame scale={0.55} isPortrait={true}>
+              <Image 
+                src={image}
+                alt={appName}
+                fill
+                className="object-cover"
+              />
+            </MobileFrame>
+          </div>
           
           {/* Text Overlay (Bottom-Left) */}
           <div className="absolute bottom-0 left-0 p-5 z-10 text-left">

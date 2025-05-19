@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
+
+interface MobileFrameProps {
+  children: ReactNode;
+  isPortrait?: boolean;
+  scale?: number;
+}
 
 // MobileFrame component included directly in the same file
-const MobileFrame = ({ children, isPortrait = true, scale = 1 }) => {
+const MobileFrame = ({ children, isPortrait = true, scale = 1 }: MobileFrameProps) => {
   // Format time for status bar
   const currentTime = new Date().toLocaleTimeString([], { 
     hour: '2-digit', 
