@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MobilePreviewModal from './MobilePreviewModal';
-import MobileFrame from './mobile-frame';
+import { MobileFrame } from './mobile-frame';
 
 interface ProjectCardProps {
   id: string;
