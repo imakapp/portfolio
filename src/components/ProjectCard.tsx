@@ -61,13 +61,16 @@ const ProjectCard = ({
         <div className="relative h-[400px] flex items-center justify-center">
           <div className="relative w-full h-full flex items-center justify-center">
             <MobileFrame scale={0.65} isPortrait={true}>
-              <Image 
-                src={image}
-                alt={title}
-                className="w-full h-full object-cover"
-                width={400}
-                height={400}
-              />
+              <div className="relative w-full h-full" style={{ minHeight: 0, minWidth: 0 }}>
+                <Image 
+                  src={image}
+                  alt={title}
+                  fill
+                  style={{ objectFit: 'cover', borderRadius: 32 }}
+                  sizes="(max-width: 390px) 100vw, 390px"
+                  priority={false}
+                />
+              </div>
             </MobileFrame>
           </div>
           <div className="absolute top-6 left-6">
