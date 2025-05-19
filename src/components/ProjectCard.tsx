@@ -57,7 +57,7 @@ const ProjectCard = ({
   
   return (
     <>
-      <div className="group bg-[#1a1a4a] rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
+      <div className="group bg-[#282562] rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
         <div className="relative h-[400px] flex items-center justify-center">
           <div className="relative w-full h-full flex items-center justify-center">
             <MobileFrame scale={0.65} isPortrait={true}>
@@ -124,22 +124,22 @@ const ProjectCard = ({
             Live Preview
             <i className="fa-solid fa-arrow-right ml-3"></i>
           </button>
-          <div className="flex gap-4 mt-4 button-container">
+          <div className="flex gap-2 mt-3">
             {platforms.includes('ios') && (
               id === 'vytal' && appStore ? (
                 <a 
                   href={appStore} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
+                  className="flex-1 bg-[#191b3f] border border-gray-800 text-white py-1.5 px-3 rounded-lg text-xs hover:bg-[#232655] transition-all flex items-center justify-center"
                 >
                   <i className="fa-brands fa-apple mr-2"></i>
                   App Store
                 </a>
               ) : (
                 <Link 
-                  href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=ios`} 
-                  className="button flex-1 bg-transparent border border-[rgba(139,92,246,0.5)] text-[#A78BFA] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(139,92,246,0.1)] transition-all flex items-center justify-center"
+                  href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=ios`}
+                  className="flex-1 bg-[#191b3f] border border-gray-800 text-white py-1.5 px-3 rounded-lg text-xs hover:bg-[#232655] transition-all flex items-center justify-center"
                 >
                   <i className="fa-brands fa-apple mr-2"></i>
                   App Store
@@ -152,17 +152,17 @@ const ProjectCard = ({
                   href={playStore} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
+                  className="flex-1 bg-[#191b3f] border border-gray-800 text-white py-1.5 px-3 rounded-lg text-xs hover:bg-[#232655] transition-all flex items-center justify-center"
                 >
-                  <i className="fa-brands fa-google-play mr-2"></i>
+                  <i className="fa-solid fa-play mr-2"></i>
                   Play Store
                 </a>
               ) : (
                 <Link 
-                  href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=android`} 
-                  className="button flex-1 bg-transparent border border-[rgba(100,116,139,0.5)] text-[#94A3B8] py-2 px-4 rounded-lg text-sm hover:bg-[rgba(100,116,139,0.1)] transition-all flex items-center justify-center"
+                  href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=android`}
+                  className="flex-1 bg-[#191b3f] border border-gray-800 text-white py-1.5 px-3 rounded-lg text-xs hover:bg-[#232655] transition-all flex items-center justify-center"
                 >
-                  <i className="fa-brands fa-google-play mr-2"></i>
+                  <i className="fa-solid fa-play mr-2"></i>
                   Play Store
                 </Link>
               )
