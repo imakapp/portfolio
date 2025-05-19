@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState, ReactNode, CSSProperties } from 'react';
 
 export interface MobileFrameProps {
   children: ReactNode;
@@ -16,12 +16,11 @@ export const MobileFrame = ({ children, isPortrait = true, scale = 1 }: MobileFr
   });
 
   // Styles for the component
-  const styles = {
+  const styles: Record<string, CSSProperties> = {
     deviceFrame: {
-      position: 'relative',
+      position: 'relative' as const,
       background: 'linear-gradient(135deg, #2D3748 80%, #1E293B)',
       borderRadius: '38px',
-      // Removed box-shadow
       border: '4px solid #23272f',
       overflow: 'visible',
       minWidth: isPortrait ? '260px' : '844px',
@@ -35,7 +34,7 @@ export const MobileFrame = ({ children, isPortrait = true, scale = 1 }: MobileFr
       animation: 'float 3s ease-in-out infinite'
     },
     deviceNotch: {
-      position: 'absolute',
+      position: 'absolute' as const,
       top: 0,
       left: '50%',
       transform: 'translateX(-50%)',
@@ -46,7 +45,7 @@ export const MobileFrame = ({ children, isPortrait = true, scale = 1 }: MobileFr
       zIndex: 10
     },
     statusBar: {
-      position: 'absolute',
+      position: 'absolute' as const,
       top: 0,
       left: 0,
       right: 0,
@@ -77,7 +76,7 @@ export const MobileFrame = ({ children, isPortrait = true, scale = 1 }: MobileFr
       overflow: 'auto',
       borderRadius: '32px',
       background: 'linear-gradient(135deg, #23243a 60%, #181C23 100%)',
-      position: 'relative',
+      position: 'relative' as const,
       zIndex: 2,
       fontFamily: 'Inter, sans-serif',
       WebkitOverflowScrolling: 'touch',
@@ -85,7 +84,7 @@ export const MobileFrame = ({ children, isPortrait = true, scale = 1 }: MobileFr
       boxSizing: 'border-box'
     },
     homeIndicator: {
-      position: 'absolute',
+      position: 'absolute' as const,
       bottom: '10px',
       left: '50%',
       transform: 'translateX(-50%)',
