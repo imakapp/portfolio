@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MobilePreviewModal from './MobilePreviewModal';
+import MobileFrame from './mobile-frame';
 
 interface ProjectCardProps {
   id: string;
@@ -57,14 +58,16 @@ const ProjectCard = ({
   return (
     <>
       <div className="group bg-[#1a1a4a] rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
-        <div className="relative h-[400px]">
-          <Image 
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover"
-            width={400}
-            height={400}
-          />
+        <div className="relative h-[400px] flex items-center justify-center">
+          <MobileFrame scale={0.65}>
+            <Image 
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+              width={400}
+              height={400}
+            />
+          </MobileFrame>
           <div className="absolute top-6 left-6">
             {featured && (
               <span className="bg-purple-500/20 text-purple-200 text-xs py-1 px-3 rounded-full border border-purple-500/30">
