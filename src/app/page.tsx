@@ -149,6 +149,8 @@ export default function Home() {
                 tags={project.tags}
                 platforms={project.platforms}
                 featured={project.featured}
+                appStore={project.appStore}
+                playStore={project.playStore}
               />
             ))}
           </div>

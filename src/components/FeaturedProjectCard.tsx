@@ -15,6 +15,8 @@ interface FeaturedProjectCardProps {
   tags: string[];
   platforms: string[];
   featured?: boolean;
+  appStore?: string;
+  playStore?: string;
 }
 
 export default function FeaturedProjectCard({
@@ -25,7 +27,9 @@ export default function FeaturedProjectCard({
   imageId,
   tags,
   platforms,
-  featured = false
+  featured = false,
+  appStore,
+  playStore
 }: FeaturedProjectCardProps) {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   
@@ -79,22 +83,46 @@ export default function FeaturedProjectCard({
           {/* App/Play Store Buttons */}
           <div className="flex gap-2 mt-3">
             {platforms.includes('ios') && (
-              <Link 
-                href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=ios`}
-                className="flex-1 bg-[#191b3f] border border-gray-800 text-white py-1.5 px-3 rounded-lg text-xs hover:bg-[#232655] transition-all flex items-center justify-center"
-              >
-                <i className="fa-brands fa-apple mr-2"></i>
-                App Store
-              </Link>
+              id === 'vytal' && appStore ? (
+                <a 
+                  href={appStore} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex-1 bg-[#191b3f] border border-gray-800 text-white py-1.5 px-3 rounded-lg text-xs hover:bg-[#232655] transition-all flex items-center justify-center"
+                >
+                  <i className="fa-brands fa-apple mr-2"></i>
+                  App Store
+                </a>
+              ) : (
+                <Link 
+                  href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=ios`}
+                  className="flex-1 bg-[#191b3f] border border-gray-800 text-white py-1.5 px-3 rounded-lg text-xs hover:bg-[#232655] transition-all flex items-center justify-center"
+                >
+                  <i className="fa-brands fa-apple mr-2"></i>
+                  App Store
+                </Link>
+              )
             )}
             {platforms.includes('android') && (
-              <Link 
-                href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=android`}
-                className="flex-1 bg-[#191b3f] border border-gray-800 text-white py-1.5 px-3 rounded-lg text-xs hover:bg-[#232655] transition-all flex items-center justify-center"
-              >
-                <i className="fa-solid fa-play mr-2"></i>
-                Play Store
-              </Link>
+              id === 'vytal' && playStore ? (
+                <a 
+                  href={playStore} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex-1 bg-[#191b3f] border border-gray-800 text-white py-1.5 px-3 rounded-lg text-xs hover:bg-[#232655] transition-all flex items-center justify-center"
+                >
+                  <i className="fa-solid fa-play mr-2"></i>
+                  Play Store
+                </a>
+              ) : (
+                <Link 
+                  href={`/preview?image=${imageId}&project=${encodeURIComponent(title)}&platform=android`}
+                  className="flex-1 bg-[#191b3f] border border-gray-800 text-white py-1.5 px-3 rounded-lg text-xs hover:bg-[#232655] transition-all flex items-center justify-center"
+                >
+                  <i className="fa-solid fa-play mr-2"></i>
+                  Play Store
+                </Link>
+              )
             )}
           </div>
         </div>
