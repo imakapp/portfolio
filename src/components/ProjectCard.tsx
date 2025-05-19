@@ -58,7 +58,7 @@ const ProjectCard = ({
   return (
     <>
       <div className="group bg-[#282562] rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all">
-        <div className="relative h-[400px] flex items-center justify-center">
+        <div className="relative h-[400px] flex items-center justify-center pt-8 pb-4">
           <div className="relative w-full h-full flex items-center justify-center">
             <MobileFrame scale={0.65} isPortrait={true}>
               <div className="relative w-full h-full" style={{ minHeight: 0, minWidth: 0 }}>
