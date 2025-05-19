@@ -70,22 +70,49 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="relative h-[500px]">
-              <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative h-[500px]" data-aos="fade-left">
+              <div id="phone-mockup" className="absolute inset-0 flex items-center justify-center">
                 <div 
                   ref={phoneRef}
-                  className="w-[280px] h-[560px] bg-black rounded-[36px] border-4 border-gray-800 relative shadow-2xl shadow-purple-500/20 phone-container"
+                  className="w-[280px] h-[560px] bg-black rounded-[36px] border-4 border-purple-500/30 relative shadow-2xl shadow-purple-500/20 phone-container backdrop-blur-xl"
                 >
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[30px] bg-black rounded-b-xl"></div>
-                  <div className="w-full h-full overflow-hidden rounded-[32px] bg-gradient-to-br from-gray-900 to-black">
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1/3 h-[30px] bg-black rounded-b-xl flex items-center justify-center">
+                    <div className="w-16 h-4 bg-gray-900 rounded-full mt-2 flex items-center px-2">
+                      <div className="w-2 h-2 bg-gray-800 rounded-full"></div>
+                      <div className="w-6 h-1 bg-gray-800 rounded-full ml-1"></div>
+                    </div>
+                  </div>
+                  <div className="absolute -right-3 top-20 w-1 h-8 bg-purple-500/30 rounded-l-lg"></div>
+                  <div className="absolute -left-3 top-16 w-1 h-6 bg-purple-500/30 rounded-r-lg"></div>
+                  <div className="absolute -left-3 top-24 w-1 h-10 bg-purple-500/30 rounded-r-lg"></div>
+                  <div className="w-full h-full overflow-hidden rounded-[32px] bg-gradient-to-br from-gray-900 to-black relative">
                     <Image 
-                      src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0f177d83fc-1f8ede5823132e067399.png" 
+                      src="https://storage.googleapis.com/uxpilot-auth.appspot.com/31fad7e9ae-c7954902137019f36dfc.png" 
                       alt="Mobile app UI design"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transform scale-105"
                       width={280}
                       height={560}
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
+                    <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent"></div>
+                    <div className="absolute bottom-6 left-0 w-full px-4">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
+                            <i className="text-purple-400 fa-solid fa-play"></i>
+                          </div>
+                          <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
+                            <i className="text-purple-400 fa-solid fa-heart"></i>
+                          </div>
+                        </div>
+                        <div className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center pulse-animation">
+                          <i className="text-white fa-solid fa-arrow-right"></i>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <div className="absolute -left-20 -bottom-20 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl"></div>
+                  <div className="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
                 </div>
               </div>
               <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full blur-3xl opacity-20"></div>
