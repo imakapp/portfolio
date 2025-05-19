@@ -52,7 +52,7 @@ export default function FeaturedProjectCard({
       <div className="relative group bg-[#282562] rounded-xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all shadow-xl">
         {/* App Screenshot */}
         <div className="relative h-[360px] flex flex-col justify-end items-center">
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full flex items-center justify-center">
             <MobileFrame scale={0.55} isPortrait={true}>
               <Image 
                 src={image}
