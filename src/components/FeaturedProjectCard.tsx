@@ -62,21 +62,6 @@ export default function FeaturedProjectCard({
               />
             </MobileFrame>
           </div>
-          
-          {/* Text Overlay (Bottom-Left) */}
-          <div className="absolute bottom-0 left-0 p-5 z-10 text-left">
-            <h3 className="text-xl font-bold text-white">{appName}</h3>
-            <p className="text-gray-200 mt-1 text-sm line-clamp-2 max-w-[90%]">{description}</p>
-            
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mt-3">
-              {tags.slice(0, 2).map((tag, index) => (
-                <span key={index} className="bg-[#523dbe]/40 py-1 px-3 rounded-full text-purple-200 text-xs">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
         
         {/* Button Section */}
