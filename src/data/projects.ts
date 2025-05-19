@@ -68,12 +68,12 @@ export const projectsData: Project[] = [
     id: 'travelcompanion',
     title: 'TravelCompanion',
     description: 'Travel and hospitality platform for seamless journeys',
-    image: 'https://storage.googleapis.com/uxpilot-auth.appspot.com/462c96fa40-33b75d535524da8fbf78.png',
-    imageId: '462c96fa40-33b75d535524da8fbf78.png',
+    image: '/app-screens/TravelCompanion.png',
+    imageId: 'TravelCompanion.png',
     tags: ['Kotlin', 'MongoDB', 'AR Core'],
     category: 'mobile',
     platforms: ['android'],
-    featured: false,
+    featured: true,
     latest: false
   },
   {
